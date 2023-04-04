@@ -1,0 +1,11 @@
+{
+  "name": "tasksapp",
+  "version": "1.0.0",
+  "description": "a app to manage and seek tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "author": "str1ker - Gabriel Vieira",
+  "license": "ISC"
+}
