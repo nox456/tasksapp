@@ -12,6 +12,10 @@ body {
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 1fr 9fr;
 }
+.main-container {
+    grid-column: span 2;
+    padding: 3em;
+}
 
 /* NAV */
 a {
@@ -19,7 +23,7 @@ a {
     color: inherit;
 }
 .navbar {
-    padding: 1em 2em;
+    padding: 1em 3em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,6 +32,7 @@ a {
     grid-row: span 1;
     grid-column: span 2;
     transition: all 300ms;
+    box-shadow: 0px 0px 15px #44F;
 }
 .navbar .link {
     color: #FFF;
@@ -38,7 +43,11 @@ a {
 .navbar .menu-icon {
     background-color: transparent;
     cursor: pointer;
+    padding: .5em;
+    background-color: #229;
+    border-radius: 7px;
     border: none;
+    font-size: 1em;
     color: #FFF;
 }
 
@@ -51,4 +60,38 @@ a {
     grid-row: span 2;
     padding: 2em 2em;
     display: none;
+}
+
+
+/* INDEX */
+.index-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.main-buttons-container {
+    width: 400px;
+    padding: 2em;
+    border: 5px solid #44F;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-button {
+    background-color: transparent;
+    font-size: 1.3em;
+    border: none;
+    background-color: #494;
+    border-radius: 5px;
+    transition: all 300ms;
+}
+.main-button:hover {
+    box-shadow: 0px 0px 10px #494;
+}
+.main-button > a {
+    display: block;
+    width: 100%;
+    padding: 1em;
 }
