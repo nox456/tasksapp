@@ -112,7 +112,6 @@ a {
     color: #FFF;
 }
 .tasklist-button {
-    padding: .5em;
     border: none;
     border-radius: 5px;
     background-color: #229;
@@ -123,4 +122,42 @@ a {
 }
 .tasklist-button:hover {
     box-shadow: 0px 0px 15px #229;
+}
+.tasklist-button > a {
+    display: block;
+    width: 100%;
+    padding: .5em;
+}
+
+/* ADDTASK */
+.addtask-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.addtask-form > .input {
+    background-color: transparent;
+    padding: 1em;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    color: #FFF;
+    outline: none;
+}
+.addtask-form > .input:focus {
+    box-shadow: 0px 0px 15px #44F;
+    border-color: #44F;
+}
+.addtask-form > .description {
+    resize: none;
+}
+.addtask-form > label {
+    color: #FFF;
+}
+.addtask-form > .save {
+    background-color: #494;
+    border: none;
+    cursor: pointer;
+}
+.addtask-form > .save:hover {
+    box-shadow: 0px 0px 10px #494;
 }

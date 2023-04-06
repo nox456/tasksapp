@@ -1,0 +1,15 @@
+<div class="addtask container">
+    <form class="addtask-form" action="/addtask" method="post">
+        <input class="title input" type="text" name="title" placeholder="Titulo">
+
+        <textarea class="description input" name="description" rows="10" placeholder="Descripcion"></textarea>
+
+        <label for="created-input">Creado el:</label>
+        <input class="created input" type="date" name="created_at" id="created-input">
+
+        <label for="finished-input">Termina el:</label>
+        <input class="finished input" type="date" name="finished_at" id="finished-input">
+
+        <input class="save input" type="submit" value="Guardar">
+    </form>
+</div>
