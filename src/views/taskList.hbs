@@ -6,9 +6,19 @@
             <td>Descripcion</td>
             <td>Se creo el</td>
             <td>Finaliza el</td>
+            <td>Categoria</td>
         </thead>
         <tbody>
-            
+            {{#each tasks}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.created_at}}</td>
+                    <td>{{this.finished_at}}</td>
+                    <td>{{this.category}}</td>
+                </tr>
+            {{/each}}
         </tbody>
     </table>
     <button class="tasklist-button">

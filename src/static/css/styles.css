@@ -14,6 +14,7 @@ body {
 }
 .main-container {
     grid-column: span 2;
+    grid-row: span 2;
     padding: 3em;
 }
 .container {
@@ -133,9 +134,20 @@ a {
 .addtask-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1em;
+    width: 70%;
+    height: 80%;
 }
-.addtask-form > .input {
+.addtask-form > div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+    height: 100%;
+}
+.addtask-form .input {
     background-color: transparent;
     padding: 1em;
     border: 2px solid #FFF;
@@ -143,14 +155,14 @@ a {
     color: #FFF;
     outline: none;
 }
-.addtask-form > .input:focus {
+.addtask-form .input:focus {
     box-shadow: 0px 0px 15px #44F;
     border-color: #44F;
 }
-.addtask-form > .description {
+.addtask-form .description {
     resize: none;
 }
-.addtask-form > label {
+.addtask-form label {
     color: #FFF;
 }
 .addtask-form > .save {
@@ -160,4 +172,7 @@ a {
 }
 .addtask-form > .save:hover {
     box-shadow: 0px 0px 10px #494;
+}
+.addtask-form .category > option {
+    background-color: #202020;
 }

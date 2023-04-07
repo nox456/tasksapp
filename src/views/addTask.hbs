@@ -1,15 +1,48 @@
 <div class="addtask container">
     <form class="addtask-form" action="/addtask" method="post">
-        <input class="title input" type="text" name="title" placeholder="Titulo">
+        <div>
+            <input
+                class="title input"
+                type="text"
+                name="title"
+                placeholder="Titulo"
+                required
+            />
 
-        <textarea class="description input" name="description" rows="10" placeholder="Descripcion"></textarea>
+            <textarea
+                class="description input"
+                name="description"
+                rows="10"
+                placeholder="Descripcion"
+                required
+            ></textarea>
 
-        <label for="created-input">Creado el:</label>
-        <input class="created input" type="date" name="created_at" id="created-input">
+            <label for="created-input">Creado el:</label>
+            <input
+                class="created input"
+                type="date"
+                name="created_at"
+                id="created-input"
+                required
+            />
 
-        <label for="finished-input">Termina el:</label>
-        <input class="finished input" type="date" name="finished_at" id="finished-input">
+            <label for="finished-input">Termina el:</label>
+            <input
+                class="finished input"
+                type="date"
+                name="finished_at"
+                id="finished-input"
+                required
+            />
 
-        <input class="save input" type="submit" value="Guardar">
+            <label for="category-select">Categoria:</label>
+            <select name="category" id="category-select" class="category input" required>
+                <option hidden>Seleccione</option>
+                <option value="academica">Academica</option>
+                <option value="salud">Salud</option>
+                <option value="practica">Practica</option>
+            </select>
+        </div>
+        <input class="save input" type="submit" value="Guardar" />
     </form>
 </div>
