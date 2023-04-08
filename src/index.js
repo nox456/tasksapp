@@ -4,7 +4,6 @@ import { engine } from "express-handlebars";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import indexRoutes from "./routes/indexRoutes.js";
-import taskListRoutes from "./routes/taskListRoutes.js";
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -25,12 +24,12 @@ app.engine("hbs", engine({
 // Middlewares
 app.use(morgan("dev"))
 app.use(express.static(join(__dirname,"static")))
+app.use(express.urlencoded({ extended: false }))
 
 
 
 // Routes
 app.use(indexRoutes)
-app.use(taskListRoutes)
 
 
 app.listen(app.get("port"))

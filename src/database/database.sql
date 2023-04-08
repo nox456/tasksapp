@@ -1,11 +1,10 @@
 CREATE DATABASE tasksapp;
 
 CREATE TABLE tasks (
-    id INT NOT NULL PRIMARY KEY,
+    id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     title VARCHAR(20) NOT NULL,
     description VARCHAR(100) DEFAULT 'Ninguna descripcion',
-    created_at TIMESTAMP NOT NULL DEFAULT now(),
-    finish_at TIMESTAMP NOT NULL
+    created_at TEXT NOT NULL,
+    finish_at TEXT NOT NULL,
+    category VARCHAR(15) DEFAULT 'Otra'
 );
-
-ALTER TABLE tasks ADD COLUMN category VARCHAR(15) DEFAULT 'Otra';
