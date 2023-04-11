@@ -1,17 +1,16 @@
 <div class="tasklist container">
     <table border="1" class="tasklist-table">
         <thead>
-            <td>ID</td>
             <td>Titulo</td>
             <td>Descripcion</td>
             <td>Se creo el</td>
             <td>Finaliza el</td>
             <td>Categoria</td>
+            <td colspan="2" align="center">Opciones</td>
         </thead>
         <tbody>
             {{#each tasks}}
                 <tr>
-                    <td>{{this.id}}</td>
                     <td>{{this.title}}</td>
                     <td>{{this.description}}</td>
                     <td>{{this.created_at}}</td>

@@ -9,7 +9,7 @@ const pool = new pg.Pool({
 
 
 export const getTasks = async (req,res) => {
-    const data = await pool.query("SELECT * FROM tasks")
+    const data = await pool.query("SELECT id,title,description,to_char(created_at,'DD Mon YYYY') as created_at,to_char(finish_at,'DD Mon YYYY') as finish_at, category FROM tasks")
     res.render("taskList", {
         tasks: data.rows
     })
@@ -18,7 +18,7 @@ export const getTasks = async (req,res) => {
 export const addTask = async (req,res) => {
     const { title, description, created_at, finished_at, category } = req.body
 
-    await pool.query("INSERT INTO tasks ( title,description,created_at,finish_at,category ) VALUES ($1,$2,$3,$4,$5)",[ title, description, created_at, finished_at, category ])
+    await pool.query("INSERT INTO tasks ( title,description,created_at,finish_at,category ) VALUES ($1,$2,current_date,$3,$4)",[ title, description, finished_at, category ])
 
 
     res.redirect("/tasklist")
