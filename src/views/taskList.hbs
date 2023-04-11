@@ -17,11 +17,23 @@
                     <td>{{this.created_at}}</td>
                     <td>{{this.finish_at}}</td>
                     <td>{{this.category}}</td>
+                    <td>
+                        <form action="/tasklist/update" method="get">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <input type="submit" value="Modificar" class="button option-button">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/delete" method="get">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <input type="submit" value="Eliminar" class="button option-button">
+                        </form>
+                    </td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
-    <button class="tasklist-button">
+    <button class="tasklist-button button">
         <a href="/tasklist/add">Agregar Tarea</a>
     </button>
 </div>

@@ -1,0 +1,7 @@
+<div class="addtask container">
+    <form action="/update" class="addtask-form" method="get">
+        {{> taskInputs title=tasks.title description=tasks.description created_at=tasks.created_at finished_at=tasks.finish_at
+                       category=tasks.category}}
+        <input class="save input" type="submit" value="Actualizar" />
+    </form>
+</div>

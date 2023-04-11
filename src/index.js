@@ -17,7 +17,11 @@ app.engine("hbs", engine({
     layoutsDir: join(app.get("views"),"layouts"),
     defaultLayout: "main",
     partialsDir: join(app.get("views"), "partials"),
-    extname: ".hbs"
+    extname: ".hbs",
+    helpers: {
+        compare: (val1,val2) => val1 == val2 ? true : false 
+    }
+
 }))
 
 
@@ -32,5 +36,5 @@ app.use(express.urlencoded({ extended: false }))
 app.use(indexRoutes)
 
 
-app.listen(app.get("port"))
+app.listen(app.get("port"),"192.168.10.112")
 console.log(`Server on port ${app.get("port")}`)
