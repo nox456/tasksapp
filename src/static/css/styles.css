@@ -137,6 +137,9 @@ a {
 td {
     text-align: center;
 }
+tr {
+    margin: 1em 0;
+}
 
 /* ADDTASK */
 .addtask-form {

@@ -6,7 +6,7 @@
             <td>Se creo el</td>
             <td>Finaliza el</td>
             <td>Categoria</td>
-            <td colspan="2" align="center">Opciones</td>
+            <td colspan="3" align="center">Opciones</td>
         </thead>
         <tbody>
             {{#each tasks}}
@@ -17,7 +17,7 @@
                     <td>{{this.finish_at}}</td>
                     <td>{{this.category}}</td>
                     <td>
-                        <form action="/tasklist/update" method="get">
+                        <form action="/tasks/update" method="get">
                             <input type="hidden" name="id" value="{{this.id}}">
                             <input type="submit" value="Modificar" class="button option-button">
                         </form>
@@ -28,11 +28,14 @@
                             <input type="submit" value="Eliminar" class="button option-button">
                         </form>
                     </td>
+                    <td>
+                        <a href="/tasks/details" class="button option-button">Detalles</a>
+                    </td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
     <button class="tasklist-button button">
-        <a href="/tasklist/add">Agregar Tarea</a>
+        <a href="/tasks/add">Agregar Tarea</a>
     </button>
 </div>

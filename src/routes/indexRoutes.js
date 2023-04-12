@@ -5,16 +5,18 @@ const router = Router()
 
 router.get("/", (req,res) => res.render("index"))
 
-router.get("/tasklist", getTasks)
+router.get("/tasks/list", getTasks)
 
-router.get("/tasklist/add", (req,res) => res.render("addTask"))
+router.get("/tasks/add", (req,res) => res.render("addTask"))
 
-router.post("/addtask", addTask)
+router.post("/add", addTask)
 
 router.get("/delete", deleteTask)
 
-router.get("/tasklist/update", getTasksData)
+router.get("/tasks/update", getTasksData)
 
 router.get("/update", updateTasks)
+
+router.get("/tasks/details", (req,res) => res.render("detailsTasks"))
 
 export default router
