@@ -134,6 +134,9 @@ a {
 .option-button {
     padding: .5em;
 }
+td {
+    text-align: center;
+}
 
 /* ADDTASK */
 .addtask-form {

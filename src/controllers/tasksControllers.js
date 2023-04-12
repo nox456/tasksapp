@@ -34,10 +34,17 @@ export const deleteTask = async (req,res) => {
 export const getTasksData = async (req,res) => {
     const { id } = req.query
 
-    const data = await pool.query("SELECT * FROM tasks WHERE id = $1", [ id ])
+    const data = await pool.query("SELECT id,title, description, to_char(finish_at,'YYYY-MM-DD') as finish_at, category FROM tasks WHERE id = $1", [ id ])
 
     res.render("updateTasks", {
         tasks: data.rows[0]
     })
 }
 
+
+export const updateTasks = async (req,res) => {
+    const { id, title, description, finished_at, category } = req.query
+
+    await pool.query("UPDATE tasks SET title = $1, description = $2, finish_at = $3, category = $4 WHERE id = $5", [ title, description, finished_at, category, id ])
+    res.redirect("/tasklist")
+}

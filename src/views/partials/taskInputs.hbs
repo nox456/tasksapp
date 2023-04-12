@@ -22,7 +22,7 @@
         type="date"
         name="finished_at"
         id="finished-input"
-        value="{{finished_at}}"
+        value="{{finish_at}}"
         required
     />
 
@@ -34,20 +34,20 @@
         required
     >
         <option hidden>Seleccione</option>
-        <option {{#if (compare this.category 'academica')}}
+        <option {{#if (compare this.category 'Academica')}}
                 selected
                 {{/if}} 
-                value="academica">Academica</option>
+                value="Academica">Academica</option>
 
-        <option {{#if (compare this.category 'salud')}}
+        <option {{#if (compare this.category 'Salud')}}
                 selected
                 {{/if}}
-                value="salud">Salud</option>
+                value="Salud">Salud</option>
 
-        <option {{#if (compare this.category 'practica')}}
+        <option {{#if (compare this.category 'Practica')}}
                 selected
                 {{/if}}
-                value="practica">Practica</option>
+                value="Practica">Practica</option>
 
     </select>
 </div>
