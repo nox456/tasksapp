@@ -2,9 +2,6 @@
     <table border="1" class="tasklist-table">
         <thead>
             <td>Titulo</td>
-            <td>Descripcion</td>
-            <td>Se creo el</td>
-            <td>Finaliza el</td>
             <td>Categoria</td>
             <td colspan="3" align="center">Opciones</td>
         </thead>
@@ -12,9 +9,6 @@
             {{#each tasks}}
                 <tr>
                     <td>{{this.title}}</td>
-                    <td>{{this.description}}</td>
-                    <td>{{this.created_at}}</td>
-                    <td>{{this.finish_at}}</td>
                     <td>{{this.category}}</td>
                     <td>
                         <form action="/tasks/update" method="get">

@@ -3,11 +3,18 @@
         <h2 class="detail-title">{{task.title}}</h2>
     </div>
     <div class="detail-category-container">
+        <h3 class="detail-category-title">Categoria:</h3>
         <p class="detail-category">{{task.category}}</p>
     </div>
     <div class="detail-date-container">
-        <p class="detail-date-created">{{task.created_at}}</p>
-        <p class="detail-date-finished">{{task.finish_at}}</p>
+        <div>
+            <h3 class="detail-date-title">Creado el:</h3>
+            <p class="detail-date-created">{{task.created_at}}</p>
+        </div>
+        <div>
+            <h3 class="detail-date-title">Finaliza el:</h3>
+            <p class="detail-date-finished">{{task.finish_at}}</p>
+        </div>
     </div>
     <div class="detail-description-container">
         <p class="detail-description">{{task.description}}</p>

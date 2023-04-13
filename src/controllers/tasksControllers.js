@@ -69,8 +69,8 @@ export const getTaskDetails = async (req, res) => {
         "id",
         "title",
         "description",
-        "to_char(created_at,'DD Mon YYYY') as created_at",
-        "to_char(finish_at,'DD Mon YYYY') as finish_at",
+        "to_char(created_at,'DD Month YYYY') as created_at",
+        "to_char(finish_at,'DD Month YYYY') as finish_at",
         "category",
     ]);
     res.render("detailsTasks", { task: data.rows[0] });
