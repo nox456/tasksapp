@@ -36,5 +36,5 @@ app.use(express.urlencoded({ extended: false }))
 app.use(indexRoutes)
 
 
-app.listen(app.get("port"),"192.168.10.112")
+app.listen(app.get("port"))
 console.log(`Server on port ${app.get("port")}`)

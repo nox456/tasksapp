@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getTasks, addTask, deleteTask, getTasksData, updateTasks } from "../controllers/tasksControllers.js";
+import { getTasks, addTask, deleteTask, getTasksData, updateTasks, getTaskDetails } from "../controllers/tasksControllers.js";
 
 const router = Router()
 
@@ -17,6 +17,6 @@ router.get("/tasks/update", getTasksData)
 
 router.get("/update", updateTasks)
 
-router.get("/tasks/details", (req,res) => res.render("detailsTasks"))
+router.get("/tasks/detail", getTaskDetails)
 
 export default router

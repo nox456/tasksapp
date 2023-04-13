@@ -29,7 +29,10 @@
                         </form>
                     </td>
                     <td>
-                        <a href="/tasks/details" class="button option-button">Detalles</a>
+                        <form action="/tasks/detail" method="get">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <input type="submit" value="Detalles" class="button option-button">
+                        </form>
                     </td>
                 </tr>
             {{/each}}
