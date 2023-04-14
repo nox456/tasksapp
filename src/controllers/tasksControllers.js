@@ -44,9 +44,6 @@ export const deleteTask = async (req, res) => {
 
     await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
 
-    if (req.session.message) {
-        delete req.session.message
-    }
     req.session.message = "Tarea Eliminada con Éxito"
     res.redirect("/tasks/list");
 };

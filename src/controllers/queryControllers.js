@@ -8,7 +8,7 @@ const pool = new pg.Pool({
 })
 
 export const selectData = async (taskData) => {
-    return await pool.query(`SELECT ${taskData.join(",")} FROM tasks`)
+    return await pool.query(`SELECT ${taskData.join(",")} FROM tasks ORDER BY created_at ASC, title ASC`)
 }
 export const selectDataId = async (id,taskData) => {
     return await pool.query(`SELECT ${taskData.join(",")} FROM tasks WHERE id = $1`,[id])
