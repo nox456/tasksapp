@@ -16,7 +16,28 @@ body {
 .main-container {
     grid-column: span 2;
     grid-row: span 2;
-    padding: 3em;
+    padding: 2em;
+    flex-direction: column;
+    display: flex;
+    gap: 2em;
+}
+.message-container {
+    margin: 0 auto;
+    color: #FFF;
+    padding: .5em 1em;
+    text-align: center;
+    width: fit-content;
+    border-radius: .3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.message-button {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 1.3em;
+    cursor: pointer;
 }
 .container {
     display: flex;
@@ -140,7 +161,35 @@ a {
 .tasklist {
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     gap: 2em;
+}
+.tasklist > div {
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.task-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 10rem;
+    padding: 1em;
+    border: 2px solid #999;
+    border-radius: .5em;
+    color: #FFF;
+    box-shadow: 0 10px 20px #000;
+}
+.task-options-container {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
 }
 .tasklist-table {
     border-color: #44F;
@@ -167,6 +216,23 @@ td {
 tr {
     margin: 1em 0;
 }
+.delete-button {
+    background-color: #A00;
+}
+.delete-button:hover {
+    box-shadow: 0px 0px 15px #A00;
+}
+.update-button {
+    background-color: #060;
+}
+.update-button:hover {
+    box-shadow: 0px 0px 15px #060;
+}
+.no-tasks {
+    font-size: 2em;
+    color: #FFF;
+}
+
 
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */

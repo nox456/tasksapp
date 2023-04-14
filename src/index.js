@@ -3,6 +3,7 @@ import morgan from "morgan";
 import { engine } from "express-handlebars";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
 
 const app = express()
@@ -29,6 +30,11 @@ app.engine("hbs", engine({
 app.use(morgan("dev"))
 app.use(express.static(join(__dirname,"static")))
 app.use(express.urlencoded({ extended: false }))
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "tasksapp_key"
+}))
 
 
 
@@ -36,5 +42,5 @@ app.use(express.urlencoded({ extended: false }))
 app.use(indexRoutes)
 
 
-app.listen(app.get("port"), "192.168.10.112")
+app.listen(app.get("port"), "192.168.10.100")
 console.log(`Server on port ${app.get("port")}`)

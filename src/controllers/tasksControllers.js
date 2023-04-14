@@ -17,8 +17,13 @@ export const getTasks = async (req, res) => {
         "to_char(finish_at,'DD Mon YYYY') as finish_at",
         "category",
     ]);
+    
+    const message = req.session.message
+    delete req.session.message
+
     res.render("taskList", {
         tasks: data.rows,
+        message
     });
 };
 
@@ -29,6 +34,7 @@ export const addTask = async (req, res) => {
         "INSERT INTO tasks ( title,description,created_at,finish_at,category ) VALUES ($1,$2,current_date,$3,$4)",
         [title, description, finished_at, category]
     );
+    req.session.message = "Tarea Creada con Éxito"
 
     res.redirect("/tasks/list");
 };
@@ -37,6 +43,11 @@ export const deleteTask = async (req, res) => {
     const { id } = req.query;
 
     await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
+
+    if (req.session.message) {
+        delete req.session.message
+    }
+    req.session.message = "Tarea Eliminada con Éxito"
     res.redirect("/tasks/list");
 };
 
@@ -59,6 +70,7 @@ export const updateTasks = async (req, res) => {
         "UPDATE tasks SET title = $1, description = $2, finish_at = $3, category = $4 WHERE id = $5",
         [title, description, finished_at, category, id]
     );
+    req.session.message = "Tarea Modificada con Éxito"
     res.redirect("/tasks/list");
 };
 

@@ -1,37 +1,41 @@
 <div class="tasklist container">
-    <table border="1" class="tasklist-table">
-        <thead>
-            <td>Titulo</td>
-            <td>Categoria</td>
-            <td colspan="3" align="center">Opciones</td>
-        </thead>
-        <tbody>
-            {{#each tasks}}
-                <tr>
-                    <td>{{this.title}}</td>
-                    <td>{{this.category}}</td>
-                    <td>
-                        <form action="/tasks/update" method="get">
-                            <input type="hidden" name="id" value="{{this.id}}">
-                            <input type="submit" value="Modificar" class="button option-button">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/delete" method="get">
-                            <input type="hidden" name="id" value="{{this.id}}">
-                            <input type="submit" value="Eliminar" class="button option-button">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/tasks/detail" method="get">
-                            <input type="hidden" name="id" value="{{this.id}}">
-                            <input type="submit" value="Detalles" class="button option-button">
-                        </form>
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    <div>
+        {{#each tasks}}
+            <div class="task-container">
+                <h1 class="task-title">{{this.title}}</h1>
+                <p class="task-category">{{this.category}}</p>
+                <div class="task-options-container">
+
+                    <form action="/tasks/update" method="get">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <input
+                            type="submit"
+                            value="Modificar"
+                            class="button option-button update-button"
+                        />
+                    </form>
+                    <form action="/delete" method="get">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <input
+                            type="submit"
+                            value="Eliminar"
+                            class="button option-button delete-button"
+                        />
+                    </form>
+                    <form action="/tasks/detail" method="get">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <input
+                            type="submit"
+                            value="Detalles"
+                            class="button option-button"
+                        />
+                    </form>
+                </div>
+            </div>
+        {{else}}
+            <p class="no-tasks">No hay ninguna tarea creada</p>
+        {{/each}}
+    </div>
     <button class="tasklist-button button">
         <a href="/tasks/add">Agregar Tarea</a>
     </button>
