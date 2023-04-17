@@ -12,6 +12,7 @@ console.clear()
 
 // Settings
 app.set("port", 3000)
+app.set("host", "192.168.10.100")
 app.set("views", join(__dirname,"views"))
 app.set("view engine", "hbs")
 app.engine("hbs", engine({
@@ -42,5 +43,5 @@ app.use(session({
 app.use(indexRoutes)
 
 
-app.listen(app.get("port"), "192.168.10.100")
-console.log(`Server on port ${app.get("port")}`)
+app.listen(app.get("port"),app.get("host"))
+console.log(`Server on http://${app.get("host")}:${app.get("port")}`)

@@ -14,14 +14,10 @@
                             class="button option-button update-button"
                         />
                     </form>
-                    <form action="/delete" method="get">
-                        <input type="hidden" name="id" value="{{this.id}}" />
-                        <input
-                            type="submit"
-                            value="Eliminar"
-                            class="button option-button delete-button"
-                        />
-                    </form>
+                    <button
+                        class="button option-button delete-button"
+                        id="delete-button"
+                    >Eliminar</button>
                     <form action="/tasks/detail" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
                         <input
@@ -30,6 +26,24 @@
                             class="button option-button"
                         />
                     </form>
+                </div>
+            </div>
+            <div class="blur-container" id="blur-container">
+                <div class="confirm-container" id="confirm-container">
+                    <p class="confirm-text">¿Está Seguro?</p>
+                    <div class="confirm-buttons-container">
+                        <form action="/delete" method="get">
+                            <input
+                                type="hidden"
+                                name="id"
+                                value="{{this.id}}"
+                            />
+                            <input type="submit" value="Si" class="button" />
+                        </form>
+                        <button
+                            class="button confirm-button-no"
+                        >No</button>
+                    </div>
                 </div>
             </div>
         {{else}}

@@ -51,7 +51,7 @@ body {
     background-color: #229;
     color: #FFF;
     cursor: pointer;
-    transition: all 300ms;
+    transition: box-shadow 300ms;
 }
 .button:hover {
     box-shadow: 0px 0px 15px #229;
@@ -78,7 +78,6 @@ a {
     color: #FFF;
     grid-row: span 1;
     grid-column: span 2;
-    transition: all 300ms;
     box-shadow: 0px 0px 15px #000;
 }
 .navbar .link {
@@ -139,7 +138,7 @@ a {
     border: none;
     background-color: #494;
     border-radius: 5px;
-    transition: all 300ms;
+    transition: box-shadow 300ms;
 }
 .main-button:hover {
     box-shadow: 0px 0px 10px #494;
@@ -231,6 +230,40 @@ tr {
 .no-tasks {
     font-size: 2em;
     color: #FFF;
+}
+.blur-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    backdrop-filter: blur(.5em);
+    display: none;
+}
+.confirm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: transparent;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    display: none;
+    color: #FFF;
+    width: 14em;
+    height: 7em;
+    left: 50%;
+    top: 50%;
+}
+.confirm-buttons-container {
+    display: flex;
+    gap: 5px;
+}
+.confirm-buttons-container .button {
+    padding: .5em 2em;
 }
 
 
