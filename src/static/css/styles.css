@@ -200,11 +200,13 @@ a {
 }
 .tasklist-button {
     font-size: 1.1em;
+    border-radius: .5em;
 }
 .tasklist-button > a {
     display: block;
     width: 100%;
-    padding: .5em;
+    padding: 1em;
+    font-size: 1.1em;
 }
 .option-button {
     padding: .5em;

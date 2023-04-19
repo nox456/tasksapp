@@ -12,7 +12,7 @@ console.clear()
 
 // Settings
 app.set("port", 3000)
-app.set("host", "192.168.10.100")
+app.set("host", "192.168.10.117")
 app.set("views", join(__dirname,"views"))
 app.set("view engine", "hbs")
 app.engine("hbs", engine({
