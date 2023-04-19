@@ -5,6 +5,8 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
+import tasksRoutes from "./routes/tasksRoutes.js";
+import habitsRoutes from "./routes/habitsRoutes.js"
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -41,6 +43,8 @@ app.use(session({
 
 // Routes
 app.use(indexRoutes)
+app.use(tasksRoutes)
+app.use(habitsRoutes)
 
 
 app.listen(app.get("port"),app.get("host"))

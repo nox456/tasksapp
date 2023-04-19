@@ -16,12 +16,13 @@ export const getTasks = async (req, res) => {
         "to_char(created_at,'DD Mon YYYY') as created_at",
         "to_char(finish_at,'DD Mon YYYY') as finish_at",
         "category",
-    ]);
+    ],"tasks", "ORDER BY created_at ASC, title ASC");
     
     const message = req.session.message
     delete req.session.message
 
-    res.render("taskList", {
+    res.render("tasks/taskList", {
+        styles: "tasks",
         tasks: data.rows,
         message
     });
@@ -56,8 +57,11 @@ export const getTasksData = async (req, res) => {
         "description",
         "to_char(finish_at,'YYYY-MM-DD') as finish_at",
         "category",
-    ]);
-    res.render("updateTasks", { tasks: data.rows[0] });
+    ],"tasks");
+    res.render("tasks/updateTasks", { 
+        styles: "tasks",
+        tasks: data.rows[0]
+    });
 };
 
 export const updateTasks = async (req, res) => {
@@ -81,6 +85,9 @@ export const getTaskDetails = async (req, res) => {
         "to_char(created_at,'DD Month YYYY') as created_at",
         "to_char(finish_at,'DD Month YYYY') as finish_at",
         "category",
-    ]);
-    res.render("detailsTasks", { task: data.rows[0] });
+    ],"tasks");
+    res.render("tasks/detailsTasks", { 
+        styles: "tasks",
+        task: data.rows[0]
+    });
 };

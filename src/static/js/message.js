@@ -4,9 +4,9 @@ export default function message() {
     const message_text = document.getElementById("message-text");
 
     if (message_container) {
-        if (message_text.innerText == "Tarea Creada con Éxito") {
+        if (message_text.innerText == "Tarea Creada con Éxito" || message_text.innerText == "Habito Creado con Éxito") {
             message_container.style.backgroundColor = "#090";
-        } else if (message_text.innerText == "Tarea Eliminada con Éxito") {
+        } else if (message_text.innerText == "Tarea Eliminada con Éxito" || message_text.innerText == "Habito ELiminado con Éxito") {
             message_container.style.backgroundColor = "#F00";
         } else {
             message_container.style.backgroundColor = "#229";
