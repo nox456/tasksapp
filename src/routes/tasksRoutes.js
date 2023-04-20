@@ -5,15 +5,15 @@ const router = Router()
 
 router.get("/tasks/list", getTasks)
 
-router.get("/tasks/add", (req,res) => res.render("tasks/addTask"))
+router.get("/tasks/add", (req,res) => res.render("tasks/addTask", { styles: "tasks" }))
 
-router.post("/add", addTask)
+router.post("/tasksAdd", addTask)
 
-router.get("/delete", deleteTask)
+router.get("/tasksDelete", deleteTask)
 
 router.get("/tasks/update", getTasksData)
 
-router.get("/update", updateTasks)
+router.get("/tasksUpdate", updateTasks)
 
 router.get("/tasks/detail", getTaskDetails)
 

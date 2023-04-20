@@ -4,7 +4,7 @@
             <div class="task-container">
                 <h1 class="task-title">{{this.title}}</h1>
                 <p class="task-category">{{this.category}}</p>
-                <div class="task-options-container">
+                <div class="list-options-container">
 
                     <form action="/tasks/update" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
@@ -32,7 +32,7 @@
                 <div class="confirm-container" id="confirm-container">
                     <p class="confirm-text">¿Está Seguro?</p>
                     <div class="confirm-buttons-container">
-                        <form action="/delete" method="get">
+                        <form action="/tasksDelete" method="get">
                             <input
                                 type="hidden"
                                 name="id"
@@ -47,7 +47,7 @@
                 </div>
             </div>
         {{else}}
-            <p class="no-tasks">No hay ninguna tarea creada</p>
+            <p class="no-tasks">No Hay Ninguna Tarea Creada</p>
         {{/each}}
     </div>
     <button class="tasklist-button button">
