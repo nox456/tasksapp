@@ -23,7 +23,8 @@ app.engine("hbs", engine({
     partialsDir: join(app.get("views"), "partials"),
     extname: ".hbs",
     helpers: {
-        compare: (val1,val2) => val1 == val2 ? true : false 
+        compare: (val1,val2) => val1 == val2, 
+        checkDays: (habitDays,day) => habitDays.includes(day) 
     }
 
 }))

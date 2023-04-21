@@ -16,12 +16,20 @@
 }
 .days-container {
     display: flex;
+    width: 75%;
+    flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     gap: .5em;
-    font-size: .8em;
+    margin: 20px 0;
+    font-size: .7em;
 }
 .day {
     border: 2px solid #000;
     border-radius: 10px;
     padding: .5em;
+}
+.selected {
+    border-color: #090;
+    background-color: #090;
 }
