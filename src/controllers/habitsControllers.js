@@ -23,3 +23,7 @@ export const getHabits = async (req,res) => {
         habits: data.rows,
     })
 }
+
+export const addHabit = async (req,res) => {
+    res.json(req.body)
+}

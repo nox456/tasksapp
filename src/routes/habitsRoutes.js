@@ -1,8 +1,12 @@
 import { Router } from 'express'
-import { getHabits } from '../controllers/habitsControllers.js'
+import { addHabit, getHabits } from '../controllers/habitsControllers.js'
 
 const router = Router()
 
 router.get("/habits/list", getHabits)
+
+router.get("/habits/add", (req,res) => res.render("habits/addHabit", { styles: "habits" }))
+
+router.post("/habitsAdd", addHabit)
 
 export default router

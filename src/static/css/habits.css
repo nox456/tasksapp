@@ -29,7 +29,26 @@
     border-radius: 10px;
     padding: .5em;
 }
+.day {
+    cursor: pointer;
+}
+
+
+
+/* ******************************************************************************************** */
+/* ******************************************************************************************** */
+
+
+
+/* ADDHABIT */
 .selected {
     border-color: #090;
     background-color: #090;
+}
+.day {
+    background-color: transparent;
+    color: #FFF;
+}
+label {
+    color: #FFF;
 }

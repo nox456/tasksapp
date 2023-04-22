@@ -115,6 +115,73 @@ body {
     font-size: 2em;
     color: #FFF;
 }
+.input {
+    background-color: transparent;
+    padding: 1em;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    color: #FFF;
+    outline: none;
+}
+.input:focus {
+    box-shadow: 0px 0px 15px #44F;
+    border-color: #44F;
+}
+.description {
+    resize: none;
+}
+.category > option {
+    background-color: #202020;
+}
+.save {
+    background-color: #494;
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+}
+.save:hover {
+    box-shadow: 0px 0px 10px #494;
+}
+.add-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    width: 70%;
+    height: 80%;
+}
+.add-form > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+    height: 100%;
+}
+.add-form label {
+    color: #FFF;
+}
+.save {
+    background-color: #494;
+    border: none;
+    cursor: pointer;
+}
+.save:hover {
+    box-shadow: 0px 0px 10px #494;
+}
+.add-button {
+    font-size: 1.1em;
+    border-radius: .5em;
+    width: 200px;
+    align-self: center;
+}
+.add-button > a {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    font-size: 1.1em;
+}
 
 
 /* ******************************************************************************************** */
