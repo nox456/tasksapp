@@ -6,7 +6,7 @@ export default function message() {
     if (message_container) {
         if (message_text.innerText == "Tarea Creada con Éxito" || message_text.innerText == "Habito Creado con Éxito") {
             message_container.style.backgroundColor = "#090";
-        } else if (message_text.innerText == "Tarea Eliminada con Éxito" || message_text.innerText == "Habito ELiminado con Éxito") {
+        } else if (message_text.innerText == "Tarea Eliminada con Éxito" || message_text.innerText == "Habito Eliminado con Éxito") {
             message_container.style.backgroundColor = "#F00";
         } else {
             message_container.style.backgroundColor = "#229";
