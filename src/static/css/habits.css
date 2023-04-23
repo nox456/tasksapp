@@ -3,10 +3,11 @@
     width: 100%;
     justify-content: start;
     align-items: flex-start;
+    gap: 1em;
 }
 .habit-container {
     border: 2px solid #999;
-    padding: .5em 2em;
+    padding: .5em;
     color: #FFF;
     display: flex;
     gap: 1em;
@@ -28,11 +29,16 @@
     border: 2px solid #000;
     border-radius: 10px;
     padding: .5em;
-}
-.day {
     cursor: pointer;
 }
-
+.day:focus {
+    outline: none;
+}
+.no-habits {
+    color: #FFF;
+    margin: 0 auto;
+    font-size: 2em;
+}
 
 
 /* ******************************************************************************************** */

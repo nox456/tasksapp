@@ -25,5 +25,10 @@ export const getHabits = async (req,res) => {
 }
 
 export const addHabit = async (req,res) => {
-    res.json(req.body)
+    const { title, description, days, time_to_do, category } = req.body
+
+    await pool.query("INSERT INTO habits ( title, description, days, time_to_do, category ) VALUES ($1,$2,$3,$4,$5)", [ title, description, days, time_to_do, category])
+    req.session.message = "Habito Creado con Éxito"
+
+    res.redirect("/habits/list")
 }
