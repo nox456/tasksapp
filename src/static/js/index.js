@@ -7,4 +7,6 @@ import selectDays from "./selectDays.js";
 sidebar()
 message()
 confirmDelete()
-selectDays()
+if (document.URL.includes("update") || document.URL.includes("add")) {
+    selectDays()
+}
