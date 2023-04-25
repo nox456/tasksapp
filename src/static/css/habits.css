@@ -58,3 +58,7 @@
 label {
     color: #FFF;
 }
+.selected {
+    background-color: #090;
+    border-color: transparent;
+}

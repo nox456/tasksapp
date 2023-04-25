@@ -5,12 +5,10 @@ export default function selectDays () {
         day.addEventListener("click", (e) => {
             if (day.hasAttribute("name")) {
                 day.removeAttribute("name");
-                day.style.backgroundColor = "transparent";
-                day.style.borderColor = "#000"
+                day.classList.toggle("selected")
             } else {
                 day.setAttribute("name", "days");
-                day.style.backgroundColor = "#090";
-                day.style.borderColor = "#090"
+                day.classList.toggle("selected")
             }
         });
     });

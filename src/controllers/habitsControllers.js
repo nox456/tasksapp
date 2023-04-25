@@ -45,3 +45,30 @@ export const deleteHabit = async (req,res) => {
 
     res.redirect("/habits/list")
 }
+
+export const getHabitsData = async (req,res) => {
+    const { id } = req.query
+    const data = await selectDataId(id,[
+        "id",
+        "title",
+        "description",
+        "days",
+        "time_to_do",
+        "category"
+    ],"habits")
+    res.render("habits/updateHabits", {
+        habit: data.rows[0],
+        styles: "habits"
+    })
+}
+
+export const updateHabits = async (req,res) => {
+    const { id, title, description, days, time_to_do, category } = req.query
+
+    await pool.query("UPDATE habits SET title = $1, description = $2, days = $3, time_to_do = $4, category = $5 WHERE id = $6", [
+        title, description, days, time_to_do, category, id
+    ])
+    req.session.message = "Habito Modificado con Éxito"
+
+    res.redirect("/habits/list")
+}
