@@ -6,7 +6,6 @@ import {
     selectDataId,
     updateData,
 } from "./queryControllers.js";
-import { updateTasks } from "./tasksControllers.js";
 
 const pool = new pg.Pool({
     host: "localhost",
@@ -72,7 +71,7 @@ export const updateHabits = async (req, res) => {
     await updateData(
         "habits",
         ["title", "description", "days", "time_to_do", "category"],
-        [title, description, days, time_to_do, category],
+        [title, description,typeof days == "string" ? [days] : days, time_to_do, category],
         id
     );
 

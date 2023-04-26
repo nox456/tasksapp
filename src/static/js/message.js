@@ -3,18 +3,24 @@ export default function message() {
     const message_button = document.getElementById("message-button");
     const message_text = document.getElementById("message-text");
 
-    if (message_container) {
-        if (message_text.innerText == "Tarea Creada con Éxito" || message_text.innerText == "Habito Creado con Éxito") {
-            message_container.style.backgroundColor = "#090";
-        } else if (message_text.innerText == "Tarea Eliminada con Éxito" || message_text.innerText == "Habito Eliminado con Éxito") {
-            message_container.style.backgroundColor = "#F00";
-        } else {
-            message_container.style.backgroundColor = "#229";
-            message_button.style.color = "#FFF";
-        }
+    const messageText = message_text.innerText;
 
-        message_button.addEventListener("click", () => {
-            message_container.style.display = "none";
-        });
+    if (
+        messageText == "Tarea Creada con Éxito" ||
+        messageText == "Habito Creado con Éxito"
+    ) {
+        message_container.style.backgroundColor = "#090";
+    } else if (
+        messageText == "Tarea Eliminada con Éxito" ||
+        messageText == "Habito Eliminado con Éxito"
+    ) {
+        message_container.style.backgroundColor = "#F00";
+    } else {
+        message_container.style.backgroundColor = "#229";
+        message_button.style.color = "#FFF";
     }
+
+    message_button.addEventListener("click", () => {
+        message_container.style.display = "none";
+    });
 }
