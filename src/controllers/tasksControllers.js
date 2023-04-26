@@ -16,7 +16,7 @@ export const getTasks = async (req, res) => {
         "to_char(created_at,'DD Mon YYYY') as created_at",
         "to_char(finish_at,'DD Mon YYYY') as finish_at",
         "category",
-    ],"tasks", "ORDER BY created_at ASC, title ASC");
+    ],"tasks", "created_at ASC, title ASC");
     
     const message = req.session.message
     delete req.session.message
