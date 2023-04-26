@@ -1,4 +1,5 @@
 <div>
+    <div class="column">
     <input
         class="title input"
         type="text"
@@ -9,6 +10,7 @@
         required
     />
 
+
     <textarea
         class="description input"
         name="description"
@@ -17,6 +19,8 @@
         required
         >{{description}}</textarea>
 
+    </div>
+    <div class="column">
     <label for="finished-input">Fecha de finalización:</label>
     <input
         class="finished input"
@@ -26,7 +30,6 @@
         value="{{finish_at}}"
         required
     />
-
     <label for="category-select">Categoria:</label>
     <select
         name="category"
@@ -51,4 +54,7 @@
                 value="Practica">Practica</option>
 
     </select>
+
+    </div>
+
 </div>

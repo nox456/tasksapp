@@ -1,4 +1,5 @@
 <div>
+    <div class="column">
     <input
         type="text"
         name="title"
@@ -15,6 +16,9 @@
         placeholder="Descripcion"
         required
     >{{description}}</textarea>
+
+    </div>
+    <div class="column">
     <label for="days-container">Dias:</label>
     <div class="days-container" id="days-container">
         {{#if days}}
@@ -71,6 +75,9 @@
             <input type="text" readonly class="day" value="Domingo">
         {{/if}}
     </div>
+
+    </div>
+    <div class="column">
     <label for="time-input">Hora:</label>
     <input type="time" name="time_to_do" id="time-input" class="input" value="{{time_to_do}}">
     <label for="category-select">Categoria:</label>
@@ -96,4 +103,6 @@
                 {{/if}}
                 value="Practica">Practica</option>
     </select>
+
+    </div>
 </div>    

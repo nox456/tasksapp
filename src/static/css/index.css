@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 body {
@@ -23,11 +23,11 @@ body {
 }
 .message-container {
     margin: 0 auto;
-    color: #FFF;
-    padding: .5em 1em;
+    color: #fff;
+    padding: 0.5em 1em;
     text-align: center;
     width: fit-content;
-    border-radius: .3em;
+    border-radius: 0.3em;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -49,7 +49,7 @@ body {
     border: none;
     border-radius: 5px;
     background-color: #229;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     transition: box-shadow 300ms;
 }
@@ -63,13 +63,13 @@ body {
     justify-content: center;
 }
 .option-button {
-    padding: .5em;
+    padding: 0.5em;
 }
 .delete-button {
-    background-color: #A00;
+    background-color: #a00;
 }
 .delete-button:hover {
-    box-shadow: 0px 0px 15px #A00;
+    box-shadow: 0px 0px 15px #a00;
 }
 .update-button {
     background-color: #060;
@@ -83,7 +83,7 @@ body {
     left: 0;
     top: 0;
     height: 100%;
-    backdrop-filter: blur(.5em);
+    backdrop-filter: blur(0.5em);
     display: none;
 }
 .confirm-container {
@@ -93,12 +93,12 @@ body {
     justify-content: space-between;
     padding: 1em;
     background-color: transparent;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     border-radius: 5px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: none;
-    color: #FFF;
+    color: #fff;
     width: 14em;
     height: 7em;
     left: 50%;
@@ -109,23 +109,24 @@ body {
     gap: 5px;
 }
 .confirm-buttons-container .button {
-    padding: .5em 2em;
+    padding: 0.5em 2em;
 }
 .no-tasks {
     font-size: 2em;
-    color: #FFF;
+    color: #fff;
 }
+
 .input {
     background-color: transparent;
     padding: 1em;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     border-radius: 5px;
-    color: #FFF;
+    color: #fff;
     outline: none;
 }
 .input:focus {
-    box-shadow: 0px 0px 15px #44F;
-    border-color: #44F;
+    box-shadow: 0px 0px 15px #44f;
+    border-color: #44f;
 }
 .description {
     resize: none;
@@ -152,15 +153,22 @@ body {
 }
 .add-form > div {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    justify-content: space-between;
     gap: 1em;
     height: 100%;
 }
+.add-form .column { 
+    display: flex;
+    width: 50%;
+    gap: 1em;
+    justify-content: center;
+    flex-direction: column;
+}
+.add-form .days-container, .add-form label {
+    align-self: center;
+}
 .add-form label {
-    color: #FFF;
+    color: #fff;
 }
 .save {
     background-color: #494;
@@ -172,7 +180,7 @@ body {
 }
 .add-button {
     font-size: 1.1em;
-    border-radius: .5em;
+    border-radius: 0.5em;
     width: 200px;
     align-self: center;
 }
@@ -183,11 +191,8 @@ body {
     font-size: 1.1em;
 }
 
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
 
 /* NAV */
 a {
@@ -199,61 +204,51 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #44F;
-    color: #FFF;
+    background-color: #44f;
+    color: #fff;
     grid-row: span 1;
     grid-column: span 2;
     box-shadow: 0px 0px 15px #000;
 }
 .navbar .link {
-    color: #FFF;
+    color: #fff;
     background-color: #229;
-    padding: .5em;
+    padding: 0.5em;
     border-radius: 7px;
 }
 .navbar .menu-icon {
     background-color: transparent;
     cursor: pointer;
-    padding: .5em;
+    padding: 0.5em;
     background-color: #229;
     border-radius: 7px;
     border: none;
     font-size: 1em;
-    color: #FFF;
+    color: #fff;
 }
 
-
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
 
 /* SIDEBAR */
 .sidebar li {
     list-style: none;
 }
 .sidebar {
-    background-color: #FFF;
+    background-color: #fff;
     grid-row: span 2;
     padding: 2em 2em;
     display: none;
 }
 
-
-
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
-
 
 /* INDEX */
 .main-buttons-container {
     width: 600px;
     padding: 2em;
-    border: 5px solid #44F;
+    border: 5px solid #44f;
     border-radius: 15px;
     display: flex;
     gap: 1em;
