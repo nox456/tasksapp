@@ -29,7 +29,9 @@ body {
     width: fit-content;
     border-radius: 0.3em;
     display: flex;
+    position: absolute;
     align-items: center;
+    align-self: center;
     gap: 10px;
 }
 .message-button {

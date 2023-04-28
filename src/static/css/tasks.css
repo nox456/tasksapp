@@ -1,16 +1,20 @@
 /* TASKLIST */
 .tasklist {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     width: 100%;
     gap: 2em;
 }
-.tasklist > div {
+.tasklist > .tasks-container {
     width: 100%;
     display: flex;
     gap: 2em;
     justify-content: center;
     flex-wrap: wrap;
+    border: 2px solid #999;
+    border-radius: 1em;
+    height: 100%;
+    padding: .5em;
 }
 .task-container {
     width: fit-content;
@@ -25,6 +29,42 @@
     border-radius: .5em;
     color: #FFF;
     box-shadow: 0 10px 20px #000;
+}
+.add-button {
+    margin-top: auto;
+    font-size: .8em;
+    height: 100%;
+    width: 200px;
+}
+.add-button > a {
+    padding: 0;
+}
+.list-title {
+    color: #FFF;
+    font-size: 2em;
+    font-weight: bold;
+}
+.no-tasks {
+    font-size: 1em;
+    color: #BBB;
+}
+.tasklist-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.order-container {
+    width: 200px;
+    background-color: transparent;
+    color: #FFF;
+    padding: .5em 1em;
+}
+.order-container:focus {
+    outline: none;
+}
+.order-container > option {
+    background-color: #202020;
 }
 
 

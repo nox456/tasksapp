@@ -1,5 +1,51 @@
 <div class="tasklist container">
-    <div>
+    <div class="tasklist-title-container">
+        <form action="/tasks/list" method="get" id="order-form">
+            <select class="order-container" id="order-container" name="order">
+                <option selected hidden>Ordenar</option>
+                {{#if (compare orderText 'title ASC')}}
+                    <option selected value="title ASC">Titulo (A-Z)</option>
+                {{else}}
+                    <option value="title ASC">Titulo (A-Z)</option>
+                {{/if}}
+
+                {{#if (compare orderText 'title DESC')}}
+                    <option selected value="title DESC">Titulo (Z-A)</option>
+                {{else}}
+                    <option value="title DESC">Titulo (Z-A)</option>
+                {{/if}}
+
+                {{#if (compare orderText 'created_at DESC')}}
+                    <option selected value="created_at DESC">Fecha de Creación (Descendiente)</option>
+                {{else}}
+                    <option value="created_at DESC">Fecha de Creación (Descendiente)</option>
+                {{/if}}
+
+                {{#if (compare orderText 'created_at ASC')}}
+                    <option selected value="created_at ASC">Fecha de Creación (Ascendente)</option>
+                {{else}}
+                    <option value="created_at ASC">Fecha de Creación (Ascendente)</option>
+                {{/if}}
+
+                {{#if (compare orderText 'finish_at DESC')}}
+                    <option selected value="finish_at DESC">Fecha de Finalización (Descendiente)</option>
+                {{else}}
+                    <option value="finish_at DESC">Fecha de Finalización (Descendiente)</option>
+                {{/if}}
+
+                {{#if (compare orderText 'finish_at ASC')}}
+                    <option selected value="finish_at ASC">Fecha de Finalización (Ascendente)</option>
+                {{else}}
+                    <option value="finish_at ASC">Fecha de Finalización (Ascendente)</option>
+                {{/if}}
+            </select>
+        </form>
+        <p class="list-title">Tareas</p>
+        <button class="add-button button">
+            <a href="/tasks/add">Agregar Tarea</a>
+        </button>
+    </div>
+    <div class="tasks-container">
         {{#each tasks}}
             <div class="task-container">
                 <h1 class="task-title">{{this.title}}</h1>
@@ -40,9 +86,7 @@
                             />
                             <input type="submit" value="Si" class="button" />
                         </form>
-                        <button
-                            class="button confirm-button-no"
-                        >No</button>
+                        <button class="button confirm-button-no">No</button>
                     </div>
                 </div>
             </div>
@@ -50,7 +94,4 @@
             <p class="no-tasks">No Hay Ninguna Tarea Creada</p>
         {{/each}}
     </div>
-    <button class="add-button button">
-        <a href="/tasks/add">Agregar Tarea</a>
-    </button>
 </div>

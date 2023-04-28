@@ -9,6 +9,7 @@ const pool = new pg.Pool({
 });
 
 export const getTasks = async (req, res) => {
+    const orderText = req.query.order
     const data = await selectData([
         "id",
         "title",
@@ -16,7 +17,7 @@ export const getTasks = async (req, res) => {
         "to_char(created_at,'DD Mon YYYY') as created_at",
         "to_char(finish_at,'DD Mon YYYY') as finish_at",
         "category",
-    ],"tasks", "created_at ASC, title ASC");
+    ],"tasks", orderText || "title ASC");
     
     const message = req.session.message
     delete req.session.message
@@ -24,7 +25,8 @@ export const getTasks = async (req, res) => {
     res.render("tasks/taskList", {
         styles: "tasks",
         tasks: data.rows,
-        message
+        message,
+        orderText
     });
 };
 
