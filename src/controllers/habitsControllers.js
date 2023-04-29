@@ -15,9 +15,11 @@ const pool = new pg.Pool({
 });
 
 export const getHabits = async (req, res) => {
+    const orderText = req.query.order
     const data = await selectData(
         ["id", "title", "description", "days", "time_to_do", "category"],
-        "habits"
+        "habits",
+        orderText || "title ASC"
     );
     const message = req.session.message;
     delete req.session.message;
@@ -25,6 +27,7 @@ export const getHabits = async (req, res) => {
         styles: "habits",
         habits: data.rows,
         message,
+        orderText
     });
 };
 

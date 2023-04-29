@@ -1,10 +1,9 @@
 /* HABTIS LIST */
 .habitslist {
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 1em;
+    flex-direction: column;
+    justify-content: start;
+    gap: 2em;
 }
 .habit-container {
     border: 2px solid #999;
@@ -12,7 +11,7 @@
     color: #FFF;
     display: flex;
     width: 300px;
-    gap: 1em;
+    gap: .5em;
     flex-direction: column;
     align-items: center;
     border-radius: .5em;
@@ -38,9 +37,7 @@
     outline: none;
 }
 .no-habits {
-    color: #FFF;
-    margin: 0 auto;
-    font-size: 2em;
+    color: #BBB;
 }
 
 
@@ -68,6 +65,7 @@ label {
 
 
 
+/* ******************************************************************************************** */
 /* ******************************************************************************************** */
 
 

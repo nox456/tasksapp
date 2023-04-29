@@ -1,90 +1,128 @@
 <div class="habitslist container">
-    {{#each habits}}
-        <div class="habit-container">
-            <h1 class="habit-title">{{this.title}}</h1>
-            <p class="habit-category">{{this.category}}</p>
-            <ul class="days-container" id="days-container">
-                {{#if (checkDays this.days "Lunes")}}
-                    <li class="day selected">Lunes</li>
+    <div class="list-title-container">
+        <form action="/habits/list" method="get" id="order-form">
+            <select class="order-container" id="order-container" name="order">
+                <option selected hidden>Ordenar</option>
+                {{#if (compare orderText "title ASC")}}
+                    <option selected value="title ASC">Titulo (A-Z)</option>
                 {{else}}
-                    <li class="day">Lunes</li>
+                    <option value="title ASC">Titulo (A-Z)</option>
                 {{/if}}
 
-                {{#if (checkDays this.days "Martes")}}
-                    <li class="day selected">Martes</li>
+                {{#if (compare orderText "title DESC")}}
+                    <option selected value="title DESC">Titulo (Z-A)</option>
                 {{else}}
-                    <li class="day">Martes</li>
+                    <option value="title DESC">Titulo (Z-A)</option>
                 {{/if}}
 
-                {{#if (checkDays this.days "Miercoles")}}
-                    <li class="day selected">Miercoles</li>
+                {{#if (compare orderText "time_to_do ASC")}}
+                    <option selected value="time_to_do ASC">Hora (Ascendente)</option>
                 {{else}}
-                    <li class="day">Miercoles</li>
+                    <option value="time_to_do ASC">Hora (Ascendente)</option>
                 {{/if}}
 
-                {{#if (checkDays this.days "Jueves")}}
-                    <li class="day selected">Jueves</li>
+                {{#if (compare orderText "time_to_do DESC")}}
+                    <option selected value="time_to_do DESC">Hora (Descendiente)</option>
                 {{else}}
-                    <li class="day">Jueves</li>
+                    <option value="time_to_do DESC">Hora (Descendiente)</option>
                 {{/if}}
 
-                {{#if (checkDays this.days "Viernes")}}
-                    <li class="day selected">Viernes</li>
-                {{else}}
-                    <li class="day">Viernes</li>
-                {{/if}}
+            </select>
+        </form>
+        <p class="list-title">Habitos</p>
+        <button class="add-button button">
+            <a href="/habits/add">Agregar Habito</a>
+        </button>
+    </div>
+    <div class="list-container">
+        {{#each habits}}
+            <div class="habit-container">
+                <h1 class="habit-title">{{this.title}}</h1>
+                <p class="habit-category">{{this.category}}</p>
+                <ul class="days-container" id="days-container">
+                    {{#if (checkDays this.days "Lunes")}}
+                        <li class="day selected">Lunes</li>
+                    {{else}}
+                        <li class="day">Lunes</li>
+                    {{/if}}
 
-                {{#if (checkDays this.days "Sabado")}}
-                    <li class="day selected">Sabado</li>
-                {{else}}
-                    <li class="day">Sabado</li>
-                {{/if}}
+                    {{#if (checkDays this.days "Martes")}}
+                        <li class="day selected">Martes</li>
+                    {{else}}
+                        <li class="day">Martes</li>
+                    {{/if}}
 
-                {{#if (checkDays this.days "Domingo")}}
-                    <li class="day selected">Domingo</li>
-                {{else}}
-                    <li class="day">Domingo</li>
-                {{/if}}
-            </ul>
-            <div class="list-options-container">
-                <form action="/habits/update" method="get">
-                    <input type="hidden" name="id" value="{{this.id}}" />
-                    <input
-                        type="submit"
-                        value="Modificar"
-                        class="button option-button update-button"
-                    />
-                </form>
-                <button
-                    class="button option-button delete-button"
-                    id="delete-button"
-                >Eliminar</button>
-                <form action="/habits/detail" method="get">
-                    <input type="hidden" name="id" value="{{this.id}}" />
-                    <input
-                        type="submit"
-                        value="Detalles"
-                        class="button option-button"
-                    />
-                </form>
-            </div>
-        </div>
-        <div class="blur-container" id="blur-container">
-            <div class="confirm-container" id="confirm-container">
-                <p class="confirm-text">¿Está Seguro?</p>
-                <div class="confirm-buttons-container">
-                    <form action="/habitsDelete" method="get">
+                    {{#if (checkDays this.days "Miercoles")}}
+                        <li class="day selected">Miercoles</li>
+                    {{else}}
+                        <li class="day">Miercoles</li>
+                    {{/if}}
+
+                    {{#if (checkDays this.days "Jueves")}}
+                        <li class="day selected">Jueves</li>
+                    {{else}}
+                        <li class="day">Jueves</li>
+                    {{/if}}
+
+                    {{#if (checkDays this.days "Viernes")}}
+                        <li class="day selected">Viernes</li>
+                    {{else}}
+                        <li class="day">Viernes</li>
+                    {{/if}}
+
+                    {{#if (checkDays this.days "Sabado")}}
+                        <li class="day selected">Sabado</li>
+                    {{else}}
+                        <li class="day">Sabado</li>
+                    {{/if}}
+
+                    {{#if (checkDays this.days "Domingo")}}
+                        <li class="day selected">Domingo</li>
+                    {{else}}
+                        <li class="day">Domingo</li>
+                    {{/if}}
+                </ul>
+                <div class="list-options-container">
+                    <form action="/habits/update" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
-                        <input type="submit" value="Si" class="button" />
+                        <input
+                            type="submit"
+                            value="Modificar"
+                            class="button option-button update-button"
+                        />
                     </form>
-                    <button class="button confirm-button-no">No</button>
+                    <button
+                        class="button option-button delete-button"
+                        id="delete-button"
+                    >Eliminar</button>
+                    <form action="/habits/detail" method="get">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <input
+                            type="submit"
+                            value="Detalles"
+                            class="button option-button"
+                        />
+                    </form>
                 </div>
             </div>
-        </div>
-    {{else}}
-        <p class="no-habits">No Hay Ningun Habito Creado</p>
-    {{/each}}
+            <div class="blur-container" id="blur-container">
+                <div class="confirm-container" id="confirm-container">
+                    <p class="confirm-text">¿Está Seguro?</p>
+                    <div class="confirm-buttons-container">
+                        <form action="/habitsDelete" method="get">
+                            <input
+                                type="hidden"
+                                name="id"
+                                value="{{this.id}}"
+                            />
+                            <input type="submit" value="Si" class="button" />
+                        </form>
+                        <button class="button confirm-button-no">No</button>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <p class="no-habits">No Hay Ningun Habito Creado</p>
+        {{/each}}
+    </div>
 </div>
-<button class="add-button button">
-    <a href="/habits/add">Agregar Habito</a>
-</button>
