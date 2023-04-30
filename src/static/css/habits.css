@@ -7,6 +7,7 @@
 }
 .habit-container {
     border: 2px solid #999;
+    position: relative;
     padding: .5em;
     color: #FFF;
     display: flex;
@@ -18,7 +19,7 @@
     box-shadow: 0 10px 20px #000;
 }
 .days-container {
-    display: flex;
+    display: none;
     width: 75%;
     flex-wrap: wrap;
     justify-content: center;
@@ -38,6 +39,10 @@
 }
 .no-habits {
     color: #BBB;
+}
+.habit-title {
+    text-align: center;
+    font-size: 1.5em;
 }
 
 

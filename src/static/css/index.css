@@ -44,7 +44,7 @@ body {
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
 }
 .button {
@@ -201,11 +201,13 @@ body {
     display: flex;
     gap: 2em;
     justify-content: center;
+    align-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     border: 2px solid #999;
     border-radius: 1em;
     height: 100%;
+    overflow: auto;
     padding: .5em;
 }
 .list-title-container {
@@ -230,6 +232,20 @@ body {
     color: #FFF;
     font-size: 2em;
     font-weight: bold;
+}
+.expand-icon {
+    position: absolute;
+    left: 90%;
+    top: 0;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.category {
+    display: none;
+}
+.options {
+    display: none;
 }
 
 /* ******************************************************************************************** */

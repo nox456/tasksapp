@@ -55,10 +55,11 @@
     </div>
     <div class="list-container">
         {{#each tasks}}
-            <div class="task-container">
+            <div class="task-container element">
+                <i class="gg-chevron-down expand-icon" id="expand-icon"></i>
                 <h1 class="task-title">{{this.title}}</h1>
-                <p class="task-category">{{this.category}}</p>
-                <div class="list-options-container">
+                <p class="task-category category">{{this.category}}</p>
+                <div class="list-options-container options">
 
                     <form action="/tasks/update" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />

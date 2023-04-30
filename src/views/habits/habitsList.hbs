@@ -36,9 +36,10 @@
     </div>
     <div class="list-container">
         {{#each habits}}
-            <div class="habit-container">
+            <div class="habit-container element">
+                <i class="gg-chevron-down expand-icon" id="expand-icon"></i>
                 <h1 class="habit-title">{{this.title}}</h1>
-                <p class="habit-category">{{this.category}}</p>
+                <p class="habit-category category">{{this.category}}</p>
                 <ul class="days-container" id="days-container">
                     {{#if (checkDays this.days "Lunes")}}
                         <li class="day selected">Lunes</li>
@@ -82,7 +83,7 @@
                         <li class="day">Domingo</li>
                     {{/if}}
                 </ul>
-                <div class="list-options-container">
+                <div class="list-options-container options">
                     <form action="/habits/update" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
                         <input
