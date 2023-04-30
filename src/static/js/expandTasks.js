@@ -1,7 +1,7 @@
 export default function expandTasks() {
     const elements = Array.from(document.getElementsByClassName("element"));
-    const category = Array.from(document.getElementsByClassName("category"));
-    const options = Array.from(document.getElementsByClassName("options"));
+    const category = Array.from(document.getElementsByClassName("category-expand"));
+    const options = Array.from(document.getElementsByClassName("options-expand"));
     const expandIcon = Array.from(document.getElementsByClassName("expand-icon"))
 
     elements.forEach((elem, ind) => {

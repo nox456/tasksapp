@@ -1,9 +1,9 @@
 export default function expandHabits() {
     const elements = Array.from(document.getElementsByClassName("element"));
-    const daysContainer = Array.from(document.getElementsByClassName("days-container"))
+    const daysContainer = Array.from(document.getElementsByClassName("days-expand"))
     const expandIcon = Array.from(document.getElementsByClassName("expand-icon"))
-    const category = Array.from(document.getElementsByClassName("category"));
-    const options = Array.from(document.getElementsByClassName("options"));
+    const category = Array.from(document.getElementsByClassName("category-expand"));
+    const options = Array.from(document.getElementsByClassName("options-expand"));
     
     elements.forEach((elem,ind) => {
         elem.addEventListener("click", () => {
