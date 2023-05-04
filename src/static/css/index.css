@@ -87,6 +87,7 @@ body {
     height: 100%;
     backdrop-filter: blur(0.5em);
     display: none;
+    z-index: 10;
 }
 .confirm-container {
     display: flex;
