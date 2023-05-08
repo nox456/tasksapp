@@ -1,40 +1,30 @@
-import pg from "pg";
 import {
-    deleteData,
-    insertData,
-    selectData,
-    selectDataId,
-    updateData,
-} from "./queryControllers.js";
-
-const pool = new pg.Pool({
-    host: "localhost",
-    user: "postgres",
-    password: "LZACGWCS",
-    database: "tasksapp",
-});
+    deleteHabitData,
+    insertHabitData,
+    selectHabitData,
+    selectHabitDataById,
+    updateHabitData,
+} from "./querys/habitsQuerys.js";
 
 export const getHabits = async (req, res) => {
-    const orderText = req.query.order
-    const data = await selectData(
-        ["id", "title", "description", "days", "time_to_do", "category"],
-        "habits",
-        orderText || "title ASC"
-    );
+    const orderText = req.query.order;
+
+    const data = await selectHabitData(orderText || "title ASC");
+
     const message = req.session.message;
     delete req.session.message;
     res.render("habits/habitsList", {
         styles: "habits",
         habits: data.rows,
         message,
-        orderText
+        orderText,
     });
 };
 
 export const addHabit = async (req, res) => {
     const { title, description, days, time_to_do, category } = req.body;
 
-    await insertData("habits", [
+    await insertHabitData([
         title,
         description,
         typeof days == "string" ? [days] : days,
@@ -49,7 +39,7 @@ export const addHabit = async (req, res) => {
 export const deleteHabit = async (req, res) => {
     const { id } = req.query;
 
-    await deleteData(id, "habits");
+    await deleteHabitData(id);
     req.session.message = "Habito Eliminado con Éxito";
 
     res.redirect("/habits/list");
@@ -57,11 +47,9 @@ export const deleteHabit = async (req, res) => {
 
 export const getHabitsData = async (req, res) => {
     const { id } = req.query;
-    const data = await selectDataId(
-        id,
-        ["id", "title", "description", "days", "time_to_do", "category"],
-        "habits"
-    );
+
+    const data = await selectHabitDataById(id);
+
     res.render("habits/updateHabits", {
         habit: data.rows[0],
         styles: "habits",
@@ -71,10 +59,15 @@ export const getHabitsData = async (req, res) => {
 export const updateHabits = async (req, res) => {
     const { id, title, description, days, time_to_do, category } = req.query;
 
-    await updateData(
-        "habits",
-        ["title", "description", "days", "time_to_do", "category"],
-        [title, description,typeof days == "string" ? [days] : days, time_to_do, category],
+    await updateHabitData(
+        [
+            id,
+            title,
+            description,
+            typeof days == "string" ? [days] : days,
+            time_to_do,
+            category,
+        ],
         id
     );
 
@@ -86,11 +79,8 @@ export const updateHabits = async (req, res) => {
 export const getHabitsDetails = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectDataId(
-        id,
-        ["title", "description", "days", "time_to_do", "category"],
-        "habits"
-    );
+    const data = await selectHabitDataById(id);
+
     res.render("habits/detailsHabits", {
         styles: "habits",
         habit: data.rows[0],
