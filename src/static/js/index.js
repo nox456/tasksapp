@@ -10,8 +10,8 @@ const documentUrl = document.URL;
 
 // Main functions
 sidebar();
+message();
 if (documentUrl.includes("list")) {
-    message();
     confirmDelete();
     orderList();
     if (documentUrl.includes("habit")) {

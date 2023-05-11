@@ -1,0 +1,22 @@
+.signin {
+    width: 50%;
+    color: #FFF;
+    justify-content: center;
+    gap: 2em;
+    flex-direction: column;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.signin-form {
+    display: flex;
+    justify-content: start;
+    gap: 1em;
+    width: 80%;
+    height: 30%;
+    flex-direction: column;
+}
+#submit-button {
+    margin-top: auto;
+}

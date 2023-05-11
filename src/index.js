@@ -7,6 +7,7 @@ import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
 import tasksRoutes from "./routes/tasksRoutes.js";
 import habitsRoutes from "./routes/habitsRoutes.js"
+import passport from "passport";
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -14,7 +15,7 @@ console.clear()
 
 // Settings
 app.set("port", 3000)
-app.set("host", "192.168.10.129")
+app.set("host", "localhost")
 app.set("views", join(__dirname,"views"))
 app.set("view engine", "hbs")
 app.engine("hbs", engine({
@@ -39,6 +40,8 @@ app.use(session({
     saveUninitialized: false,
     secret: "tasksapp_key"
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 

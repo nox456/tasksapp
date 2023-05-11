@@ -19,3 +19,10 @@ CREATE TABLE habits (
     time_to_do TIME WITHOUT TIME ZONE NOT NULL,
     category VARCHAR(15) DEFAULT 'Otra'
 );
+
+/* USERS */
+CREATE TABLE users (
+    id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
