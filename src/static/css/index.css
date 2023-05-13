@@ -301,10 +301,27 @@ a {
 
 /* SIDEBAR */
 .sidebar li {
+    color: #FFF;
     list-style: none;
 }
+.sidebar ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar .logout {
+    margin-top: auto;
+}
+.sidebar .logout > a {
+    padding: .5em;
+    border: 3px solid #44f;
+    border-radius: .5em;
+}
 .sidebar {
-    background-color: #fff;
+    background-color: #202020;
+    box-shadow: 0px 0px 15px #202020;
     grid-row: span 2;
     padding: 2em 2em;
     display: none;
