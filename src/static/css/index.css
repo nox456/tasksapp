@@ -22,6 +22,10 @@ body {
     display: flex;
     gap: 2em;
 }
+.main-title {
+    color: #FFF;
+    font-size: 3em;
+}
 #main-blur-container {
     display: none;
     position: absolute;
@@ -54,8 +58,10 @@ body {
 }
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    gap: 2em;
+    align-items: center;
     height: 100%;
 }
 .button {

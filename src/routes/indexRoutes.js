@@ -3,11 +3,13 @@ import passport from "../passport/localAuth.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", (req,res) => res.render("index"))
+
+router.get("/dashboard", (req, res) => {
     if (req.isAuthenticated()) {
-        res.render("index");
+        res.render("dashboard");
     } else {
-        res.redirect("/signup");
+        res.redirect("/");
     }
 });
 
@@ -20,7 +22,7 @@ router.get("/signin", (req, res) => {
 router.post(
     "/signin",
     passport.authenticate("local-signin", {
-        successRedirect: "/",
+        successRedirect: "/dashboard",
         failureRedirect: "/signin",
         passReqToCallback: true,
         keepSessionInfo: true,
@@ -36,7 +38,7 @@ router.get("/signup", (req, res) => {
 router.post(
     "/signup",
     passport.authenticate("local-signup", {
-        successRedirect: "/",
+        successRedirect: "/dashboard",
         failureRedirect: "/signup",
         passReqToCallback: true,
         keepSessionInfo: true,
@@ -49,7 +51,7 @@ router.get("/logout", (req, res) => {
             console.log(err)
         }
         req.session.message = "Sesion cerrada"
-        res.redirect("/signup")
+        res.redirect("/")
     })
 });
 
