@@ -9,7 +9,7 @@ let taskData = [
     "category",
 ];
 
-export const selectTaskData = async (order) => {
+export const selectTaskData = async (order,user_id) => {
     const data = taskData.map((e,i) => {
         if (e == "created_at") {
             return "to_char(created_at,'DD Mon YYYY') as created_at"
@@ -21,10 +21,10 @@ export const selectTaskData = async (order) => {
     })
     if (order) {
         return await pool.query(
-            `SELECT ${data.join(",")} FROM tasks ORDER BY ${order}`
+            `SELECT ${data.join(",")} FROM tasks WHERE user_id = '${user_id}' ORDER BY ${order}`
         );
     } else {
-        return await pool.query(`SELECT ${data.join(",")} FROM tasks`);
+        return await pool.query(`SELECT ${data.join(",")} FROM tasks INNER JOIN users ON users.id = tasks.user_id`);
     }
 };
 
@@ -47,7 +47,7 @@ export const selectTaskDataById = async (id, url) => {
 export const insertTaskData = async (values) => {
     const valuesData = values.map((e, i) => `$${i + 1}`);
     return await pool.query(
-        `INSERT INTO tasks (id,created_at,title,description,finish_at,category)
+        `INSERT INTO tasks (id,created_at,title,description,finish_at,category,user_id)
          VALUES ( DEFAULT, current_date,${valuesData.join(",")} )`,
         values
     );

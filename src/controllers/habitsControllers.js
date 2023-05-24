@@ -8,8 +8,8 @@ import {
 
 export const getHabits = async (req, res) => {
     const orderText = req.query.order;
-
-    const data = await selectHabitData(orderText || "title ASC");
+    const user_id = req.user.id
+    const data = await selectHabitData(orderText || "title ASC",user_id);
 
     const message = req.session.message;
     delete req.session.message;
@@ -18,18 +18,20 @@ export const getHabits = async (req, res) => {
         habits: data.rows,
         message,
         orderText,
+        username: req.user ? req.user.username : undefined
     });
 };
 
 export const addHabit = async (req, res) => {
     const { title, description, days, time_to_do, category } = req.body;
-
+    const user_id = req.user.id
     await insertHabitData([
         title,
         description,
         typeof days == "string" ? [days] : days,
         time_to_do,
         category,
+        user_id
     ]);
     req.session.message = "Habito Creado con Éxito";
 
@@ -53,6 +55,7 @@ export const getHabitsData = async (req, res) => {
     res.render("habits/updateHabits", {
         habit: data.rows[0],
         styles: "habits",
+        username: req.user ? req.user.username : undefined
     });
 };
 
@@ -84,5 +87,6 @@ export const getHabitsDetails = async (req, res) => {
     res.render("habits/detailsHabits", {
         styles: "habits",
         habit: data.rows[0],
+        username: req.user ? req.user.username : undefined
     });
 };

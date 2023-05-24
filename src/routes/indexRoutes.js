@@ -3,12 +3,18 @@ import passport from "../passport/localAuth.js";
 
 const router = Router();
 
-router.get("/", (req,res) => res.render("index"))
+router.get("/", (req,res) => {
+    const message = req.session.message
+    delete req.session.message
+
+    res.render("index", { message })
+})
 
 router.get("/dashboard", (req, res) => {
     if (req.isAuthenticated()) {
-        res.render("dashboard");
+        res.render("dashboard", { username: req.user.username});
     } else {
+        req.session.message = "Inicie sesion para acceder a Dashboard"
         res.redirect("/");
     }
 });

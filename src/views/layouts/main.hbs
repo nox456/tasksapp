@@ -29,9 +29,12 @@
             </div>
         </nav>
         <aside class="sidebar" id="sidebar">
+            {{#if username}}
+                <h1 class="sidebar-username">{{username}}</h1>
+                <hr class="line-div">
+            {{/if}}
             <ul>
                 <li><a href="/dashboard" class="link">Dashboard</a></li>
-                <li><a href="#" class="link">#</a></li>
                 <li class="logout"><a href="/logout" class="link">Cerrar Sesion</a></li>
             </ul>
         </aside>

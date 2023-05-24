@@ -314,6 +314,7 @@ a {
     height: 100%;
     width: 100%;
     display: flex;
+    gap: 1.5em;
     align-items: center;
     flex-direction: column;
 }
@@ -330,8 +331,26 @@ a {
     box-shadow: 0px 0px 15px #202020;
     grid-row: span 2;
     padding: 2em 2em;
+    flex-direction: column;
+    gap: 1em;
     display: none;
     z-index: 15;
+}
+.sidebar-username {
+    color: #FFF;
+    font-size: 1.9em;
+    text-align: right;
+}
+.sidebar .link {
+    transition: all 200ms;
+    color: #999;
+}
+.sidebar .link:hover {
+    font-size: 1.2em;
+    color: #FFF;
+}
+.line-div {
+    border-color: #999;
 }
 
 /* ******************************************************************************************** */

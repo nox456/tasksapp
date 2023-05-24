@@ -10,7 +10,7 @@ export default function sidebar() {
     menu_icon.addEventListener("click", () => {
         if (menuIsActive == false) {
             main_blur_container.style.display = "block"
-            sidebar.style.display = "block";
+            sidebar.style.display = "flex";
             navbar.style.gridColumn = "span 1";
             main_container.style.gridColumn = "span 1";
             menuIsActive = true;

@@ -8,7 +8,8 @@ import {
 
 export const getTasks = async (req, res) => {
     const orderText = req.query.order;
-    const data = await selectTaskData(orderText || "title ASC");
+    const user_id = req.user.id
+    const data = await selectTaskData(orderText || "title ASC",user_id);
 
     const message = req.session.message;
     delete req.session.message;
@@ -18,13 +19,14 @@ export const getTasks = async (req, res) => {
         tasks: data.rows,
         message,
         orderText,
+        username: req.user ? req.user.username : undefined
     });
 };
 
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
-
-    await insertTaskData([title, description, finished_at, category]);
+    const user_id = req.user.id
+    await insertTaskData([title, description, finished_at, category,user_id]);
 
     req.session.message = "Tarea Creada con Éxito";
 
@@ -48,6 +50,7 @@ export const getTasksData = async (req, res) => {
     res.render("tasks/updateTasks", {
         styles: "tasks",
         tasks: data.rows[0],
+        username: req.user ? req.user.username : undefined
     });
 };
 
@@ -68,5 +71,6 @@ export const getTaskDetails = async (req, res) => {
     res.render("tasks/detailsTasks", {
         styles: "tasks",
         task: data.rows[0],
+        username: req.user ? req.user.username : undefined
     });
 };

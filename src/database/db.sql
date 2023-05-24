@@ -7,7 +7,8 @@ CREATE TABLE tasks (
     description TEXT DEFAULT 'Ninguna descripcion',
     created_at TIMESTAMP NOT NULL,
     finish_at TIMESTAMP NOT NULL,
-    category VARCHAR(15) DEFAULT 'Otra'
+    category VARCHAR(15) DEFAULT 'Otra',
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
 /* HABITS */
@@ -17,7 +18,8 @@ CREATE TABLE habits (
     description TEXT DEFAULT 'Ninguna descripcion',
     days text[] NOT NULL,
     time_to_do TIME WITHOUT TIME ZONE NOT NULL,
-    category VARCHAR(15) DEFAULT 'Otra'
+    category VARCHAR(15) DEFAULT 'Otra',
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
 /* USERS */
