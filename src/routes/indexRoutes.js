@@ -12,7 +12,7 @@ router.get("/", (req,res) => {
 
 router.get("/dashboard", (req, res) => {
     if (req.isAuthenticated()) {
-        res.render("dashboard", { username: req.user.username});
+        res.render("dashboard", { user: req.user});
     } else {
         req.session.message = "Inicie sesion para acceder a Dashboard"
         res.redirect("/");

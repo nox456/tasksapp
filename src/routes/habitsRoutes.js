@@ -5,7 +5,7 @@ const router = Router()
 
 router.get("/habits/list", getHabits)
 
-router.get("/habits/add", (req,res) => res.render("habits/addHabit", { styles: "habits" }))
+router.get("/habits/add", (req,res) => res.render("habits/addHabit", { styles: "habits", user: req.user ? req.user: undefined }))
 
 router.post("/habitsAdd", addHabit)
 

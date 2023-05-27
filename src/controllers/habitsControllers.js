@@ -18,7 +18,7 @@ export const getHabits = async (req, res) => {
         habits: data.rows,
         message,
         orderText,
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };
 
@@ -55,7 +55,7 @@ export const getHabitsData = async (req, res) => {
     res.render("habits/updateHabits", {
         habit: data.rows[0],
         styles: "habits",
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };
 
@@ -87,6 +87,6 @@ export const getHabitsDetails = async (req, res) => {
     res.render("habits/detailsHabits", {
         styles: "habits",
         habit: data.rows[0],
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };

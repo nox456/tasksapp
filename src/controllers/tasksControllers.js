@@ -19,7 +19,7 @@ export const getTasks = async (req, res) => {
         tasks: data.rows,
         message,
         orderText,
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };
 
@@ -50,7 +50,7 @@ export const getTasksData = async (req, res) => {
     res.render("tasks/updateTasks", {
         styles: "tasks",
         tasks: data.rows[0],
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };
 
@@ -71,6 +71,6 @@ export const getTaskDetails = async (req, res) => {
     res.render("tasks/detailsTasks", {
         styles: "tasks",
         task: data.rows[0],
-        username: req.user ? req.user.username : undefined
+        user: req.user ? req.user : undefined
     });
 };

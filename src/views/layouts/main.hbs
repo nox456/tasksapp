@@ -9,10 +9,10 @@
             rel="stylesheet"
         />
         <title>TasksApp</title>
-        <link rel="stylesheet" href="https://css.gg/css">
+        <link rel="stylesheet" href="https://css.gg/css" />
         <link rel="stylesheet" href="/css/index.css" />
         {{#if styles}}
-            <link rel="stylesheet" href="/css/{{styles}}.css">
+            <link rel="stylesheet" href="/css/{{styles}}.css" />
         {{/if}}
     </head>
     <body>
@@ -20,27 +20,26 @@
             <div class="home-container">
                 <a href="/" class="link">Inicio</a>
             </div>
-            <div class="links-container">
-                <a href="/tasks/list" class="link">Lista de Tareas</a>
-                <a href="/habits/list" class="link">Lista de Habitos</a>
-            </div>
             <div class="menu-container">
                 <button class="menu-icon" id="menu-icon">Menu</button>
             </div>
         </nav>
         <aside class="sidebar" id="sidebar">
-            {{#if username}}
-                <h1 class="sidebar-username">{{username}}</h1>
-                <hr class="line-div">
+            {{#if user}}
+                <h1 class="sidebar-username">{{user.username}}</h1>
+                <hr class="line-div" />
+                <ul>
+                    <li><a href="/dashboard" class="link">Dashboard</a></li>
+                    <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
+                    <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
+                    <li class="logout"><a href="/logout" class="link">Cerrar
+                            Sesion</a></li>
+                </ul>
             {{/if}}
-            <ul>
-                <li><a href="/dashboard" class="link">Dashboard</a></li>
-                <li class="logout"><a href="/logout" class="link">Cerrar Sesion</a></li>
-            </ul>
         </aside>
 
         <main class="main-container" id="main-container">
-        <div id="main-blur-container"></div>
+            <div id="main-blur-container"></div>
             {{#if message}}
                 <div class="message-container" id="message-container">
                     <p class="message-text" id="message-text">{{message}}</p>

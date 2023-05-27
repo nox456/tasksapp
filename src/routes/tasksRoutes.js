@@ -5,7 +5,7 @@ const router = Router()
 
 router.get("/tasks/list", getTasks)
 
-router.get("/tasks/add", (req,res) => res.render("tasks/addTask", { styles: "tasks" }))
+router.get("/tasks/add", (req,res) => res.render("tasks/addTask", { styles: "tasks", user: req.user ? req.user : undefined }))
 
 router.post("/tasksAdd", addTask)
 
