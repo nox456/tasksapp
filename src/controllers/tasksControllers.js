@@ -66,7 +66,8 @@ export const updateTasks = async (req, res) => {
 export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectTaskDataById(id, req.url);
+    const data = await selectTaskDataById(id);
+    console.log(data.rows)
 
     res.render("tasks/detailsTasks", {
         styles: "tasks",

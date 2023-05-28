@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2em;
+    /* gap: 2em; */
     align-items: center;
     height: 100%;
 }
