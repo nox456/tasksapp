@@ -20,25 +20,34 @@
             <div class="home-container">
                 <a href="/" class="link">Inicio</a>
             </div>
-            <div class="menu-container">
-                <button class="menu-icon" id="menu-icon">Menu</button>
-            </div>
-        </nav>
-        <aside class="sidebar" id="sidebar">
             {{#if user}}
+                <div class="menu-container">
+                    <button class="menu-icon" id="menu-icon">Menu</button>
+                </div>
+            {{/if}}
+        </nav>
+        {{#if user}}
+            <aside class="sidebar" id="sidebar">
                 <h1 class="sidebar-username">{{user.username}}</h1>
                 <hr class="line-div" />
                 <ul>
                     <li><a href="/dashboard" class="link">Dashboard</a></li>
                     <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
                     <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
-                    <li class="logout"><a href="/logout" class="link">Cerrar
-                            Sesion</a></li>
+                    <li class="logout" id="logout-button"><button class="button">Cerrar
+                            Sesion</button></li>
                 </ul>
-            {{/if}}
-        </aside>
+            </aside>
+        {{/if}}
 
         <main class="main-container" id="main-container">
+            <div class="logout-confirm" id="logout-confirm">
+                    <p class="confirm-text">¿Está Seguro?</p>
+                    <div class="confirm-buttons-container">
+                        <a href="/logout" class="button confirm-button-yes">Cerrar Sesion</a>
+                        <button class="button" id="confirm-button-no">Cancelar</button>
+                    </div>
+            </div>
             <div id="main-blur-container"></div>
             {{#if message}}
                 <div class="message-container" id="message-container">

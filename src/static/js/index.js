@@ -5,11 +5,13 @@ import selectDays from "./selectDays.js";
 import orderList from "./orderList.js";
 import expandTasks from "./expandTasks.js";
 import expandHabits from "./expandHabits.js";
+import logoutButton from "./logoutButton.js";
 
 const documentUrl = document.URL;
 
 // Main functions
-sidebar();
+logoutButton()
+sidebar(); 
 message();
 if (documentUrl.includes("list")) {
     confirmDelete();
