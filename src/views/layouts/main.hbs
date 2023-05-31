@@ -17,36 +17,45 @@
     </head>
     <body>
         <nav class="navbar" id="navbar">
-            <div class="home-container">
-                <a href="/" class="link">Inicio</a>
-            </div>
             {{#if user}}
                 <div class="menu-container">
+                    <a href="/dashboard" class="link">Dashboard</a>
+                </div>
+                <div class="menu-container">
                     <button class="menu-icon" id="menu-icon">Menu</button>
+                </div>
+            {{else}}
+                <div class="home-container">
+                    <a href="/" class="link">Inicio</a>
                 </div>
             {{/if}}
         </nav>
         {{#if user}}
             <aside class="sidebar" id="sidebar">
-                <h1 class="sidebar-username">{{user.username}}</h1>
+                <a href="/profile" class="sidebar-username">{{user.username}}</a>
                 <hr class="line-div" />
                 <ul>
                     <li><a href="/dashboard" class="link">Dashboard</a></li>
                     <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
                     <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
-                    <li class="logout" id="logout-button"><button class="button">Cerrar
-                            Sesion</button></li>
+                    <li class="logout" id="logout-button"><button
+                            class="button"
+                        >Cerrar Sesion</button></li>
                 </ul>
             </aside>
         {{/if}}
 
         <main class="main-container" id="main-container">
             <div class="logout-confirm" id="logout-confirm">
-                    <p class="confirm-text">¿Está Seguro?</p>
-                    <div class="confirm-buttons-container">
-                        <a href="/logout" class="button confirm-button-yes">Cerrar Sesion</a>
-                        <button class="button" id="confirm-button-no">Cancelar</button>
-                    </div>
+                <p class="confirm-text">¿Está Seguro?</p>
+                <div class="confirm-buttons-container">
+                    <a href="/logout" class="button confirm-button-yes">Cerrar
+                        Sesion</a>
+                    <button
+                        class="button"
+                        id="confirm-button-no"
+                    >Cancelar</button>
+                </div>
             </div>
             <div id="main-blur-container"></div>
             {{#if message}}

@@ -60,7 +60,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* gap: 2em; */
     align-items: center;
     height: 100%;
 }
@@ -347,7 +346,7 @@ a {
 .sidebar-username {
     color: #FFF;
     font-size: 1.9em;
-    text-align: right;
+    text-align: center;
 }
 .sidebar .link {
     transition: all 200ms;

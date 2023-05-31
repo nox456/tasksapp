@@ -10,15 +10,6 @@ router.get("/", (req,res) => {
     res.render("index", { message })
 })
 
-router.get("/dashboard", (req, res) => {
-    if (req.isAuthenticated()) {
-        res.render("dashboard", { user: req.user});
-    } else {
-        req.session.message = "Inicie sesion para acceder a Dashboard"
-        res.redirect("/");
-    }
-});
-
 router.get("/signin", (req, res) => {
     const message = req.session.message;
     delete req.session.message;

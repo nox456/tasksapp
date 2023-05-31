@@ -1,0 +1,8 @@
+.profile {
+    border: 2px solid #999;
+    box-shadow: 0 10px 20px #000;
+    border-radius: .5em;
+    align-self: center;
+    width: 70%;
+    height: 80%;
+}

@@ -7,6 +7,7 @@ import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
 import tasksRoutes from "./routes/tasksRoutes.js";
 import habitsRoutes from "./routes/habitsRoutes.js"
+import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
 
 const app = express()
@@ -47,6 +48,14 @@ app.use(passport.session())
 
 // Routes
 app.use(indexRoutes)
+app.use((req,res,next) => {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect("/")
+    }
+})
+app.use(userRoutes)
 app.use(tasksRoutes)
 app.use(habitsRoutes)
 
