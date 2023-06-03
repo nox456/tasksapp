@@ -337,7 +337,7 @@ a {
     background-color: #202020;
     box-shadow: 0px 0px 15px #202020;
     grid-row: span 2;
-    padding: 2em 2em;
+    padding: 2em 1.5em;
     flex-direction: column;
     gap: 1em;
     display: none;
@@ -351,6 +351,7 @@ a {
 .sidebar .link {
     transition: all 200ms;
     color: #999;
+    padding: .5em;
 }
 .sidebar .link:hover {
     font-size: 1.2em;
@@ -358,6 +359,7 @@ a {
 }
 .line-div {
     border-color: #999;
+    width: 100%;
 }
 .logout-confirm {
     flex-direction: column;

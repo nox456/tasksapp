@@ -3,6 +3,43 @@
     box-shadow: 0 10px 20px #000;
     border-radius: .5em;
     align-self: center;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: flex-start;
+    justify-content: start;
     width: 70%;
     height: 80%;
+}
+.profile-data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-name {
+    font-size: 3em;
+    color: #FFF;
+}
+.user-data {
+    color: #BBB;
+}
+.profile-options {
+    border-radius: .5em;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.profile-options .button {
+    font-size: 1em;
+    padding: .8em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #000;
+}
+.profile-options .danger {
+    background-color: #F00;
+    margin-top: auto;
 }

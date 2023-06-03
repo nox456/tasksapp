@@ -52,7 +52,7 @@ app.use((req,res,next) => {
     if (req.isAuthenticated()) {
         next()
     } else {
-        res.redirect("/")
+        res.redirect("/logout")
     }
 })
 app.use(userRoutes)

@@ -1,3 +1,15 @@
 <div class="profile container">
-    a
+    <div class="profile-data">
+        <h1 class="user-name">{{user.username}}</h1>
+        <div class="user-data">
+            <div class="tasks-count">Tareas: {{tasksCount}}</div>
+            <div class="habits-count">Habitos: {{habitsCount}}</div>
+        </div>
+    </div>
+    <hr class="line-div">
+    <div class="profile-options">
+        <button class="button">Cambiar Nombre de Usuario</button>
+        <button class="button">Cambiar Contraseña</button>
+        <button class="button danger">Eliminar cuenta</button>
+    </div>
 </div>
