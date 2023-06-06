@@ -18,7 +18,7 @@ export default class User {
     encryptPassword() {
         this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10))
     }
-    async emailExits() {
+    async usernameExits() {
         const data = await pool.query("SELECT * FROM users WHERE username = $1", [this.username]) 
         return data.rows.length > 0
     }

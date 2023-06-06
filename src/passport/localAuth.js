@@ -23,7 +23,7 @@ passport.use(
         },
         async (req, username, password, done) => {
             const user = new User(username, password);
-            if (await user.emailExits()) {
+            if (await user.usernameExits()) {
                 req.session.message = "Este nombre de usuario ya existe"
                 return done(null,false)
             } else {
