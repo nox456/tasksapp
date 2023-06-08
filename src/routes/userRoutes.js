@@ -1,6 +1,6 @@
 import { Router } from "express";
 import pool from "../database/db.js";
-import User from "../models/user.js";
+import { changeUsername, changePassword } from "../controllers/userControllers.js";
 
 const router = Router();
 
@@ -25,26 +25,14 @@ router.get("/profile/change-username", (req,res) => {
     res.render("users/changeUsername", { user: req.user, styles: "profile", message })
 })
 
-router.post("/changeUsername", async (req,res) => {
-    const { password, newUsername, username } = req.body
-    const user = new User(username)
-
-    if (await user.comparePassword(password)) {
-        const data = await pool.query("SELECT * FROM users WHERE username = $1", [newUsername])
-
-        if (data.rows.length == 0) {
-            await pool.query("UPDATE users SET username = $1 WHERE username = $2",[newUsername,username])
-            req.session.message = "Nombre de Usuario Cambiado"
-            res.redirect("/profile")
-        } else {
-            req.session.message = "Este nombre de usuario ya existe"
-            res.redirect("/profile/change-username")
-        }
-
-    } else {
-        req.session.message = "Contraseña Incorrecta"
-        res.redirect("/profile/change-username")
-    }
+router.get("/profile/change-password", (req,res) => {
+    const message = req.session.message
+    delete req.session.message
+    res.render("users/changePassword", { user: req.user, styles: "profile", message })
 })
+
+router.post("/changeUsername", changeUsername)
+
+router.post("/changePassword", changePassword)
 
 export default router;
