@@ -1,0 +1,16 @@
+<div class="delete-account container">
+    <h1>Eliminar Cuenta</h1>
+    <form action="/deleteAccount" method="post">
+        <div>
+            <label for="password" class="label">Contraseña</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="input"
+            />
+        </div>
+        <input type="hidden" name="username" value="{{user.username}}">
+        <input type="submit" value="Eliminar Cuenta" class="input save danger">
+    </form>
+</div>

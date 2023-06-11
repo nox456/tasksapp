@@ -1,6 +1,5 @@
 import { Router } from "express";
-import pool from "../database/db.js";
-import { changeUsername, changePassword } from "../controllers/userControllers.js";
+import { changeUsername, changePassword, getHabitsAndTasks, deleteAccount } from "../controllers/userControllers.js";
 
 const router = Router();
 
@@ -8,16 +7,7 @@ router.get("/dashboard", (req, res) => {
     res.render("users/dashboard", { user: req.user });
 });
 
-router.get("/profile", async (req, res) => { 
-    const message = req.session.message;
-    delete req.session.message;
-    const tasks = await pool.query("SELECT * FROM tasks WHERE user_id = $1", [req.user.id])
-    const habits = await pool.query("SELECT * FROM habits WHERE user_id = $1", [req.user.id])
-    const tasksCount = tasks.rows.length
-    const habitsCount = habits.rows.length
-
-    res.render("users/profile", { styles: "profile", message, user: req.user, tasksCount, habitsCount });
-});
+router.get("/profile", getHabitsAndTasks);
 
 router.get("/profile/change-username", (req,res) => {
     const message = req.session.message
@@ -34,5 +24,13 @@ router.get("/profile/change-password", (req,res) => {
 router.post("/changeUsername", changeUsername)
 
 router.post("/changePassword", changePassword)
+
+router.get("/profile/delete-account", (req,res) => {
+    const message = req.session.message
+    delete req.session.message
+    res.render("users/deleteAccount", { styles: "profile", message, user: req.user })
+})
+
+router.post("/deleteAccount", deleteAccount)
 
 export default router;
