@@ -215,11 +215,15 @@ body {
 .add-button > a {
     display: flex;
     height: 100%;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0;
     font-size: 1.1em;
+}
+.add-button > a > .gg-math-plus {
+    margin-top: 1.5px;
 }
 .list-container {
     width: 100%;
@@ -299,14 +303,26 @@ a {
     border-radius: 7px;
 }
 .navbar .menu-icon {
-    background-color: transparent;
     cursor: pointer;
-    padding: 0.5em;
-    background-color: #229;
+    padding: .8em;
+    background-color: transparent;
     border-radius: 7px;
     border: none;
     font-size: 1em;
     color: #fff;
+    transition: background-color 300ms ease-out;
+}
+.navbar .home-container .link {
+    display: block;
+    padding: .6em;
+    background-color: transparent;
+    transition: background-color 300ms ease-out;
+}
+.navbar .home-container .link:hover {
+    background-color: #229;
+}
+.navbar .menu-icon:hover {
+    background-color: #229;
 }
 
 /* ******************************************************************************************** */
