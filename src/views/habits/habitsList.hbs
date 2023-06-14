@@ -84,26 +84,43 @@
                     {{/if}}
                 </ul>
                 <div class="list-options-container options-expand">
-                    <form action="/habits/update" method="get">
-                        <input type="hidden" name="id" value="{{this.id}}" />
-                        <input
-                            type="submit"
-                            value="Modificar"
-                            class="button option-button update-button"
-                        />
-                    </form>
-                    <button
-                        class="button option-button delete-button"
-                        id="delete-button"
-                    >Eliminar</button>
-                    <form action="/habits/detail" method="get">
-                        <input type="hidden" name="id" value="{{this.id}}" />
-                        <input
-                            type="submit"
-                            value="Detalles"
-                            class="button option-button"
-                        />
-                    </form>
+                    <button class="button update-button">
+                        <form action="/habits/update" method="get">
+                            <input
+                                type="hidden"
+                                name="id"
+                                value="{{this.id}}"
+                            />
+                            <i class="gg-pen icon"></i>
+                            <input
+                                type="submit"
+                                value="Modificar"
+                                class="option-button"
+                            />
+                        </form>
+                    </button>
+                    <div class="button delete-button">
+                        <i class="gg-erase icon"></i>
+                        <button
+                            class="option-button"
+                            id="delete-button"
+                        >Eliminar</button>
+                    </div>
+                    <button class="button detail-button">
+                        <form action="/habits/detail" method="get">
+                            <input
+                                type="hidden"
+                                name="id"
+                                value="{{this.id}}"
+                            />
+                            <i class="gg-menu-left icon"></i>
+                            <input
+                                type="submit"
+                                value="Detalles"
+                                class="button option-button"
+                            />
+                        </form>
+                    </button>
                 </div>
             </div>
             <div class="blur-container" id="blur-container">
