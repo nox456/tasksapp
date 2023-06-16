@@ -6,59 +6,59 @@ import { fileURLToPath } from "url";
 import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
 import tasksRoutes from "./routes/tasksRoutes.js";
-import habitsRoutes from "./routes/habitsRoutes.js"
+import habitsRoutes from "./routes/habitsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
 
-const app = express()
-const __dirname = dirname(fileURLToPath(import.meta.url))
-console.clear()
+const app = express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+console.clear();
 
 // Settings
-app.set("port", 3000)
-app.set("host", "localhost")
-app.set("views", join(__dirname,"views"))
-app.set("view engine", "hbs")
-app.engine("hbs", engine({
-    layoutsDir: join(app.get("views"),"layouts"),
-    defaultLayout: "main",
-    partialsDir: join(app.get("views"), "partials"),
-    extname: ".hbs",
-    helpers: {
-        compare: (val1,val2) => val1 == val2, 
-        checkDays: (habitDays,day) => habitDays.includes(day) 
-    }
-
-}))
-
+app.set("port", 3000);
+app.set("host", "localhost");
+app.set("views", join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.engine(
+    "hbs",
+    engine({
+        layoutsDir: join(app.get("views"), "layouts"),
+        defaultLayout: "main",
+        partialsDir: join(app.get("views"), "partials"),
+        extname: ".hbs",
+        helpers: {
+            compare: (val1, val2) => val1 == val2,
+            checkDays: (habitDays, day) => habitDays.includes(day),
+        },
+    })
+);
 
 // Middlewares
-app.use(morgan("dev"))
-app.use(express.static(join(__dirname,"static")))
-app.use(express.urlencoded({ extended: false }))
-app.use(session({
-    resave: false,
-    saveUninitialized: false,
-    secret: "tasksapp_key"
-}))
-app.use(passport.initialize())
-app.use(passport.session())
-
-
+app.use(morgan("dev"));
+app.use(express.static(join(__dirname, "static")));
+app.use(express.urlencoded({ extended: false }));
+app.use(
+    session({
+        resave: false,
+        saveUninitialized: false,
+        secret: "tasksapp_key",
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
-app.use(indexRoutes)
-app.use((req,res,next) => {
+app.use(indexRoutes);
+app.use((req, res, next) => {
     if (req.isAuthenticated()) {
-        next()
+        next();
     } else {
-        res.redirect("/logout")
+        res.redirect("/logout");
     }
-})
-app.use(userRoutes)
-app.use(tasksRoutes)
-app.use(habitsRoutes)
+});
+app.use(userRoutes);
+app.use(tasksRoutes);
+app.use(habitsRoutes);
 
-
-app.listen(app.get("port"),app.get("host"))
-console.log(`Server on http://${app.get("host")}:${app.get("port")}`)
+app.listen(app.get("port"), app.get("host"));
+console.log(`Server on http://${app.get("host")}:${app.get("port")}`);

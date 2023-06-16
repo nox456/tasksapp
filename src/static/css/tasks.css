@@ -18,8 +18,8 @@
     position: relative;
     padding: 1em;
     border: 2px solid #999;
-    border-radius: .5em;
-    color: #FFF;
+    border-radius: 0.5em;
+    color: #fff;
     box-shadow: 0 10px 20px #000;
 }
 .task-title {
@@ -27,14 +27,11 @@
     font-size: 1.5em;
 }
 .no-tasks {
-    color: #BBB;
+    color: #bbb;
 }
 
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
 
 /* DETAILS */
 .tasksDetails {
@@ -42,13 +39,13 @@
     grid-template-columns: 80% 20%;
     grid-template-rows: 20% 8% 72%;
     box-shadow: 0px 20px 30px #000;
-    border-radius: .5em;
-    border-bottom-left-radius: .8em;
-    border-bottom-right-radius: .8em;
-    color: #FFF;
+    border-radius: 0.5em;
+    border-bottom-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+    color: #fff;
 }
 .details > div {
-    color: #FFF;
+    color: #fff;
 }
 .detail-title-container {
     grid-row: 1 / span 1;
@@ -58,10 +55,10 @@
     display: flex;
     align-items: center;
     border: 2px solid #777;
-    border-radius: .3em 0 0 0;
+    border-radius: 0.3em 0 0 0;
     border-right: none;
     border-bottom: none;
-    padding-left: .5em;
+    padding-left: 0.5em;
 }
 .detail-date-container {
     grid-row: 1 / span 1;
@@ -73,7 +70,7 @@
     justify-content: space-between;
     padding: 18px 10px;
     border: 2px solid #777;
-    border-radius: 0 .5em 0 0;
+    border-radius: 0 0.5em 0 0;
     border-bottom: none;
 }
 .detail-date-title {
@@ -81,8 +78,9 @@
     font-size: 1em;
     margin-right: 20px;
 }
-.detail-date-created,.detail-date-finished {
-    font-size: .9em;
+.detail-date-created,
+.detail-date-finished {
+    font-size: 0.9em;
 }
 .detail-category-container {
     grid-row: 2 / span 1;
@@ -92,7 +90,7 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 1em;
-    font-size: .8em;
+    font-size: 0.8em;
     border: 2px solid #777;
 }
 .detail-category-title {
@@ -109,6 +107,6 @@
     font-size: 1.3em;
     padding: 1.5em;
     border: 2px solid #777;
-    border-radius: 0 0 .5em .5em;
+    border-radius: 0 0 0.5em 0.5em;
     border-top: none;
 }

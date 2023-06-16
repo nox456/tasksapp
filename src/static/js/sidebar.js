@@ -23,7 +23,7 @@ export default function sidebar() {
                 sidebar.style.display = "none";
                 navbar.style.gridColumn = "span 2";
                 main_container.style.gridColumn = "span 2";
-                logout_confirm.style.display = "none"
+                logout_confirm.style.display = "none";
                 menuIsActive = false;
             }
         });

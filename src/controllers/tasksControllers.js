@@ -8,8 +8,8 @@ import {
 
 export const getTasks = async (req, res) => {
     const orderText = req.query.order;
-    const user_id = req.user.id
-    const data = await selectTaskData(orderText || "title ASC",user_id);
+    const user_id = req.user.id;
+    const data = await selectTaskData(orderText || "title ASC", user_id);
 
     const message = req.session.message;
     delete req.session.message;
@@ -19,14 +19,14 @@ export const getTasks = async (req, res) => {
         tasks: data.rows,
         message,
         orderText,
-        user: req.user ? req.user : undefined
+        user: req.user ? req.user : undefined,
     });
 };
 
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
-    const user_id = req.user.id
-    await insertTaskData([title, description, finished_at, category,user_id]);
+    const user_id = req.user.id;
+    await insertTaskData([title, description, finished_at, category, user_id]);
 
     req.session.message = "Tarea Creada con Éxito";
 
@@ -50,7 +50,7 @@ export const getTasksData = async (req, res) => {
     res.render("tasks/updateTasks", {
         styles: "tasks",
         tasks: data.rows[0],
-        user: req.user ? req.user : undefined
+        user: req.user ? req.user : undefined,
     });
 };
 
@@ -67,11 +67,11 @@ export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
     const data = await selectTaskDataById(id);
-    console.log(data.rows)
+    console.log(data.rows);
 
     res.render("tasks/detailsTasks", {
         styles: "tasks",
         task: data.rows[0],
-        user: req.user ? req.user : undefined
+        user: req.user ? req.user : undefined,
     });
 };

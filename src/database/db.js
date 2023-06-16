@@ -7,4 +7,4 @@ const pool = new pg.Pool({
     database: "tasksapp",
 });
 
-export default pool
+export default pool;

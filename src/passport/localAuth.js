@@ -24,8 +24,8 @@ passport.use(
         async (req, username, password, done) => {
             const user = new User(username, password);
             if (await user.usernameExits()) {
-                req.session.message = "Este nombre de usuario ya existe"
-                return done(null,false)
+                req.session.message = "Este nombre de usuario ya existe";
+                return done(null, false);
             } else {
                 user.encryptPassword();
                 await user.save();
@@ -35,24 +35,29 @@ passport.use(
     )
 );
 
-passport.use("local-signup", new localStrategy({
-    usernameField: "username",
-    passwordField: "password",
-    passReqToCallback: true
-}, async (req,username, password, done) => {
+passport.use(
+    "local-signup",
+    new localStrategy(
+        {
+            usernameField: "username",
+            passwordField: "password",
+            passReqToCallback: true,
+        },
+        async (req, username, password, done) => {
+            const user = new User();
 
-    const user = new User()
-
-    if (!await user.compareUsername(username)) {
-        req.session.message = "Usuario o Contraseña incorrectos"
-        return done(null,false)
-    }
-    await user.setUserFromDB(username)
-    if (!await user.comparePassword(password)) {
-        req.session.message = "Usuario o Contraseña incorrectos"
-        return done(null,false)
-    }
-    done(null,user)
-}))
+            if (!(await user.compareUsername(username))) {
+                req.session.message = "Usuario o Contraseña incorrectos";
+                return done(null, false);
+            }
+            await user.setUserFromDB(username);
+            if (!(await user.comparePassword(password))) {
+                req.session.message = "Usuario o Contraseña incorrectos";
+                return done(null, false);
+            }
+            done(null, user);
+        }
+    )
+);
 
 export default passport;

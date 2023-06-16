@@ -3,7 +3,7 @@
         <h1 class="detail-title">{{habit.title}}</h1>
     </div>
     <div class="detail-time-container">
-        <h3 class="detail-time-title">Hora:</h3> 
+        <h3 class="detail-time-title">Hora:</h3>
         <p class="detail-time">{{habit.time_to_do}}</p>
     </div>
     <div class="detail-category-container">
@@ -14,48 +14,48 @@
         <p class="detail-description">{{habit.description}}</p>
     </div>
     <div class="detail-days-container">
-            <ul class="days-container" id="days-container">
-                {{#if (checkDays habit.days 'Lunes')}}
-                    <li class="day selected">Lunes</li>
-                {{else}} 
-                    <li class="day">Lunes</li>
-                {{/if}}
+        <ul class="days-container" id="days-container">
+            {{#if (checkDays habit.days "Lunes")}}
+                <li class="day selected">Lunes</li>
+            {{else}}
+                <li class="day">Lunes</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Martes')}}
-                    <li class="day selected">Martes</li>
-                {{else}} 
-                    <li class="day">Martes</li>
-                {{/if}}
+            {{#if (checkDays habit.days "Martes")}}
+                <li class="day selected">Martes</li>
+            {{else}}
+                <li class="day">Martes</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Miercoles')}}
-                    <li class="day selected">Miercoles</li>
-                {{else}} 
-                    <li class="day">Miercoles</li>
-                {{/if}}
+            {{#if (checkDays habit.days "Miercoles")}}
+                <li class="day selected">Miercoles</li>
+            {{else}}
+                <li class="day">Miercoles</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Jueves')}}
-                    <li class="day selected">Jueves</li>
-                {{else}} 
-                    <li class="day">Jueves</li>
-                {{/if}}
+            {{#if (checkDays habit.days "Jueves")}}
+                <li class="day selected">Jueves</li>
+            {{else}}
+                <li class="day">Jueves</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Viernes')}}
-                    <li class="day selected">Viernes</li>
-                {{else}} 
-                    <li class="day">Viernes</li>
-                {{/if}}
+            {{#if (checkDays habit.days "Viernes")}}
+                <li class="day selected">Viernes</li>
+            {{else}}
+                <li class="day">Viernes</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Sabado')}}
-                    <li class="day selected">Sabado</li>
-                {{else}} 
-                    <li class="day">Sabado</li>
-                {{/if}}
+            {{#if (checkDays habit.days "Sabado")}}
+                <li class="day selected">Sabado</li>
+            {{else}}
+                <li class="day">Sabado</li>
+            {{/if}}
 
-                {{#if (checkDays habit.days 'Domingo')}}
-                    <li class="day selected">Domingo</li>
-                {{else}} 
-                    <li class="day">Domingo</li>
-                {{/if}}
-            </ul>
+            {{#if (checkDays habit.days "Domingo")}}
+                <li class="day selected">Domingo</li>
+            {{else}}
+                <li class="day">Domingo</li>
+            {{/if}}
+        </ul>
     </div>
 </div>

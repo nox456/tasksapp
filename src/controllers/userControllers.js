@@ -1,15 +1,20 @@
 import pool from "../database/db.js";
+import {
+    deleteUser,
+    getUserByUsername,
+    getUserHabits,
+    getUserTasks,
+    updatePassword,
+    updateUsername,
+} from "./querys/userQuerys.js";
 import User from "../models/user.js";
 
 export const getHabitsAndTasks = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
-    const tasks = await pool.query("SELECT * FROM tasks WHERE user_id = $1", [
-        req.user.id,
-    ]);
-    const habits = await pool.query("SELECT * FROM habits WHERE user_id = $1", [
-        req.user.id,
-    ]);
+    const tasks = await getUserTasks(req.user.id);
+    const habits = await getUserHabits(req.user.id);
+
     const tasksCount = tasks.rows.length;
     const habitsCount = habits.rows.length;
 
@@ -27,16 +32,11 @@ export const changeUsername = async (req, res) => {
     const user = new User(username);
 
     if (await user.comparePassword(password)) {
-        const data = await pool.query(
-            "SELECT * FROM users WHERE username = $1",
-            [newUsername]
-        );
+        const data = await getUserByUsername(newUsername);
 
         if (data.rows.length == 0) {
-            await pool.query(
-                "UPDATE users SET username = $1 WHERE username = $2",
-                [newUsername, username]
-            );
+            await updateUsername(username, newUsername);
+
             req.session.message = "Nombre de Usuario Cambiado";
             res.redirect("/profile");
         } else {
@@ -56,10 +56,8 @@ export const changePassword = async (req, res) => {
     if (await user.comparePassword(password)) {
         user.password = newPassword;
         user.encryptPassword();
-        await pool.query("UPDATE users SET password = $1 WHERE username = $2", [
-            user.password,
-            username,
-        ]);
+        await updatePassword(username, user.password);
+
         req.session.message = "Contraseña Cambiada";
         res.redirect("/profile");
     } else {
@@ -75,14 +73,14 @@ export const deleteAccount = async (req, res) => {
     if (await user.comparePassword(password)) {
         req.logout((err) => {
             if (err) {
-                console.log(err)
+                console.log(err);
             }
-            req.session.message = "Cuenta Eliminada"
-            res.redirect("/")
-        })
-        await pool.query("DELETE FROM users WHERE username = $1", [username]);
+            req.session.message = "Cuenta Eliminada";
+            res.redirect("/");
+        });
+        await deleteUser(username);
     } else {
-        req.session.message = "Contraseña Incorrecta"
-        res.redirect("/profile/delete-account")
+        req.session.message = "Contraseña Incorrecta";
+        res.redirect("/profile/delete-account");
     }
 };

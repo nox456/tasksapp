@@ -3,12 +3,12 @@ import passport from "../passport/localAuth.js";
 
 const router = Router();
 
-router.get("/", (req,res) => {
-    const message = req.session.message
-    delete req.session.message
+router.get("/", (req, res) => {
+    const message = req.session.message;
+    delete req.session.message;
 
-    res.render("index", { message })
-})
+    res.render("index", { message });
+});
 
 router.get("/signin", (req, res) => {
     const message = req.session.message;
@@ -45,11 +45,11 @@ router.post(
 router.get("/logout", (req, res) => {
     req.logout((err) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         }
-        req.session.message = "Sesion cerrada"
-        res.redirect("/")
-    })
+        req.session.message = "Sesion cerrada";
+        res.redirect("/");
+    });
 });
 
 export default router;

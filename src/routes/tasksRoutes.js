@@ -1,20 +1,32 @@
 import { Router } from "express";
-import { getTasks, addTask, deleteTask, getTasksData, updateTasks, getTaskDetails } from "../controllers/tasksControllers.js";
+import {
+    getTasks,
+    addTask,
+    deleteTask,
+    getTasksData,
+    updateTasks,
+    getTaskDetails,
+} from "../controllers/tasksControllers.js";
 
-const router = Router()
+const router = Router();
 
-router.get("/tasks/list", getTasks)
+router.get("/tasks/list", getTasks);
 
-router.get("/tasks/add", (req,res) => res.render("tasks/addTask", { styles: "tasks", user: req.user ? req.user : undefined }))
+router.get("/tasks/add", (req, res) =>
+    res.render("tasks/addTask", {
+        styles: "tasks",
+        user: req.user ? req.user : undefined,
+    })
+);
 
-router.post("/tasksAdd", addTask)
+router.post("/tasksAdd", addTask);
 
-router.get("/tasksDelete", deleteTask)
+router.get("/tasksDelete", deleteTask);
 
-router.get("/tasks/update", getTasksData)
+router.get("/tasks/update", getTasksData);
 
-router.get("/tasksUpdate", updateTasks)
+router.get("/tasksUpdate", updateTasks);
 
-router.get("/tasks/detail", getTaskDetails)
+router.get("/tasks/detail", getTaskDetails);
 
-export default router
+export default router;

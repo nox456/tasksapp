@@ -23,7 +23,7 @@ body {
     gap: 2em;
 }
 .main-title {
-    color: #FFF;
+    color: #fff;
     font-size: 3em;
 }
 #main-blur-container {
@@ -33,7 +33,7 @@ body {
     height: 100%;
     left: 0;
     top: 0;
-    backdrop-filter: blur(.5em);
+    backdrop-filter: blur(0.5em);
     z-index: 16;
 }
 .message-container {
@@ -75,7 +75,7 @@ body {
     cursor: pointer;
 }
 .sidebar .button {
-    padding: .5em;
+    padding: 0.5em;
 }
 .button:hover {
     box-shadow: 0px 0px 15px #229;
@@ -89,7 +89,7 @@ body {
 .option-button {
     background-color: transparent;
     border: none;
-    color: #FFF;
+    color: #fff;
 }
 .delete-button {
     background-color: #a00;
@@ -106,7 +106,7 @@ body {
 .update-button,
 .delete-button,
 .detail-button {
-    padding: .5em;
+    padding: 0.5em;
 }
 .update-button > form,
 .delete-button,
@@ -175,7 +175,7 @@ body {
 .confirm-button-no,
 .confirm-button-yes {
     height: 2em;
-    font-size: .8em;
+    font-size: 0.8em;
 }
 .input:focus {
     box-shadow: 0px 0px 15px #44f;
@@ -210,14 +210,15 @@ body {
     gap: 1em;
     height: 100%;
 }
-.add-form .column { 
+.add-form .column {
     display: flex;
     width: 50%;
     gap: 1em;
     justify-content: center;
     flex-direction: column;
 }
-.add-form .days-container, .add-form label {
+.add-form .days-container,
+.add-form label {
     align-self: center;
 }
 .add-form label {
@@ -233,7 +234,7 @@ body {
 }
 .add-button {
     border-radius: 0.5em;
-    font-size: .8em;
+    font-size: 0.8em;
     height: 100%;
     width: 200px;
     align-self: center;
@@ -260,7 +261,7 @@ body {
     border-radius: 1em;
     height: 100%;
     overflow: auto;
-    padding: .5em;
+    padding: 0.5em;
 }
 .list-title-container {
     display: flex;
@@ -271,8 +272,8 @@ body {
 .order-container {
     width: 200px;
     background-color: transparent;
-    color: #FFF;
-    padding: .5em 1em;
+    color: #fff;
+    padding: 0.5em 1em;
 }
 .order-container:focus {
     outline: none;
@@ -281,7 +282,7 @@ body {
     background-color: #202020;
 }
 .list-title {
-    color: #FFF;
+    color: #fff;
     font-size: 2em;
     font-weight: bold;
 }
@@ -327,7 +328,7 @@ a {
 }
 .navbar .menu-icon {
     cursor: pointer;
-    padding: .8em;
+    padding: 0.8em;
     background-color: transparent;
     border-radius: 7px;
     border: none;
@@ -337,7 +338,7 @@ a {
 }
 .navbar .home-container .link {
     display: block;
-    padding: .6em;
+    padding: 0.6em;
     background-color: transparent;
     transition: background-color 300ms ease-out;
 }
@@ -353,7 +354,7 @@ a {
 
 /* SIDEBAR */
 .sidebar li {
-    color: #FFF;
+    color: #fff;
     list-style: none;
 }
 .sidebar ul {
@@ -368,9 +369,9 @@ a {
     margin-top: auto;
 }
 .sidebar .logout > a {
-    padding: .5em;
+    padding: 0.5em;
     border: 3px solid #44f;
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 .sidebar {
     background-color: #202020;
@@ -383,18 +384,18 @@ a {
     z-index: 15;
 }
 .sidebar-username {
-    color: #FFF;
+    color: #fff;
     font-size: 1.9em;
     text-align: center;
 }
 .sidebar .link {
     transition: all 200ms;
     color: #999;
-    padding: .5em;
+    padding: 0.5em;
 }
 .sidebar .link:hover {
     font-size: 1.2em;
-    color: #FFF;
+    color: #fff;
 }
 .line-div {
     border-color: #999;

@@ -9,14 +9,14 @@
     cursor: pointer;
     border: 2px solid #999;
     position: relative;
-    padding: .5em;
-    color: #FFF;
+    padding: 0.5em;
+    color: #fff;
     display: flex;
     width: 300px;
-    gap: .5em;
+    gap: 0.5em;
     flex-direction: column;
     align-items: center;
-    border-radius: .5em;
+    border-radius: 0.5em;
     box-shadow: 0 10px 20px #000;
 }
 .days-container {
@@ -25,21 +25,21 @@
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
-    gap: .5em;
+    gap: 0.5em;
     margin: 20px 0;
-    font-size: .7em;
+    font-size: 0.7em;
 }
 .day {
     border: 2px solid #000;
     border-radius: 10px;
-    padding: .5em;
+    padding: 0.5em;
     cursor: pointer;
 }
 .day:focus {
     outline: none;
 }
 .no-habits {
-    color: #BBB;
+    color: #bbb;
 }
 .habit-title {
     text-align: center;
@@ -49,11 +49,8 @@
     display: none;
 }
 
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
 
 /* ADDHABIT */
 .selected {
@@ -62,23 +59,18 @@
 }
 .day {
     background-color: transparent;
-    color: #FFF;
+    color: #fff;
 }
 label {
-    color: #FFF;
+    color: #fff;
 }
 .selected {
     background-color: #090;
     border-color: transparent;
 }
 
-
-
 /* ******************************************************************************************** */
 /* ******************************************************************************************** */
-
-
-
 
 /* DETAILS HABITS */
 .habitsDetails {
@@ -86,7 +78,7 @@ label {
     grid-template-columns: 85% 15%;
     grid-template-rows: 15% 10% 35% 40%;
     box-shadow: 0px 20px 30px #000;
-    color: #FFF;
+    color: #fff;
 }
 .detail-title-container {
     grid-row: 1/2;
@@ -95,7 +87,7 @@ label {
     padding: 1em;
     font-size: 1.5em;
     border: 2px solid #777;
-    border-radius: .3em 0 0 0;
+    border-radius: 0.3em 0 0 0;
     border-right: none;
     border-bottom: none;
     display: flex;
@@ -119,12 +111,12 @@ label {
     flex-direction: column;
     justify-content: center;
     border: 2px solid #777;
-    border-radius: 0 .5em 0 0;
+    border-radius: 0 0.5em 0 0;
     border-bottom: none;
     align-items: center;
 }
 .detail-time-title {
-    font-size: .8em;
+    font-size: 0.8em;
     color: #888;
 }
 .detail-category-container {
@@ -140,7 +132,7 @@ label {
 }
 .detail-category-title {
     color: #888;
-    font-size: .7em;
+    font-size: 0.7em;
 }
 .detail-days-container {
     grid-row: 4/5;
@@ -151,7 +143,7 @@ label {
     align-items: center;
     border: 2px solid #777;
     border-top: none;
-    border-radius: 0 0 .5em .5em;
+    border-radius: 0 0 0.5em 0.5em;
 }
 .detail-days-container .day {
     font-size: 2em;

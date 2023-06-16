@@ -2,7 +2,7 @@ import pool from "../../database/db.js";
 
 const habitData = `id,title,description,days,time_to_do,category`;
 
-export const selectHabitData = async (order,user_id) => {
+export const selectHabitData = async (order, user_id) => {
     if (order) {
         return await pool.query(
             `SELECT ${habitData} FROM habits WHERE user_id = '${user_id}' ORDER BY ${order}`
@@ -27,11 +27,9 @@ export const insertHabitData = async (values) => {
     );
 };
 
-
 export const deleteHabitData = async (id) => {
     return await pool.query(`DELETE FROM habits WHERE id = $1`, [id]);
 };
-
 
 export const updateHabitData = async (values, id) => {
     const fieldsData = habitData.split(",").map((e, i) => `${e} = $${i + 1}`);
@@ -39,4 +37,4 @@ export const updateHabitData = async (values, id) => {
         `UPDATE habits SET ${fieldsData.join(",")} WHERE id = '${id}'`,
         values
     );
-}
+};

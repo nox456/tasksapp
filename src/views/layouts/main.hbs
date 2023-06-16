@@ -14,7 +14,10 @@
         {{#if styles}}
             <link rel="stylesheet" href="/css/{{styles}}.css" />
         {{/if}}
-        <link rel="stylesheet" href="../../../node_modules/css.gg/icons/all.css">
+        <link
+            rel="stylesheet"
+            href="../../../node_modules/css.gg/icons/all.css"
+        />
     </head>
     <body>
         <nav class="navbar" id="navbar">
@@ -23,7 +26,9 @@
                     <a href="/dashboard" class="link">Dashboard</a>
                 </div>
                 <div class="menu-container">
-                    <button class="menu-icon" id="menu-icon"><i class="gg-menu"></i></button>
+                    <button class="menu-icon" id="menu-icon"><i
+                            class="gg-menu"
+                        ></i></button>
                 </div>
             {{else}}
                 <div class="home-container">
@@ -33,7 +38,10 @@
         </nav>
         {{#if user}}
             <aside class="sidebar" id="sidebar">
-                <a href="/profile" class="sidebar-username">{{user.username}}</a>
+                <a
+                    href="/profile"
+                    class="sidebar-username"
+                >{{user.username}}</a>
                 <hr class="line-div" />
                 <ul>
                     <li><a href="/dashboard" class="link">Dashboard</a></li>

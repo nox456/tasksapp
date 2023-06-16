@@ -10,8 +10,8 @@ import logoutButton from "./logoutButton.js";
 const documentUrl = document.URL;
 
 // Main functions
-logoutButton()
-sidebar(); 
+logoutButton();
+sidebar();
 message();
 if (documentUrl.includes("list")) {
     confirmDelete();
