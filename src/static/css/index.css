@@ -4,7 +4,6 @@
     padding: 0;
     font-family: "Ubuntu", sans-serif;
 }
-
 body {
     background-color: #404040;
     height: 100vh;
@@ -159,10 +158,6 @@ body {
 .confirm-buttons-container .button {
     padding: 0.5em 1.5em;
 }
-.no-tasks {
-    font-size: 2em;
-    color: #fff;
-}
 
 .input {
     background-color: transparent;
@@ -232,6 +227,12 @@ body {
 .save:hover {
     box-shadow: 0px 0px 10px #494;
 }
+.add-button-container {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+}
 .add-button {
     border-radius: 0.5em;
     font-size: 0.8em;
@@ -269,16 +270,20 @@ body {
     align-items: center;
     width: 100%;
 }
-.order-container {
+.select-form-container {
+    display: flex;
+    gap: 1em;
+}
+.select-form > select {
     width: 200px;
     background-color: transparent;
     color: #fff;
     padding: 0.5em 1em;
 }
-.order-container:focus {
+.select-form > select:focus {
     outline: none;
 }
-.order-container > option {
+.select-form > select > option {
     background-color: #202020;
 }
 .list-title {
@@ -322,9 +327,13 @@ a {
 }
 .navbar .link {
     color: #fff;
-    background-color: #229;
-    padding: 0.5em;
+    padding: .7em;
+    display: block;
     border-radius: 7px;
+    transition: background-color 300ms;
+}
+.navbar .link:hover {
+    background-color: #229;
 }
 .navbar .menu-icon {
     cursor: pointer;

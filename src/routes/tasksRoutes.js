@@ -6,6 +6,7 @@ import {
     getTasksData,
     updateTasks,
     getTaskDetails,
+    doneTask,
 } from "../controllers/tasksControllers.js";
 
 const router = Router();
@@ -28,5 +29,7 @@ router.get("/tasks/update", getTasksData);
 router.get("/tasksUpdate", updateTasks);
 
 router.get("/tasks/detail", getTaskDetails);
+
+router.post("/tasksDone", doneTask)
 
 export default router;

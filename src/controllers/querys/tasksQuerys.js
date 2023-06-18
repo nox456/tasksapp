@@ -7,9 +7,10 @@ let taskData = [
     "created_at",
     "finish_at",
     "category",
+    "done",
 ];
 
-export const selectTaskData = async (order, user_id) => {
+export const selectTaskData = async (order, user_id, done) => {
     const data = taskData.map((e, i) => {
         if (e == "created_at") {
             return "to_char(created_at,'DD Mon YYYY') as created_at";
@@ -19,18 +20,34 @@ export const selectTaskData = async (order, user_id) => {
         }
         return e;
     });
-    if (order) {
-        return await pool.query(
-            `SELECT ${data.join(
-                ","
-            )} FROM tasks WHERE user_id = '${user_id}' ORDER BY ${order}`
-        );
+    if (done) {
+        if (order) {
+            return await pool.query(
+                `SELECT ${data.join(
+                    ","
+                )} FROM tasks WHERE user_id = '${user_id}' AND done = true ORDER BY ${order}`
+            );
+        } else {
+            return await pool.query(
+                `SELECT ${data.join(
+                    ","
+                )} FROM tasks WHERE user_id = '${user_id}' AND done = true`
+            );
+        }
     } else {
-        return await pool.query(
-            `SELECT ${data.join(
-                ","
-            )} FROM tasks INNER JOIN users ON users.id = tasks.user_id`
-        );
+        if (order) {
+            return await pool.query(
+                `SELECT ${data.join(
+                    ","
+                )} FROM tasks WHERE user_id = '${user_id}' AND done = false ORDER BY ${order}`
+            );
+        } else {
+            return await pool.query(
+                `SELECT ${data.join(
+                    ","
+                )} FROM tasks WHERE user_id = '${user_id}' AND done = false`
+            );
+        }
     }
 };
 
@@ -40,7 +57,7 @@ export const selectTaskDataById = async (id) => {
             return "to_char(created_at,'DD Mon YYYY') as created_at";
         }
         if (e == "finish_at") {
-            return "to_char(finish_at,'YYYY-MM-DD') as finish_at";
+            return "to_char(finish_at,'DD Mon YYYY') as finish_at";
         }
         return e;
     });
@@ -53,8 +70,8 @@ export const selectTaskDataById = async (id) => {
 export const insertTaskData = async (values) => {
     const valuesData = values.map((e, i) => `$${i + 1}`);
     return await pool.query(
-        `INSERT INTO tasks (id,created_at,title,description,finish_at,category,user_id)
-         VALUES ( DEFAULT, current_date,${valuesData.join(",")} )`,
+        `INSERT INTO tasks (id,done,created_at,title,description,finish_at,category,user_id)
+         VALUES ( DEFAULT,DEFAULT, current_date,${valuesData.join(",")} )`,
         values
     );
 };
@@ -71,4 +88,8 @@ export const updateTaskData = async (values, id) => {
         `UPDATE tasks SET ${data.join(",")} WHERE id = '${id}'`,
         values
     );
+};
+
+export const updateDoneTask = async (id) => {
+    await pool.query("UPDATE tasks SET done = $1 WHERE id = $2", [true, id]);
 };

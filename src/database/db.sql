@@ -8,6 +8,7 @@ CREATE TABLE tasks (
     created_at TIMESTAMP NOT NULL,
     finish_at TIMESTAMP NOT NULL,
     category VARCHAR(15) DEFAULT 'Otra',
+    done BOOLEAN NOT NULL DEFAULT false,
     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 

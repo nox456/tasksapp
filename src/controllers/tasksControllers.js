@@ -3,13 +3,32 @@ import {
     insertTaskData,
     selectTaskData,
     selectTaskDataById,
+    updateDoneTask,
     updateTaskData,
 } from "./querys/tasksQuerys.js";
 
 export const getTasks = async (req, res) => {
-    const orderText = req.query.order;
+    if (
+        !req.session.orderText ||
+        (req.session.orderText != req.query.order &&
+            req.query.order != undefined)
+    ) {
+        req.session.orderText = req.query.order;
+    }
+
+    if (
+        !req.session.doned ||
+        (req.session.doned != req.query.doned && req.query.doned != undefined)
+    ) {
+        req.session.doned = req.query.doned;
+    }
+
     const user_id = req.user.id;
-    const data = await selectTaskData(orderText || "title ASC", user_id);
+    const data = await selectTaskData(
+        req.session.orderText || "title ASC",
+        user_id,
+        req.session.doned == "yes-done" ? true : false
+    );
 
     const message = req.session.message;
     delete req.session.message;
@@ -18,8 +37,9 @@ export const getTasks = async (req, res) => {
         styles: "tasks",
         tasks: data.rows,
         message,
-        orderText,
+        orderText: req.session.orderText,
         user: req.user ? req.user : undefined,
+        doned: req.session.doned,
     });
 };
 
@@ -67,11 +87,17 @@ export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
     const data = await selectTaskDataById(id);
-    console.log(data.rows);
 
     res.render("tasks/detailsTasks", {
         styles: "tasks",
         task: data.rows[0],
         user: req.user ? req.user : undefined,
     });
+};
+
+export const doneTask = async (req, res) => {
+    const { id } = req.body;
+    await updateDoneTask(id);
+    req.session.message = "Tarea Hecha";
+    res.redirect("/tasks/list");
 };

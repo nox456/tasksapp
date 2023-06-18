@@ -1,64 +1,110 @@
 <div class="tasklist container">
     <div class="list-title-container">
-        <form action="/tasks/list" method="get" id="order-form">
-            <select class="order-container" id="order-container" name="order">
-                <option selected hidden>Ordenar</option>
-                {{#if (compare orderText "title ASC")}}
-                    <option selected value="title ASC">Titulo (A-Z)</option>
-                {{else}}
-                    <option value="title ASC">Titulo (A-Z)</option>
-                {{/if}}
+        <div class="select-form-container">
+            <form
+                action="/tasks/list"
+                method="get"
+                class="select-form"
+                id="order-form"
+            >
+                <select
+                    id="order-container"
+                    name="order"
+                >
+                    <option selected hidden>Ordenar</option>
+                    {{#if (compare orderText "title ASC")}}
+                        <option selected value="title ASC">Titulo (A-Z)</option>
+                    {{else}}
+                        <option value="title ASC">Titulo (A-Z)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "title DESC")}}
-                    <option selected value="title DESC">Titulo (Z-A)</option>
-                {{else}}
-                    <option value="title DESC">Titulo (Z-A)</option>
-                {{/if}}
+                    {{#if (compare orderText "title DESC")}}
+                        <option selected value="title DESC">Titulo (Z-A)</option>
+                    {{else}}
+                        <option value="title DESC">Titulo (Z-A)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "created_at DESC")}}
-                    <option selected value="created_at DESC">Fecha de Creación
-                        (Descendiente)</option>
-                {{else}}
-                    <option value="created_at DESC">Fecha de Creación
-                        (Descendiente)</option>
-                {{/if}}
+                    {{#if (compare orderText "created_at DESC")}}
+                        <option selected value="created_at DESC">Fecha de
+                            Creación (Descendiente)</option>
+                    {{else}}
+                        <option value="created_at DESC">Fecha de Creación
+                            (Descendiente)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "created_at ASC")}}
-                    <option selected value="created_at ASC">Fecha de Creación
-                        (Ascendente)</option>
-                {{else}}
-                    <option value="created_at ASC">Fecha de Creación
-                        (Ascendente)</option>
-                {{/if}}
+                    {{#if (compare orderText "created_at ASC")}}
+                        <option selected value="created_at ASC">Fecha de
+                            Creación (Ascendente)</option>
+                    {{else}}
+                        <option value="created_at ASC">Fecha de Creación
+                            (Ascendente)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "finish_at DESC")}}
-                    <option selected value="finish_at DESC">Fecha de
-                        Finalización (Descendiente)</option>
-                {{else}}
-                    <option value="finish_at DESC">Fecha de Finalización
-                        (Descendiente)</option>
-                {{/if}}
+                    {{#if (compare orderText "finish_at DESC")}}
+                        <option selected value="finish_at DESC">Fecha de
+                            Finalización (Descendiente)</option>
+                    {{else}}
+                        <option value="finish_at DESC">Fecha de Finalización
+                            (Descendiente)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "finish_at ASC")}}
-                    <option selected value="finish_at ASC">Fecha de Finalización
-                        (Ascendente)</option>
-                {{else}}
-                    <option value="finish_at ASC">Fecha de Finalización
-                        (Ascendente)</option>
-                {{/if}}
-            </select>
-        </form>
+                    {{#if (compare orderText "finish_at ASC")}}
+                        <option selected value="finish_at ASC">Fecha de
+                            Finalización (Ascendente)</option>
+                    {{else}}
+                        <option value="finish_at ASC">Fecha de Finalización
+                            (Ascendente)</option>
+                    {{/if}}
+                </select>
+            </form>
+            <form
+                action="/tasks/list"
+                method="get"
+                class="select-form"
+                id="done-select-form"
+            >
+                <select name="doned" id="done-select">
+                    {{#if (compare doned "yes-done")}}
+                        <option value="no-done">No Hechas</option>
+                        <option selected value="yes-done">Hechas</option>
+                    {{else}}
+                        <option selected value="no-done">No Hechas</option>
+                        <option value="yes-done">Hechas</option>
+                    {{/if}}
+                </select>
+            </form>
+        </div>
         <p class="list-title">Tareas</p>
-        <button class="add-button button">
-            <a href="/tasks/add">Agregar Tarea
-                <i class="gg-math-plus icon"></i></a>
-        </button>
+        <div class="add-button-container">
+            <button class="add-button button">
+                <a href="/tasks/add">Agregar Tarea
+                    <i class="gg-math-plus icon"></i></a>
+            </button>
+        </div>
     </div>
     <div class="list-container">
         {{#each tasks}}
             <div class="task-container element">
                 <i class="gg-chevron-down expand-icon" id="expand-icon"></i>
-                <h1 class="task-title">{{this.title}}</h1>
+                <div class="task-title-container">
+                    {{#unless this.done}}
+                    <form
+                        action="/tasksDone"
+                        method="post"
+                        class="task-title-container"
+                        id="done-form"
+                    >
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <input
+                            type="checkbox"
+                            name="done"
+                            class="done-check"
+                            id="done-check"
+                        />
+                    </form>
+                    {{/unless}}
+                    <h1 class="task-title">{{this.title}}</h1>
+                </div>
                 <p class="task-category category-expand">{{this.category}}</p>
                 <div class="list-options-container options-expand">
                     <button class="button update-button">

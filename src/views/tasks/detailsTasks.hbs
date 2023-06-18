@@ -16,6 +16,15 @@
             <p class="detail-date-finished">{{task.finish_at}}</p>
         </div>
     </div>
+    <div class="detail-done-container">
+        <p class="detail-done">
+        {{#if task.done}}
+            Hecha
+        {{else}}
+            No Hecha
+        {{/if}}
+        </p>
+    </div>
     <div class="detail-description-container">
         <p class="detail-description">{{task.description}}</p>
     </div>

@@ -20,23 +20,19 @@
         />
     </head>
     <body>
-        <nav class="navbar" id="navbar">
-            {{#if user}}
+        {{#if user}}
+            <nav class="navbar" id="navbar">
                 <div class="menu-container">
-                    <a href="/dashboard" class="link">Dashboard</a>
+                    <a href="/dashboard" class="link"><i
+                            class="gg-home"
+                        ></i></a>
                 </div>
                 <div class="menu-container">
                     <button class="menu-icon" id="menu-icon"><i
                             class="gg-menu"
                         ></i></button>
                 </div>
-            {{else}}
-                <div class="home-container">
-                    <a href="/" class="link"><i class="gg-home"></i></a>
-                </div>
-            {{/if}}
-        </nav>
-        {{#if user}}
+            </nav>
             <aside class="sidebar" id="sidebar">
                 <a
                     href="/profile"

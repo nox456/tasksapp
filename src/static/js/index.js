@@ -6,6 +6,8 @@ import orderList from "./orderList.js";
 import expandTasks from "./expandTasks.js";
 import expandHabits from "./expandHabits.js";
 import logoutButton from "./logoutButton.js";
+import doneTasksCheck from "./doneTasksCheck.js";
+import doneTasksSelect from "./doneTaskSelect.js";
 
 const documentUrl = document.URL;
 
@@ -21,6 +23,8 @@ if (documentUrl.includes("list")) {
     }
     if (documentUrl.includes("tasks")) {
         expandTasks();
+        doneTasksCheck()
+        doneTasksSelect()
     }
 }
 if (documentUrl.includes("update") || documentUrl.includes("add")) {

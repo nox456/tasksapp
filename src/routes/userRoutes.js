@@ -9,6 +9,7 @@ import {
 const router = Router();
 
 router.get("/dashboard", (req, res) => {
+    console.log(req.session.doned)
     res.render("users/dashboard", { user: req.user });
 });
 
