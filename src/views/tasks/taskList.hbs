@@ -7,10 +7,7 @@
                 class="select-form"
                 id="order-form"
             >
-                <select
-                    id="order-container"
-                    name="order"
-                >
+                <select id="order-container" name="order">
                     <option selected hidden>Ordenar</option>
                     {{#if (compare orderText "title ASC")}}
                         <option selected value="title ASC">Titulo (A-Z)</option>
@@ -88,20 +85,24 @@
                 <i class="gg-chevron-down expand-icon" id="expand-icon"></i>
                 <div class="task-title-container">
                     {{#unless this.done}}
-                    <form
-                        action="/tasksDone"
-                        method="post"
-                        class="task-title-container"
-                        id="done-form"
-                    >
-                        <input type="hidden" name="id" value="{{this.id}}" />
-                        <input
-                            type="checkbox"
-                            name="done"
-                            class="done-check"
-                            id="done-check"
-                        />
-                    </form>
+                        <form
+                            action="/tasksDone"
+                            method="post"
+                            class="task-title-container"
+                            id="done-form"
+                        >
+                            <input
+                                type="hidden"
+                                name="id"
+                                value="{{this.id}}"
+                            />
+                            <input
+                                type="checkbox"
+                                name="done"
+                                class="done-check"
+                                id="done-check"
+                            />
+                        </form>
                     {{/unless}}
                     <h1 class="task-title">{{this.title}}</h1>
                 </div>
@@ -161,7 +162,11 @@
                 </div>
             </div>
         {{else}}
-            <p class="no-tasks">No Hay Ninguna Tarea Creada</p>
+            {{#if (compare doned 'yes-done')}}
+                <p class="no-tasks">No Hay Ninguna Tarea Hecha</p>
+            {{else}}
+                <p class="no-tasks">No Hay Ninguna Tarea Creada</p>
+            {{/if}}
         {{/each}}
     </div>
 </div>

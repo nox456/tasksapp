@@ -1,34 +1,42 @@
 <div class="habitslist container">
     <div class="list-title-container">
-        <form action="/habits/list" method="get" id="order-form">
-            <select class="order-container" id="order-container" name="order">
-                <option selected hidden>Ordenar</option>
-                {{#if (compare orderText "title ASC")}}
-                    <option selected value="title ASC">Titulo (A-Z)</option>
-                {{else}}
-                    <option value="title ASC">Titulo (A-Z)</option>
-                {{/if}}
+        <div class="select-form-container">
+            <form action="/habits/list" method="get" class="select-form" id="order-form">
+                <select
+                    class="order-container"
+                    id="order-container"
+                    name="order"
+                >
+                    <option selected hidden>Ordenar</option>
+                    {{#if (compare orderText "title ASC")}}
+                        <option selected value="title ASC">Titulo (A-Z)</option>
+                    {{else}}
+                        <option value="title ASC">Titulo (A-Z)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "title DESC")}}
-                    <option selected value="title DESC">Titulo (Z-A)</option>
-                {{else}}
-                    <option value="title DESC">Titulo (Z-A)</option>
-                {{/if}}
+                    {{#if (compare orderText "title DESC")}}
+                        <option selected value="title DESC">Titulo (Z-A)</option>
+                    {{else}}
+                        <option value="title DESC">Titulo (Z-A)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "time_to_do ASC")}}
-                    <option selected value="time_to_do ASC">Hora (Ascendente)</option>
-                {{else}}
-                    <option value="time_to_do ASC">Hora (Ascendente)</option>
-                {{/if}}
+                    {{#if (compare orderText "time_to_do ASC")}}
+                        <option selected value="time_to_do ASC">Hora
+                            (Ascendente)</option>
+                    {{else}}
+                        <option value="time_to_do ASC">Hora (Ascendente)</option>
+                    {{/if}}
 
-                {{#if (compare orderText "time_to_do DESC")}}
-                    <option selected value="time_to_do DESC">Hora (Descendiente)</option>
-                {{else}}
-                    <option value="time_to_do DESC">Hora (Descendiente)</option>
-                {{/if}}
+                    {{#if (compare orderText "time_to_do DESC")}}
+                        <option selected value="time_to_do DESC">Hora
+                            (Descendiente)</option>
+                    {{else}}
+                        <option value="time_to_do DESC">Hora (Descendiente)</option>
+                    {{/if}}
 
-            </select>
-        </form>
+                </select>
+            </form>
+        </div>
         <p class="list-title">Habitos</p>
         <button class="add-button button">
             <a href="/habits/add">Agregar Habito

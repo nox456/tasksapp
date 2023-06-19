@@ -8,6 +8,7 @@ import expandHabits from "./expandHabits.js";
 import logoutButton from "./logoutButton.js";
 import doneTasksCheck from "./doneTasksCheck.js";
 import doneTasksSelect from "./doneTaskSelect.js";
+import checkHabitDays from "./checkHabitDays.js";
 
 const documentUrl = document.URL;
 
@@ -20,6 +21,7 @@ if (documentUrl.includes("list")) {
     orderList();
     if (documentUrl.includes("habit")) {
         expandHabits();
+        checkHabitDays()
     }
     if (documentUrl.includes("tasks")) {
         expandTasks();
