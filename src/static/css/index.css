@@ -70,6 +70,9 @@ body {
     cursor: pointer;
     transition: box-shadow 300ms;
 }
+.button:focus {
+    outline: none;
+}
 .button * {
     cursor: pointer;
 }

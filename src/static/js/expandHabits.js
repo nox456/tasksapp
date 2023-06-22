@@ -23,6 +23,7 @@ export default function expandHabits() {
                     "gg-chevron-down",
                     "gg-chevron-up"
                 );
+                elem.style.cursor = "default"
             } else {
                 category[ind].style.display = "none";
                 options[ind].style.display = "none";
@@ -31,6 +32,7 @@ export default function expandHabits() {
                     "gg-chevron-up",
                     "gg-chevron-down"
                 );
+                elem.style.cursor = "pointer"
             }
         });
     });
