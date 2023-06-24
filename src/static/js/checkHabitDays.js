@@ -16,8 +16,7 @@ export default function checkHabitDays() {
         const days = Array.from(days_container.querySelectorAll(".selected"))
         days.forEach(day => {
             if (day.innerText == days_week[today]) {
-                habit.style.borderColor = "#00F"
-                habit.style.boxShadow = "0 10px 20px #229"
+                habit.classList.add("habit-today")
             }
         })
     })

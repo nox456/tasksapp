@@ -29,7 +29,7 @@
 }
 .done-check {
     appearance: none;
-    background-color: transparent;
+    background-color: #303030;
     border: 2px solid #FFF;
     height: 1.5em;
     width: 1.5em;

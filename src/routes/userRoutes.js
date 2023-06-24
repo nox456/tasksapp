@@ -5,11 +5,16 @@ import {
     getHabitsAndTasks,
     deleteAccount,
 } from "../controllers/userControllers.js";
+import { selectHabitData } from "../controllers/querys/habitsQuerys.js";
+import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
 
 const router = Router();
 
-router.get("/dashboard", (req, res) => {
-    res.render("users/dashboard", { user: req.user });
+router.get("/dashboard", async (req, res) => {
+    const user_id = req.user.id
+    const data = await selectHabitData("title ASC", user_id)
+
+    res.render("users/dashboard", { user: req.user, habits: data.rows, styles: "habits" });
 });
 
 router.get("/profile", getHabitsAndTasks);

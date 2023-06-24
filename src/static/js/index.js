@@ -9,6 +9,8 @@ import logoutButton from "./logoutButton.js";
 import doneTasksCheck from "./doneTasksCheck.js";
 import doneTasksSelect from "./doneTaskSelect.js";
 import checkHabitDays from "./checkHabitDays.js";
+import showHabitsToday from "./showTodayHabits.js";
+import expandTodayHabits from "./expandTodayHabits.js";
 
 const documentUrl = document.URL;
 
@@ -31,4 +33,9 @@ if (documentUrl.includes("list")) {
 }
 if (documentUrl.includes("update") || documentUrl.includes("add")) {
     selectDays();
+}
+if (documentUrl.includes("dashboard")) {
+    checkHabitDays()
+    showHabitsToday()
+    expandTodayHabits()
 }
