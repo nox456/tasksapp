@@ -1,4 +1,4 @@
-export default function expandTodayHabits() {
+export default function expandTodayElements() {
     const elements = Array.from(document.getElementsByClassName("element"));
     const expandIcon = Array.from(
         document.getElementsByClassName("expand-icon")

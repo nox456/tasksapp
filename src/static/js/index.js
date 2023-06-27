@@ -10,7 +10,8 @@ import doneTasksCheck from "./doneTasksCheck.js";
 import doneTasksSelect from "./doneTaskSelect.js";
 import checkHabitDays from "./checkHabitDays.js";
 import showHabitsToday from "./showTodayHabits.js";
-import expandTodayHabits from "./expandTodayHabits.js";
+import expandTodayElements from "./expandTodayElements.js";
+import noElementsMessage from "./noElementsMessage.js";
 
 const documentUrl = document.URL;
 
@@ -37,5 +38,7 @@ if (documentUrl.includes("update") || documentUrl.includes("add")) {
 if (documentUrl.includes("dashboard")) {
     checkHabitDays()
     showHabitsToday()
-    expandTodayHabits()
+    expandTodayElements()
+    doneTasksCheck()
+    noElementsMessage()
 }

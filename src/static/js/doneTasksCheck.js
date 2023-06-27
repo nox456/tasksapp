@@ -1,10 +1,12 @@
-export default function doneTasks() {
-    const done_check = document.getElementById("done-check");
-    const done_form = document.getElementById("done-form");
+export default function doneTasksCheck() {
+    const done_check = Array.from(document.getElementsByClassName("done-check"));
+    const done_form = Array.from(document.getElementsByClassName("done-form"));
 
-    if (done_check) {
-        done_check.addEventListener("click", () => {
-            done_form.submit();
-        });
+    if (done_check.length > 0) {
+        done_check.forEach((check,id) => {
+            check.addEventListener("click", () => {
+                done_form[id].submit()
+            })
+        })
     }
 }

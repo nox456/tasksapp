@@ -10,12 +10,19 @@
     </section>
     <section class="dashboard-section third">
         <div class="habits-section">
-            <h1 class="habits-section-title">Habitos de Hoy</h1>
+            <h1 class="section-title">Habitos de Hoy</h1>
+            <hr class="line-div">
             <div class="habits-section-today">
                 {{> listHabits}}                
             </div>
         </div>
-        <div class="tasks-section"></div>
+        <div class="tasks-section">
+            <h1 class="section-title">Tareas de Hoy</h1>
+            <hr class="line-div">
+            <div class="tasks-section-today">
+                {{> listTasks}}
+            </div>
+        </div>
     </section>
     <section class="dashboard-section fourth"></section>
 </div>

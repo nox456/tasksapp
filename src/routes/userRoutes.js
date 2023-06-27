@@ -11,10 +11,24 @@ import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
 const router = Router();
 
 router.get("/dashboard", async (req, res) => {
-    const user_id = req.user.id
-    const data = await selectHabitData("title ASC", user_id)
+    const user_id = req.user.id;
+    const habitsData = await selectHabitData("title ASC", user_id);
+    const tasksData = await selectTaskData("title ASC", user_id, false);
+    const todayTasks = tasksData.rows.filter(task => {
+        return new Date(task.finish_at).toDateString() == new Date().toDateString()
+    })
 
-    res.render("users/dashboard", { user: req.user, habits: data.rows, styles: "habits" });
+    const message = req.session.message
+    delete req.session.message
+
+    res.render("users/dashboard", {
+        user: req.user,
+        habits: habitsData.rows,
+        styles: "habits",
+        styles2: "tasks",
+        tasks: todayTasks,
+        message
+    });
 });
 
 router.get("/profile", getHabitsAndTasks);

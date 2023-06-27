@@ -51,13 +51,15 @@ export const selectTaskData = async (order, user_id, done) => {
     }
 };
 
-export const selectTaskDataById = async (id) => {
-    const data = taskData.map((e, i) => {
+export const selectTaskDataById = async (id, url) => {
+    const data = taskData.map((e) => {
         if (e == "created_at") {
             return "to_char(created_at,'DD Mon YYYY') as created_at";
         }
         if (e == "finish_at") {
-            return "to_char(finish_at,'DD Mon YYYY') as finish_at";
+            return `to_char(finish_at,'${
+                url.includes("detail") ? "DD Mon YYYY" : "YYYY-MM-DD"
+            }') as finish_at`;
         }
         return e;
     });

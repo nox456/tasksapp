@@ -65,7 +65,7 @@ export const deleteTask = async (req, res) => {
 export const getTasksData = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectTaskDataById(id, req.url);
+    const data = await selectTaskDataById(id,req.url);
 
     res.render("tasks/updateTasks", {
         styles: "tasks",
@@ -77,7 +77,7 @@ export const getTasksData = async (req, res) => {
 export const updateTasks = async (req, res) => {
     const { id, title, description, finished_at, category } = req.query;
 
-    await updateTaskData([title, description, finished_at, category], id);
+    await updateTaskData([title, description, finished_at, category, false], id);
 
     req.session.message = "Tarea Modificada con Éxito";
     res.redirect("/tasks/list");
@@ -86,7 +86,7 @@ export const updateTasks = async (req, res) => {
 export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectTaskDataById(id);
+    const data = await selectTaskDataById(id,req.url);
 
     res.render("tasks/detailsTasks", {
         styles: "tasks",
@@ -99,5 +99,5 @@ export const doneTask = async (req, res) => {
     const { id } = req.body;
     await updateDoneTask(id);
     req.session.message = "Tarea Hecha";
-    res.redirect("/tasks/list");
+    res.redirect("back");
 };
