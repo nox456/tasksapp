@@ -1,17 +1,5 @@
 import pool from "../../database/db.js";
 
-export const getUserTasks = async (user_id) => {
-    return await pool.query("SELECT * FROM tasks WHERE user_id = $1", [
-        user_id,
-    ]);
-};
-
-export const getUserHabits = async (user_id) => {
-    return await pool.query("SELECT * FROM habits WHERE user_id = $1", [
-        user_id,
-    ]);
-};
-
 export const getUserByUsername = async (username) => {
     return await pool.query("SELECT * FROM users WHERE username = $1", [
         username,
@@ -35,3 +23,11 @@ export const updatePassword = async (username, new_password) => {
 export const deleteUser = async (username) => {
     await pool.query("DELETE FROM users WHERE username = $1", [username]);
 };
+
+export const addPoints = async (id) => {
+    await pool.query("UPDATE users SET points = points + 5 WHERE id = $1", [id])
+}
+
+export const getPoints = async (user_id) => {
+    return await pool.query("SELECT points FROM users WHERE id = $1", [user_id])
+}

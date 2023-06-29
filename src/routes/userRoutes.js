@@ -2,8 +2,8 @@ import { Router } from "express";
 import {
     changeUsername,
     changePassword,
-    getHabitsAndTasks,
-    deleteAccount,
+    getUserProfile,
+    deleteAccount
 } from "../controllers/userControllers.js";
 import { selectHabitData } from "../controllers/querys/habitsQuerys.js";
 import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
@@ -31,7 +31,7 @@ router.get("/dashboard", async (req, res) => {
     });
 });
 
-router.get("/profile", getHabitsAndTasks);
+router.get("/profile", getUserProfile);
 
 router.get("/profile/change-username", (req, res) => {
     const message = req.session.message;

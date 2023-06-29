@@ -27,5 +27,6 @@ CREATE TABLE habits (
 CREATE TABLE users (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     username TEXT NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    points INT NOT NULL DEFAULT 0
 );

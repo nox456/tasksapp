@@ -1,28 +1,24 @@
 import {
     deleteUser,
     getUserByUsername,
-    getUserHabits,
-    getUserTasks,
     updatePassword,
     updateUsername,
+    getPoints
 } from "./querys/userQuerys.js";
 import User from "../models/user.js";
 
-export const getHabitsAndTasks = async (req, res) => {
+export const getUserProfile = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
-    const tasks = await getUserTasks(req.user.id);
-    const habits = await getUserHabits(req.user.id);
-
-    const tasksCount = tasks.rows.length;
-    const habitsCount = habits.rows.length;
+    const id = req.user.id
+    const data = await getPoints(id)
+    const points = data.rows[0].points
 
     res.render("users/profile", {
         styles: "profile",
         message,
         user: req.user,
-        tasksCount,
-        habitsCount,
+        points
     });
 };
 
