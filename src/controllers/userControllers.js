@@ -3,7 +3,9 @@ import {
     getUserByUsername,
     updatePassword,
     updateUsername,
-    getPoints
+    getPoints,
+    getHabitsCount,
+    getTasksCount
 } from "./querys/userQuerys.js";
 import User from "../models/user.js";
 
@@ -11,8 +13,8 @@ export const getUserProfile = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
     const id = req.user.id
-    const data = await getPoints(id)
-    const points = data.rows[0].points
+    const pointsData = await getPoints(id)
+    const points = pointsData.rows[0].points
 
     res.render("users/profile", {
         styles: "profile",

@@ -31,3 +31,11 @@ export const addPoints = async (id) => {
 export const getPoints = async (user_id) => {
     return await pool.query("SELECT points FROM users WHERE id = $1", [user_id])
 }
+
+export const getTasksCount = async (id) => {
+    return await pool.query("SELECT * FROM tasks WHERE user_id = $1", [id])
+}
+
+export const getHabitsCount = async (id) => {
+    return await pool.query("SELECT * FROM habits WHERE user_id = $1", [id])
+}

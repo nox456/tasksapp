@@ -3,23 +3,38 @@ import {
     changeUsername,
     changePassword,
     getUserProfile,
-    deleteAccount
+    deleteAccount,
 } from "../controllers/userControllers.js";
 import { selectHabitData } from "../controllers/querys/habitsQuerys.js";
 import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
+import {
+    getHabitsCount,
+    getTasksCount,
+    getPoints,
+} from "../controllers/querys/userQuerys.js";
 
 const router = Router();
 
 router.get("/dashboard", async (req, res) => {
-    const user_id = req.user.id;
-    const habitsData = await selectHabitData("title ASC", user_id);
-    const tasksData = await selectTaskData("title ASC", user_id, false);
-    const todayTasks = tasksData.rows.filter(task => {
-        return new Date(task.finish_at).toDateString() == new Date().toDateString()
-    })
+    const id = req.user.id;
+    const habitsData = await selectHabitData("title ASC", id);
+    const tasksData = await selectTaskData("title ASC", id, false);
+    const todayTasks = tasksData.rows.filter((task) => {
+        return (
+            new Date(task.finish_at).toDateString() == new Date().toDateString()
+        );
+    });
+    const pointsData = await getPoints(id)
+    const points = pointsData.rows[0].points
+    const tasksCountData = await getTasksCount(id)
+    const habitsCountData = await getHabitsCount(id)
+    const tasksCount = tasksCountData.rows.length
+    const tasksDonedCount = tasksCountData.rows.filter(t => t.done == true).length
+    const habitsCount = habitsCountData.rows.length
 
-    const message = req.session.message
-    delete req.session.message
+
+    const message = req.session.message;
+    delete req.session.message;
 
     res.render("users/dashboard", {
         user: req.user,
@@ -27,7 +42,11 @@ router.get("/dashboard", async (req, res) => {
         styles: "habits",
         styles2: "tasks",
         tasks: todayTasks,
-        message
+        message,
+        tasksCount,
+        tasksDonedCount,
+        habitsCount,
+        points
     });
 });
 

@@ -454,6 +454,10 @@ a {
     height: 100%;
     grid-column: 1;
     border-bottom: 2px solid #777;
+    padding: .5em;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 40% 60%;
 }
 .dashboard-section.second {
     display: flex;
@@ -513,6 +517,27 @@ a {
 }
 .third .line-div {
     width: 30%;
+}
+.first .data-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: #FFF;
+    grid-row: 1;
+    grid-column: 2;
+}
+.data-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.data-section > div > .line-div {
+    width: 120%;
+}
+.first .user-img-section {
+    border: 2px solid #0FF;
+    grid-row: 1;
+    grid-column: 1;
 }
 .main-buttons-container {
     width: 600px;

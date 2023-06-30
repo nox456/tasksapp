@@ -1,5 +1,21 @@
 <div class="dashboard container">
-    <section class="dashboard-section first"></section>
+    <section class="dashboard-section first">
+        <div class="user-img-section"></div>
+        <div class="data-section">
+            <div>
+                <p class="tasks_doned">Tareas Hechas: {{tasksDonedCount}}</p>
+                <hr class="line-div">
+                <p class="tasks_total">Tareas Totales: {{tasksCount}}</p>
+                <hr class="line-div">
+            </div>
+            <div>
+                <p class="habits_total">Habitos Totales: {{habitsCount}}</p>
+                <hr class="line-div">
+                <p class="points">Puntos: {{points}}</p>
+                <hr class="line-div">
+            </div>
+        </div>
+    </section>
     <section class="dashboard-section second">
         <button class="main-button">
             <a href="/tasks/list">Lista de Tareas</a>
