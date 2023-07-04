@@ -39,3 +39,7 @@ export const getTasksCount = async (id) => {
 export const getHabitsCount = async (id) => {
     return await pool.query("SELECT * FROM habits WHERE user_id = $1", [id])
 }
+
+export const userImg = async (id,file_name) => {
+    return await pool.query("UPDATE users SET user_img = $1 WHERE id = $2",[file_name,id])
+}

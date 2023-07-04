@@ -4,6 +4,7 @@ import {
     changePassword,
     getUserProfile,
     deleteAccount,
+    changeUserImg,
 } from "../controllers/userControllers.js";
 import { selectHabitData } from "../controllers/querys/habitsQuerys.js";
 import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
@@ -41,6 +42,7 @@ router.get("/dashboard", async (req, res) => {
         habits: habitsData.rows,
         styles: "habits",
         styles2: "tasks",
+        styles3: "profile",
         tasks: todayTasks,
         message,
         tasksCount,
@@ -87,5 +89,7 @@ router.get("/profile/delete-account", (req, res) => {
 });
 
 router.post("/deleteAccount", deleteAccount);
+
+router.post("/profile/userImg", changeUserImg)
 
 export default router;

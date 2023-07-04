@@ -8,7 +8,7 @@ export default class User {
     }
     async save() {
         const data = await pool.query(
-            "INSERT INTO users VALUES (DEFAULT, $1, $2) RETURNING id",
+            "INSERT INTO users VALUES (DEFAULT, $1, $2,DEFAULT) RETURNING id",
             [this.username, this.password]
         );
         this.id = data.rows[0].id;

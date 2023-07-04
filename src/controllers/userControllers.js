@@ -4,8 +4,7 @@ import {
     updatePassword,
     updateUsername,
     getPoints,
-    getHabitsCount,
-    getTasksCount
+    userImg
 } from "./querys/userQuerys.js";
 import User from "../models/user.js";
 
@@ -81,3 +80,10 @@ export const deleteAccount = async (req, res) => {
         res.redirect("/profile/delete-account");
     }
 };
+
+export const changeUserImg = async (req,res) => {
+    const { id } = req.user
+    const { filename } = req.file
+    await userImg(id,filename)
+    res.redirect("/profile")
+}

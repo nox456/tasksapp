@@ -17,6 +17,9 @@
         {{#if styles2}}
             <link rel="stylesheet" href="/css/{{styles2}}.css">
         {{/if}}
+        {{#if styles3}}
+            <link rel="stylesheet" href="/css/{{styles3}}.css">
+        {{/if}}
     </head>
     <body>
         {{#if user}}
@@ -33,15 +36,13 @@
                 </div>
             </nav>
             <aside class="sidebar" id="sidebar">
-                <a
-                    href="/profile"
-                    class="sidebar-username"
-                >{{user.username}}</a>
-                <hr class="line-div" />
                 <ul>
                     <li><a href="/dashboard" class="link">Dashboard</a></li>
+                    <hr class="line-div">
                     <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
+                    <hr class="line-div">
                     <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
+                    <hr class="line-div">
                     <li class="logout" id="logout-button"><button
                             class="button"
                         >Cerrar Sesion</button></li>

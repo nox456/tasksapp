@@ -1,6 +1,15 @@
 <div class="dashboard container">
     <section class="dashboard-section first">
-        <div class="user-img-section"></div>
+        <div class="user-img-section">
+            <div class="user-img-container">
+                {{#if (compare user.user_img 'No photo')}}
+                    <p class="no-user-img">Sin Imagen</p>
+                {{else}}
+                    <img src="/{{user.user_img}}" class="user-img">
+                {{/if}}
+            </div>
+            <a href="/profile" class="username-container">{{user.username}}</a>
+        </div>
         <div class="data-section">
             <div>
                 <p class="tasks_doned">Tareas Hechas: {{tasksDonedCount}}</p>

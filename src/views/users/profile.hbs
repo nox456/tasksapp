@@ -1,6 +1,18 @@
 <div class="profile container">
     <div class="profile-data">
-        <h1 class="user-name">{{user.username}}</h1>
+        <div class="user-title">
+            <div class="user-img-container">
+                {{#if (compare user.user_img 'No photo')}}
+                    <form action="/profile/userImg" method="post" id="add-user-form" enctype="multipart/form-data">
+                        <label class="no-user-img-label" for="no-user-img">Elija una Imagen</label>
+                        <input type="file" class="no-user-img" id="no-user-img" name="user_img">
+                    </form>
+                {{else}}
+                    <img src="/{{user.user_img}}" class="user-img" />
+                {{/if}}
+            </div>
+            <h1 class="user-name">{{user.username}}</h1>
+        </div>
         <div class="user-data">
             <div class="points">Puntos: {{points}}</div>
         </div>

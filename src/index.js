@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
-import { join, dirname } from "path";
+import { join, dirname, extname } from "path";
 import { fileURLToPath } from "url";
 import session from "express-session";
 import indexRoutes from "./routes/indexRoutes.js";
@@ -9,6 +9,7 @@ import tasksRoutes from "./routes/tasksRoutes.js";
 import habitsRoutes from "./routes/habitsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
+import multer from "multer";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +37,7 @@ app.engine(
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "static")));
+app.use(express.static(join(__dirname,"public/uploads")))
 app.use(express.urlencoded({ extended: false }));
 app.use(
     session({
@@ -46,6 +48,20 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(multer({
+    storage: multer.diskStorage({
+        destination: join(__dirname,"public/uploads"),
+        filename: (req, file, cb) => {
+            const user_id = req.user.id
+            cb(null,user_id + extname(file.originalname))
+        }
+    }),
+    fileFilter: (req, file, cb) => {
+        const types = [".jpg",".jpeg",".png"]
+        const ext = extname(file.originalname)
+        cb(null,types.includes(ext))
+    }
+}).single("user_img"))
 
 // Routes
 app.use(indexRoutes);

@@ -28,5 +28,6 @@ CREATE TABLE users (
     id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
     username TEXT NOT NULL,
     password TEXT NOT NULL,
-    points INT NOT NULL DEFAULT 0
+    points INT NOT NULL DEFAULT 0,
+    user_img TEXT NOT NULL DEFAULT 'No photo'
 );

@@ -12,6 +12,7 @@ import checkHabitDays from "./checkHabitDays.js";
 import showHabitsToday from "./showTodayHabits.js";
 import expandTodayElements from "./expandTodayElements.js";
 import noElementsMessage from "./noElementsMessage.js";
+import addUserImg from "./addUserImg.js";
 
 const documentUrl = document.URL;
 
@@ -41,4 +42,7 @@ if (documentUrl.includes("dashboard")) {
     expandTodayElements()
     doneTasksCheck()
     noElementsMessage()
+}
+if (documentUrl.includes("profile")) {
+    addUserImg()
 }

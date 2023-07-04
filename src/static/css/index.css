@@ -400,11 +400,6 @@ a {
     display: none;
     z-index: 15;
 }
-.sidebar-username {
-    color: #fff;
-    font-size: 1.9em;
-    text-align: center;
-}
 .sidebar .link {
     transition: all 200ms;
     color: #999;
@@ -535,9 +530,24 @@ a {
     width: 120%;
 }
 .first .user-img-section {
-    border: 2px solid #0FF;
     grid-row: 1;
     grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+.user-img-section > .user-img-container {
+    width: 4em;
+    height: 4em;
+}
+.user-img-section > .user-img-container .user-img {
+    object-fit: cover;
+    width: 8em;
+}
+.user-img-section > .username-container {
+    color: #FFF;
+    font-size: 1.5em;
 }
 .main-buttons-container {
     width: 600px;
