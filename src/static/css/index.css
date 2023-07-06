@@ -12,6 +12,10 @@ body {
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 1fr 9fr;
 }
+@media screen and (max-width: 600px) {
+    body {
+    }
+}
 .main-container {
     grid-column: span 2;
     grid-row: span 2; position: relative;
@@ -19,6 +23,11 @@ body {
     flex-direction: column;
     display: flex;
     gap: 2em;
+}
+@media screen and (max-width: 600px) {
+    .main-container {
+        padding: 1em;
+    }
 }
 .main-title {
     color: #fff;
@@ -60,6 +69,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+@media screen and (max-width: 600px) {
+    .container {
+        justify-content: start;
+    }
 }
 .button {
     border: none;
@@ -557,6 +571,16 @@ a {
     display: flex;
     gap: 2em;
     justify-content: center;
+}
+@media screen and (max-width: 600px) {
+    .main-buttons-container {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 .main-button {
     background-color: transparent;
