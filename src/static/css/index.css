@@ -12,10 +12,6 @@ body {
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 1fr 9fr;
 }
-@media screen and (max-width: 600px) {
-    body {
-    }
-}
 .main-container {
     grid-column: span 2;
     grid-row: span 2; position: relative;
@@ -344,6 +340,11 @@ a {
     grid-column: span 2;
     box-shadow: 0px 0px 15px #000;
 }
+@media screen and (max-width: 600px) {
+    .navbar {
+        padding: .5em;
+    }
+}
 .navbar .link {
     color: #fff;
     padding: .7em;
@@ -361,7 +362,7 @@ a {
     border-radius: 7px;
     border: none;
     font-size: 1em;
-    color: #fff;
+    color: #FFF;
     transition: background-color 300ms ease-out;
 }
 .navbar .menu-icon:focus-visible {
@@ -424,7 +425,7 @@ a {
     color: #fff;
 }
 .line-div {
-    border-color: #999;
+    border: 1px solid #999;
     width: 100%;
 }
 .logout-confirm {
@@ -458,6 +459,11 @@ a {
     border-radius: 0.3em;
     border: 2px solid #777;
 }
+@media screen and (max-width: 600px) {
+    .dashboard {
+        grid-template-rows: 20% 20% 60%;
+    }
+}
 .dashboard-section.first {
     grid-row: 1;
     height: 100%;
@@ -467,6 +473,12 @@ a {
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 40% 60%;
+}
+@media screen and (max-width: 600px) {
+    .dashboard-section.first {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
 }
 .dashboard-section.second {
     display: flex;
@@ -479,6 +491,13 @@ a {
     border-left: 2px solid #777;
     border-bottom: 2px solid #777;
 }
+@media screen and (max-width: 600px) {
+    .dashboard-section.second {
+        grid-row: 2;
+        grid-column: 1 / span 2;
+        border-left: none;
+    }
+}
 .dashboard-section.third {
     display: grid;
     grid-template-columns: 100%;
@@ -486,6 +505,12 @@ a {
     grid-row: 2;
     grid-column: 1 / span 2;
     height: 100%;
+}
+@media screen and (max-width: 600px) {
+    .dashboard-section.third {
+        grid-row: 3;
+        grid-column: 1 / span 2;
+    }
 }
 .third .habits-section,
 .third .tasks-section {
@@ -497,6 +522,16 @@ a {
     flex-direction: column;
     padding: 2em;
 }
+@media screen and (max-width: 600px) {
+    .third .tasks-section {
+        border-bottom: none;
+    }
+    .third .habits-section .line-div,
+    .third .tasks-section .line-div {
+        width: 60%;
+        border: 1px solid #999;
+    }
+}
 .third .tasks-section {
     height: 100%;
     grid-row: 2;
@@ -505,6 +540,12 @@ a {
 .habits-section-today,
 .tasks-section-today {
     flex-grow: 1;
+}
+@media screen and (max-width: 600px) {
+    .habits-section-today,
+    .tasks-section-today {
+        font-size: .8em;
+    }
 }
 .third .list-container {
     height: 100%;
@@ -524,6 +565,11 @@ a {
 .section-title {
     color: #FFF;
 }
+@media screen and (max-width: 600px) {
+    .section-title {
+        font-size: 1em;
+    }
+}
 .third .line-div {
     width: 30%;
 }
@@ -535,6 +581,15 @@ a {
     grid-row: 1;
     grid-column: 2;
 }
+@media screen and (max-width: 600px) {
+    .first .data-section {
+        font-size: .7em;
+    }
+    .first .data-section p {
+        text-align: center;
+        width: 60%;
+    }
+}
 .data-section > div {
     display: flex;
     flex-direction: column;
@@ -543,6 +598,11 @@ a {
 .data-section > div > .line-div {
     width: 120%;
 }
+@media screen and (max-width: 600px) {
+    .data-section > div > .line-div {
+        width: 60%;
+    }
+}
 .first .user-img-section {
     grid-row: 1;
     grid-column: 1;
@@ -550,6 +610,11 @@ a {
     align-items: center;
     justify-content: center;
     gap: 1em;
+}
+@media screen and (max-width: 600px) {
+    .first .user-img-section {
+        flex-direction: column;
+    }
 }
 .user-img-section > .user-img-container {
     width: 4em;
@@ -589,6 +654,11 @@ a {
     background-color: #494;
     border-radius: 5px;
     transition: box-shadow 300ms;
+}
+@media screen and (max-width: 600px) {
+    .main-button {
+        font-size: .7em;
+    }
 }
 .main-button:hover {
     box-shadow: 0px 0px 10px #494;
