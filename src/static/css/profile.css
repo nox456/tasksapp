@@ -12,15 +12,31 @@
     width: 70%;
     height: 80%;
 }
+@media screen and (max-width: 600px) {
+    .profile {
+        width: 100%;
+        height: 100%;
+    }
+}
 .profile-data {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+@media screen and (max-width: 600px) {
+    .profile-data {
+        flex-direction: column;
+    }
+}
 .user-name {
     font-size: 3em;
     color: #fff;
+}
+@media screen and (max-width: 600px) {
+    .user-name {
+        font-size: 2em;
+    }
 }
 .user-data {
     color: #bbb;
@@ -32,6 +48,11 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+@media screen and (max-width: 600px) {
+    .profile-options {
+        width: 100%;
+    }
 }
 .profile-options .link {
     font-size: 1em;
@@ -56,6 +77,11 @@
     display: flex;
     gap: 1em;
     align-items: center;
+}
+@media screen and (max-width: 600px) {
+    .user-title {
+        flex-direction: column;
+    }
 }
 
 .user-img-container {
@@ -96,6 +122,11 @@
     gap: 2.5em;
     color: #fff;
 }
+@media screen and (max-width: 600px) {
+    .change > h1 {
+        text-align: center;
+    }
+}
 .change form,
 .delete-account form {
     display: flex;
@@ -103,6 +134,12 @@
     gap: 1em;
     width: 40%;
     flex-direction: column;
+}
+@media screen and (max-width: 600px) {
+    .change form,
+    .delete-account form {
+        width: 80%;
+    }
 }
 .change form div,
 .delete-account form div {
@@ -112,6 +149,7 @@
 }
 .name {
     margin-top: auto;
+    border: 2px solid;
 }
 .label {
     color: #fff;
