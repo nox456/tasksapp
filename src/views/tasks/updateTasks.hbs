@@ -1,5 +1,5 @@
 <div class="addtask container">
-    <h1>Actualizar Tarea</h1>
+    <h1 class="container-title">Actualizar Tarea</h1>
     <form action="/tasksUpdate" class="add-form" method="get">
         <input type="hidden" name="id" value="{{tasks.id}}">
         {{> taskInputs title=tasks.title description=tasks.description created_at=tasks.created_at finish_at=tasks.finish_at

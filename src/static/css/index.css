@@ -212,7 +212,6 @@ body {
 }
 .save {
     background-color: #494;
-    margin-top: auto;
     border: none;
     cursor: pointer;
 }
@@ -229,7 +228,9 @@ body {
 }
 @media screen and (max-width: 600px) {
     .add-form {
-        height: fit-content;
+        height: 94%;
+        gap: 0;
+        justify-content: start;
     }
 }
 .add-form > div {
@@ -240,8 +241,10 @@ body {
 }
 @media screen and (max-width: 600px) {
     .add-form > div {
+        gap: .5em;
         flex-direction: column;
-        gap: 0;
+        justify-content: center;
+        height: 90%;
     }
 }
 .add-form .column {
@@ -254,6 +257,8 @@ body {
 @media screen and (max-width: 600px) {
     .add-form .column {
         width: 100%;
+        height: 30%;
+        gap: .5em;
     }
 }
 .add-form .days-container,
@@ -264,13 +269,15 @@ body {
     color: #fff;
 }
 @media screen and (max-width: 600px) {
-    .add-form .finished {
+    .add-form .finished,
+    .add-form .time {
         width: 100%;
     }
 }
 .save {
     background-color: #494;
     border: none;
+    margin-top: auto;
     cursor: pointer;
 }
 .save:hover {
