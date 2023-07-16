@@ -75,6 +75,12 @@
     border-bottom-right-radius: 0.8em;
     color: #fff;
 }
+@media screen and (max-width: 600px) {
+    .tasksDetails {
+        grid-template-columns: 40% 20% 40%;
+        grid-template-rows: 20% 10% 10% 60%;
+    }
+}
 .details > div {
     color: #fff;
 }
@@ -91,9 +97,18 @@
     border-bottom: none;
     padding-left: 0.5em;
 }
+@media screen and (max-width: 600px) {
+    .detail-title-container {
+        grid-row: 1;
+        grid-column: 1 / span 3;
+        border: 2px solid #777;
+        border-bottom: none;
+        border-radius: .3em .3em 0 0;
+    }
+}
 .detail-date-container {
     grid-row: 1 / span 1;
-    grid-column: 2 / span1;
+    grid-column: 2 / span 2;
     height: 100%;
     text-align: right;
     display: flex;
@@ -103,6 +118,17 @@
     border: 2px solid #777;
     border-radius: 0 0.5em 0 0;
     border-bottom: none;
+}
+@media screen and (max-width: 600px) {
+    .detail-date-container {
+        grid-row: 3 / span 1;
+        grid-column: 1 / span 3;
+        flex-direction: row;
+        justify-content: space-around;
+        border: 2px solid #777;
+        border-top: none;
+        border-radius: 0;
+    }
 }
 .detail-date-title {
     color: #888;
@@ -124,6 +150,13 @@
     font-size: 0.8em;
     border: 2px solid #777;
 }
+@media screen and (max-width: 600px) {
+    .detail-category-container {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+        border-right: none;
+    }
+}
 .detail-category-title {
     color: #888;
 }
@@ -141,6 +174,13 @@
     padding: .5em;
     border: 2px solid #777;
 }
+@media screen and (max-width: 600px) {
+    .detail-done-container {
+        grid-row: 2 / span 1;
+        grid-column: 3 / span 1;
+        justify-content: center;
+    }
+}
 .detail-description-container {
     grid-row: 3 / span 1;
     grid-column: 1 / span 2;
@@ -150,4 +190,10 @@
     border: 2px solid #777;
     border-radius: 0 0 0.5em 0.5em;
     border-top: none;
+}
+@media screen and (max-width: 600px) {
+    .detail-description-container {
+        grid-row: 4 / span 1;
+        grid-column: 1 / span 3;
+    }
 }
