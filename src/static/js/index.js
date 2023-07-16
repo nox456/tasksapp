@@ -1,48 +1,55 @@
-import sidebar from "./sidebar.js";
-import message from "./message.js";
-import confirmDelete from "./confirmDelete.js";
-import selectDays from "./selectDays.js";
-import orderList from "./orderList.js";
-import expandTasks from "./expandTasks.js";
-import expandHabits from "./expandHabits.js";
-import logoutButton from "./logoutButton.js";
-import doneTasksCheck from "./doneTasksCheck.js";
-import doneTasksSelect from "./doneTaskSelect.js";
-import checkHabitDays from "./checkHabitDays.js";
-import showHabitsToday from "./showTodayHabits.js";
-import expandTodayElements from "./expandTodayElements.js";
-import noElementsMessage from "./noElementsMessage.js";
-import addUserImg from "./addUserImg.js";
-
 const documentUrl = document.URL;
 
 // Main functions
-logoutButton();
-sidebar();
-message();
+const message = await import("./message.js");
+message.default();
+if (
+    documentUrl != "http://192.168.1.3:3000/" &&
+    !documentUrl.includes("signup") &&
+    !documentUrl.includes("signin")
+) {
+    const logoutButton = await import("./logoutButton.js"),
+        sidebar = await import("./sidebar.js");
+    logoutButton.default();
+    sidebar.default();
+}
 if (documentUrl.includes("list")) {
-    confirmDelete();
-    orderList();
+    const confirmDelete = await import("./confirmDelete.js"),
+        orderList = await import("./orderList.js");
+    confirmDelete.default();
+    orderList.default();
     if (documentUrl.includes("habit")) {
-        expandHabits();
-        checkHabitDays()
+        const expandHabits = await import("./expandHabits.js"),
+            checkHabitDays = await import("./checkHabitDays.js");
+        expandHabits.default();
+        checkHabitDays.default();
     }
     if (documentUrl.includes("tasks")) {
-        expandTasks();
-        doneTasksCheck()
-        doneTasksSelect()
+        const expandTasks = await import("./expandTasks.js"),
+            doneTasksCheck = await import("./doneTasksCheck"),
+            doneTasksSelect = await import("./doneTaskSelect.js");
+        expandTasks.default();
+        doneTasksCheck.default();
+        doneTasksSelect.default();
     }
 }
 if (documentUrl.includes("update") || documentUrl.includes("add")) {
-    selectDays();
+    const selectDays = await import("./selectDays.js");
+    selectDays.default();
 }
 if (documentUrl.includes("dashboard")) {
-    checkHabitDays()
-    showHabitsToday()
-    expandTodayElements()
-    doneTasksCheck()
-    noElementsMessage()
+    const checkHabitDays = await import("./checkHabitDays.js"),
+        showHabitsToday = await import("./showTodayHabits.js"),
+        expandTodayElements = await import("./expandTodayElements.js"),
+        doneTasksCheck = await import("./doneTasksCheck.js"),
+        noElementsMessage = await import("./noElementsMessage.js");
+    checkHabitDays.default();
+    showHabitsToday.default();
+    expandTodayElements.default();
+    doneTasksCheck.default();
+    noElementsMessage.default();
 }
 if (documentUrl.includes("profile")) {
-    addUserImg()
+    const addUserImg = await import("./addUserImg.js");
+    addUserImg.default();
 }
