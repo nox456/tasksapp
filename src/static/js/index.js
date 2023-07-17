@@ -26,7 +26,7 @@ if (documentUrl.includes("list")) {
     }
     if (documentUrl.includes("tasks")) {
         const expandTasks = await import("./expandTasks.js"),
-            doneTasksCheck = await import("./doneTasksCheck"),
+            doneTasksCheck = await import("./doneTasksCheck.js"),
             doneTasksSelect = await import("./doneTaskSelect.js");
         expandTasks.default();
         doneTasksCheck.default();

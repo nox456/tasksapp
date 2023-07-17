@@ -96,6 +96,13 @@ label {
     grid-template-rows: 15% 10% 35% 40%;
     box-shadow: 0px 20px 30px #000;
     color: #fff;
+    border-radius: .3em;
+}
+@media screen and (max-width: 600px) {
+    .habitsDetails {
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 20% 10% 35% 35%;
+    }
 }
 .detail-title-container {
     grid-row: 1/2;
@@ -110,6 +117,16 @@ label {
     display: flex;
     align-items: center;
 }
+@media screen and (max-width: 600px) {
+    .detail-title-container {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
+        border: 2px solid #777;
+        border-radius: .3em .3em 0 0;
+        border-bottom: none;
+        justify-content: center;
+    }
+}
 .detail-description-container {
     grid-row: 3/4;
     grid-column: 1/3;
@@ -119,11 +136,17 @@ label {
     border: 2px solid #777;
     border-top: none;
 }
+@media screen and (max-width: 600px) {
+    .detail-description-container {
+        grid-row: 3 / span 1;
+        grid-column: 1 / span 2;
+    }
+}
 .detail-time-container {
     grid-row: 1/2;
     grid-column: 2/3;
     height: 100%;
-    font-size: 1.5em;
+    font-size: .9em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,15 +155,22 @@ label {
     border-bottom: none;
     align-items: center;
 }
+@media screen and (max-width: 600px) {
+    .detail-time-container {
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        border-radius: 0;
+    }
+}
 .detail-time-title {
-    font-size: 0.8em;
+    font-size: 1.3em;
     color: #888;
 }
 .detail-category-container {
     grid-row: 2/3;
     grid-column: 1/3;
     height: 100%;
-    font-size: 1.5em;
+    font-size: .8em;
     padding: 0 1em;
     border: 2px solid #777;
     display: flex;
@@ -149,7 +179,10 @@ label {
 }
 .detail-category-title {
     color: #888;
-    font-size: 0.7em;
+}
+.detail-category {
+    font-size: 1.3em;
+    margin-left: 10px;
 }
 .detail-days-container {
     grid-row: 4/5;
@@ -162,7 +195,18 @@ label {
     border-top: none;
     border-radius: 0 0 0.5em 0.5em;
 }
+@media screen and (max-width: 600px) {
+    .detail-days-container {
+        padding: .5em;
+    }
+}
 .detail-days-container .day {
     font-size: 2em;
     padding: 1.5em;
+}
+@media screen and (max-width: 600px) {
+    .detail-days-container .day {
+        font-size: 1em;
+        padding: 1em;
+    }
 }
