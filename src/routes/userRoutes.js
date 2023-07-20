@@ -6,8 +6,8 @@ import {
     deleteAccount,
     changeUserImg,
 } from "../controllers/userControllers.js";
-import { selectHabitData } from "../controllers/querys/habitsQuerys.js";
-import { selectTaskData } from "../controllers/querys/tasksQuerys.js";
+import Habit from "../models/habit.js";
+import Task from "../models/task.js";
 import {
     getHabitsCount,
     getTasksCount,
@@ -18,8 +18,8 @@ const router = Router();
 
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
-    const habitsData = await selectHabitData("title ASC", id);
-    const tasksData = await selectTaskData("title ASC", id, false);
+    const habitsData = await new Habit().getAll("title ASC", id);
+    const tasksData = await new Task().getAll("title ASC", id, false);
     const todayTasks = tasksData.rows.filter((task) => {
         return (
             new Date(task.finish_at).toDateString() == new Date().toDateString()
