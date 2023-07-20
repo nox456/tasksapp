@@ -17,7 +17,7 @@ console.clear();
 
 // Settings
 app.set("port", 3000);
-app.set("host", "192.168.1.3");
+app.set("host", "192.168.1.7");
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.engine(

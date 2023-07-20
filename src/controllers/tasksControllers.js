@@ -1,11 +1,4 @@
-import {
-    deleteTaskData,
-    insertTaskData,
-    selectTaskData,
-    selectTaskDataById,
-    updateDoneTask,
-    updateTaskData,
-} from "./querys/tasksQuerys.js";
+import Task from "../models/task.js";
 
 import { addPoints } from "./querys/userQuerys.js";
 
@@ -26,10 +19,10 @@ export const getTasks = async (req, res) => {
     }
 
     const user_id = req.user.id;
-    const data = await selectTaskData(
+    const data = await new Task().getAll(
         req.session.orderText || "title ASC",
         user_id,
-        req.session.doned == "yes-done" ? true : false
+        req.session.doned == "yes-done"
     );
 
     const message = req.session.message;
@@ -48,7 +41,7 @@ export const getTasks = async (req, res) => {
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
     const user_id = req.user.id;
-    await insertTaskData([title, description, finished_at, category, user_id]);
+    await new Task(title, description, finished_at, category, user_id).save();
 
     req.session.message = "Tarea Creada con Éxito";
 
@@ -58,7 +51,7 @@ export const addTask = async (req, res) => {
 export const deleteTask = async (req, res) => {
     const { id } = req.query;
 
-    await deleteTaskData(id);
+    await new Task().delete(id);
 
     req.session.message = "Tarea Eliminada con Éxito";
     res.redirect("/tasks/list");
@@ -67,7 +60,7 @@ export const deleteTask = async (req, res) => {
 export const getTasksData = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectTaskDataById(id,req.url);
+    const data = await new Task().getById(id, req.url);
 
     res.render("tasks/updateTasks", {
         styles: "tasks",
@@ -79,7 +72,7 @@ export const getTasksData = async (req, res) => {
 export const updateTasks = async (req, res) => {
     const { id, title, description, finished_at, category } = req.query;
 
-    await updateTaskData([title, description, finished_at, category, false], id);
+    await new Task(title,description,finished_at,category).update(id)
 
     req.session.message = "Tarea Modificada con Éxito";
     res.redirect("/tasks/list");
@@ -88,7 +81,7 @@ export const updateTasks = async (req, res) => {
 export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
-    const data = await selectTaskDataById(id,req.url);
+    const data = await new Task().getById(id, req.url);
 
     res.render("tasks/detailsTasks", {
         styles: "tasks",
@@ -99,9 +92,9 @@ export const getTaskDetails = async (req, res) => {
 
 export const doneTask = async (req, res) => {
     const { id } = req.body;
-    const user_id = req.user.id
-    await updateDoneTask(id);
-    await addPoints(user_id)
+    const user_id = req.user.id;
+    await new Task().done(id)
+    await addPoints(user_id);
     req.session.message = "Tarea Hecha\n(+5 Puntos)";
     res.redirect("back");
 };
