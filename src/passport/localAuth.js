@@ -46,7 +46,7 @@ passport.use(
         async (req, username, password, done) => {
             const user = new User();
 
-            if (!(await user.compareUsername(username))) {
+            if (await user.compareUsername(username)) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }

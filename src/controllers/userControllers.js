@@ -1,25 +1,16 @@
-import {
-    deleteUser,
-    getUserByUsername,
-    updatePassword,
-    updateUsername,
-    getPoints,
-    userImg
-} from "./querys/userQuerys.js";
 import User from "../models/user.js";
 
 export const getUserProfile = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
-    const id = req.user.id
-    const pointsData = await getPoints(id)
-    const points = pointsData.rows[0].points
+    const { username } = req.user;
+    const points = await new User(username).getPoints();
 
     res.render("users/profile", {
         styles: "profile",
         message,
         user: req.user,
-        points
+        points,
     });
 };
 
@@ -28,10 +19,8 @@ export const changeUsername = async (req, res) => {
     const user = new User(username);
 
     if (await user.comparePassword(password)) {
-        const data = await getUserByUsername(newUsername);
-
-        if (data.rows.length == 0) {
-            await updateUsername(username, newUsername);
+        if (await user.compareUsername(newUsername)) {
+            await user.updateUsername(newUsername);
 
             req.session.message = "Nombre de Usuario Cambiado";
             res.redirect("/profile");
@@ -52,7 +41,7 @@ export const changePassword = async (req, res) => {
     if (await user.comparePassword(password)) {
         user.password = newPassword;
         user.encryptPassword();
-        await updatePassword(username, user.password);
+        await user.updatePassword();
 
         req.session.message = "Contraseña Cambiada";
         res.redirect("/profile");
@@ -74,16 +63,19 @@ export const deleteAccount = async (req, res) => {
             req.session.message = "Cuenta Eliminada";
             res.redirect("/");
         });
-        await deleteUser(username);
+        await user.delete();
     } else {
         req.session.message = "Contraseña Incorrecta";
         res.redirect("/profile/delete-account");
     }
 };
 
-export const changeUserImg = async (req,res) => {
-    const { id } = req.user
-    const { filename } = req.file
-    await userImg(id,filename)
-    res.redirect("/profile")
-}
+export const changeUserImg = async (req, res) => {
+    const { username } = req.user;
+    const { filename } = req.file;
+    const user = new User(username);
+
+    await user.setImg(filename);
+
+    res.redirect("/profile");
+};

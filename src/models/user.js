@@ -34,7 +34,7 @@ export default class User {
             "SELECT * FROM users WHERE username = $1",
             [username]
         );
-        return data.rows.length > 0;
+        return data.rows.length == 0;
     }
     async comparePassword(password) {
         const data = await pool.query(
@@ -51,5 +51,22 @@ export default class User {
         this.id = data.rows[0].id;
         this.username = data.rows[0].username;
         this.password = data.rows[0].password;
+    }
+    async updateUsername(newUsername) {
+        return await pool.query("UPDATE users SET username = $1 WHERE username = $2",
+        [newUsername,this.username])
+    }
+    async updatePassword() {
+        return await pool.query("UPDATE users SET password = $1 WHERE username = $2",[this.password,this.username])
+    }
+    async delete() {
+        return await pool.query("DELETE FROM users WHERE username = $1",[this.username])
+    }
+    async setImg(file_name) {
+        return await pool.query("UPDATE users SET user_img = $1 WHERE username = $2",[file_name,this.username])
+    }
+    async getPoints() {
+        const data = await pool.query("SELECT points FROM users WHERE username = $1",[this.username])
+        return data.rows[0].points
     }
 }
