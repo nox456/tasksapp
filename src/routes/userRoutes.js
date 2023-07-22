@@ -8,16 +8,13 @@ import {
 } from "../controllers/userControllers.js";
 import Habit from "../models/habit.js";
 import Task from "../models/task.js";
-import {
-    getHabitsCount,
-    getTasksCount,
-    getPoints,
-} from "../controllers/querys/userQuerys.js";
+import User from "../models/user.js";
 
 const router = Router();
 
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
+    const user = new User(req.user.username)
     const habitsData = await new Habit().getAll("title ASC", id);
     const tasksData = await new Task().getAll("title ASC", id, false);
     const todayTasks = tasksData.rows.filter((task) => {
@@ -25,14 +22,10 @@ router.get("/dashboard", async (req, res) => {
             new Date(task.finish_at).toDateString() == new Date().toDateString()
         );
     });
-    const pointsData = await getPoints(id)
-    const points = pointsData.rows[0].points
-    const tasksCountData = await getTasksCount(id)
-    const habitsCountData = await getHabitsCount(id)
-    const tasksCount = tasksCountData.rows.length
-    const tasksDonedCount = tasksCountData.rows.filter(t => t.done == true).length
-    const habitsCount = habitsCountData.rows.length
-
+    const points = await user.getPoints()
+    const tasksCount = await user.getTasksCount()
+    const tasksDonedCount = await user.getTasksDonedCount()
+    const habitsCount = await user.getHabitsCount()
 
     const message = req.session.message;
     delete req.session.message;

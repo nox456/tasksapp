@@ -69,4 +69,25 @@ export default class User {
         const data = await pool.query("SELECT points FROM users WHERE username = $1",[this.username])
         return data.rows[0].points
     }
+    async addPoints(){
+        return await pool.query("UPDATE users SET points = points + 5 WHERE username = $1", [this.username])
+    }
+    async getTasksCount() {
+        const dataUser = await pool.query("SELECT id FROM users WHERE username = $1",[this.username])
+        const id = dataUser.rows[0].id
+        const data = await pool.query("select * from tasks where user_id = $1",[id])
+        return data.rows.length
+    }
+    async getTasksDonedCount() {
+        const dataUser = await pool.query("SELECT id FROM users WHERE username = $1",[this.username])
+        const id = dataUser.rows[0].id 
+        const data = await pool.query("select * from tasks where user_id = $1",[id])
+        return data.rows.filter(t => t.done == true).length
+    }
+    async getHabitsCount() {
+        const dataUser = await pool.query("SELECT id FROM users WHERE username = $1",[this.username])
+        const id = dataUser.rows[0].id
+        const data = await pool.query("select * from habits where user_id = $1",[id])
+        return data.rows.length
+    }
 }

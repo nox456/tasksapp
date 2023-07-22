@@ -1,6 +1,6 @@
 import Task from "../models/task.js";
 
-import { addPoints } from "./querys/userQuerys.js";
+import User from "../models/user.js";
 
 export const getTasks = async (req, res) => {
     if (
@@ -92,9 +92,9 @@ export const getTaskDetails = async (req, res) => {
 
 export const doneTask = async (req, res) => {
     const { id } = req.body;
-    const user_id = req.user.id;
     await new Task().done(id)
-    await addPoints(user_id);
+    const user = new User(req.user.username)
+    await user.addPoints()
     req.session.message = "Tarea Hecha\n(+5 Puntos)";
     res.redirect("back");
 };
