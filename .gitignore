@@ -1,5 +1,3 @@
 # Ingnore modules files
 node_modules
-*.jpg
-*.jpeg
-*.png
+src/public/uploads/
