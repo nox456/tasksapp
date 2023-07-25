@@ -719,6 +719,11 @@ a {
     color: #fff;
     font-size: 1.5em;
 }
+.no-user-img-text {
+    color: #FFF;
+    font-size: .7em;
+    text-align: center;
+}
 .main-buttons-container {
     width: 600px;
     padding: 2em;

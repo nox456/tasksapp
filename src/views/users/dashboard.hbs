@@ -3,7 +3,7 @@
         <div class="user-img-section">
             <div class="user-img-container">
                 {{#if (compare user.user_img 'No photo')}}
-                    <p class="no-user-img">Sin Imagen</p>
+                    <p class="no-user-img-text">Sin Imagen</p>
                 {{else}}
                     <img src="/{{user.user_img}}" class="user-img">
                 {{/if}}

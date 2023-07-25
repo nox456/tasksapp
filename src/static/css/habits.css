@@ -201,7 +201,7 @@ label {
     }
 }
 .detail-days-container .day {
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 1.5em;
 }
 @media screen and (max-width: 600px) {
