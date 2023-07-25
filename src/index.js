@@ -9,15 +9,20 @@ import tasksRoutes from "./routes/tasksRoutes.js";
 import habitsRoutes from "./routes/habitsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
+import dotenv from "dotenv";
 import multer from "multer";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 console.clear();
+dotenv.config({
+    path: join(__dirname,"..",".env"),
+    override: true
+})
 
 // Settings
-app.set("port", 3000);
-app.set("host", "192.168.1.7");
+app.set("port", process.env.PORT);
+app.set("host", process.env.HOST);
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.engine(
@@ -43,7 +48,7 @@ app.use(
     session({
         resave: false,
         saveUninitialized: false,
-        secret: "tasksapp_key",
+        secret: process.env.SESSION_KEY,
     })
 );
 app.use(passport.initialize());
