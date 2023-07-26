@@ -41,7 +41,8 @@ router.get("/dashboard", async (req, res) => {
         tasksCount,
         tasksDonedCount,
         habitsCount,
-        points
+        points,
+        userImgSidebar: true
     });
 });
 

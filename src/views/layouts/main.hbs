@@ -35,19 +35,7 @@
                         ></i></button>
                 </div>
             </nav>
-            <aside class="sidebar" id="sidebar">
-                <ul>
-                    <li><a href="/dashboard" class="link">Dashboard</a></li>
-                    <hr class="line-div">
-                    <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
-                    <hr class="line-div">
-                    <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
-                    <hr class="line-div">
-                    <li class="logout" id="logout-button"><button
-                            class="button"
-                        >Cerrar Sesion</button></li>
-                </ul>
-            </aside>
+            {{> sidebar}}
         {{/if}}
 
         <main class="main-container" id="main-container">

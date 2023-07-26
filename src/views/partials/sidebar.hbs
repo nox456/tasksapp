@@ -1,0 +1,27 @@
+<aside class="sidebar" id="sidebar">
+    <ul>
+        {{#unless userImgSidebar}}
+            <li>
+                <div class="user-img-container">
+                    {{#if (compare user.user_img "No photo")}}
+                        <p class="no-user-img-text">Sin Imagen</p>
+                    {{else}}
+                        <img src="/{{user.user_img}}" class="user-img" />
+                    {{/if}}
+                </div>
+                <a
+                    href="/profile"
+                    class="username-container"
+                >{{user.username}}</a>
+            </li>
+        <hr class="line-div" />
+        {{/unless}}
+        <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
+        <hr class="line-div" />
+        <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
+        <hr class="line-div" />
+        <li class="logout" id="logout-button">
+            <button class="button">Cerrar Sesion</button>
+        </li>
+    </ul>
+</aside>

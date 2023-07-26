@@ -84,39 +84,6 @@
     }
 }
 
-.user-img-container {
-    width: 6em;    
-    height: 6em;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    border: 2px solid #AAA;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.user-img-container > .user-img {
-    object-fit: cover;
-    width: 10em;
-}
-
-.user-img-container > form {
-    display: flex;
-    justify-content: center;
-}
-
-.user-img-container .no-user-img {
-    display: none;
-}
-
-.no-user-img-label {
-    color: #FFF;
-    font-size: .7em;
-    cursor: pointer;
-    text-align: center;
-}
-
-
 /******* CHANGE USERNAME - CHANGE PASSWORD - DELETE ACCOUNT *******/
 .change,
 .delete-account {

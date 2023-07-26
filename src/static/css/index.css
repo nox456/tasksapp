@@ -466,6 +466,10 @@ a {
 .sidebar li {
     color: #fff;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
 }
 .sidebar ul {
     height: 100%;
@@ -536,6 +540,20 @@ a {
     .logout-confirm {
         top: 60%;
     }
+}
+
+.sidebar .user-img-container {
+    width: 4em;
+    height: 4em;
+}
+.sidebar .user-img-container .user-img {
+    object-fit: cover;
+    width: 8em;
+}
+.sidebar .username-container {
+    color: #fff;
+    font-size: 1.5em;
+    align-items: center;
 }
 
 /* ******************************************************************************************** */
@@ -763,4 +781,36 @@ a {
     display: block;
     width: 100%;
     padding: 1em;
+}
+
+.user-img-container {
+    width: 6em;    
+    height: 6em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #AAA;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.user-img-container > .user-img {
+    object-fit: cover;
+    width: 10em;
+}
+
+.user-img-container > form {
+    display: flex;
+    justify-content: center;
+}
+
+.user-img-container .no-user-img {
+    display: none;
+}
+
+.no-user-img-label {
+    color: #FFF;
+    font-size: .7em;
+    cursor: pointer;
+    text-align: center;
 }
