@@ -471,6 +471,12 @@ a {
     align-items: center;
     gap: .5em;
 }
+@media screen and (max-width: 600px) {
+    .sidebar li {
+        flex-direction: row;
+        gap: 2em;
+    }
+}
 .sidebar ul {
     height: 100%;
     width: 100%;

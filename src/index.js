@@ -16,9 +16,9 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 console.clear();
 dotenv.config({
-    path: join(__dirname,"..",".env"),
-    override: true
-})
+    path: join(__dirname, "..", ".env"),
+    override: true,
+});
 
 // Settings
 app.set("port", process.env.PORT);
@@ -42,7 +42,7 @@ app.engine(
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "static")));
-app.use(express.static(join(__dirname,"public/uploads")))
+app.use(express.static(join(__dirname, "public/uploads")));
 app.use(express.urlencoded({ extended: false }));
 app.use(
     session({
@@ -53,20 +53,22 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(multer({
-    storage: multer.diskStorage({
-        destination: join(__dirname,"public/uploads"),
-        filename: (req, file, cb) => {
-            const user_id = req.user.id
-            cb(null,user_id + extname(file.originalname))
-        }
-    }),
-    fileFilter: (req, file, cb) => {
-        const types = [".jpg",".jpeg",".png"]
-        const ext = extname(file.originalname)
-        cb(null,types.includes(ext))
-    }
-}).single("user_img"))
+app.use(
+    multer({
+        storage: multer.diskStorage({
+            destination: join(__dirname, "public/uploads"),
+            filename: (req, file, cb) => {
+                const user_id = req.user.id;
+                cb(null, user_id + extname(file.originalname));
+            },
+        }),
+        fileFilter: (req, file, cb) => {
+            const types = [".jpg", ".jpeg", ".png"];
+            const ext = extname(file.originalname);
+            cb(null, types.includes(ext));
+        },
+    }).single("user_img")
+);
 
 // Routes
 app.use(indexRoutes);
