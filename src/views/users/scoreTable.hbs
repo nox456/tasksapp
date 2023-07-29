@@ -1,0 +1,30 @@
+<div class="container score-table">
+    <div class="score-table-header">
+        <div class="user-points">
+            <p>Tus Puntos:</p>
+            <p>{{user.points}}</p>
+        </div>
+        <div class="user-pos">
+            <p>Tu Posicion:</p>
+            <p>{{user.pos}}</p>
+        </div>
+    </div>
+    <div class="score-table-body">
+        <div class="user-position">
+            <div class="user-position-header">
+                <p>#</p>
+                <p>Usuario</p>
+                <p>Puntos</p>
+            </div>
+            <div class="users-position-body">
+                {{#each users}}
+                    <div class="user-position">
+                        <p class="user-position-pos">{{this.pos}}</p>
+                        <p class="user-position-username">{{this.username}}</p>
+                        <p class="user-position-points">{{this.points}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import {
     getUserProfile,
     deleteAccount,
     changeUserImg,
+    getScoreTable,
 } from "../controllers/userControllers.js";
 import Habit from "../models/habit.js";
 import Task from "../models/task.js";
@@ -67,6 +68,8 @@ router.get("/profile/change-password", (req, res) => {
         message,
     });
 });
+
+router.get("/scoretable", getScoreTable)
 
 router.post("/changeUsername", changeUsername);
 

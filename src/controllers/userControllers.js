@@ -1,4 +1,5 @@
 import User from "../models/user.js";
+import pool from "../database/db.js";
 
 export const getUserProfile = async (req, res) => {
     const message = req.session.message;
@@ -79,3 +80,24 @@ export const changeUserImg = async (req, res) => {
 
     res.redirect("/profile");
 };
+
+export const getScoreTable = async (req,res) => {
+
+    const users = await pool.query("SELECT username,points FROM users ORDER BY points DESC")
+
+    users.rows.forEach((user,ind,users) => {
+        users[ind].pos = ind + 1
+        if (user.username == req.user.username) {
+            req.user.pos = ind + 1 
+        }
+    })
+
+    const message = req.session.message
+    delete req.session.message
+
+    res.render("users/scoreTable", {
+        message,
+        user: req.user,
+        users: users.rows
+    })
+}
