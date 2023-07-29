@@ -4,27 +4,33 @@
             <p>Tus Puntos:</p>
             <p>{{user.points}}</p>
         </div>
+        <div class="user-img-container">
+            <img src="/{{user.user_img}}" class="user-img" />
+        </div>
         <div class="user-pos">
             <p>Tu Posicion:</p>
             <p>{{user.pos}}</p>
         </div>
     </div>
     <div class="score-table-body">
-        <div class="user-position">
-            <div class="user-position-header">
-                <p>#</p>
-                <p>Usuario</p>
-                <p>Puntos</p>
-            </div>
-            <div class="users-position-body">
-                {{#each users}}
-                    <div class="user-position">
-                        <p class="user-position-pos">{{this.pos}}</p>
-                        <p class="user-position-username">{{this.username}}</p>
-                        <p class="user-position-points">{{this.points}}</p>
+        <div class="user-position-header">
+            <p>#</p>
+            <p>Usuario</p>
+            <p>Puntos</p>
+        </div>
+        <div class="user-position-body">
+            {{#each users}}
+                <div class="user-position">
+                    <p class="user-position-pos">{{this.pos}}</p>
+                    <div class="user-position-username">
+                        <div class="user-img-container">
+                            <img src="/{{this.user_img}}" class="user-img" />
+                        </div>
+                        <p>{{this.username}}</p>
                     </div>
-                {{/each}}
-            </div>
+                    <p class="user-position-points">{{this.points}}</p>
+                </div>
+            {{/each}}
         </div>
     </div>
 </div>

@@ -83,7 +83,7 @@ export const changeUserImg = async (req, res) => {
 
 export const getScoreTable = async (req,res) => {
 
-    const users = await pool.query("SELECT username,points FROM users ORDER BY points DESC")
+    const users = await pool.query("SELECT username,points,user_img FROM users ORDER BY points DESC")
 
     users.rows.forEach((user,ind,users) => {
         users[ind].pos = ind + 1
@@ -97,6 +97,7 @@ export const getScoreTable = async (req,res) => {
 
     res.render("users/scoreTable", {
         message,
+        styles: "scoretable",
         user: req.user,
         users: users.rows
     })
