@@ -5,7 +5,11 @@
             <p>{{user.points}}</p>
         </div>
         <div class="user-img-container">
-            <img src="/{{user.user_img}}" class="user-img" />
+            {{#if (compare user.user_img "No photo")}}
+                <p class="no-user-img-text">Sin Imagen</p>
+            {{else}}
+                <img src="/{{user.user_img}}" class="user-img" />
+            {{/if}}
         </div>
         <div class="user-pos">
             <p>Tu Posicion:</p>

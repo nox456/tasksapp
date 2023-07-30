@@ -16,6 +16,11 @@
     align-items: center;
     justify-content: space-around;
 }
+@media screen and (max-width: 600px) {
+    .score-table-header {
+        flex-direction: column;
+    }
+}
 .score-table-header > div {
     text-align: center;
     display: flex;
@@ -23,12 +28,20 @@
     gap: .5em;
     font-size: 1.3em;
 }
+@media screen and (max-width: 600px) {
+    .score-table-header > div:nth-child(2) {
+        order: -1;
+    }
+}
 .score-table-header > .user-img-container {
     width: 3em;
     height: 3em;
 }
 .score-table-header > .user-img-container > .user-img {
     width: 6em;
+}
+.score-table-header > .user-img-container > .no-user-img-text {
+    font-size: .5em;
 }
 .score-table-header > div > p:nth-child(1) {
     color: #AAA;
@@ -39,6 +52,12 @@
     color: #FFF;
     border: 2px solid #777;
     border-radius: .3em;
+}
+@media screen and (max-width: 600px) {
+    .score-table-body {
+        width: 95%;
+        font-size: .9em;
+    }
 }
 .user-position-header {
     display: flex;
