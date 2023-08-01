@@ -544,7 +544,7 @@ a {
 }
 @media screen and (max-width: 600px) {
     .logout-confirm {
-        top: 60%;
+        top: 85%;
     }
 }
 
