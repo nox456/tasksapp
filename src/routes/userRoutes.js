@@ -43,7 +43,7 @@ router.get("/dashboard", async (req, res) => {
         tasksDonedCount,
         habitsCount,
         points,
-        userImgSidebar: true
+        noUserImgSidebar: true
     });
 });
 

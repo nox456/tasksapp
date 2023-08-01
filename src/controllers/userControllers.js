@@ -12,6 +12,7 @@ export const getUserProfile = async (req, res) => {
         message,
         user: req.user,
         points,
+        noUserImgSidebar: true
     });
 };
 
