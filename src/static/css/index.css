@@ -798,6 +798,7 @@ a {
     border: 2px solid #AAA;
     justify-content: center;
     overflow: hidden;
+    position: relative;
 }
 
 .user-img-container > .user-img {

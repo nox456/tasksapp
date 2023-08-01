@@ -84,6 +84,33 @@
     }
 }
 
+.changeimg-container {
+    position: absolute;
+    z-index: 10;
+    top: 60%;
+    left: 55%;
+    background-color: #BBB;
+    height: 40%;
+    width: 45%;
+    border-top-left-radius: .5em;
+    opacity: 0;
+    transition: opacity 200ms;
+}
+.user-img-container:hover .changeimg-container {
+    opacity: 1;
+}
+.changeimg-container .no-user-img-label {
+    background-color: transparent;
+    border: none;
+    padding: .5em;
+    cursor: pointer;
+    margin-left: -.6em;
+}
+.changeimg-container .no-user-img-label > i {
+    color: #000;
+}
+
+
 /******* CHANGE USERNAME - CHANGE PASSWORD - DELETE ACCOUNT *******/
 .change,
 .delete-account {

@@ -2,13 +2,45 @@
     <div class="profile-data">
         <div class="user-title">
             <div class="user-img-container">
-                {{#if (compare user.user_img 'No photo')}}
-                    <form action="/profile/userImg" method="post" id="add-user-form" enctype="multipart/form-data">
-                        <label class="no-user-img-label" for="no-user-img">Elija una Imagen</label>
-                        <input type="file" class="no-user-img" id="no-user-img" name="user_img">
+                {{#if (compare user.user_img "No photo")}}
+                    <form
+                        action="/profile/userImg"
+                        method="post"
+                        id="add-user-form"
+                        enctype="multipart/form-data"
+                    >
+                        <label class="no-user-img-label" for="no-user-img">Elija
+                            una Imagen</label>
+                        <input
+                            type="file"
+                            class="no-user-img"
+                            id="no-user-img"
+                            name="user_img"
+                        />
                     </form>
                 {{else}}
-                    <img src="/{{user.user_img}}" class="user-img" />
+                    <img
+                        src="/{{user.user_img}}"
+                        class="user-img"
+                        id="user-img"
+                    />
+                    <form
+                        action="/profile/userImg"
+                        method="post"
+                        id="add-user-form"
+                        enctype="multipart/form-data"
+                        class="changeimg-container"
+                    >
+                        <label class="no-user-img-label" for="no-user-img"><i
+                                class="gg-image"
+                            ></i></label>
+                        <input
+                            type="file"
+                            class="no-user-img"
+                            id="no-user-img"
+                            name="user_img"
+                        />
+                    </form>
                 {{/if}}
             </div>
             <h1 class="user-name">{{user.username}}</h1>
