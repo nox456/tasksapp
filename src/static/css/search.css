@@ -1,0 +1,31 @@
+/* SEARCH TASKS */
+/* SEARCH TASKS INPUT */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+.search-form {
+    width: 100%;
+    border: 2px solid #000;
+    border-radius: .3em;
+    display: flex;
+    overflow: hidden;
+}
+.search-form .search-input {
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    padding: .5em;
+    border-right: 2px solid #000;
+    color: #FFF;
+}
+.search-input::placeholder {
+    color: #FFF;
+}
+.search-form .search-button {
+    background-color: #229;
+    border: none;
+    width: 30%;
+    color: #FFF;
+    cursor: pointer;
+}

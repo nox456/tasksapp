@@ -32,4 +32,6 @@ router.get("/tasks/detail", getTaskDetails);
 
 router.post("/tasksDone", doneTask)
 
+router.get("/searchTasks",)
+
 export default router;

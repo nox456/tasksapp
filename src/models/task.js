@@ -119,4 +119,8 @@ export default class Task {
     async done(id) {
         return await pool.query("UPDATE tasks SET done = $1 WHERE id = $2",[true,id])
     }
+    async search(search_query) {
+        const task = await pool.query("SELECT * FROM tasks WHERE title = $1",[search_query])
+        return task.rows[0]
+    }
 }

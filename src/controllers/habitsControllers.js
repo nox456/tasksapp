@@ -13,6 +13,7 @@ export const getHabits = async (req, res) => {
         message,
         orderText,
         user: req.user ? req.user : undefined,
+        searchHabits: true
     });
 };
 

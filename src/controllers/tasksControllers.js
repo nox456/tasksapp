@@ -30,11 +30,13 @@ export const getTasks = async (req, res) => {
 
     res.render("tasks/taskList", {
         styles: "tasks",
+        styles2: "search",
         tasks: data.rows,
         message,
         orderText: req.session.orderText,
         user: req.user ? req.user : undefined,
         doned: req.session.doned,
+        searchTasks: true
     });
 };
 
@@ -98,3 +100,19 @@ export const doneTask = async (req, res) => {
     req.session.message = "Tarea Hecha\n(+5 Puntos)";
     res.redirect("back");
 };
+
+export const searchTask = async (req,res) => {
+    const { search_query } = req.body
+
+    const task = await new Task().search(search_query)
+
+    const message = req.session.message
+    delete req.session.message
+    
+    res.render("tasks/searchTasks", {
+        message,
+        user: req.user,
+        styles: "search",
+        task
+    })
+}

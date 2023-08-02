@@ -1,0 +1,18 @@
+<nav class="navbar" id="navbar">
+    <div class="menu-container">
+        <a href="/dashboard" class="link"><i class="gg-home"></i></a>
+    </div>
+    <div class="menu-container search-container">
+        {{#if searchTasks}}
+            {{> searchTaskInput}}
+        {{/if}}
+        {{#if searchHabits}}
+            <a href="/search/habits" class="link"><i class="gg-search"></i></a>
+        {{/if}}
+    </div>
+    <div class="menu-container">
+        <button class="menu-icon" id="menu-icon"><i
+                class="gg-menu"
+            ></i></button>
+    </div>
+</nav>
