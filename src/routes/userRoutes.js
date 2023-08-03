@@ -13,6 +13,7 @@ import User from "../models/user.js";
 
 const router = Router();
 
+// Route to dashboard page
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
     const user = new User(req.user.username)
@@ -47,8 +48,10 @@ router.get("/dashboard", async (req, res) => {
     });
 });
 
+// Route to profile page
 router.get("/profile", getUserProfile);
 
+// Route to change username page
 router.get("/profile/change-username", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
@@ -59,6 +62,7 @@ router.get("/profile/change-username", (req, res) => {
     });
 });
 
+// Route to change password page
 router.get("/profile/change-password", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
@@ -69,12 +73,16 @@ router.get("/profile/change-password", (req, res) => {
     });
 });
 
+// Route to clasification page
 router.get("/scoretable", getScoreTable)
 
+// Route to change username of a user
 router.post("/changeUsername", changeUsername);
 
+// Route to change password of a user
 router.post("/changePassword", changePassword);
 
+// Route to delete user page
 router.get("/profile/delete-account", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
@@ -85,8 +93,10 @@ router.get("/profile/delete-account", (req, res) => {
     });
 });
 
+// Route to delete a user
 router.post("/deleteAccount", deleteAccount);
 
+// Route to change user image
 router.post("/profile/userImg", changeUserImg)
 
 export default router;

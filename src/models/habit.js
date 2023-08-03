@@ -1,6 +1,8 @@
 import pool from "../database/db.js";
 
+// String that have the habit fields in db
 const habitData = `id,title,description,days,time_to_do,category`;
+
 export default class Habit {
     constructor(title, description, days, time_to_do, category, user_id) {
         this.title = title || undefined;
@@ -10,6 +12,7 @@ export default class Habit {
         this.category = category || undefined;
         this.user_id = user_id || undefined;
     }
+    // Store a habit in db with the data of this object
     async save() {
         const values = [
             this.title,
@@ -27,6 +30,7 @@ export default class Habit {
             values
         );
     }
+    // Get all habits that owner is the user logged
     async getAll(order, user_id) {
         if (order) {
             return await pool.query(
@@ -36,12 +40,14 @@ export default class Habit {
             return await pool.query(`SELECT ${habitData} FROM habits`);
         }
     }
+    // Get a habit by ID field
     async getById(id) {
         return await pool.query(
             `SELECT ${habitData} FROM habits WHERE id = $1`,
             [id]
         );
     }
+    // Update a habit
     async update(id) {
         const values = [
             id,
@@ -59,6 +65,7 @@ export default class Habit {
             values
         );
     }
+    // Delete a Habit
     async delete(id) {
         return await pool.query(`DELETE FROM habits WHERE id = $1`, [id]);
     }

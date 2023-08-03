@@ -1,5 +1,6 @@
 import Habit from "../models/habit.js";
 
+// Get all habits and render 'habitsList' View
 export const getHabits = async (req, res) => {
     const orderText = req.query.order;
     const user_id = req.user.id;
@@ -17,6 +18,7 @@ export const getHabits = async (req, res) => {
     });
 };
 
+// Create a habit, save in db and redirect to habits list page
 export const addHabit = async (req, res) => {
     const { title, description, days, time_to_do, category } = req.body;
     const user_id = req.user.id;
@@ -33,6 +35,7 @@ export const addHabit = async (req, res) => {
     res.redirect("/habits/list");
 };
 
+// Delete a habit from db and redirect to habits list page
 export const deleteHabit = async (req, res) => {
     const { id } = req.query;
 
@@ -43,6 +46,7 @@ export const deleteHabit = async (req, res) => {
     res.redirect("/habits/list");
 };
 
+// Get a habit by it ID field and render 'updateHabits' view to update it
 export const getHabitsData = async (req, res) => {
     const { id } = req.query;
 
@@ -55,6 +59,7 @@ export const getHabitsData = async (req, res) => {
     });
 };
 
+// Update a Habit in db and redirect to habit list page
 export const updateHabits = async (req, res) => {
     const { id, title, description, days, time_to_do, category } = req.query;
 
@@ -65,6 +70,7 @@ export const updateHabits = async (req, res) => {
     res.redirect("/habits/list");
 };
 
+// Get a habit by it ID field and render 'detailsHabits' to show it data
 export const getHabitsDetails = async (req, res) => {
     const { id } = req.query;
 

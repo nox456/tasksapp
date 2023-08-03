@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import pool from "../database/db.js";
 
+// Get user points and render 'users/profile' view
 export const getUserProfile = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
@@ -16,6 +17,7 @@ export const getUserProfile = async (req, res) => {
     });
 };
 
+// Compare user password, check if the new username if exists, Change Username and redirect to profile page
 export const changeUsername = async (req, res) => {
     const { password, newUsername, username } = req.body;
     const user = new User(username);
@@ -36,6 +38,7 @@ export const changeUsername = async (req, res) => {
     }
 };
 
+// Compare user password, change password and redirect to profile page
 export const changePassword = async (req, res) => {
     const { password, newPassword, username } = req.body;
     const user = new User(username);
@@ -53,6 +56,7 @@ export const changePassword = async (req, res) => {
     }
 };
 
+// Compare user password, delete user in db and redirect to main page
 export const deleteAccount = async (req, res) => {
     const { username, password } = req.body;
     const user = new User(username);
@@ -72,6 +76,7 @@ export const deleteAccount = async (req, res) => {
     }
 };
 
+// Change user img and redirect to profile page
 export const changeUserImg = async (req, res) => {
     const { username } = req.user;
     const { filename } = req.file;
@@ -82,10 +87,11 @@ export const changeUserImg = async (req, res) => {
     res.redirect("/profile");
 };
 
+// Get users and order it by their points and render 'users/scoreTable' view
 export const getScoreTable = async (req,res) => {
-
     const users = await pool.query("SELECT username,points,user_img FROM users ORDER BY points DESC")
 
+    // Add 'pos' property to the users obtained and the user logged
     users.rows.forEach((user,ind,users) => {
         users[ind].pos = ind + 1
         if (user.username == req.user.username) {

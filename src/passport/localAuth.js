@@ -13,6 +13,7 @@ passport.deserializeUser(async (id, done) => {
     done(null, await user.getById(id));
 });
 
+// Authenticate a user and register it
 passport.use(
     "local-signin",
     new localStrategy(
@@ -35,6 +36,7 @@ passport.use(
     )
 );
 
+// Authenticate a user and loggin
 passport.use(
     "local-signup",
     new localStrategy(

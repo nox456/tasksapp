@@ -15,10 +15,6 @@ import multer from "multer";
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 console.clear();
-dotenv.config({
-    path: join(__dirname, "..", ".env"),
-    override: true,
-});
 
 // Settings
 app.set("port", process.env.PORT);
@@ -38,6 +34,10 @@ app.engine(
         },
     })
 );
+dotenv.config({
+    path: join(__dirname, "..", ".env"),
+    override: true,
+});
 
 // Middlewares
 app.use(morgan("dev"));
@@ -72,6 +72,7 @@ app.use(
 
 // Routes
 app.use(indexRoutes);
+// Check if is Logged
 app.use((req, res, next) => {
     if (req.isAuthenticated()) {
         next();

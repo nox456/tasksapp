@@ -3,6 +3,7 @@ import passport from "../passport/localAuth.js";
 
 const router = Router();
 
+// Route to main page
 router.get("/", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
@@ -10,12 +11,14 @@ router.get("/", (req, res) => {
     res.render("index", { message });
 });
 
+// Route to signin page
 router.get("/signin", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
     res.render("signin_loggin/signin", { styles: "signInputs", message });
 });
 
+// Route to login a user
 router.post(
     "/signin",
     passport.authenticate("local-signin", {
@@ -26,12 +29,14 @@ router.post(
     })
 );
 
+// Route to signup page
 router.get("/signup", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
     res.render("signin_loggin/signup", { styles: "signInputs", message });
 });
 
+// Route to register a user
 router.post(
     "/signup",
     passport.authenticate("local-signup", {
@@ -42,6 +47,7 @@ router.post(
     })
 );
 
+// Route to logout a user
 router.get("/logout", (req, res) => {
     req.logout((err) => {
         if (err) {
