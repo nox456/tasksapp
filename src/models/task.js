@@ -103,8 +103,8 @@ export default class Task {
             this.description,
             this.finished_at,
             this.category,
-            false
-        ]
+            false,
+        ];
         const data = taskData
             .filter((e) => e != "created_at" && e != "id")
             .map((e, i) => `${e} = $${i + 1}`);
@@ -114,13 +114,24 @@ export default class Task {
         );
     }
     async delete(id) {
-        return await pool.query("DELETE FROM tasks WHERE id = $1",[id])
+        return await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
     }
     async done(id) {
-        return await pool.query("UPDATE tasks SET done = $1 WHERE id = $2",[true,id])
+        return await pool.query("UPDATE tasks SET done = $1 WHERE id = $2", [
+            true,
+            id,
+        ]);
     }
-    async search(search_query) {
-        const task = await pool.query("SELECT * FROM tasks WHERE title = $1",[search_query])
-        return task.rows[0]
+    async search(search_query,user_id) {
+        const data = await pool.query(
+            "SELECT title,category,done,to_char(finish_at,'DD Mon YYYY') as finish_at FROM tasks WHERE user_id = $1", [user_id]);
+        const tasks = data.rows;
+        const tasksFounded = [];
+        tasks.forEach((task) => {
+            if (task.title.toLowerCase().includes(search_query)) {
+                tasksFounded.push(task);
+            }
+        });
+        return tasksFounded;
     }
 }

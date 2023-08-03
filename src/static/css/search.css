@@ -1,4 +1,83 @@
 /* SEARCH TASKS */
+.searchTasks {
+    border: 2px solid #777;
+    border-radius: .3em;
+    padding: .5em;
+    box-shadow: 0px 20px 30px #000;
+    justify-content: start;
+}
+.searchTasks > div {
+    width: 70%;
+}
+.searchTasks > .main-title {
+    margin-bottom: .5em;
+}
+.searchTasks-header {
+    border: 2px solid #777;
+    border-top-left-radius: .3em;
+    border-top-right-radius: .3em;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    color: #AAA;
+}
+.searchTasks > .search-form {
+    width: 70%;
+}
+.searchTasks-header > p {
+    text-align: center;
+    padding: .5em;
+}
+.searchTasks-header > p:nth-child(1) {
+    width: 40%;
+    border-right: 2px solid #777;
+}
+.searchTasks-header > p:nth-child(2) {
+    width: 25%;
+    border-right: 2px solid #777;
+}
+.searchTasks-header > p:nth-child(3) {
+    width: 10%;
+    border-right: 2px solid #777;
+}
+.searchTasks-header > p:nth-child(4) {
+    width: 25%;
+}
+.searchTasks-body {
+    border: 2px solid #777;
+    border-bottom-left-radius: .3em;
+    border-bottom-right-radius: .3em;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.searchTasks-body > .taskFound:nth-child(odd) {
+    background-color: #202020;
+}
+.searchTasks-body > .taskFound:nth-child(even) {
+    background-color: #404040;
+}
+.taskFound {
+    display: flex;
+}
+.taskFound > p {
+    padding: .5em;
+}
+.taskFound-title {
+    width: 40%;
+    border-right: 2px solid #777;
+}
+.taskFound-category {
+    width: 25%;
+    border-right: 2px solid #777;
+}
+.taskFound-done {
+    width: 10%;
+    border-right: 2px solid #777;
+}
+.taskFound-finish {
+    width: 25%;
+}
 /* SEARCH TASKS INPUT */
 .search-container {
     display: flex;
