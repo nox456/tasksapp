@@ -102,9 +102,9 @@ export const doneTask = async (req, res) => {
 };
 
 export const searchTask = async (req,res) => {
-    const { search_query } = req.body
+    const { search_query } = req.query
 
-    const task = await new Task().search(search_query)
+    const tasksFounded = await new Task().search(search_query.trim().toLowerCase(),req.user.id)
 
     const message = req.session.message
     delete req.session.message
@@ -113,6 +113,6 @@ export const searchTask = async (req,res) => {
         message,
         user: req.user,
         styles: "search",
-        task
+        tasksFounded
     })
 }

@@ -4,10 +4,10 @@
     flex-direction: column;
     justify-content: start;
     gap: .5em;
+    padding: .5em;
     border-radius: .3em;
     box-shadow: 0px 20px 30px #000;
 }
-
 /* SCORE TABLE HEADER */
 .score-table-header {
     width: 70%;
@@ -52,6 +52,7 @@
     color: #FFF;
     border: 2px solid #777;
     border-radius: .3em;
+    overflow: hidden;
 }
 @media screen and (max-width: 600px) {
     .score-table-body {
@@ -66,6 +67,7 @@
 .user-position-header > p {
     text-align: center;
     padding: .5em;
+    color: #AAA;
 }
 .user-position-header > p:nth-child(1) {
     width: 10%;
@@ -84,7 +86,6 @@
 .user-position-body .user-position {
     display: flex;
     justify-content: space-between;
-    border-radius: .3em;
     align-items: center;
     padding: .2em 0;
 }

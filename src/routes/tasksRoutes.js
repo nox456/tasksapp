@@ -7,6 +7,7 @@ import {
     updateTasks,
     getTaskDetails,
     doneTask,
+    searchTask,
 } from "../controllers/tasksControllers.js";
 
 const router = Router();
@@ -32,6 +33,6 @@ router.get("/tasks/detail", getTaskDetails);
 
 router.post("/tasksDone", doneTask)
 
-router.get("/searchTasks",)
+router.get("/searchTasks", searchTask)
 
 export default router;

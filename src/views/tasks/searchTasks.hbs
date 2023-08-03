@@ -1,0 +1,30 @@
+<div class="searchTasks container">
+    {{#if tasksFounded}}
+        <h1 class="main-title">Tareas Encontradas</h1>
+        <div class="searchTasks-header">
+            <p>Titulo</p>
+            <p>Categoria</p>
+            <p>Hecha</p>
+            <p>Finaliza el</p>
+        </div>
+        <div class="searchTasks-body">
+            {{#each tasksFounded}}
+                <div class="taskFound">
+                    <p class="taskFound-title">{{this.title}}</p>
+                    <p class="taskFound-category">{{this.category}}</p>
+                    <p class="taskFound-done">
+                        {{#if this.done}}
+                            Si
+                        {{else}}
+                            No
+                        {{/if}}
+                    </p>
+                    <p class="taskFound-finish">{{this.finish_at}}</p>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <h1 class="main-title">No se encontro ninguna tarea</h1>
+        {{> searchTaskInput}}
+    {{/if}}
+</div>
