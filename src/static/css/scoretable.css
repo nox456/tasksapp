@@ -4,10 +4,10 @@
     flex-direction: column;
     justify-content: start;
     gap: .5em;
+    padding: .5em;
     border-radius: .3em;
     box-shadow: 0px 20px 30px #000;
 }
-
 /* SCORE TABLE HEADER */
 .score-table-header {
     width: 70%;
