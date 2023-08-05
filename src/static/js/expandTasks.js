@@ -1,3 +1,4 @@
+// Get all tasks containers and expand it when click on it
 export default function expandTasks() {
     const elements = Array.from(document.getElementsByClassName("element"));
     const category = Array.from(

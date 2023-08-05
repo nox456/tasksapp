@@ -1,3 +1,4 @@
+// Mark the days of a habit in it container
 export default function checkHabitDays() {
     const habits_containers = Array.from(document.getElementsByClassName("habit-container"))
     const days_week = {

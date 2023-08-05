@@ -1,3 +1,4 @@
+// Expand and collapse the sidebar when click on menu icon
 export default function sidebar() {
     if (document.getElementById("sidebar")) {
         const menu_icon = document.getElementById("menu-icon");

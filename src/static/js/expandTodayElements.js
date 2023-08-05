@@ -1,3 +1,4 @@
+// Get all tasks and habits of today and expand it when click
 export default function expandTodayElements() {
     const elements = Array.from(document.getElementsByClassName("element"));
     const expandIcon = Array.from(

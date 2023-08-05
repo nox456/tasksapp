@@ -1,5 +1,6 @@
 import pool from "../database/db.js";
 
+// String that have the task fields in db
 let taskData = [
     "id",
     "title",
@@ -18,6 +19,7 @@ export default class Task {
         this.category = category || undefined;
         this.user_id = user_id || undefined;
     }
+    // Store a task in db with the data of this object
     async save() {
         const values = [
             this.title,
@@ -40,6 +42,7 @@ export default class Task {
             ]
         );
     }
+    // Get all tasks that owner is the user logged
     async getAll(order, user_id, done) {
         const data = taskData.map((e, i) => {
             if (e == "created_at") {
@@ -80,6 +83,7 @@ export default class Task {
             }
         }
     }
+    // Get a task by ID field
     async getById(id, url) {
         const data = taskData.map((e) => {
             if (e == "created_at") {
@@ -97,6 +101,7 @@ export default class Task {
             [id]
         );
     }
+    // Update a task
     async update(id) {
         const values = [
             this.title,
@@ -113,15 +118,18 @@ export default class Task {
             values
         );
     }
+    // Delete a task
     async delete(id) {
         return await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
     }
+    // Mark a task doned, changing it 'done' field
     async done(id) {
         return await pool.query("UPDATE tasks SET done = $1 WHERE id = $2", [
             true,
             id,
         ]);
     }
+    // Get the tasks wich title includes the search query
     async search(search_query,user_id) {
         const data = await pool.query(
             "SELECT title,category,done,to_char(finish_at,'DD Mon YYYY') as finish_at FROM tasks WHERE user_id = $1", [user_id]);

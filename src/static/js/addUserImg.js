@@ -1,3 +1,4 @@
+// Submit the form when select a image
 export default function addUserImg() {
     const addUser_input = document.getElementById("no-user-img")
     const addUser_form = document.getElementById("add-user-form")

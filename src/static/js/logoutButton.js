@@ -1,3 +1,4 @@
+// Show and hide the logout confirm message
 export default function logoutButton() {
     if (document.getElementById("logout-button")) {
         const logoutButton = document.getElementById("logout-button");

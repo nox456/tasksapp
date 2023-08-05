@@ -1,3 +1,4 @@
+// Get all habits containers and expand it when click on it
 export default function expandHabits() {
     const elements = Array.from(document.getElementsByClassName("element"));
     const daysContainer = Array.from(

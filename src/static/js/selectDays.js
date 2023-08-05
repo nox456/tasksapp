@@ -1,3 +1,4 @@
+// Select the days for a habit in add or update habit page
 export default function selectDays() {
     const days = Array.from(document.getElementsByClassName("day"));
 

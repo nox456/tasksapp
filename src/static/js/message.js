@@ -1,3 +1,4 @@
+// Show the session message with a different color
 export default function message() {
     const message_container = document.getElementById("message-container");
     const message_button = document.getElementById("message-button");

@@ -1,3 +1,4 @@
+// Show a text when there's not tasks or habits for today
 export default function noElementsMessage() {
     const lists_containers = Array.from(
         document.getElementsByClassName("list-container")

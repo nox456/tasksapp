@@ -1,3 +1,4 @@
+// Get all 'delete buttons' and their element too to delete that element
 export default function confirmDelete() {
     const delete_button = Array.from(
             document.getElementsByClassName("delete-button")

@@ -1,3 +1,4 @@
+// Only show the habits wich 'days' field includes today
 export default function showHabitsToday() {
     const list_container = document.getElementById("list-container")
     const habits = Array.from(list_container.children)    

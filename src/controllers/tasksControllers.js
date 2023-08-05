@@ -2,6 +2,7 @@ import Task from "../models/task.js";
 
 import User from "../models/user.js";
 
+// Get all tasks order or not, doned or no, and render 'taskList' view
 export const getTasks = async (req, res) => {
     if (
         !req.session.orderText ||
@@ -40,6 +41,7 @@ export const getTasks = async (req, res) => {
     });
 };
 
+// Create a Task, save in db and redirect to tasks list page
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
     const user_id = req.user.id;
@@ -50,6 +52,7 @@ export const addTask = async (req, res) => {
     res.redirect("/tasks/list");
 };
 
+// Delete a task from db and redirect to tasks list page
 export const deleteTask = async (req, res) => {
     const { id } = req.query;
 
@@ -59,6 +62,7 @@ export const deleteTask = async (req, res) => {
     res.redirect("/tasks/list");
 };
 
+// Get a task by it ID field and render 'updateTasks' view to update it
 export const getTasksData = async (req, res) => {
     const { id } = req.query;
 
@@ -71,6 +75,7 @@ export const getTasksData = async (req, res) => {
     });
 };
 
+// Update a task in db and redirect to task list page
 export const updateTasks = async (req, res) => {
     const { id, title, description, finished_at, category } = req.query;
 
@@ -80,6 +85,7 @@ export const updateTasks = async (req, res) => {
     res.redirect("/tasks/list");
 };
 
+// Get a task by it ID field and render 'detailsTasks' to show it data
 export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
 
@@ -92,6 +98,7 @@ export const getTaskDetails = async (req, res) => {
     });
 };
 
+// Update the 'done' field of a task and redirect to 'back' route
 export const doneTask = async (req, res) => {
     const { id } = req.body;
     await new Task().done(id)
@@ -101,6 +108,7 @@ export const doneTask = async (req, res) => {
     res.redirect("back");
 };
 
+// Search the tasks wich title includes the search query and render 'searchTasks' view 
 export const searchTask = async (req,res) => {
     const { search_query } = req.query
 
