@@ -5,6 +5,7 @@ import {
     getHabits,
     getHabitsData,
     getHabitsDetails,
+    searchHabits,
     updateHabits,
 } from "../controllers/habitsControllers.js";
 
@@ -36,4 +37,6 @@ router.get("/habitsUpdate", updateHabits);
 // Route to habit details page
 router.get("/habits/detail", getHabitsDetails);
 
+// Route to search habit results
+router.get("/searchHabits", searchHabits)
 export default router;

@@ -1,25 +1,25 @@
 /* SEARCH TASKS */
-.searchTasks {
+.search {
     border: 2px solid #777;
     border-radius: 0.3em;
     padding: 0.5em;
     box-shadow: 0px 20px 30px #000;
     justify-content: start;
 }
-.searchTasks > div {
+.search > div {
     width: 70%;
 }
 @media screen and (max-width: 600px) {
-    .searchTasks > div {
+    .search > div {
         width: 100%;
         font-size: 0.8em;
     }
 }
-.searchTasks > .main-title {
+.search > .main-title {
     margin-bottom: 0.5em;
     text-align: center;
 }
-.searchTasks-header {
+.search-header {
     border: 2px solid #777;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
@@ -28,49 +28,50 @@
     justify-content: start;
     color: #aaa;
 }
-.searchTasks > .search-form {
+.search > .search-form {
     width: 70%;
 }
-.searchTasks-header > p {
+.search-header > p {
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
     padding: 0.5em;
+    width: 100%;
 }
-.searchTasks-header > p:nth-child(1) {
+.search-header.searchTasks > p:nth-child(1) {
     width: 40%;
     border-right: 2px solid #777;
 }
-.searchTasks-header > p:nth-child(2) {
+.search-header.searchTasks > p:nth-child(2) {
     width: 25%;
     border-right: 2px solid #777;
 }
-.searchTasks-header > p:nth-child(3) {
+.search-header.searchTasks > p:nth-child(3) {
     width: 10%;
     border-right: 2px solid #777;
 }
-.searchTasks-header > p:nth-child(4) {
+.search-header.searchTasks > p:nth-child(4) {
     width: 25%;
 }
 @media screen and (max-width: 600px) {
-    .searchTasks-header > p:nth-child(1) {
+    .search-header > p:nth-child(1) {
         width: 30%;
         border-right: 2px solid #777;
     }
-    .searchTasks-header > p:nth-child(2) {
+    .search-header > p:nth-child(2) {
         width: 30%;
         border-right: 2px solid #777;
     }
-    .searchTasks-header > p:nth-child(3) {
+    .search-header > p:nth-child(3) {
         width: 20%;
         border-right: 2px solid #777;
     }
-    .searchTasks-header > p:nth-child(4) {
+    .search-header > p:nth-child(4) {
         width: 20%;
     }
 }
-.searchTasks-body {
+.search-body {
     border: 2px solid #777;
     border-bottom-left-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
@@ -78,10 +79,10 @@
     flex-direction: column;
     overflow: hidden;
 }
-.searchTasks-body > .taskFound:nth-child(odd) {
+.search-body > .taskFound:nth-child(odd) {
     background-color: #202020;
 }
-.searchTasks-body > .taskFound:nth-child(even) {
+.search-body > .taskFound:nth-child(even) {
     background-color: #404040;
 }
 .taskFound {
@@ -124,7 +125,37 @@
         width: 20%;
     }
 }
-/* SEARCH TASKS INPUT */
+
+/* SEARCH HABITS */
+.search-header.searchHabits > p {
+    width: 100%;
+}
+.search-header.searchHabits > p:nth-child(1) {
+    border-right: 2px solid #777;
+}
+.search-header.searchHabits > p:nth-child(2) {
+    border-right: 2px solid #777;
+}
+.habitFound {
+    display: flex;
+}
+.habitFound > p {
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+}
+.habitFound-title {
+    width: 100%;
+    border-right: 2px solid #777;
+}
+.habitFound-category {
+    width: 100%;
+    border-right: 2px solid #777;
+}
+.habitFound-time-to-do {
+    width: 100%;
+}
+/* SEARCH INPUT */
 .search-container {
     display: flex;
     align-items: center;
