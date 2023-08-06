@@ -10,6 +10,7 @@ export const getHabits = async (req, res) => {
     delete req.session.message;
     res.render("habits/habitsList", {
         styles: "habits",
+        styles2: "search",
         habits: data.rows,
         message,
         orderText,
@@ -82,3 +83,19 @@ export const getHabitsDetails = async (req, res) => {
         user: req.user ? req.user : undefined,
     });
 };
+
+export const searchHabits = async (req,res) => {
+    const { search_query } = req.query
+
+    const habitsFounded = await new Habit().search(search_query.trim().toLowerCase(), req.user.id)
+
+    const message = req.session.message
+    delete req.session.message
+
+    res.render("habits/searchHabits", {
+        message,
+        user: req.user,
+        styles: "search",
+        habitsFounded
+    })
+}

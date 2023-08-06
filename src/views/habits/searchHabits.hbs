@@ -1,0 +1,22 @@
+<div class="search container">
+    {{#if habitsFounded}}
+        <h1 class="main-title">Habitos Encontrados</h1>
+        <div class="search-header searchHabits">
+            <p>Titulo</p>
+            <p>Categoria</p>
+            <p>Hora</p>
+        </div>
+        <div class="search-body searchHabits">
+            {{#each habitsFounded}}
+                <div class="habitFound">
+                    <p class="habitFound-title">{{this.title}}</p>
+                    <p class="habitFound-category">{{this.category}}</p>
+                    <p class="habitFound-time-to-do">{{this.time_to_do}}</p>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <h1 class="main-title">No se encontro ningun habito</h1>
+        {{> searchHabitInput}}
+    {{/if}}
+</div>

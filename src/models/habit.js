@@ -69,4 +69,19 @@ export default class Habit {
     async delete(id) {
         return await pool.query(`DELETE FROM habits WHERE id = $1`, [id]);
     }
+    // Get the tasks wich title includes the search query
+    async search(search_query, user_id) {
+        const data = await pool.query(
+            "SELECT title,category,time_to_do FROM habits WHERE user_id = $1",
+            [user_id]
+        );
+        const habits = data.rows
+        const habitsFounded = []
+        habits.forEach((habit) => {
+            if (habit.title.toLowerCase().includes(search_query)) {
+                habitsFounded.push(habit)
+            }
+        })
+        return habitsFounded
+    }
 }
