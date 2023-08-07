@@ -58,4 +58,15 @@ router.get("/logout", (req, res) => {
     });
 });
 
+// Route to server error
+router.get("/error", (req,res) => {
+    req.logout((err) => {
+        if (err) {
+            console.error(err)
+        }
+        req.session.message = "Error del Servidor"
+        res.redirect("/")
+    })
+})
+
 export default router;
