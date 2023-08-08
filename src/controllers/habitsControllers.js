@@ -7,8 +7,9 @@ export const getHabits = async (req, res) => {
     let data;
     try {
         data = await new Habit().getAll(orderText || "title ASC", user_id);
-    } catch {
-        return res.status(401).redirect("/error");
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
     }
 
     const message = req.session.message;
@@ -38,10 +39,10 @@ export const addHabit = async (req, res) => {
             user_id
         ).save();
         req.session.message = "Habito Creado con Éxito";
-    } catch {
-        return res.status(401).redirect("/error");
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
     }
-
     res.redirect("/habits/list");
 };
 
@@ -51,8 +52,9 @@ export const deleteHabit = async (req, res) => {
 
     try {
         await new Habit().delete(id);
-    } catch {
-        return res.status(500).redirect("/error");
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
     }
 
     req.session.message = "Habito Eliminado con Éxito";
@@ -67,7 +69,8 @@ export const getHabitsData = async (req, res) => {
     try {
         data = await new Habit().getById(id);
     } catch (error) {
-        return res.status(500).redirect("/error");
+        console.error(error)
+        return res.redirect("/error");
     }
 
     res.render("habits/updateHabits", {
@@ -85,8 +88,9 @@ export const updateHabits = async (req, res) => {
         await new Habit(title, description, days, time_to_do, category).update(
             id
         );
-    } catch {
-        return res.status(401).redirect("/error");
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
     }
 
     req.session.message = "Habito Modificado con Éxito";
@@ -102,7 +106,8 @@ export const getHabitsDetails = async (req, res) => {
     try {
         data = await new Habit().getById(id);
     } catch (error) {
-        return res.status(500).redirect("/error");
+        console.error(error)
+        return res.redirect("/error");
     }
 
     res.render("habits/detailsHabits", {
@@ -121,7 +126,8 @@ export const searchHabits = async (req, res) => {
             req.user.id
         );
     } catch (error) {
-        return res.status(500).redirect("/error")
+        console.error(error)
+        return res.redirect("/error")
     }
 
     const message = req.session.message;
