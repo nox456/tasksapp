@@ -24,7 +24,6 @@ router.get("/dashboard", async (req, res) => {
             new Date(task.finish_at).toDateString() == new Date().toDateString()
         );
     });
-    const points = await user.getPoints()
     const tasksCount = await user.getTasksCount()
     const tasksDonedCount = await user.getTasksDonedCount()
     const habitsCount = await user.getHabitsCount()
@@ -43,7 +42,7 @@ router.get("/dashboard", async (req, res) => {
         tasksCount,
         tasksDonedCount,
         habitsCount,
-        points,
+        points: req.user.points,
         noUserImgSidebar: true
     });
 });

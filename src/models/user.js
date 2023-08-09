@@ -76,11 +76,6 @@ export default class User {
     async setImg(file_name) {
         return await pool.query("UPDATE users SET user_img = $1 WHERE username = $2",[file_name,this.username])
     }
-    // Get the points of a user
-    async getPoints() {
-        const data = await pool.query("SELECT points FROM users WHERE username = $1",[this.username])
-        return data.rows[0].points
-    }
     // Add 5 points to a user
     async addPoints(){
         return await pool.query("UPDATE users SET points = points + 5 WHERE username = $1", [this.username])

@@ -5,14 +5,12 @@ import pool from "../database/db.js";
 export const getUserProfile = async (req, res) => {
     const message = req.session.message;
     delete req.session.message;
-    const { username } = req.user;
-    const points = await new User(username).getPoints();
 
     res.render("users/profile", {
         styles: "profile",
         message,
         user: req.user,
-        points,
+        points: req.user.points,
         noUserImgSidebar: true
     });
 };
