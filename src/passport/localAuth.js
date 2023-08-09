@@ -9,8 +9,13 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    const user = new User();
-    done(null, await user.getById(id));
+    let user
+    try {
+        user = await new User().getById(id)
+    } catch (error) {
+        return done(error,false)
+    }
+    return done(null, user);
 });
 
 // Authenticate a user and register it
@@ -24,12 +29,22 @@ passport.use(
         },
         async (req, username, password, done) => {
             const user = new User(username, password);
-            if (await user.usernameExits()) {
+            let usernameExists
+            try {
+                usernameExists = await user.usernameExits()   
+            } catch (error) {
+                return done(error,false)
+            }
+            if (usernameExists) {
                 req.session.message = "Este nombre de usuario ya existe";
                 return done(null, false);
             } else {
                 user.encryptPassword();
-                await user.save();
+                try {
+                    await user.save();
+                } catch (error) {
+                    done(error,false)
+                }
                 done(null, user);
             }
         }
@@ -46,14 +61,26 @@ passport.use(
             passReqToCallback: true,
         },
         async (req, username, password, done) => {
-            const user = new User();
+            const user = new User(username);
+            let comparedUsername
+            let comparedPassword
+            try {
+                comparedUsername = await user.compareUsername(username)
+                comparedPassword = await user.comparePassword(password)
+            } catch (error) { 
+                return done(error,false)
+            }
 
-            if (await user.compareUsername(username)) {
+            if (comparedUsername) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }
-            await user.setUserFromDB(username);
-            if (!(await user.comparePassword(password))) {
+            try { 
+                await user.setUserFromDB(username);
+            } catch (error) {
+                return done(error,false)
+            }
+            if (!comparedPassword) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }
