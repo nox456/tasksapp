@@ -18,7 +18,6 @@ console.clear();
 
 // Settings
 app.set("port", process.env.PORT);
-app.set("host", process.env.HOST);
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.engine(
@@ -84,5 +83,5 @@ app.use(userRoutes);
 app.use(tasksRoutes);
 app.use(habitsRoutes);
 
-app.listen(app.get("port"), app.get("host"));
+app.listen(app.get("port"));
 console.log(`Server on http://${app.get("host")}:${app.get("port")}`);
