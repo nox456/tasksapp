@@ -84,5 +84,5 @@ app.use(userRoutes);
 app.use(tasksRoutes);
 app.use(habitsRoutes);
 
-app.listen(app.get("port"),app.get("host"));
+app.listen(app.get("port"));
 console.log(`Server on http://${app.get("host")}:${app.get("port")}`);
