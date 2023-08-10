@@ -16,18 +16,27 @@ const router = Router();
 // Route to dashboard page
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
-    const user = new User(req.user.username)
-    const habitsData = await new Habit().getAll("title ASC", id);
-    const tasksData = await new Task().getAll("title ASC", id, false);
+    const user = new User(req.user.username);
+    let habitsData;
+    let tasksData;
+    let tasksCount;
+    let tasksDonedCount;
+    let habitsCount;
+    try {
+        habitsData = await new Habit().getAll("title ASC", id);
+        tasksData = await new Task().getAll("title ASC", id, false);
+        tasksCount = await user.getTasksCount();
+        tasksDonedCount = await user.getTasksDonedCount();
+        habitsCount = await user.getHabitsCount();
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error")
+    }
     const todayTasks = tasksData.rows.filter((task) => {
         return (
             new Date(task.finish_at).toDateString() == new Date().toDateString()
         );
     });
-    const points = await user.getPoints()
-    const tasksCount = await user.getTasksCount()
-    const tasksDonedCount = await user.getTasksDonedCount()
-    const habitsCount = await user.getHabitsCount()
 
     const message = req.session.message;
     delete req.session.message;
@@ -43,8 +52,8 @@ router.get("/dashboard", async (req, res) => {
         tasksCount,
         tasksDonedCount,
         habitsCount,
-        points,
-        noUserImgSidebar: true
+        points: req.user.points,
+        noUserImgSidebar: true,
     });
 });
 
@@ -74,7 +83,7 @@ router.get("/profile/change-password", (req, res) => {
 });
 
 // Route to clasification page
-router.get("/scoretable", getScoreTable)
+router.get("/scoretable", getScoreTable);
 
 // Route to change username of a user
 router.post("/changeUsername", changeUsername);
@@ -97,6 +106,6 @@ router.get("/profile/delete-account", (req, res) => {
 router.post("/deleteAccount", deleteAccount);
 
 // Route to change user image
-router.post("/profile/userImg", changeUserImg)
+router.post("/profile/userImg", changeUserImg);
 
 export default router;

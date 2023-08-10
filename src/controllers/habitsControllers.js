@@ -4,7 +4,13 @@ import Habit from "../models/habit.js";
 export const getHabits = async (req, res) => {
     const orderText = req.query.order;
     const user_id = req.user.id;
-    const data = await new Habit().getAll(orderText || "title ASC", user_id);
+    let data;
+    try {
+        data = await new Habit().getAll(orderText || "title ASC", user_id);
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
 
     const message = req.session.message;
     delete req.session.message;
@@ -15,7 +21,7 @@ export const getHabits = async (req, res) => {
         message,
         orderText,
         user: req.user ? req.user : undefined,
-        searchHabits: true
+        searchHabits: true,
     });
 };
 
@@ -23,16 +29,20 @@ export const getHabits = async (req, res) => {
 export const addHabit = async (req, res) => {
     const { title, description, days, time_to_do, category } = req.body;
     const user_id = req.user.id;
-    await new Habit(
-        title,
-        description,
-        days,
-        time_to_do,
-        category,
-        user_id
-    ).save();
-    req.session.message = "Habito Creado con Éxito";
-
+    try {
+        await new Habit(
+            title,
+            description,
+            days,
+            time_to_do,
+            category,
+            user_id
+        ).save();
+        req.session.message = "Habito Creado con Éxito";
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
     res.redirect("/habits/list");
 };
 
@@ -40,7 +50,12 @@ export const addHabit = async (req, res) => {
 export const deleteHabit = async (req, res) => {
     const { id } = req.query;
 
-    await new Habit().delete(id);
+    try {
+        await new Habit().delete(id);
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
 
     req.session.message = "Habito Eliminado con Éxito";
 
@@ -50,8 +65,13 @@ export const deleteHabit = async (req, res) => {
 // Get a habit by it ID field and render 'updateHabits' view to update it
 export const getHabitsData = async (req, res) => {
     const { id } = req.query;
-
-    const data = await new Habit().getById(id);
+    let data;
+    try {
+        data = await new Habit().getById(id);
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
 
     res.render("habits/updateHabits", {
         habit: data.rows[0],
@@ -64,7 +84,14 @@ export const getHabitsData = async (req, res) => {
 export const updateHabits = async (req, res) => {
     const { id, title, description, days, time_to_do, category } = req.query;
 
-    await new Habit(title,description,days,time_to_do,category).update(id)
+    try {
+        await new Habit(title, description, days, time_to_do, category).update(
+            id
+        );
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
 
     req.session.message = "Habito Modificado con Éxito";
 
@@ -75,7 +102,13 @@ export const updateHabits = async (req, res) => {
 export const getHabitsDetails = async (req, res) => {
     const { id } = req.query;
 
-    const data = await new Habit().getById(id);
+    let data;
+    try {
+        data = await new Habit().getById(id);
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error");
+    }
 
     res.render("habits/detailsHabits", {
         styles: "habits",
@@ -84,18 +117,26 @@ export const getHabitsDetails = async (req, res) => {
     });
 };
 
-export const searchHabits = async (req,res) => {
-    const { search_query } = req.query
+export const searchHabits = async (req, res) => {
+    const { search_query } = req.query;
+    let habitsFounded;
+    try {
+        habitsFounded = await new Habit().search(
+            search_query.trim().toLowerCase(),
+            req.user.id
+        );
+    } catch (error) {
+        console.error(error)
+        return res.redirect("/error")
+    }
 
-    const habitsFounded = await new Habit().search(search_query.trim().toLowerCase(), req.user.id)
-
-    const message = req.session.message
-    delete req.session.message
+    const message = req.session.message;
+    delete req.session.message;
 
     res.render("habits/searchHabits", {
         message,
         user: req.user,
         styles: "search",
-        habitsFounded
-    })
-}
+        habitsFounded,
+    });
+};

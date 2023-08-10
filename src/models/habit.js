@@ -32,13 +32,9 @@ export default class Habit {
     }
     // Get all habits that owner is the user logged
     async getAll(order, user_id) {
-        if (order) {
-            return await pool.query(
-                `SELECT ${habitData} FROM habits WHERE user_id = '${user_id}' ORDER BY ${order}`
-            );
-        } else {
-            return await pool.query(`SELECT ${habitData} FROM habits`);
-        }
+        return await pool.query(
+            `SELECT ${habitData} FROM habits WHERE user_id = '${user_id}' ORDER BY ${order}`
+        );
     }
     // Get a habit by ID field
     async getById(id) {
@@ -75,13 +71,13 @@ export default class Habit {
             "SELECT title,category,time_to_do FROM habits WHERE user_id = $1",
             [user_id]
         );
-        const habits = data.rows
-        const habitsFounded = []
+        const habits = data.rows;
+        const habitsFounded = [];
         habits.forEach((habit) => {
             if (habit.title.toLowerCase().includes(search_query)) {
-                habitsFounded.push(habit)
+                habitsFounded.push(habit);
             }
-        })
-        return habitsFounded
+        });
+        return habitsFounded;
     }
 }
