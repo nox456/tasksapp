@@ -7,8 +7,11 @@ const router = Router();
 router.get("/", (req, res) => {
     const message = req.session.message;
     delete req.session.message;
-
-    res.render("index", { message });
+    if (req.isAuthenticated()) { 
+        res.redirect("/dashboard")
+    } else { 
+        res.render("index", { message });
+    }
 });
 
 // Route to signin page
