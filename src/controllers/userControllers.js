@@ -12,6 +12,7 @@ export const getUserProfile = async (req, res) => {
         user: req.user,
         points: req.user.points,
         noUserImgSidebar: true,
+        noProfileLink: true,
     });
 };
 
@@ -156,5 +157,6 @@ export const getScoreTable = async (req, res) => {
         styles: "scoretable",
         user: req.user,
         users: users.rows,
+        noUserImgSidebar: true,
     });
 };
