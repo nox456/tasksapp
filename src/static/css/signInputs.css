@@ -20,6 +20,23 @@
 #submit-button {
     margin-top: auto;
 }
+.conditions-container {
+    display: none;
+    margin-left: 1em;
+    font-size: .75em;
+    align-items: center;
+    gap: 2em;
+    display: none;
+}
+#username-input:focus + .conditions-container {
+    display: flex;
+}
+#password-input:focus + .conditions-container {
+    display: flex;
+}
+.conditions-container > p > span {
+    color: #000;
+}
 @media screen and (max-width: 600px) {
     .signin {
         width: 100%;

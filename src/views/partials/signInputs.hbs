@@ -1,2 +1,10 @@
-<input type="username" name="username" placeholder="Usuario" class="input" />
-<input type="password" name="password" placeholder="Contraseña" class="input" />
+<input type="username" name="username" autocomplete="off" placeholder="Usuario" class="input" id="username-input" />
+<div class="conditions-container">
+    <p><span>*</span> Sin espacios</p>
+    <p><span>*</span> Menor de 20 caracteres</p>
+</div>
+<input type="password" name="password" autocomplete="off" placeholder="Contraseña" class="input" id="password-input" />
+<div class="conditions-container">
+    <p><span>*</span> Por lo menos 1 caracter especial</p>
+    <p><span>*</span> Mayor de 5 caracteres</p>
+</div>

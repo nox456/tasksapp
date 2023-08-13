@@ -29,6 +29,12 @@ passport.use(
         },
         async (req, username, password, done) => {
             const user = new User(username, password);
+            try {
+                await user.validate(username, password)
+            } catch (error) {
+                req.session.message = error.errors[0].message
+                return done(null,false)
+            }
             let usernameExists
             try {
                 usernameExists = await user.usernameExits()   
@@ -62,15 +68,20 @@ passport.use(
         },
         async (req, username, password, done) => {
             const user = new User(username);
+            console.log(password)
+            try {
+                await user.validate(username, password)
+            } catch (error) {
+                req.session.message = error.errors[0].message
+                return done(null,false)
+            }
             let comparedUsername
             let comparedPassword
             try {
                 comparedUsername = await user.compareUsername(username)
-                comparedPassword = await user.comparePassword(password)
             } catch (error) { 
                 return done(error,false)
             }
-
             if (comparedUsername) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
@@ -78,6 +89,11 @@ passport.use(
             try { 
                 await user.setUserFromDB(username);
             } catch (error) {
+                return done(error,false)
+            }
+            try {
+                comparedPassword = await user.comparePassword(password)
+            } catch (error) { 
                 return done(error,false)
             }
             if (!comparedPassword) {
