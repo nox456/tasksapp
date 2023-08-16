@@ -1,4 +1,5 @@
 import pool from "../database/db.js";
+import { z } from "zod";
 
 // String that have the task fields in db
 let taskData = [
@@ -141,5 +142,11 @@ export default class Task {
             }
         });
         return tasksFounded;
+    }
+    async validate(title,description,finish_at,category) {
+        const taskSchema = z.object({
+            title: z.string().min(1, {message: "Ingresa un Titulo!"})
+        })
+        return await taskSchema.parseAsync({title})
     }
 }

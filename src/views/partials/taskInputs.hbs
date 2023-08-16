@@ -7,7 +7,6 @@
         placeholder="Titulo"
         value="{{title}}"
         autofocus
-        required
     />
 
 
@@ -16,7 +15,6 @@
         name="description"
         rows="10"
         placeholder="Descripcion"
-        required
         >{{description}}</textarea>
 
     </div>
@@ -28,14 +26,12 @@
         name="finished_at"
         id="finished-input"
         value="{{finish_at}}"
-        required
     />
     <label for="category-select">Categoria:</label>
     <select
         name="category"
         id="category-select"
         class="category input"
-        required
     >
         <option hidden>Seleccione</option>
         <option {{#if (compare this.category 'Academica')}}
@@ -55,11 +51,12 @@
                 {{/if}}
                 value="Practica">Practica
         </option>
-            <option {{#if (compare this.category 'Laboral')}}
+
+        <option {{#if (compare this.category 'Laboral')}}
                 selected
                 {{/if}}
                 value="Laboral">Laboral
-            </option>
+        </option>
     </select>
 
     </div>
