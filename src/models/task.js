@@ -1,5 +1,9 @@
 import pool from "../database/db.js";
+import dayjs from "dayjs";
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter.js";
 import { z } from "zod";
+
+dayjs.extend(isSameOrAfter);
 
 // String that have the task fields in db
 let taskData = [
@@ -131,9 +135,11 @@ export default class Task {
         ]);
     }
     // Get the tasks wich title includes the search query
-    async search(search_query,user_id) {
+    async search(search_query, user_id) {
         const data = await pool.query(
-            "SELECT title,category,done,to_char(finish_at,'DD Mon YYYY') as finish_at FROM tasks WHERE user_id = $1", [user_id]);
+            "SELECT title,category,done,to_char(finish_at,'DD Mon YYYY') as finish_at FROM tasks WHERE user_id = $1",
+            [user_id]
+        );
         const tasks = data.rows;
         const tasksFounded = [];
         tasks.forEach((task) => {
@@ -143,10 +149,42 @@ export default class Task {
         });
         return tasksFounded;
     }
-    async validate(title,description,finish_at,category) {
+    async validate(title, description, finish_at, category) {
         const taskSchema = z.object({
-            title: z.string().min(1, {message: "Ingresa un Titulo!"})
-        })
-        return await taskSchema.parseAsync({title})
+            title: z
+                .string()
+                .min(1, { message: "Ingresa un Titulo!" })
+                .max(20, {
+                    message: "El Titulo debe tener maximo 20 caracteres!",
+                }),
+            description: z
+                .string()
+                .min(1, { message: "Ingresa una Descripcion!" })
+                .max(60, {
+                    message: "La Descripcion debe tener maximo 60 caracteres!",
+                }),
+            finish_at: z
+                .string({
+                    required_error: "Ingrese una Fecha de Finalizacion!",
+                })
+                .datetime()
+                .refine(
+                    (val) => {
+                        return dayjs(val).add(1,"day").isSameOrAfter(dayjs(),"day");
+                    },
+                    {
+                        message:
+                            "La Fecha de Finalizacion no debe ser antes de hoy!",
+                    }
+                ),
+        });
+        return await taskSchema.parseAsync({
+            title,
+            description,
+            finish_at:
+                finish_at.length > 0
+                    ? new Date(finish_at).toISOString()
+                    : undefined,
+        });
     }
 }

@@ -49,7 +49,6 @@ export const getTasks = async (req, res) => {
 // Create a Task, save in db and redirect to tasks list page
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
-
     try {
         await new Task().validate(title, description, finished_at, category)
     } catch (error) {
