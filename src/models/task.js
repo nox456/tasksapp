@@ -170,13 +170,20 @@ export default class Task {
                 .datetime()
                 .refine(
                     (val) => {
-                        return dayjs(val).add(1,"day").isSameOrAfter(dayjs(),"day");
+                        return dayjs(val)
+                            .add(1, "day")
+                            .isSameOrAfter(dayjs(), "day");
                     },
                     {
                         message:
                             "La Fecha de Finalizacion no debe ser antes de hoy!",
                     }
                 ),
+            category: z
+                .enum(["Seleccione","Academica", "Salud", "Practica", "Laboral"])
+                .refine((val) => val != "Seleccione", {
+                    message: "Ingrese una Categoria!",
+                }),
         });
         return await taskSchema.parseAsync({
             title,
@@ -185,6 +192,7 @@ export default class Task {
                 finish_at.length > 0
                     ? new Date(finish_at).toISOString()
                     : undefined,
+            category,
         });
     }
 }
