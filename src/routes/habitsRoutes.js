@@ -15,12 +15,15 @@ const router = Router();
 router.get("/habits/list", getHabits);
 
 // Route to add habit page
-router.get("/habits/add", (req, res) =>
+router.get("/habits/add", (req, res) => {
+    const message = req.session.message
+    delete req.session.message
     res.render("habits/addHabit", {
+        message,
         styles: "habits",
         user: req.user ? req.user : undefined,
-    })
-);
+    });
+});
 
 // Route to add a habit
 router.post("/habitsAdd", addHabit);
@@ -38,5 +41,5 @@ router.get("/habitsUpdate", updateHabits);
 router.get("/habits/detail", getHabitsDetails);
 
 // Route to search habit results
-router.get("/searchHabits", searchHabits)
+router.get("/searchHabits", searchHabits);
 export default router;

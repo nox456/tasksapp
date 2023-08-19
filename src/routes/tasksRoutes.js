@@ -16,12 +16,15 @@ const router = Router();
 router.get("/tasks/list", getTasks);
 
 // Route to add task page
-router.get("/tasks/add", (req, res) =>
+router.get("/tasks/add", (req, res) => {
+    const message = req.session.message
+    delete req.session.message
     res.render("tasks/addTask", {
+        message,
         styles: "tasks",
         user: req.user ? req.user : undefined,
-    })
-);
+    });
+});
 
 // Route to add a task
 router.post("/tasksAdd", addTask);
@@ -39,9 +42,9 @@ router.get("/tasksUpdate", updateTasks);
 router.get("/tasks/detail", getTaskDetails);
 
 // Route to mark a task doned
-router.post("/tasksDone", doneTask)
+router.post("/tasksDone", doneTask);
 
 // Route to search task results
-router.get("/searchTasks", searchTask)
+router.get("/searchTasks", searchTask);
 
 export default router;
