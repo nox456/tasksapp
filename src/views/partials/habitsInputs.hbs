@@ -7,14 +7,12 @@
         placeholder="Titulo"
         value="{{title}}"
         autofocus
-        required
     />
     <textarea
         class="description input"
         name="description"
         rows="10"
         placeholder="Descripcion"
-        required
     >{{description}}</textarea>
 
     </div>
@@ -85,7 +83,6 @@
         name="category"
         id="category-select"
         class="category input"
-        required
     >
         <option hidden>Seleccione</option>
         <option {{#if (compare this.category 'Academica')}}

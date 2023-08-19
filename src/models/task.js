@@ -149,6 +149,7 @@ export default class Task {
         });
         return tasksFounded;
     }
+    // Validate task input
     async validate(title, description, finish_at, category) {
         const taskSchema = z.object({
             title: z

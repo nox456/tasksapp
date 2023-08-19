@@ -1,4 +1,5 @@
 import pool from "../database/db.js";
+import { z } from "zod";
 
 // String that have the habit fields in db
 const habitData = `id,title,description,days,time_to_do,category`;
@@ -79,5 +80,44 @@ export default class Habit {
             }
         });
         return habitsFounded;
+    }
+    // Validate habit input
+    async validate(title, description, days, time_to_do, category) {
+        const habitSchema = z.object({
+            title: z
+                .string()
+                .min(1, { message: "Ingresa un Titulo!" })
+                .max(20, {
+                    message: "El Titulo debe tener maximo 20 caracteres!",
+                }),
+            description: z
+                .string()
+                .min(1, { message: "Ingresa una Descripcion!" })
+                .max(60, {
+                    message: "La Descripcion debe tener maximo 60 caracteres!",
+                }),
+            days: z
+                .string({ required_error: "Seleccione por lo menos 1 dia!" })
+                .array(),
+            time_to_do: z.string().min(1, { message: "Ingrese una hora!" }),
+            category: z
+                .enum([
+                    "Seleccione",
+                    "Academica",
+                    "Salud",
+                    "Practica",
+                    "Laboral",
+                ])
+                .refine((val) => val != "Seleccione", {
+                    message: "Ingrese una Categoria!",
+                }),
+        });
+        return await habitSchema.parseAsync({
+            title,
+            description,
+            days: typeof days == "string" ? [days] : days,
+            time_to_do,
+            category
+        });
     }
 }

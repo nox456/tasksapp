@@ -28,6 +28,12 @@ export const getHabits = async (req, res) => {
 // Create a habit, save in db and redirect to habits list page
 export const addHabit = async (req, res) => {
     const { title, description, days, time_to_do, category } = req.body;
+    try {
+        await new Habit().validate(title, description, days, time_to_do, category)
+    } catch (error) {
+        req.session.message = error.errors[0].message
+        return res.redirect("/habits/add")
+    }
     const user_id = req.user.id;
     try {
         await new Habit(
