@@ -21,20 +21,20 @@ if (documentUrl.includes("list")) {
         orderList = await import("./orderList.js");
     confirmDelete.default();
     orderList.default();
-    if (documentUrl.includes("habit")) {
-        const expandHabits = await import("./expandHabits.js"),
-            checkHabitDays = await import("./checkHabitDays.js");
-        expandHabits.default();
-        checkHabitDays.default();
-    }
-    if (documentUrl.includes("tasks")) {
-        const expandTasks = await import("./expandTasks.js"),
-            doneTasksCheck = await import("./doneTasksCheck.js"),
-            doneTasksSelect = await import("./doneTaskSelect.js");
-        expandTasks.default();
-        doneTasksCheck.default();
-        doneTasksSelect.default();
-    }
+}
+if (documentUrl.includes("habits/list")) {
+    const expandHabits = await import("./expandHabits.js"),
+        checkHabitDays = await import("./checkHabitDays.js");
+    expandHabits.default();
+    checkHabitDays.default();
+}
+if (documentUrl.includes("tasks/list")) {
+    const expandTasks = await import("./expandTasks.js"),
+        doneTasksCheck = await import("./doneTasksCheck.js"),
+        doneTasksSelect = await import("./doneTaskSelect.js");
+    expandTasks.default();
+    doneTasksCheck.default();
+    doneTasksSelect.default();
 }
 
 // Only in update and add pages (Update and Add task, Update and Add Habit)
