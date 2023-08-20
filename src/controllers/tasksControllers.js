@@ -93,18 +93,25 @@ export const getTasksData = async (req, res) => {
         console.error(error)
         return res.redirect("/error")
     }
-
+    const message = req.session.message
+    delete req.session.message
     res.render("tasks/updateTasks", {
         styles: "tasks",
         tasks: data.rows[0],
         user: req.user ? req.user : undefined,
+        message
     });
 };
 
 // Update a task in db and redirect to task list page
 export const updateTasks = async (req, res) => {
     const { id, title, description, finished_at, category } = req.query;
-
+    try {
+        await new Task().validate(title, description, finished_at, category)
+    } catch (error) {
+        req.session.message = error.errors[0].message
+        return res.redirect(`tasks/update?id=${id}`)
+    }
     try {
         await new Task(title, description, finished_at, category).update(id);
     } catch (error) {

@@ -78,18 +78,26 @@ export const getHabitsData = async (req, res) => {
         console.error(error)
         return res.redirect("/error");
     }
+    const message = req.session.message
+    delete req.session.message
 
     res.render("habits/updateHabits", {
         habit: data.rows[0],
         styles: "habits",
         user: req.user ? req.user : undefined,
+        message
     });
 };
 
 // Update a Habit in db and redirect to habit list page
 export const updateHabits = async (req, res) => {
     const { id, title, description, days, time_to_do, category } = req.query;
-
+    try {
+        await new Habit().validate(title, description, days, time_to_do, category)
+    } catch (error) {
+        req.session.message = error.errors[0].message
+        return res.redirect(`/habits/update?id=${id}`)
+    }
     try {
         await new Habit(title, description, days, time_to_do, category).update(
             id
