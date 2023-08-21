@@ -1,13 +1,17 @@
-const documentUrl = document.URL;
+const documentUrl = window.location.pathname;
 
 // Main functions using dynamic imports
 // Only in index, signin and signup pages
 const message = await import("./message.js");
 message.default();
+if (documentUrl != "/") {
+    const logoHeader = await import("./logoHeader.js")
+    logoHeader.default()
+}
 if (
-    documentUrl != "http://192.168.1.3:3000/" &&
-    !documentUrl.includes("signup") &&
-    !documentUrl.includes("signin")
+    documentUrl != "/" &&
+    documentUrl != "signup" &&
+    documentUrl != "signin"
 ) {
     const logoutButton = await import("./logoutButton.js"),
         sidebar = await import("./sidebar.js");
@@ -16,19 +20,19 @@ if (
 }
 
 // Only in list pages (Tasks list and Habits List)
-if (documentUrl.includes("list")) {
+if (documentUrl == "list") {
     const confirmDelete = await import("./confirmDelete.js"),
         orderList = await import("./orderList.js");
     confirmDelete.default();
     orderList.default();
 }
-if (documentUrl.includes("habits/list")) {
+if (documentUrl == "habits/list") {
     const expandHabits = await import("./expandHabits.js"),
         checkHabitDays = await import("./checkHabitDays.js");
     expandHabits.default();
     checkHabitDays.default();
 }
-if (documentUrl.includes("tasks/list")) {
+if (documentUrl == "tasks/list") {
     const expandTasks = await import("./expandTasks.js"),
         doneTasksCheck = await import("./doneTasksCheck.js"),
         doneTasksSelect = await import("./doneTaskSelect.js");
@@ -38,13 +42,13 @@ if (documentUrl.includes("tasks/list")) {
 }
 
 // Only in update and add pages (Update and Add task, Update and Add Habit)
-if (documentUrl.includes("update") || documentUrl.includes("add")) {
+if (documentUrl == "update" || documentUrl == "add") {
     const selectDays = await import("./selectDays.js");
     selectDays.default();
 }
 
 // Only in dashboard page
-if (documentUrl.includes("dashboard")) {
+if (documentUrl == "dashboard") {
     const checkHabitDays = await import("./checkHabitDays.js"),
         showHabitsToday = await import("./showTodayHabits.js"),
         expandTodayElements = await import("./expandTodayElements.js"),
@@ -58,7 +62,7 @@ if (documentUrl.includes("dashboard")) {
 }
 
 // Only in Profile page
-if (documentUrl.includes("profile")) {
+if (documentUrl == "profile") {
     const addUserImg = await import("./addUserImg.js");
     addUserImg.default();
 }

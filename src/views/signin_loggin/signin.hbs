@@ -1,7 +1,10 @@
-<div class="signin container">
-    <h1>Registarse</h1>
-    <form action="/signin" method="post" class="signin-form">
-        {{> signInputs}}
-        <input type="submit" value="Registrar" id="submit-button" class="save input">
-    </form>
+<div class="signin">
+    <div class="sign-header">Registrarse</div>
+    <hr color="#555">
+    <div class="sign-body">
+        <form action="/signin" method="post" class="signin-form">
+            {{> signInputs}}
+            <input type="submit" value="Registrar" id="submit-button" class="button submit">
+        </form>
+    </div>
 </div>

@@ -4,13 +4,22 @@
     padding: 0;
     font-family: "Ubuntu", sans-serif;
 }
+
+:root {
+    --mainColor1: #13234e;
+    --mainColor2: #263997;
+    --mainColor3: #5760c7;
+    --mainColor4: #c5bde5;
+    --mainBackground: linear-gradient(to right bottom, var(--mainColor1),var(--mainColor2),var(--mainColor3));
+}
 body {
-    background-color: #404040;
-    height: 100vh;
+    background-image: var(--mainBackground);
     width: 100vw;
+    height: 100vh;
     display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-template-rows: 1fr 9fr;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    padding: 1.5em;
 }
 @media screen and (max-width: 600px) {
     body {
@@ -18,14 +27,49 @@ body {
         grid-template-columns: 100%;
     }
 }
-.main-container {
-    grid-column: span 2;
-    grid-row: span 2;
-    position: relative;
-    padding: 2em;
-    flex-direction: column;
+.main-header {
     display: flex;
-    gap: 2em;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    grid-row: 1;
+}
+.main-header > .button {
+    border-radius: 10px;
+}
+.main-header > .button > a {
+    color: var(--mainColor4);
+    padding: 5px 15px;
+    display: block;
+}
+.main-header > .button:hover > a {
+    color: #000;
+}
+.button i {
+    fill: currentColor;
+}
+.main-header > .title {
+    color: #FFF;
+    font-size: 3em;
+    text-shadow: 0px 0px 30px #000;
+    grid-row: 1;
+    width: 23%;
+}
+.main-container {
+    border-radius: .5em;
+    display: flex;
+    box-shadow: 0px 20px 40px #000;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #0009;
+    padding: 2em;
+    width: 95%;
+    height: 100%;
+    gap: 3em;
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1;
 }
 @media screen and (max-width: 600px) {
     .main-container {
@@ -35,8 +79,27 @@ body {
     }
 }
 .main-title {
-    color: #fff;
-    font-size: 2.5em;
+    color: #FFF;
+    font-size: 6em;
+    text-shadow: 0px 0px 30px #000;
+}
+.description-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.description-container > .description-text {
+    color: #FFF;
+    font-size: 1.3em;
+    line-height: 1.2em;
+}
+.description-text > .dev-name {
+    color: #0f68b8;
+}
+.description-container > .main-buttons-container {
+    display: flex;
+    gap: 3em;
 }
 #main-blur-container {
     display: none;
@@ -82,12 +145,12 @@ body {
     }
 }
 .button {
-    border: none;
+    border: 2px solid var(--mainColor4);
     border-radius: 5px;
-    background-color: #229;
+    background-color: transparent;
     color: #fff;
     cursor: pointer;
-    transition: box-shadow 300ms;
+    transition: background-color .25s ease;
     outline: none;
 }
 .button:focus-visible {
@@ -100,7 +163,7 @@ body {
     padding: 0.5em;
 }
 .button:hover {
-    box-shadow: 0px 0px 15px #229;
+    background-color: var(--mainColor4);
 }
 .list-options-container {
     width: 100%;
@@ -184,20 +247,20 @@ body {
 
 .input {
     background-color: transparent;
-    padding: 1em;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    color: #fff;
-    outline: none;
+    border: none;
+    color: #FFF;
 }
 .confirm-button-no,
 .confirm-button-yes {
     height: 2em;
     font-size: 0.8em;
 }
+.input::placeholder {
+    color: #999;
+}
 .input:focus {
-    box-shadow: 0px 0px 15px #44f;
-    border-color: #44f;
+    border: none;
+    outline: none;
 }
 .description {
     resize: none;
@@ -210,13 +273,14 @@ body {
 .category > option {
     background-color: #202020;
 }
-.save {
-    background-color: #494;
-    border: none;
-    cursor: pointer;
+.submit {
+    padding: 1em;
+    margin-top: auto;
+    border-radius: 5px;
+    color: var(--mainColor4);
 }
-.save:hover {
-    box-shadow: 0px 0px 10px #494;
+.submit:hover {
+    color: #000;
 }
 .add-form {
     display: flex;
@@ -748,14 +812,9 @@ a {
     font-size: .7em;
     text-align: center;
 }
-.main-buttons-container {
-    width: 600px;
-    padding: 2em;
-    border: 5px solid #44f;
-    border-radius: 15px;
+.description-container > .buttons-container {
     display: flex;
-    gap: 2em;
-    justify-content: center;
+    gap: 3em;
 }
 @media screen and (max-width: 600px) {
     .main-buttons-container {
@@ -768,27 +827,31 @@ a {
     }
 }
 .main-button {
-    background-color: transparent;
     font-size: 1.3em;
-    border: none;
-    background-color: #494;
-    border-radius: 5px;
-    transition: box-shadow 300ms;
+    border: 2px solid var(--mainColor4);
+    background-color: transparent;
+    border-radius: 12px;
+    transition: background-color .25s ease;
+    cursor: pointer;
+}
+.main-button:hover {
+    background-color: var(--mainColor4);
 }
 @media screen and (max-width: 600px) {
     .main-button {
         font-size: 0.7em;
     }
 }
-.main-button:hover {
-    box-shadow: 0px 0px 10px #494;
-}
 .main-button > a {
+    text-decoration: none;
+    color: var(--mainColor4);
     display: block;
-    width: 100%;
     padding: 1em;
+    transition: color .25s ease;
 }
-
+.main-button:hover > a {
+    color: #000;
+}
 .user-img-container {
     width: 6em;    
     height: 6em;

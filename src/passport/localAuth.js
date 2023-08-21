@@ -32,6 +32,14 @@ passport.use(
             try {
                 await user.validate(username, password)
             } catch (error) {
+                const err = error.errors[0]
+                if (err.path[0] == "password") {
+                    req.session.passwordMessage = err.message
+                    console.log(err.message)
+                } else {
+                    req.session.usernameMessage = err.message
+                    console.log(err.message)
+                }
                 req.session.message = error.errors[0].message
                 return done(null,false)
             }
@@ -68,11 +76,17 @@ passport.use(
         },
         async (req, username, password, done) => {
             const user = new User(username);
-            console.log(password)
             try {
                 await user.validate(username, password)
             } catch (error) {
-                req.session.message = error.errors[0].message
+                const err = error.errors[0]
+                if (err.path[0] == "password") {
+                    req.session.passwordMessage = err.message
+                    console.log(err.message)
+                } else {
+                    req.session.usernameMessage = err.message
+                    console.log(err.message)
+                }
                 return done(null,false)
             }
             let comparedUsername
