@@ -1,0 +1,6 @@
+.main-container {
+    grid-row: 1 / span 2;
+}
+.main-header {
+    display: none;
+}

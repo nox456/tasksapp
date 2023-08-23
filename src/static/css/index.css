@@ -18,7 +18,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    grid-template-rows: 15% 85%;
     padding: 1.5em;
 }
 @media screen and (max-width: 600px) {
@@ -34,6 +34,7 @@ body {
     justify-content: space-between;
     margin: 0 auto;
     grid-row: 1;
+    grid-column: 1;
 }
 .main-header > .button {
     border-radius: 10px;
@@ -69,7 +70,7 @@ body {
     gap: 3em;
     margin: auto;
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
 }
 @media screen and (max-width: 600px) {
     .main-container {
@@ -470,22 +471,6 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-}
-.navbar {
-    padding: 1em 3em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #44f;
-    color: #fff;
-    grid-row: span 1;
-    grid-column: span 2;
-    box-shadow: 0px 0px 15px #000;
-}
-@media screen and (max-width: 600px) {
-    .navbar {
-        padding: 0.5em;
-    }
 }
 .navbar .link {
     color: #fff;

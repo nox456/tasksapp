@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     if (req.isAuthenticated()) { 
         res.redirect("/dashboard")
     } else { 
-        res.render("index", { message });
+        res.render("index", { message, styles: "landing"});
     }
 });
 

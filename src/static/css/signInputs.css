@@ -1,9 +1,3 @@
-body {
-    grid-template-rows: 15% 85%;
-}
-.main-container {
-    grid-row: 2;
-}
 .signin {
     width: 50%;
     height: 90%;

@@ -4,10 +4,6 @@ const documentUrl = window.location.pathname;
 // Only in index, signin and signup pages
 const message = await import("./message.js");
 message.default();
-if (documentUrl != "/") {
-    const logoHeader = await import("./logoHeader.js")
-    logoHeader.default()
-}
 if (
     documentUrl != "/" &&
     documentUrl != "signup" &&
