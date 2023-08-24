@@ -172,7 +172,6 @@ export default class Task {
                 .refine(
                     (val) => {
                         return dayjs(val)
-                            .add(1, "day")
                             .isSameOrAfter(dayjs(), "day");
                     },
                     {
