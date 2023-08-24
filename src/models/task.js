@@ -165,10 +165,8 @@ export default class Task {
                     message: "La Descripcion debe tener maximo 60 caracteres!",
                 }),
             finish_at: z
-                .string({
-                    required_error: "Ingrese una Fecha de Finalizacion!",
-                })
-                .datetime()
+                .string()
+                .min(1, { message: "Ingrese una Fecha de Finalizacion!" })
                 .refine(
                     (val) => {
                         return dayjs(val)
@@ -180,7 +178,13 @@ export default class Task {
                     }
                 ),
             category: z
-                .enum(["Seleccione","Academica", "Salud", "Practica", "Laboral"])
+                .enum([
+                    "Seleccione",
+                    "Academica",
+                    "Salud",
+                    "Practica",
+                    "Laboral",
+                ])
                 .refine((val) => val != "Seleccione", {
                     message: "Ingrese una Categoria!",
                 }),
@@ -188,10 +192,7 @@ export default class Task {
         return await taskSchema.parseAsync({
             title,
             description,
-            finish_at:
-                finish_at.length > 0
-                    ? new Date(finish_at).toISOString()
-                    : undefined,
+            finish_at,
             category,
         });
     }
