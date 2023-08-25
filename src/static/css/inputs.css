@@ -1,0 +1,127 @@
+/* GENERAL INPUTS */
+.error-text {
+    display: flex;
+    gap: .5em;
+    font-size: .8em;
+    color: var(--mainColor3);
+}
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+.input-container {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 5px;
+    padding: 12px 10px;
+    background-color: #333;
+    color: #FFF;
+    transition: background-color .15s ease;
+}
+.input-container:hover {
+    background-color: #444;
+}
+.input-container label {
+    font-size: .8em;
+}
+
+/* SIGN INPUTS */
+.signin {
+    width: 50%;
+    height: 90%;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: 2px solid #555;
+}
+.signin > hr {
+    border: none;
+    height: .5px;
+}
+.sign-header {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 1.5em;
+}
+.sign-body {
+    height: 85%;
+}
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1em;
+    gap: 1.5em;
+}
+#submit-button {
+    margin-top: auto;
+}
+@media screen and (max-width: 600px) {
+    .signin {
+        width: 100%;
+        justify-content: center;
+    }
+    .signin-form {
+        justify-content: center;
+    }
+    #submit-button {
+        margin: 0;
+    }
+}
+
+/* SEARCH INPUTS */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-form {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+    .search-form {
+        width: 60%;
+    }
+}
+.search-form .search-input {
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+.search-input::placeholder {
+    color: #fff;
+}
+.search-container .button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 0 .8em;
+    cursor: pointer;
+}
+.search-container .button:hover {
+    color: #000;
+}
+.search-container .input-container {
+    font-size: .9em;
+    padding: 10px 12px;
+    gap: 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #0004;
+    flex-direction: row;
+    align-items: center;
+}
+.search-container .input-container:hover {
+    background-color: #0009;
+}

@@ -1,6 +1,6 @@
 <header class="main-header" id="navbar">
     {{#if user}}
-        <div class="menu-container">
+        <div class="menu-container button">
             <a href="/dashboard" class="link"><i class="gg-home"></i></a>
         </div>
     {{else}}
@@ -9,7 +9,7 @@
         </button>
     {{/if}}
     {{#if user}}
-        <div class="menu-container search-container">
+        <div class="search-container">
             {{#if searchTasks}}
                 {{> searchTaskInput}}
             {{/if}}
@@ -21,7 +21,7 @@
         <h1 class="title">TasksApp</h1>
     {{/if}}
     {{#if user}}
-        <div class="menu-container">
+        <div class="menu-container button">
             <button class="menu-icon" id="menu-icon">
                 <i class="gg-menu"></i>
             </button>

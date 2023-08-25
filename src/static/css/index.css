@@ -44,7 +44,8 @@ body {
     padding: 5px 15px;
     display: block;
 }
-.main-header > .button:hover > a {
+.main-header > .button:hover > a,
+.main-header > .button:hover > .menu-icon {
     color: #000;
 }
 .button i {
@@ -472,17 +473,14 @@ a {
     text-decoration: none;
     color: inherit;
 }
-.navbar .link {
-    color: #fff;
-    padding: 0.7em;
-    display: block;
-    border-radius: 7px;
-    transition: background-color 300ms;
+.main-header > .menu-container .link,
+.main-header > .menu-container .menu-icon {
+    padding: .7em;
 }
-.navbar .link:hover {
-    background-color: #229;
+.main-header > .menu-container {
+    height: 2em;
 }
-.navbar .menu-icon {
+.main-header .menu-icon {
     cursor: pointer;
     padding: 0.8em;
     background-color: transparent;
@@ -492,20 +490,11 @@ a {
     color: #fff;
     transition: background-color 300ms ease-out;
 }
-.navbar .menu-icon:focus-visible {
-    outline: none;
-}
-.navbar .home-container .link {
+.main-header .home-container .link {
     display: block;
     padding: 0.6em;
     background-color: transparent;
     transition: background-color 300ms ease-out;
-}
-.navbar .home-container .link:hover {
-    background-color: #229;
-}
-.navbar .menu-icon:hover {
-    background-color: #229;
 }
 
 /* ******************************************************************************************** */

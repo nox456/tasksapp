@@ -37,6 +37,7 @@ export const getTasks = async (req, res) => {
     res.render("tasks/taskList", {
         styles: "tasks",
         styles2: "search",
+        styles3: "inputs",
         tasks: data.rows,
         message,
         orderText: req.session.orderText,

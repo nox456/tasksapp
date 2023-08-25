@@ -17,6 +17,7 @@ export const getHabits = async (req, res) => {
     res.render("habits/habitsList", {
         styles: "habits",
         styles2: "search",
+        styles3: "inputs",
         habits: data.rows,
         message,
         orderText,

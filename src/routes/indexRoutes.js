@@ -20,7 +20,7 @@ router.get("/signin", (req, res) => {
     const { passwordMessage } = req.session
     delete req.session.usernameMessage;
     delete req.session.passwordMessage
-    res.render("signin_loggin/signin", { styles: "signInputs", usernameMessage, passwordMessage });
+    res.render("signin_loggin/signin", { styles: "inputs", usernameMessage, passwordMessage });
 });
 
 // Route to login a user
@@ -40,7 +40,7 @@ router.get("/signup", (req, res) => {
     const {passwordMessage} = req.session
     delete req.session.passwordMessage;
     delete req.session.usernameMessage
-    res.render("signin_loggin/signup", { styles: "signInputs", usernameMessage, passwordMessage });
+    res.render("signin_loggin/signup", { styles: "inputs", usernameMessage, passwordMessage });
 });
 
 // Route to register a user
