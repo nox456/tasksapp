@@ -1,4 +1,7 @@
 /* TASKLIST */
+.main-container {
+    padding: 0;
+}
 .tasklist {
     flex-direction: column;
     justify-content: start;

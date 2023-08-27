@@ -47,6 +47,7 @@ router.get("/dashboard", async (req, res) => {
         styles: "habits",
         styles2: "tasks",
         styles3: "profile",
+        styles4: "dashboard",
         tasks: todayTasks,
         message,
         tasksCount,

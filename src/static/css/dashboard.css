@@ -1,0 +1,171 @@
+.main-container  {
+    padding: 0;
+}
+.dashboard {
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 60% 40%;
+    box-shadow: 0px 20px 30px #000;
+    border-radius: 0.5em;
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 600px) {
+    .dashboard {
+        grid-template-rows: 20% 20% 60%;
+    }
+}
+.dashboard-section.first {
+    grid-row: 1;
+    height: 100%;
+    grid-column: 1;
+    border-bottom: 2px solid #777;
+    padding: 0.5em;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 40% 60%;
+}
+@media screen and (max-width: 600px) {
+    .dashboard-section.first {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+}
+.dashboard-section.second {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    grid-row: 1;
+    grid-column: 2;
+    height: 100%;
+    border-left: 2px solid #777;
+    border-bottom: 2px solid #777;
+}
+@media screen and (max-width: 600px) {
+    .dashboard-section.second {
+        grid-row: 2;
+        grid-column: 1 / span 2;
+        border-left: none;
+    }
+}
+.dashboard-section.third {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    height: 100%;
+}
+@media screen and (max-width: 600px) {
+    .dashboard-section.third {
+        grid-row: 3;
+        grid-column: 1 / span 2;
+    }
+}
+.third .habits-section {
+    border-bottom: 2px solid #777;
+}
+.third .habits-section,
+.third .tasks-section {
+    height: 100%;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+}
+@media screen and (max-width: 600px) {
+    .third .tasks-section {
+        border-bottom: none;
+    }
+    .third .habits-section .line-div,
+    .third .tasks-section .line-div {
+        width: 60%;
+        border: 1px solid #999;
+    }
+}
+.third .tasks-section {
+    height: 100%;
+    grid-row: 2;
+    grid-column: 1;
+}
+.habits-section-today,
+.tasks-section-today {
+    flex-grow: 1;
+}
+@media screen and (max-width: 600px) {
+    .habits-section-today,
+    .tasks-section-today {
+        font-size: 0.8em;
+    }
+}
+.third .list-container {
+    height: 100%;
+    justify-content: start;
+    align-content: center;
+    border: none;
+    border-radius: 0;
+}
+.third .list-container .element {
+    width: 250px;
+    cursor: default;
+}
+.habits-section-today .habit-today {
+    border-color: #777;
+    box-shadow: 0px 10px 20px #000;
+}
+.section-title {
+    color: #fff;
+}
+@media screen and (max-width: 600px) {
+    .section-title {
+        font-size: 1em;
+    }
+}
+.third .line-div {
+    width: 30%;
+}
+.first .data-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: #fff;
+    grid-row: 1;
+    grid-column: 2;
+}
+@media screen and (max-width: 600px) {
+    .first .data-section {
+        font-size: 0.7em;
+    }
+    .first .data-section p {
+        text-align: center;
+        width: 60%;
+    }
+}
+.data-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.data-section > div > .line-div {
+    width: 120%;
+}
+@media screen and (max-width: 600px) {
+    .data-section > div > .line-div {
+        width: 60%;
+    }
+}
+.first .user-img-section {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+@media screen and (max-width: 600px) {
+    .first .user-img-section {
+        flex-direction: column;
+    }
+}

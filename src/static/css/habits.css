@@ -1,4 +1,7 @@
 /* HABTIS LIST */
+.main-container {
+    padding: 0;
+}
 .habitslist {
     width: 100%;
     flex-direction: column;
