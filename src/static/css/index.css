@@ -268,15 +268,6 @@ body {
 .category > option {
     background-color: #202020;
 }
-.submit {
-    padding: 1em;
-    margin-top: auto;
-    border-radius: 5px;
-    color: var(--mainColor4);
-}
-.submit:hover {
-    color: #000;
-}
 .add-form {
     display: flex;
     flex-direction: column;
@@ -332,15 +323,6 @@ body {
     .add-form .time {
         width: 100%;
     }
-}
-.save {
-    background-color: #494;
-    border: none;
-    margin-top: auto;
-    cursor: pointer;
-}
-.save:hover {
-    box-shadow: 0px 0px 10px #494;
 }
 .add-button-container {
     width: 400px;

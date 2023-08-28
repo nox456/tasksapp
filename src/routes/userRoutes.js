@@ -68,6 +68,7 @@ router.get("/profile/change-username", (req, res) => {
     res.render("users/changeUsername", {
         user: req.user,
         styles: "profile",
+        styles2: "inputs",
         message,
     });
 });
@@ -79,6 +80,7 @@ router.get("/profile/change-password", (req, res) => {
     res.render("users/changePassword", {
         user: req.user,
         styles: "profile",
+        styles2: "inputs",
         message,
     });
 });

@@ -39,6 +39,10 @@
     border: none;
     outline: none;
 }
+.button.save {
+    margin-top: auto;
+    height: 3em;
+}
 
 /* SIGN INPUTS */
 .signin {
@@ -139,10 +143,6 @@
 }
 
 /* ADD FORMS */
-.add-form .button {
-    height: 3em;
-    border: 2px solid var(--mainColor4);
-}
 .add-form .button:hover {
     color: #000;
 }
