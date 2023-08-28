@@ -1,64 +1,65 @@
 <div>
     <div class="column">
-    <input
-        class="title input"
-        type="text"
-        name="title"
-        placeholder="Titulo"
-        value="{{title}}"
-        autofocus
-    />
-
-
-    <textarea
-        class="description input"
-        name="description"
-        rows="10"
-        placeholder="Descripcion"
-        >{{description}}</textarea>
-
+        <div class="input-container">
+            <input
+                class="title input"
+                type="text"
+                name="title"
+                placeholder="Titulo"
+                value="{{title}}"
+                autofocus
+            />
+        </div>
+        <div class="input-container">
+            <textarea
+            class="description input"
+            name="description"
+            rows="10"
+            placeholder="Descripcion"
+            >{{description}}</textarea>
+        </div>
     </div>
     <div class="column">
-    <label for="finished-input">Fecha de finalización:</label>
-    <input
-        class="finished input"
-        type="date"
-        name="finished_at"
-        id="finished-input"
-        value="{{finish_at}}"
-    />
-    <label for="category-select">Categoria:</label>
-    <select
-        name="category"
-        id="category-select"
-        class="category input"
-    >
-        <option hidden>Seleccione</option>
-        <option {{#if (compare this.category 'Academica')}}
-                selected
-                {{/if}} 
-                value="Academica">Academica
-        </option>
+        <div class="input-container"> 
+            <label for="finished-input">Fecha de finalización:</label>
+            <input
+                class="finished input"
+                type="date"
+                name="finished_at"
+                id="finished-input"
+                value="{{finish_at}}"
+            />
+        </div>
+        <div class="input-container">
+            <label for="category-select">Categoria:</label>
+            <select
+                name="category"
+                id="category-select"
+                class="category input"
+            >
+                <option hidden>Seleccione</option>
+                <option {{#if (compare this.category 'Academica')}}
+                    selected
+                    {{/if}} 
+                    value="Academica">Academica
+                </option>
+                <option {{#if (compare this.category 'Salud')}}
+                    selected
+                    {{/if}}
+                    value="Salud">Salud
+                </option>
 
-        <option {{#if (compare this.category 'Salud')}}
-                selected
-                {{/if}}
-                value="Salud">Salud
-        </option>
-
-        <option {{#if (compare this.category 'Practica')}}
-                selected
-                {{/if}}
-                value="Practica">Practica
-        </option>
-
-        <option {{#if (compare this.category 'Laboral')}}
-                selected
-                {{/if}}
-                value="Laboral">Laboral
-        </option>
-    </select>
-
+                <option {{#if (compare this.category 'Practica')}}
+                    selected
+                    {{/if}}
+                    value="Practica">Practica
+                </option>
+                <option {{#if (compare this.category 'Laboral')}}
+                    selected
+                    {{/if}}
+                    value="Laboral">Laboral
+                </option>
+            </select>
+        </div>
     </div>
-
 </div>

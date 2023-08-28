@@ -27,6 +27,18 @@
 .input-container label {
     font-size: .8em;
 }
+.input {
+    background-color: transparent;
+    border: none;
+    color: #FFF;
+}
+.input::placeholder {
+    color: #999;
+}
+.input:focus {
+    border: none;
+    outline: none;
+}
 
 /* SIGN INPUTS */
 .signin {
@@ -124,4 +136,13 @@
 }
 .search-container .input-container:hover {
     background-color: #0009;
+}
+
+/* ADD FORMS */
+.add-form .button {
+    height: 3em;
+    border: 2px solid var(--mainColor4);
+}
+.add-form .button:hover {
+    color: #000;
 }

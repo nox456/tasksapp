@@ -6,7 +6,6 @@
     width: 100%;
     flex-direction: column;
     justify-content: start;
-    gap: 2em;
 }
 .habit-container {
     cursor: pointer;

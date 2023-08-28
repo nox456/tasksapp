@@ -1,109 +1,113 @@
 <div>
     <div class="column">
-    <input
-        type="text"
-        name="title"
-        class="input"
-        placeholder="Titulo"
-        value="{{title}}"
-        autofocus
-    />
-    <textarea
-        class="description input"
-        name="description"
-        rows="10"
-        placeholder="Descripcion"
-    >{{description}}</textarea>
-
+        <div class="input-container">    
+            <input
+                type="text"
+                name="title"
+                class="input"
+                placeholder="Titulo"
+                value="{{title}}"
+                autofocus
+            />
+        </div>
+        <div class="input-container">
+            <textarea
+                class="description input"
+                name="description"
+                rows="10"
+                placeholder="Descripcion"
+            >{{description}}</textarea>
+        </div>
     </div>
     <div class="column">
-    <label for="days-container">Dias:</label>
-    <div class="days-container" id="days-container">
-        {{#if days}}
+        <div class="input-container">
+            <label for="days-container">Dias:</label>
+            <div class="days-container" id="days-container">
+                {{#if days}}
+                    {{#if (checkDays days 'Lunes')}}
+                        <input type="text" name="days" readonly class="day selected" value="Lunes">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Lunes">
+                    {{/if}}
 
-            {{#if (checkDays days 'Lunes')}}
-                <input type="text" name="days" readonly class="day selected" value="Lunes">
-            {{else}}
-                <input type="text" readonly class="day" value="Lunes">
-            {{/if}}
+                    {{#if (checkDays days 'Martes')}}
+                        <input type="text" name="days" readonly class="day selected" value="Martes">
+                    {{else}}
+                        <input type="text"  readonly class="day" value="Martes">
+                    {{/if}}
 
-            {{#if (checkDays days 'Martes')}}
-                <input type="text" name="days" readonly class="day selected" value="Martes">
-            {{else}}
-                <input type="text"  readonly class="day" value="Martes">
-            {{/if}}
+                    {{#if (checkDays days 'Miercoles')}}
+                        <input type="text" name="days" readonly class="day selected" value="Miercoles">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Miercoles">
+                    {{/if}}
 
-            {{#if (checkDays days 'Miercoles')}}
-                <input type="text" name="days" readonly class="day selected" value="Miercoles">
-            {{else}}
-                <input type="text" readonly class="day" value="Miercoles">
-            {{/if}}
+                    {{#if (checkDays days 'Jueves')}}
+                        <input type="text" name="days" readonly class="day selected" value="Jueves">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Jueves">
+                    {{/if}}
 
-            {{#if (checkDays days 'Jueves')}}
-                <input type="text" name="days" readonly class="day selected" value="Jueves">
-            {{else}}
-                <input type="text" readonly class="day" value="Jueves">
-            {{/if}}
+                    {{#if (checkDays days 'Viernes')}}
+                        <input type="text" name="days" readonly class="day selected" value="Viernes">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Viernes">
+                    {{/if}}
 
-            {{#if (checkDays days 'Viernes')}}
-                <input type="text" name="days" readonly class="day selected" value="Viernes">
-            {{else}}
-                <input type="text" readonly class="day" value="Viernes">
-            {{/if}}
+                    {{#if (checkDays days 'Sabado')}}
+                        <input type="text" name="days" readonly class="day selected" value="Sabado">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Sabado">
+                    {{/if}}
 
-            {{#if (checkDays days 'Sabado')}}
-                <input type="text" name="days" readonly class="day selected" value="Sabado">
-            {{else}}
-                <input type="text" readonly class="day" value="Sabado">
-            {{/if}}
+                    {{#if (checkDays days 'Domingo')}}
+                        <input type="text" name="days" readonly class="day selected" value="Domingo">
+                    {{else}}
+                        <input type="text" readonly class="day" value="Domingo">
+                    {{/if}}
 
-            {{#if (checkDays days 'Domingo')}}
-                <input type="text" name="days" readonly class="day selected" value="Domingo">
-            {{else}}
-                <input type="text" readonly class="day" value="Domingo">
-            {{/if}}
-
-        {{else}}
-            <input type="text" readonly class="day" value="Lunes">
-            <input type="text" readonly class="day" value="Martes">
-            <input type="text" readonly class="day" value="Miercoles">
-            <input type="text" readonly class="day" value="Jueves">
-            <input type="text" readonly class="day" value="Viernes">
-            <input type="text" readonly class="day" value="Sabado">
-            <input type="text" readonly class="day" value="Domingo">
-        {{/if}}
-    </div>
-
+                {{else}}
+                    <input type="text" readonly class="day" value="Lunes">
+                    <input type="text" readonly class="day" value="Martes">
+                    <input type="text" readonly class="day" value="Miercoles">
+                    <input type="text" readonly class="day" value="Jueves">
+                    <input type="text" readonly class="day" value="Viernes">
+                    <input type="text" readonly class="day" value="Sabado">
+                    <input type="text" readonly class="day" value="Domingo">
+                {{/if}}
+            </div>
+        </div>
     </div>
     <div class="column">
-    <label for="time-input">Hora:</label>
-    <input type="time" name="time_to_do" id="time-input" class="time input" value="{{time_to_do}}">
-    <label for="category-select">Categoria:</label>
-    <select
-        name="category"
-        id="category-select"
-        class="category input"
-    >
-        <option hidden>Seleccione</option>
-        <option {{#if (compare this.category 'Academica')}}
-                selected
-                {{/if}} 
-                value="Academica">Academica</option>
-
-        <option {{#if (compare this.category 'Salud')}}
-                selected
-                {{/if}}
-                value="Salud">Salud</option>
-
-        <option {{#if (compare this.category 'Practica')}}
-                selected
-                {{/if}}
-                value="Practica">Practica</option>
-        <option {{#if (compare this.category 'Laboral')}}
-                selected
-                {{/if}}
-                value="Laboral">Laboral</option>
-    </select>
-
+        <div class="input-container">
+            <label for="time-input">Hora:</label>
+            <input type="time" name="time_to_do" id="time-input" class="time input" value="{{time_to_do}}">
+        </div>
+        <div class="input-container">
+            <label for="category-select">Categoria:</label>
+            <select
+                name="category"
+                id="category-select"
+                class="category input"
+            >
+                <option hidden>Seleccione</option>
+                <option {{#if (compare this.category 'Academica')}}
+                    selected
+                    {{/if}} 
+                    value="Academica">Academica</option>
+                <option {{#if (compare this.category 'Salud')}}
+                    selected
+                    {{/if}}
+                    value="Salud">Salud</option>
+                <option {{#if (compare this.category 'Practica')}}
+                    selected
+                    {{/if}}
+                    value="Practica">Practica</option>
+                <option {{#if (compare this.category 'Laboral')}}
+                    selected
+                    {{/if}}
+                    value="Laboral">Laboral</option>
+            </select>
+        </div>
     </div>
 </div>    
