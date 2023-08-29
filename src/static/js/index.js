@@ -16,19 +16,19 @@ if (
 }
 
 // Only in list pages (Tasks list and Habits List)
-if (documentUrl == "list") {
+if (documentUrl == "/list") {
     const confirmDelete = await import("./confirmDelete.js"),
         orderList = await import("./orderList.js");
     confirmDelete.default();
     orderList.default();
 }
-if (documentUrl == "habits/list") {
+if (documentUrl == "/habits/list") {
     const expandHabits = await import("./expandHabits.js"),
         checkHabitDays = await import("./checkHabitDays.js");
     expandHabits.default();
     checkHabitDays.default();
 }
-if (documentUrl == "tasks/list") {
+if (documentUrl == "/tasks/list") {
     const expandTasks = await import("./expandTasks.js"),
         doneTasksCheck = await import("./doneTasksCheck.js"),
         doneTasksSelect = await import("./doneTaskSelect.js");
@@ -38,13 +38,13 @@ if (documentUrl == "tasks/list") {
 }
 
 // Only in update and add pages (Update and Add task, Update and Add Habit)
-if (documentUrl == "update" || documentUrl == "add") {
+if (documentUrl == "/habits/update" || documentUrl == "/habits/add") {
     const selectDays = await import("./selectDays.js");
     selectDays.default();
 }
 
 // Only in dashboard page
-if (documentUrl == "dashboard") {
+if (documentUrl == "/dashboard") {
     const checkHabitDays = await import("./checkHabitDays.js"),
         showHabitsToday = await import("./showTodayHabits.js"),
         expandTodayElements = await import("./expandTodayElements.js"),
@@ -58,7 +58,7 @@ if (documentUrl == "dashboard") {
 }
 
 // Only in Profile page
-if (documentUrl == "profile") {
+if (documentUrl == "/profile") {
     const addUserImg = await import("./addUserImg.js");
     addUserImg.default();
 }
