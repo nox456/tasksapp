@@ -17,7 +17,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 85% 15%;
     grid-template-rows: 15% 85%;
     padding: 1.5em;
 }
@@ -34,7 +34,7 @@ body {
     justify-content: space-between;
     margin: 0 auto;
     grid-row: 1;
-    grid-column: 1;
+    grid-column: 1 / span 2;
 }
 .main-header > .button {
     border-radius: 10px;
@@ -68,10 +68,12 @@ body {
     background-color: #0009;
     padding: 2em;
     width: 95%;
+    position: relative;
+    overflow: hidden;
     height: 100%;
     gap: 3em;
     margin: auto;
-    grid-column: 1;
+    grid-column: 1 / span 2;
     grid-row: 2;
 }
 .main-container > .container {
@@ -116,7 +118,7 @@ body {
     height: 100%;
     left: 0;
     top: 0;
-    backdrop-filter: blur(0.5em);
+    backdrop-filter: blur(0.3em);
     z-index: 16;
 }
 .message-container {
@@ -252,10 +254,7 @@ body {
 .confirm-buttons-container .button {
     padding: 0.5em 1.5em;
 }
-
-.confirm-button-no,
 .confirm-button-yes {
-    height: 2em;
     font-size: 0.8em;
 }
 .description {
@@ -508,12 +507,14 @@ a {
     border-radius: 0.5em;
 }
 .sidebar {
-    background-color: #202020;
-    box-shadow: 0px 0px 15px #202020;
-    grid-row: span 2;
+    background-color: #0009;
+    box-shadow: 0px 20px 40px #000;
+    grid-row: 2;
+    grid-column: 2;
     padding: 2em 1.5em;
     flex-direction: column;
     gap: 1em;
+    border-radius: .5em;
     display: none;
     z-index: 15;
 }

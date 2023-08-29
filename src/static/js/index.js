@@ -6,8 +6,8 @@ const message = await import("./message.js");
 message.default();
 if (
     documentUrl != "/" &&
-    documentUrl != "signup" &&
-    documentUrl != "signin"
+    documentUrl != "/signup" &&
+    documentUrl != "/signin"
 ) {
     const logoutButton = await import("./logoutButton.js"),
         sidebar = await import("./sidebar.js");
