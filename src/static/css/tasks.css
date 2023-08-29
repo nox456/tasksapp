@@ -3,10 +3,9 @@
     padding: 0;
 }
 .tasklist {
+    display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 100%;
-    gap: 2em;
 }
 .task-container {
     width: 300px;
@@ -203,5 +202,8 @@
     }
 }
 .addtask {
-    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

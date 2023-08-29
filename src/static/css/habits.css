@@ -6,6 +6,8 @@
     width: 100%;
     flex-direction: column;
     justify-content: start;
+    display: flex;
+    align-items: center;
 }
 .habit-container {
     cursor: pointer;
@@ -211,4 +213,10 @@ label {
         font-size: 1em;
         padding: 1em;
     }
+}
+.addhabits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

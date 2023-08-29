@@ -77,6 +77,7 @@ body {
 .main-container > .container {
     width: 100%;
     height: 100%;
+    color: #FFF;
 }
 @media screen and (max-width: 600px) {
     .main-container {
@@ -138,14 +139,14 @@ body {
     font-size: 1.3em;
     cursor: pointer;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    color: #fff;
-}
+/* .container { */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     justify-content: center; */
+/*     align-items: center; */
+/*     height: 100%; */
+/*     color: #fff; */
+/* } */
 @media screen and (max-width: 600px) {
     .container {
         justify-content: start;

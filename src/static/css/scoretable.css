@@ -1,12 +1,14 @@
 /* SCORE TABLE */
-.score-table {
-    border: 2px solid #777;
+.scoretable {
     flex-direction: column;
+    display: flex;
     justify-content: start;
+    align-items: center;
     gap: .5em;
-    padding: .5em;
-    border-radius: .3em;
-    box-shadow: 0px 20px 30px #000;
+    padding: 2em;
+}
+.main-container {
+    padding: 0;
 }
 /* SCORE TABLE HEADER */
 .score-table-header {

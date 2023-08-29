@@ -100,6 +100,7 @@ router.get("/profile/delete-account", (req, res) => {
     delete req.session.message;
     res.render("users/deleteAccount", {
         styles: "profile",
+        styles2: "inputs",
         message,
         user: req.user,
     });

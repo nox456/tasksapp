@@ -1,4 +1,8 @@
-.container {
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1.5em;
 }
 @media screen and (max-width: 600px) {
@@ -96,6 +100,10 @@
 /******* CHANGE USERNAME - CHANGE PASSWORD - DELETE ACCOUNT *******/
 .change,
 .delete-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2.5em;
     color: #fff;
 }
