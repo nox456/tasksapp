@@ -114,10 +114,7 @@ label {
     height: 100%;
     padding: 1em;
     font-size: 1.5em;
-    border: 2px solid #777;
     border-radius: 0.3em 0 0 0;
-    border-right: none;
-    border-bottom: none;
     display: flex;
     align-items: center;
 }
@@ -139,6 +136,8 @@ label {
     padding: 2em;
     border: 2px solid #777;
     border-top: none;
+    border-left: none;
+    border-right: none;
 }
 @media screen and (max-width: 600px) {
     .detail-description-container {
@@ -157,6 +156,8 @@ label {
     border: 2px solid #777;
     border-radius: 0 0.5em 0 0;
     border-bottom: none;
+    border-top: none;
+    border-right: none;
     align-items: center;
 }
 @media screen and (max-width: 600px) {
@@ -177,6 +178,8 @@ label {
     font-size: .8em;
     padding: 0 1em;
     border: 2px solid #777;
+    border-left: none;
+    border-right: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,8 +198,6 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #777;
-    border-top: none;
     border-radius: 0 0 0.5em 0.5em;
 }
 @media screen and (max-width: 600px) {
