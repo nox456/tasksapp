@@ -186,17 +186,17 @@ body {
     border: none;
     color: #fff;
 }
-.delete-button {
-    background-color: #a00;
-}
 .delete-button:hover {
-    box-shadow: 0px 0px 15px #a00;
-}
-.update-button {
-    background-color: #060;
+    background-color: #a00;
+    border-color: #a00;
 }
 .update-button:hover {
-    box-shadow: 0px 0px 15px #060;
+    background-color: #060;
+    border-color: #060;
+}
+.detail-button:hover {
+    background-color: var(--mainColor3);
+    border-color: var(--mainColor3);
 }
 .update-button,
 .delete-button,
