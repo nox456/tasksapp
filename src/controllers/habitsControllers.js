@@ -85,6 +85,7 @@ export const getHabitsData = async (req, res) => {
     res.render("habits/updateHabits", {
         habit: data.rows[0],
         styles: "habits",
+        styles2: "inputs",
         user: req.user ? req.user : undefined,
         message
     });

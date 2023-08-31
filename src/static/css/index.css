@@ -482,7 +482,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .5em;
 }
 @media screen and (max-width: 600px) {
     .sidebar li {
@@ -494,7 +493,7 @@ a {
     height: 100%;
     width: 100%;
     display: flex;
-    gap: 1.5em;
+    gap: .5em;
     align-items: center;
     flex-direction: column;
 }
@@ -532,7 +531,6 @@ a {
     padding: 0.5em;
 }
 .sidebar .link:hover {
-    font-size: 1.2em;
     color: #fff;
 }
 .line-div {

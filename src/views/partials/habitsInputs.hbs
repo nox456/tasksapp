@@ -20,63 +20,159 @@
         </div>
     </div>
     <div class="column">
-        <div class="input-container">
-            <label for="days-container">Dias:</label>
-            <div class="days-container" id="days-container">
+            <label for="inputs-container">Dias:</label>
+            <div class="inputs-container" id="inputs-container">
                 {{#if days}}
-                    {{#if (checkDays days 'Lunes')}}
-                        <input type="text" name="days" readonly class="day selected" value="Lunes">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Lunes">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Martes')}}
-                        <input type="text" name="days" readonly class="day selected" value="Martes">
-                    {{else}}
-                        <input type="text"  readonly class="day" value="Martes">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Miercoles')}}
-                        <input type="text" name="days" readonly class="day selected" value="Miercoles">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Miercoles">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Jueves')}}
-                        <input type="text" name="days" readonly class="day selected" value="Jueves">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Jueves">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Viernes')}}
-                        <input type="text" name="days" readonly class="day selected" value="Viernes">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Viernes">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Sabado')}}
-                        <input type="text" name="days" readonly class="day selected" value="Sabado">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Sabado">
-                    {{/if}}
-
-                    {{#if (checkDays days 'Domingo')}}
-                        <input type="text" name="days" readonly class="day selected" value="Domingo">
-                    {{else}}
-                        <input type="text" readonly class="day" value="Domingo">
-                    {{/if}}
-
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Lunes"
+                            name="days"
+                        {{#if (checkDays days 'Lunes')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Lunes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Martes"
+                            name="days"
+                        {{#if (checkDays days 'Martes')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Martes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Miercoles"
+                            name="days"
+                        {{#if (checkDays days 'Miercoles')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Miercoles</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Jueves"
+                            name="days"
+                        {{#if (checkDays days 'Jueves')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Jueves</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Viernes"
+                            name="days"
+                        {{#if (checkDays days 'Viernes')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Viernes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Sabado"
+                            name="days"
+                        {{#if (checkDays days 'Sabado')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Sabado</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Domingo"
+                            name="days"
+                        {{#if (checkDays days 'Domingo')}}
+                            checked
+                        {{/if}}
+                        >
+                        <span>Domingo</span>
+                    </div>
                 {{else}}
-                    <input type="text" readonly class="day" value="Lunes">
-                    <input type="text" readonly class="day" value="Martes">
-                    <input type="text" readonly class="day" value="Miercoles">
-                    <input type="text" readonly class="day" value="Jueves">
-                    <input type="text" readonly class="day" value="Viernes">
-                    <input type="text" readonly class="day" value="Sabado">
-                    <input type="text" readonly class="day" value="Domingo">
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Lunes"
+                            name="days"
+                        >
+                        <span>Lunes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Martes"
+                            name="days"
+                        >
+                        <span>Martes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Miercoles"
+                            name="days"
+                        >
+                        <span>Miercoles</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Jueves"
+                            name="days"
+                        >
+                        <span>Jueves</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Viernes"
+                            name="days"
+                        >
+                        <span>Viernes</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Sabado"
+                            name="days"
+                        >
+                        <span>Sabado</span>
+                    </div>
+                    <div class="day-input-container">
+                        <input 
+                            type="checkbox"
+                            class="input-check"
+                            value="Domingo"
+                            name="days"
+                        >
+                        <span>Domingo</span>
+                    </div>
                 {{/if}}
             </div>
-        </div>
     </div>
     <div class="column">
         <div class="input-container">
