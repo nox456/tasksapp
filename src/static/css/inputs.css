@@ -15,13 +15,14 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 12px 10px;
-    background-color: #333;
+    padding: 10px;
+    background-color: transparent;
     color: #FFF;
-    transition: background-color .15s ease;
+    transition: border-color .15s ease;
+    border: 2px solid #444;
 }
 .input-container:hover {
-    background-color: #444;
+    border-color: #666;
 }
 .input-container label {
     font-size: .8em;
@@ -202,7 +203,7 @@
     width: 100%;
 }
 .days-container .day-input-container {
-    width: 23%;
+    width: 20%;
 }
 .day-input-container {
     display: flex;

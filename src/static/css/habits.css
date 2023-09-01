@@ -30,7 +30,6 @@
     justify-content: center;
     list-style: none;
     gap: 0.5em;
-    margin: 20px 0;
     font-size: 0.7em;
 }
 @media screen and (max-width: 600px) {

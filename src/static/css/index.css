@@ -18,7 +18,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 85% 15%;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 10% 90%;
     padding: 1.5em;
 }
 @media screen and (max-width: 600px) {
@@ -269,8 +269,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1em;
-    width: 40%;
+    gap: .7em;
+    width: 50%;
     height: 80%;
 }
 @media screen and (max-width: 600px) {
