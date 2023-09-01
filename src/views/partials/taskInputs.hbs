@@ -1,25 +1,25 @@
-<div>
-    <div class="column">
         <div class="input-container">
+            <label for="title-input">Titulo</label>
             <input
                 class="title input"
                 type="text"
                 name="title"
-                placeholder="Titulo"
+                placeholder="Ingrese un titulo"
                 value="{{title}}"
                 autofocus
+                id="title-input"
             />
         </div>
         <div class="input-container">
-            <textarea
+            <label for="description-input">Descripcion</label>
+            <input
             class="description input"
             name="description"
-            rows="10"
-            placeholder="Descripcion"
-            >{{description}}</textarea>
+            placeholder="Ingrese una descripcion"
+            id="description-input"
+            value="{{description}}"
+            >
         </div>
-    </div>
-    <div class="column">
         <div class="input-container"> 
             <label for="finished-input">Fecha de finalización:</label>
             <input
@@ -61,5 +61,3 @@
                 </option>
             </select>
         </div>
-    </div>
-</div>

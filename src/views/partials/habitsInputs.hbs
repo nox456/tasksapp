@@ -1,6 +1,5 @@
-<div>
-    <div class="column">
         <div class="input-container">    
+            <label for="title-input">Titulo</label>
             <input
                 type="text"
                 name="title"
@@ -8,20 +7,22 @@
                 placeholder="Titulo"
                 value="{{title}}"
                 autofocus
+                id="title-input"
             />
         </div>
         <div class="input-container">
-            <textarea
+            <label for="description-input">Descripcion</label>
+            <input
                 class="description input"
                 name="description"
-                rows="10"
-                placeholder="Descripcion"
-            >{{description}}</textarea>
+                placeholder="Ingrese una descripcion"
+                value="{{description}}"
+                id="description-input"
+            >
         </div>
-    </div>
-    <div class="column">
+        <div>
             <label for="inputs-container">Dias:</label>
-            <div class="inputs-container" id="inputs-container">
+            <div class="inputs-container days-container" id="inputs-container">
                 {{#if days}}
                     <div class="day-input-container">
                         <input 
@@ -173,8 +174,7 @@
                     </div>
                 {{/if}}
             </div>
-    </div>
-    <div class="column">
+        </div>
         <div class="input-container">
             <label for="time-input">Hora:</label>
             <input type="time" name="time_to_do" id="time-input" class="time input" value="{{time_to_do}}">
@@ -205,5 +205,3 @@
                     value="Laboral">Laboral</option>
             </select>
         </div>
-    </div>
-</div>    

@@ -257,9 +257,6 @@ body {
 .confirm-button-yes {
     font-size: 0.8em;
 }
-.description {
-    resize: none;
-}
 @media screen and (max-width: 600px) {
     .description {
         height: 40%;
@@ -273,7 +270,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 1em;
-    width: 70%;
+    width: 40%;
     height: 80%;
 }
 @media screen and (max-width: 600px) {
@@ -283,12 +280,6 @@ body {
         justify-content: start;
     }
 }
-.add-form > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-    height: 100%;
-}
 @media screen and (max-width: 600px) {
     .add-form > div {
         gap: .5em;
@@ -297,23 +288,12 @@ body {
         height: 90%;
     }
 }
-.add-form .column {
-    display: flex;
-    width: 50%;
-    gap: 1em;
-    justify-content: center;
-    flex-direction: column;
-}
 @media screen and (max-width: 600px) {
     .add-form .column {
         width: 100%;
         height: 30%;
         gap: .5em;
     }
-}
-.add-form .days-container,
-.add-form label {
-    align-self: center;
 }
 .add-form label {
     color: #fff;

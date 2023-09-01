@@ -98,6 +98,7 @@ export const getTasksData = async (req, res) => {
     delete req.session.message
     res.render("tasks/updateTasks", {
         styles: "tasks",
+        styles2: "inputs",
         tasks: data.rows[0],
         user: req.user ? req.user : undefined,
         message
