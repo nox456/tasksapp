@@ -53,7 +53,7 @@
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    border: 2px solid #555;
+    /* border: 2px solid #555; */
 }
 .signin > hr {
     border: none;
@@ -211,4 +211,15 @@
     width: fit-content;
     gap: .5em;
     cursor: pointer;
+}
+/* TASK LIST */
+.task-container .input-check {
+    width: 1.8em;
+    height: 1.8em;
+}
+.task-container .input-check::after {
+    left: 3.5px;
+    top: -3px;
+    width: 9px;
+    height: 15px;
 }

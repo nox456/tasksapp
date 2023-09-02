@@ -622,7 +622,6 @@ a {
     border-radius: 50%;
     display: flex;
     align-items: center;
-    border: 2px solid #AAA;
     justify-content: center;
     overflow: hidden;
     position: relative;

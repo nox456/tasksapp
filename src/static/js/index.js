@@ -16,7 +16,7 @@ if (
 }
 
 // Only in list pages (Tasks list and Habits List)
-if (documentUrl == "/list") {
+if (documentUrl == "/habits/list" || documentUrl == "/tasks/list") {
     const confirmDelete = await import("./confirmDelete.js"),
         orderList = await import("./orderList.js");
     confirmDelete.default();
