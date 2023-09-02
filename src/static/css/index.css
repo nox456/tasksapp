@@ -571,10 +571,16 @@ a {
     color: #fff;
     font-size: 1.5em;
 }
-.no-user-img-text {
-    color: #FFF;
-    font-size: .7em;
-    text-align: center;
+.no-user-img-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #555;
+}
+.no-user-img-container > i {
+    transform: scale(2);
 }
 .description-container > .buttons-container {
     display: flex;
