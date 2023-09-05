@@ -166,3 +166,8 @@
         flex-direction: column;
     }
 }
+@media screen and (max-width: 600px) {
+    .main-button {
+        font-size: .9em;
+    }
+}
