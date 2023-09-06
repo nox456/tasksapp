@@ -24,6 +24,7 @@ body {
 @media screen and (max-width: 600px) {
     body {
         grid-template-columns: 100%;
+        position: relative;
     }
 }
 .main-header {
@@ -506,8 +507,11 @@ a {
     .sidebar {
         position: absolute;
         z-index: 20;
-        top: 11%;
-        width: 100%;
+        width: 91%;
+        grid-column: 1;
+        grid-row: 2;
+        box-shadow: none;
+        background-image: var(--mainBackground);
     }
 }
 .sidebar .link {
@@ -542,7 +546,7 @@ a {
 }
 @media screen and (max-width: 600px) {
     .logout-confirm {
-        top: 85%;
+        top: 70%;
     }
 }
 
