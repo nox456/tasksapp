@@ -1,14 +1,14 @@
 /* GENERAL INPUTS */
 .error-text {
     display: flex;
-    gap: .5em;
-    font-size: .8em;
+    gap: 0.5em;
+    font-size: 0.8em;
     color: var(--mainColor3);
 }
 .form-input {
     display: flex;
     flex-direction: column;
-    gap: .3em;
+    gap: 0.3em;
 }
 .input-container {
     border-radius: 8px;
@@ -17,20 +17,20 @@
     gap: 5px;
     padding: 10px;
     background-color: transparent;
-    color: #FFF;
-    transition: border-color .15s ease;
+    color: #fff;
+    transition: border-color 0.15s ease;
     border: 2px solid #444;
 }
 .input-container:hover {
     border-color: #666;
 }
 .input-container label {
-    font-size: .8em;
+    font-size: 0.8em;
 }
 .input {
     background-color: transparent;
     border: none;
-    color: #FFF;
+    color: #fff;
 }
 .input::placeholder {
     color: #999;
@@ -56,14 +56,14 @@
 }
 .signin > hr {
     border: none;
-    height: .5px;
+    height: 0.5px;
 }
 .sign-header {
     height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFF;
+    color: #fff;
     font-size: 1.5em;
 }
 .sign-body {
@@ -129,14 +129,14 @@
     border-top-left-radius: 0;
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
-    padding: 0 .8em;
+    padding: 0 0.8em;
     cursor: pointer;
 }
 .search-container .button:hover {
     color: #000;
 }
 .search-container .input-container {
-    font-size: .9em;
+    font-size: 0.9em;
     padding: 10px 12px;
     gap: 10px;
     border-bottom-right-radius: 0;
@@ -161,7 +161,7 @@
     height: 1.3em;
     background-color: transparent;
     border: 1px solid #888;
-    border-radius: .4em;
+    border-radius: 0.4em;
     cursor: pointer;
     overflow: hidden;
     display: flex;
@@ -171,12 +171,12 @@
     transition: all 200ms ease;
 }
 .input-check:hover {
-    background-color: #FFF2;
+    background-color: #fff2;
     /* border: #AAA; */
 }
 .input-check:checked {
-    background-color: #07E;
-    border-color: #07E;
+    background-color: #07e;
+    border-color: #07e;
 }
 .input-check:after {
     content: "";
@@ -191,7 +191,7 @@
     border-width: 0 2px 2px 0;
     border-style: solid;
     transform-origin: bottom left;
-    color: #FFF;
+    color: #fff;
     transition: all 500ms ease;
     transform: rotate(45deg) scale(0);
 }
@@ -201,22 +201,34 @@
 .inputs-container {
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    gap: 0.5em;
 }
 .inputs-container.days-container {
     flex-direction: row;
     justify-content: start;
-    font-size: .9em;
+    font-size: 0.9em;
     width: 100%;
+}
+@media screen and (max-width: 600px) {
+    .inputs-container.days-container {
+        padding: .5em 0;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 .days-container .day-input-container {
     width: 20%;
+}
+@media screen and (max-width: 600px) {
+    .days-container .day-input-container {
+        width: 40%;
+    }
 }
 .day-input-container {
     display: flex;
     align-items: center;
     width: fit-content;
-    gap: .5em;
+    gap: 0.5em;
     cursor: pointer;
 }
 /* TASK LIST */
