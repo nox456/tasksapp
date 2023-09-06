@@ -105,13 +105,21 @@
 }
 @media screen and (max-width: 600px) {
     .search-form {
-        width: 60%;
+        justify-content: center;
+    }
+    .search-form .input-container {
+        width: 50%;
     }
 }
 .search-form .search-input {
     border: none;
     border-radius: 0;
     color: #fff;
+}
+@media screen and (max-width: 600px) {
+    .search-form .search-input {
+        width: 70%;
+    }
 }
 .search-input::placeholder {
     color: #fff;
