@@ -100,7 +100,6 @@
     .detail-title-container {
         grid-row: 1;
         grid-column: 1 / span 3;
-        border: 2px solid #777;
         border-bottom: none;
         border-radius: .3em .3em 0 0;
         justify-content: center;
@@ -125,8 +124,8 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        border: 2px solid #777;
-        border-top: none;
+        border: none;
+        border-bottom: 2px solid #777;
         border-radius: 0;
     }
 }
