@@ -19,12 +19,12 @@ export const getUserProfile = async (req, res) => {
 // Compare user password, check if the new username if exists, Change Username and redirect to profile page
 export const changeUsername = async (req, res) => {
     const { password, newUsername, username } = req.body;
-    const user = new User(username);
+    console.log(password)
     let comparedPassword;
     let comparedUsername;
     try {
-        comparedPassword = await user.comparePassword(password);
-        comparedUsername = await user.compareUsername(newUsername);
+        comparedPassword = await User.comparePassword(username,password);
+        comparedUsername = await User.compareUsername(newUsername);
     } catch (error) {
         console.error(error);
         return res.redirec("/error");
@@ -33,7 +33,7 @@ export const changeUsername = async (req, res) => {
     if (comparedPassword) {
         if (comparedUsername) {
             try {
-                await user.updateUsername(newUsername);
+                await User.updateUsername(newUsername,username);
             } catch (error) {
                 console.error(error);
                 return res.redirect("/error");
@@ -54,19 +54,17 @@ export const changeUsername = async (req, res) => {
 // Compare user password, change password and redirect to profile page
 export const changePassword = async (req, res) => {
     const { password, newPassword, username } = req.body;
-    const user = new User(username);
     let comparedPassword;
     try {
-        comparedPassword = await user.comparePassword(password);
+        comparedPassword = await User.comparePassword(username,password);
     } catch (error) {
         console.error(error);
         return res.redirect("/error");
     }
     if (comparedPassword) {
-        user.password = newPassword;
-        user.encryptPassword();
+        const passwordEncrypt = User.encryptPassword(newPassword);
         try {
-            await user.updatePassword();
+            await User.updatePassword(passwordEncrypt,username);
         } catch (error) {
             console.error(error);
             return res.redirect("/error");
@@ -83,11 +81,10 @@ export const changePassword = async (req, res) => {
 // Compare user password, delete user in db and redirect to main page
 export const deleteAccount = async (req, res) => {
     const { username, password } = req.body;
-    const user = new User(username);
     let comparedPassword;
 
     try {
-        comparedPassword = await user.comparePassword(password);
+        comparedPassword = await User.comparePassword(username,password);
     } catch (error) {
         console.error(error);
         return res.redirect("/error");
@@ -99,7 +96,7 @@ export const deleteAccount = async (req, res) => {
                 console.log(err);
             }
             try {
-                await user.delete();
+                await User.delete(username);
             } catch (error) {
                 console.error(error);
                 return res.redirect("/error");
@@ -117,10 +114,9 @@ export const deleteAccount = async (req, res) => {
 export const changeUserImg = async (req, res) => {
     const { username } = req.user;
     const { filename } = req.file;
-    const user = new User(username);
 
     try {
-        await user.setImg(filename);
+        await User.setImg(username,filename);
     } catch (error) {
         console.error(error);
         return res.redirect("/error");

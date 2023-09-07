@@ -16,7 +16,7 @@ const router = Router();
 // Route to dashboard page
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
-    const user = new User(req.user.username);
+    const username = req.user.username
     let habitsData;
     let tasksData;
     let tasksCount;
@@ -25,9 +25,9 @@ router.get("/dashboard", async (req, res) => {
     try {
         habitsData = await new Habit().getAll("title ASC", id);
         tasksData = await new Task().getAll("title ASC", id, false);
-        tasksCount = await user.getTasksCount();
-        tasksDonedCount = await user.getTasksDonedCount();
-        habitsCount = await user.getHabitsCount();
+        tasksCount = await User.getTasksCount(username);
+        tasksDonedCount = await User.getTasksDonedCount(username);
+        habitsCount = await User.getHabitsCount(username);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -48,6 +48,7 @@ router.get("/dashboard", async (req, res) => {
         styles2: "tasks",
         styles3: "profile",
         styles4: "dashboard",
+        styles5: "inputs",
         tasks: todayTasks,
         message,
         tasksCount,

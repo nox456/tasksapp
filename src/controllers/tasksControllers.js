@@ -147,8 +147,7 @@ export const getTaskDetails = async (req, res) => {
 export const doneTask = async (req, res) => {
     const { id } = req.body;
     await new Task().done(id);
-    const user = new User(req.user.username);
-    await user.addPoints();
+    await User.addPoints(req.user.username);
     req.session.message = "Tarea Hecha\n(+5 Puntos)";
     res.redirect("back");
 };
