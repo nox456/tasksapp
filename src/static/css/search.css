@@ -80,11 +80,13 @@
     flex-direction: column;
     overflow: hidden;
 }
-.search-body > .taskFound:nth-child(odd) {
-    background-color: #202020;
+.search-body > .taskFound:nth-child(odd),
+.search-body > .habitFound:nth-child(odd ){
+    background-color: var(--mainColor1);
 }
-.search-body > .taskFound:nth-child(even) {
-    background-color: #404040;
+.search-body > .taskFound:nth-child(even),
+ .search-body > .habitFound:nth-child(even){
+    background-color: var(--mainColor2);
 }
 .taskFound {
     display: flex;
