@@ -23,7 +23,7 @@ router.get("/dashboard", async (req, res) => {
     let tasksDonedCount;
     let habitsCount;
     try {
-        habitsData = await new Habit().getAll("title ASC", id);
+        habitsData = await Habit.getAll("title ASC", id);
         tasksData = await new Task().getAll("title ASC", id, false);
         tasksCount = await User.getTasksCount(username);
         tasksDonedCount = await User.getTasksDonedCount(username);
