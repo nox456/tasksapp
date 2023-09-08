@@ -3,10 +3,6 @@ import bcrypt from "bcrypt";
 import { z } from "zod";
 
 export default class User {
-    constructor(username, password) {
-        this.username = username || undefined;
-        this.password = password || undefined;
-    }
     // Store a user in db by the data of this object
     static async save(username, password) {
         const data = await pool.query(

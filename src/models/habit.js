@@ -5,14 +5,6 @@ import { z } from "zod";
 const habitData = `id,title,description,days,time_to_do,category`;
 
 export default class Habit {
-    constructor(title, description, days, time_to_do, category, user_id) {
-        this.title = title || undefined;
-        this.description = description || undefined;
-        this.days = days || undefined;
-        this.time_to_do = time_to_do || undefined;
-        this.category = category || undefined;
-        this.user_id = user_id || undefined;
-    }
     // Store a habit in db with the data of this object
     static async save(title,description,days,time_to_do,category,user_id) {
         const values = [

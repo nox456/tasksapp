@@ -22,7 +22,7 @@ export const getTasks = async (req, res) => {
     const user_id = req.user.id;
     let data;
     try {
-        data = await new Task().getAll(
+        data = await Task.getAll(
             req.session.orderText || "title ASC",
             user_id,
             req.session.doned == "yes-done"
@@ -51,14 +51,14 @@ export const getTasks = async (req, res) => {
 export const addTask = async (req, res) => {
     const { title, description, finished_at, category } = req.body;
     try {
-        await new Task().validate(title, description, finished_at, category)
+        await Task.validate(title, description, finished_at, category)
     } catch (error) {
         req.session.message = error.errors[0].message
         return res.redirect("/tasks/add")
     }
     const user_id = req.user.id;
     try {
-        await new Task(title, description, finished_at, category, user_id).save();
+        await Task.save(title, description, finished_at, category, user_id);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -74,7 +74,7 @@ export const deleteTask = async (req, res) => {
     const { id } = req.query;
 
     try { 
-        await new Task().delete(id);
+        await Task.delete(id);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -89,7 +89,7 @@ export const getTasksData = async (req, res) => {
     const { id } = req.query;
     let data
     try {
-        data = await new Task().getById(id, req.url);
+        data = await Task.getById(id, req.url);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -109,13 +109,13 @@ export const getTasksData = async (req, res) => {
 export const updateTasks = async (req, res) => {
     const { id, title, description, finished_at, category } = req.query;
     try {
-        await new Task().validate(title, description, finished_at, category)
+        await Task.validate(title, description, finished_at, category)
     } catch (error) {
         req.session.message = error.errors[0].message
         return res.redirect(`tasks/update?id=${id}`)
     }
     try {
-        await new Task(title, description, finished_at, category).update(id);
+        await Task.update(id,title, description, finished_at, category);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -130,7 +130,7 @@ export const getTaskDetails = async (req, res) => {
     const { id } = req.query;
     let data
     try {
-        data = await new Task().getById(id, req.url);
+        data = await Task.getById(id, req.url);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -146,7 +146,7 @@ export const getTaskDetails = async (req, res) => {
 // Update the 'done' field of a task and redirect to 'back' route
 export const doneTask = async (req, res) => {
     const { id } = req.body;
-    await new Task().done(id);
+    await Task.done(id);
     await User.addPoints(req.user.username);
     req.session.message = "Tarea Hecha\n(+5 Puntos)";
     res.redirect("back");
@@ -156,7 +156,7 @@ export const doneTask = async (req, res) => {
 export const searchTask = async (req, res) => {
     const { search_query } = req.query;
 
-    const tasksFounded = await new Task().search(
+    const tasksFounded = await Task.search(
         search_query.trim().toLowerCase(),
         req.user.id
     );
