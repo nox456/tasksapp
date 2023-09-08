@@ -5,23 +5,15 @@ import { z } from "zod";
 const habitData = `id,title,description,days,time_to_do,category`;
 
 export default class Habit {
-    constructor(title, description, days, time_to_do, category, user_id) {
-        this.title = title || undefined;
-        this.description = description || undefined;
-        this.days = days || undefined;
-        this.time_to_do = time_to_do || undefined;
-        this.category = category || undefined;
-        this.user_id = user_id || undefined;
-    }
     // Store a habit in db with the data of this object
-    async save() {
+    static async save(title,description,days,time_to_do,category,user_id) {
         const values = [
-            this.title,
-            this.description,
-            typeof this.days == "string" ? [this.days] : this.days,
-            this.time_to_do,
-            this.category,
-            this.user_id,
+            title,
+            description,
+            typeof days == "string" ? [days] : days,
+            time_to_do,
+            category,
+            user_id,
         ];
         const valuesData = values.map((e, i) => `$${i + 1}`);
         return await pool.query(
@@ -32,27 +24,27 @@ export default class Habit {
         );
     }
     // Get all habits that owner is the user logged
-    async getAll(order, user_id) {
+    static async getAll(order, user_id) {
         return await pool.query(
             `SELECT ${habitData} FROM habits WHERE user_id = '${user_id}' ORDER BY ${order}`
         );
     }
     // Get a habit by ID field
-    async getById(id) {
+    static async getById(id) {
         return await pool.query(
             `SELECT ${habitData} FROM habits WHERE id = $1`,
             [id]
         );
     }
     // Update a habit
-    async update(id) {
+    static async update(id, title, description, days, time_to_do, category) {
         const values = [
             id,
-            this.title,
-            this.description,
-            typeof this.days == "string" ? [this.days] : this.days,
-            this.time_to_do,
-            this.category,
+            title,
+            description,
+            typeof days == "string" ? [days] : days,
+            time_to_do,
+            category,
         ];
         const fieldsData = habitData
             .split(",")
@@ -63,11 +55,11 @@ export default class Habit {
         );
     }
     // Delete a Habit
-    async delete(id) {
+    static async delete(id) {
         return await pool.query(`DELETE FROM habits WHERE id = $1`, [id]);
     }
     // Get the tasks wich title includes the search query
-    async search(search_query, user_id) {
+    static async search(search_query, user_id) {
         const data = await pool.query(
             "SELECT title,category,time_to_do FROM habits WHERE user_id = $1",
             [user_id]
@@ -82,7 +74,7 @@ export default class Habit {
         return habitsFounded;
     }
     // Validate habit input
-    async validate(title, description, days, time_to_do, category) {
+    static async validate(title, description, days, time_to_do, category) {
         const habitSchema = z.object({
             title: z
                 .string()

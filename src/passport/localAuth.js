@@ -9,11 +9,11 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    let user
+    let user;
     try {
-        user = await new User().getById(id)
+        user = await User.getById(id);
     } catch (error) {
-        return done(error,false)
+        return done(error, false);
     }
     return done(null, user);
 });
@@ -28,28 +28,41 @@ passport.use(
             passReqToCallback: true,
         },
         async (req, username, password, done) => {
-            const user = new User(username, password);
             try {
-                await user.validate(username, password)
+                await User.validate(username, password);
             } catch (error) {
-                req.session.message = error.errors[0].message
-                return done(null,false)
+                const err = error.errors[0];
+                if (err.path[0] == "password") {
+                    req.session.passwordMessage = err.message;
+                    console.log(err.message);
+                } else {
+                    req.session.usernameMessage = err.message;
+                    console.log(err.message);
+                }
+                req.session.message = error.errors[0].message;
+                return done(null, false);
             }
-            let usernameExists
+            let usernameExists;
             try {
-                usernameExists = await user.usernameExits()   
+                usernameExists = await User.usernameExits(username);
             } catch (error) {
-                return done(error,false)
+                return done(error, false);
             }
             if (usernameExists) {
                 req.session.message = "Este nombre de usuario ya existe";
                 return done(null, false);
             } else {
-                user.encryptPassword();
+                const passwordEncrypt = User.encryptPassword(password);
                 try {
-                    await user.save();
+                    await User.save(username, passwordEncrypt);
                 } catch (error) {
-                    done(error,false)
+                    done(error, false);
+                }
+                let user;
+                try {
+                    user = await User.setUserFromDB(username);
+                } catch (error) {
+                    return done(error, false);
                 }
                 done(null, user);
             }
@@ -67,38 +80,47 @@ passport.use(
             passReqToCallback: true,
         },
         async (req, username, password, done) => {
-            const user = new User(username);
-            console.log(password)
             try {
-                await user.validate(username, password)
+                await User.validate(username, password);
             } catch (error) {
-                req.session.message = error.errors[0].message
-                return done(null,false)
+                const err = error.errors[0];
+                if (err.path[0] == "password") {
+                    req.session.passwordMessage = err.message;
+                    console.log(err.message);
+                } else {
+                    req.session.usernameMessage = err.message;
+                    console.log(err.message);
+                }
+                return done(null, false);
             }
-            let comparedUsername
-            let comparedPassword
+            let comparedUsername;
+            let comparedPassword;
             try {
-                comparedUsername = await user.compareUsername(username)
-            } catch (error) { 
-                return done(error,false)
+                comparedUsername = await User.compareUsername(username);
+            } catch (error) {
+                return done(error, false);
             }
             if (comparedUsername) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }
-            try { 
-                await user.setUserFromDB(username);
-            } catch (error) {
-                return done(error,false)
-            }
             try {
-                comparedPassword = await user.comparePassword(password)
-            } catch (error) { 
-                return done(error,false)
+                comparedPassword = await User.comparePassword(
+                    username,
+                    password
+                );
+            } catch (error) {
+                return done(error, false);
             }
             if (!comparedPassword) {
                 req.session.message = "Usuario o Contraseña incorrectos";
                 return done(null, false);
+            }
+            let user;
+            try {
+                user = await User.setUserFromDB(username);
+            } catch (error) {
+                return done(error, false);
             }
             done(null, user);
         }

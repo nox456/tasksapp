@@ -4,7 +4,9 @@
             <li>
                 <div class="user-img-container">
                     {{#if (compare user.user_img "No photo")}}
-                        <p class="no-user-img-text">Sin Imagen</p>
+                        <div class="no-user-img-container">
+                            <i class="gg-user"></i>
+                        </div>
                     {{else}}
                         <img src="/{{user.user_img}}" class="user-img" />
                     {{/if}}

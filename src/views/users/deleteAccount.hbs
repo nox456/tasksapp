@@ -2,19 +2,21 @@
     <h1>Eliminar Cuenta</h1>
     <form action="/deleteAccount" method="post">
         <div>
-            <label for="password" class="label">Contraseña</label>
-            <input
-                type="password"
-                name="password"
-                id="password"
-                class="input"
-            />
+            <div class="input-container">
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="input"
+                    placeholder="Contraseña"
+                />
+            </div>
         </div>
         <input type="hidden" name="username" value="{{user.username}}" />
         <input
             type="submit"
             value="Eliminar Cuenta"
-            class="input save danger"
+            class="button save"
         />
     </form>
 </div>

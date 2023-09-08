@@ -17,21 +17,14 @@ let taskData = [
 ];
 
 export default class Task {
-    constructor(title, description, finished_at, category, user_id) {
-        this.title = title || undefined;
-        this.description = description || undefined;
-        this.finished_at = finished_at || undefined;
-        this.category = category || undefined;
-        this.user_id = user_id || undefined;
-    }
     // Store a task in db with the data of this object
-    async save() {
+    static async save(title,description,finished_at,category,user_id) {
         const values = [
-            this.title,
-            this.description,
-            this.finished_at,
-            this.category,
-            this.user_id,
+            title,
+            description,
+            finished_at,
+            category,
+            user_id,
         ];
         const valuesData = values.map((e, i) => `$${i + 1}`);
         return await pool.query(
@@ -39,16 +32,16 @@ export default class Task {
                 ","
             )} )`,
             [
-                this.title,
-                this.description,
-                this.finished_at,
-                this.category,
-                this.user_id,
+                title,
+                description,
+                finished_at,
+                category,
+                user_id,
             ]
         );
     }
     // Get all tasks that owner is the user logged
-    async getAll(order, user_id, done) {
+    static async getAll(order, user_id, done) {
         const data = taskData.map((e, i) => {
             if (e == "created_at") {
                 return "to_char(created_at,'DD Mon YYYY') as created_at";
@@ -89,7 +82,7 @@ export default class Task {
         }
     }
     // Get a task by ID field
-    async getById(id, url) {
+    static async getById(id, url) {
         const data = taskData.map((e) => {
             if (e == "created_at") {
                 return "to_char(created_at,'DD Mon YYYY') as created_at";
@@ -107,12 +100,12 @@ export default class Task {
         );
     }
     // Update a task
-    async update(id) {
+    static async update(id,title,description,finish_at,category) {
         const values = [
-            this.title,
-            this.description,
-            this.finished_at,
-            this.category,
+            title,
+            description,
+            finish_at,
+            category,
             false,
         ];
         const data = taskData
@@ -124,18 +117,18 @@ export default class Task {
         );
     }
     // Delete a task
-    async delete(id) {
+    static async delete(id) {
         return await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
     }
     // Mark a task doned, changing it 'done' field
-    async done(id) {
+    static async done(id) {
         return await pool.query("UPDATE tasks SET done = $1 WHERE id = $2", [
             true,
             id,
         ]);
     }
     // Get the tasks wich title includes the search query
-    async search(search_query, user_id) {
+    static async search(search_query, user_id) {
         const data = await pool.query(
             "SELECT title,category,done,to_char(finish_at,'DD Mon YYYY') as finish_at FROM tasks WHERE user_id = $1",
             [user_id]
@@ -150,7 +143,7 @@ export default class Task {
         return tasksFounded;
     }
     // Validate task input
-    async validate(title, description, finish_at, category) {
+    static async validate(title, description, finish_at, category) {
         const taskSchema = z.object({
             title: z
                 .string()

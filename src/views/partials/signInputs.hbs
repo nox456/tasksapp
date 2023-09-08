@@ -1,10 +1,32 @@
-<input type="username" name="username" autocomplete="off" placeholder="Usuario" class="input" id="username-input" />
-<div class="conditions-container">
-    <p><span>*</span> Sin espacios</p>
-    <p><span>*</span> Menor de 20 caracteres</p>
+<div class="form-input">
+    <div class="input-container">
+        <label for="username-input">Usuario</label>
+        <input
+            type="username"
+            name="username"
+            autocomplete="off"
+            placeholder="Ingrese su usuario"
+            class="input"
+            id="username-input"
+        />
+    </div>
+    {{#if usernameMessage}}
+        <span class="error-text">{{usernameMessage}}</span>
+    {{/if}}
 </div>
-<input type="password" name="password" autocomplete="off" placeholder="Contraseña" class="input" id="password-input" />
-<div class="conditions-container">
-    <p><span>*</span> Por lo menos 1 caracter especial</p>
-    <p><span>*</span> Mayor de 5 caracteres</p>
+<div class="form-input">
+    <div class="input-container">
+        <label for="password-input">Contraseña</label>
+        <input
+            type="password"
+            name="password"
+            autocomplete="off"
+            placeholder="Ingrese su contraseña"
+            class="input"
+            id="password-input"
+        />
+    </div>
+    {{#if passwordMessage}}
+        <span class="error-text">{{passwordMessage}}</span>
+    {{/if}}
 </div>

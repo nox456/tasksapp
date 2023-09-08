@@ -1,0 +1,244 @@
+/* GENERAL INPUTS */
+.error-text {
+    display: flex;
+    gap: 0.5em;
+    font-size: 0.8em;
+    color: var(--mainColor3);
+}
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.input-container {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    transition: border-color 0.15s ease;
+    border: 2px solid #444;
+}
+.input-container:hover {
+    border-color: #666;
+}
+.input-container label {
+    font-size: 0.8em;
+}
+.input {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+.input::placeholder {
+    color: #999;
+}
+.input:focus {
+    border: none;
+    outline: none;
+}
+.button.save {
+    margin-top: auto;
+    height: 3em;
+}
+
+/* SIGN INPUTS */
+.signin {
+    width: 50%;
+    height: 90%;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+.signin > hr {
+    border: none;
+    height: 0.5px;
+}
+.sign-header {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5em;
+}
+.sign-body {
+    height: 85%;
+}
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1em;
+    gap: 1.5em;
+}
+#submit-button {
+    margin-top: auto;
+}
+@media screen and (max-width: 600px) {
+    .signin {
+        width: 100%;
+        justify-content: center;
+    }
+    .signin-form {
+        justify-content: center;
+    }
+    #submit-button {
+        margin: 0;
+    }
+}
+
+/* SEARCH INPUTS */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-form {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+    .search-form {
+        justify-content: center;
+    }
+    .search-form .input-container {
+        width: 50%;
+    }
+}
+.search-form .search-input {
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+@media screen and (max-width: 600px) {
+    .search-form .search-input {
+        width: 70%;
+    }
+}
+.search-input::placeholder {
+    color: #fff;
+}
+.search-container .button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 0 0.8em;
+    cursor: pointer;
+}
+.search-container .button:hover {
+    color: #000;
+}
+.search-container .input-container {
+    font-size: 0.9em;
+    padding: 10px 12px;
+    gap: 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #0004;
+    flex-direction: row;
+    align-items: center;
+}
+.search-container .input-container:hover {
+    background-color: #0009;
+}
+
+/* ADD FORMS */
+.add-form .button:hover {
+    color: #000;
+}
+
+/* CHECK INPUTS */
+.input-check {
+    appearance: none;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: transparent;
+    border: 1px solid #888;
+    border-radius: 0.4em;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 200ms ease;
+}
+.input-check:hover {
+    background-color: #fff2;
+    /* border: #AAA; */
+}
+.input-check:checked {
+    background-color: #07e;
+    border-color: #07e;
+}
+.input-check:after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 2.5px;
+    fill: currentColor;
+    top: -2.5px;
+    width: 6px;
+    height: 10px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    transform-origin: bottom left;
+    color: #fff;
+    transition: all 500ms ease;
+    transform: rotate(45deg) scale(0);
+}
+.input-check:checked::after {
+    transform: rotate(45deg) scale(1);
+}
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.inputs-container.days-container {
+    flex-direction: row;
+    justify-content: start;
+    font-size: 0.9em;
+    width: 100%;
+}
+@media screen and (max-width: 600px) {
+    .inputs-container.days-container {
+        padding: .5em 0;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+.days-container .day-input-container {
+    width: 20%;
+}
+@media screen and (max-width: 600px) {
+    .days-container .day-input-container {
+        width: 40%;
+    }
+}
+.day-input-container {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5em;
+    cursor: pointer;
+}
+/* TASK LIST */
+.task-container .input-check {
+    width: 1.8em;
+    height: 1.8em;
+}
+.task-container .input-check::after {
+    left: 3.5px;
+    top: -3px;
+    width: 9px;
+    height: 15px;
+}

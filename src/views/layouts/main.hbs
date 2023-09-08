@@ -21,10 +21,18 @@
         {{#if styles3}}
             <link rel="stylesheet" href="/css/{{styles3}}.css">
         {{/if}}
+        {{#if styles4}}
+            <link rel="stylesheet" href="/css/{{styles4}}.css">
+        {{/if}}
+        {{#if styles5}}
+            <link rel="stylesheet" href="/css/{{styles5}}.css">
+        {{/if}}
     </head>
     <body>
+
+        {{> header}}
+
         {{#if user}}
-            {{> navbar}}
             {{> sidebar}}
         {{/if}}
 
@@ -32,8 +40,7 @@
             <div class="logout-confirm" id="logout-confirm">
                 <p class="confirm-text">¿Está Seguro?</p>
                 <div class="confirm-buttons-container">
-                    <a href="/logout" class="button confirm-button-yes">Cerrar
-                        Sesion</a>
+                    <a href="/logout" class="button confirm-button-yes">Cerrar Sesion</a>
                     <button
                         class="button"
                         id="confirm-button-no"

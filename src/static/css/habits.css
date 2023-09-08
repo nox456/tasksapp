@@ -1,9 +1,13 @@
 /* HABTIS LIST */
+.main-container {
+    padding: 0;
+}
 .habitslist {
     width: 100%;
     flex-direction: column;
     justify-content: start;
-    gap: 2em;
+    display: flex;
+    align-items: center;
 }
 .habit-container {
     cursor: pointer;
@@ -26,7 +30,6 @@
     justify-content: center;
     list-style: none;
     gap: 0.5em;
-    margin: 20px 0;
     font-size: 0.7em;
 }
 @media screen and (max-width: 600px) {
@@ -36,7 +39,7 @@
     }
 }
 .day {
-    border: 2px solid #000;
+    border: 2px solid #FFF;
     border-radius: 10px;
     padding: 0.5em;
     cursor: pointer;
@@ -110,10 +113,7 @@ label {
     height: 100%;
     padding: 1em;
     font-size: 1.5em;
-    border: 2px solid #777;
     border-radius: 0.3em 0 0 0;
-    border-right: none;
-    border-bottom: none;
     display: flex;
     align-items: center;
 }
@@ -121,7 +121,6 @@ label {
     .detail-title-container {
         grid-row: 1 / span 1;
         grid-column: 1 / span 2;
-        border: 2px solid #777;
         border-radius: .3em .3em 0 0;
         border-bottom: none;
         justify-content: center;
@@ -135,6 +134,8 @@ label {
     padding: 2em;
     border: 2px solid #777;
     border-top: none;
+    border-left: none;
+    border-right: none;
 }
 @media screen and (max-width: 600px) {
     .detail-description-container {
@@ -153,6 +154,8 @@ label {
     border: 2px solid #777;
     border-radius: 0 0.5em 0 0;
     border-bottom: none;
+    border-top: none;
+    border-right: none;
     align-items: center;
 }
 @media screen and (max-width: 600px) {
@@ -173,6 +176,8 @@ label {
     font-size: .8em;
     padding: 0 1em;
     border: 2px solid #777;
+    border-left: none;
+    border-right: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,8 +196,6 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #777;
-    border-top: none;
     border-radius: 0 0 0.5em 0.5em;
 }
 @media screen and (max-width: 600px) {
@@ -209,4 +212,10 @@ label {
         font-size: 1em;
         padding: 1em;
     }
+}
+.addhabits {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }

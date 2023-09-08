@@ -1,0 +1,32 @@
+<header class="main-header" id="main-header">
+    {{#if user}}
+        <div class="menu-container button">
+            <a href="/dashboard" class="link"><i class="gg-home"></i></a>
+        </div>
+    {{else}}
+        <button class="button">
+            <a href="/"><i class="gg-arrow-left"></i></a>
+        </button>
+    {{/if}}
+    {{#if user}}
+        <div class="search-container">
+            {{#if searchTasks}}
+                {{> searchTaskInput}}
+            {{/if}}
+            {{#if searchHabits}}
+                {{> searchHabitInput}}
+            {{/if}}
+        </div>
+    {{else}}
+        <h1 class="title">TasksApp</h1>
+    {{/if}}
+    {{#if user}}
+        <div class="menu-container button">
+            <button class="menu-icon" id="menu-icon">
+                <i class="gg-menu"></i>
+            </button>
+        </div>
+    {{else}}
+        <p></p>
+    {{/if}}
+</header>

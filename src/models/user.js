@@ -3,39 +3,35 @@ import bcrypt from "bcrypt";
 import { z } from "zod";
 
 export default class User {
-    constructor(username, password) {
-        this.username = username || undefined;
-        this.password = password || undefined;
-    }
     // Store a user in db by the data of this object
-    async save() {
+    static async save(username, password) {
         const data = await pool.query(
             "INSERT INTO users VALUES (DEFAULT, $1, $2,DEFAULT) RETURNING id",
-            [this.username, this.password]
+            [username, password]
         );
         this.id = data.rows[0].id;
     }
     // Get user data by ID
-    async getById(id) {
+    static async getById(id) {
         const data = await pool.query("SELECT * FROM users WHERE id = $1", [
             id,
         ]);
         return data.rows[0];
     }
     // Encrypt the password of this object
-    encryptPassword() {
-        this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
+    static encryptPassword(password) {
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
     }
     // Check if the username of this object is stored in db
-    async usernameExits() {
+    static async usernameExits(username) {
         const data = await pool.query(
             "SELECT * FROM users WHERE username = $1",
-            [this.username]
+            [username]
         );
         return data.rows.length > 0;
     }
     // Check if the username of parameter is stored in db
-    async compareUsername(username) {
+    static async compareUsername(username) {
         const data = await pool.query(
             "SELECT * FROM users WHERE username = $1",
             [username]
@@ -43,62 +39,64 @@ export default class User {
         return data.rows.length == 0;
     }
     // Check if the password of parameter is the same of the username of this object
-    async comparePassword(password) {
+    static async comparePassword(username,password) {
         const data = await pool.query(
             "SELECT password FROM users WHERE username = $1",
-            [this.username]
+            [username]
         );
         return await bcrypt.compare(password, data.rows[0].password);
     }
     // Instance this object with the data of the username
-    async setUserFromDB(username) {
+    static async setUserFromDB(username) {
         const data = await pool.query(
             "SELECT * FROM users WHERE username = $1",
             [username]
         );
-        this.id = data.rows[0].id;
-        this.username = data.rows[0].username;
-        this.password = data.rows[0].password;
+        return {
+            id: data.rows[0].id,
+            username: data.rows[0].username,
+            password: data.rows[0].password,
+        };
     }
     // Update the username of the user of this object
-    async updateUsername(newUsername) {
+    static async updateUsername(newUsername,username) {
         return await pool.query(
             "UPDATE users SET username = $1 WHERE username = $2",
-            [newUsername, this.username]
+            [newUsername, username]
         );
     }
     // Update the password of the user of this object
-    async updatePassword() {
+    static async updatePassword(newPassword,username) {
         return await pool.query(
             "UPDATE users SET password = $1 WHERE username = $2",
-            [this.password, this.username]
+            [newPassword, username]
         );
     }
     // Delete a user from db
-    async delete() {
+    static async delete(username) {
         return await pool.query("DELETE FROM users WHERE username = $1", [
-            this.username,
+            username,
         ]);
     }
     // Add a user image
-    async setImg(file_name) {
+    static async setImg(username,file_name) {
         return await pool.query(
             "UPDATE users SET user_img = $1 WHERE username = $2",
-            [file_name, this.username]
+            [file_name, username]
         );
     }
     // Add 5 points to a user
-    async addPoints() {
+    static async addPoints(username) {
         return await pool.query(
             "UPDATE users SET points = points + 5 WHERE username = $1",
-            [this.username]
+            [username]
         );
     }
     // Get the count of tasks of a user
-    async getTasksCount() {
+    static async getTasksCount(username) {
         const dataUser = await pool.query(
             "SELECT id FROM users WHERE username = $1",
-            [this.username]
+            [username]
         );
         const id = dataUser.rows[0].id;
         const data = await pool.query(
@@ -108,10 +106,10 @@ export default class User {
         return data.rows.length;
     }
     // Get the count of tasks doned of a user
-    async getTasksDonedCount() {
+    static async getTasksDonedCount(username) {
         const dataUser = await pool.query(
             "SELECT id FROM users WHERE username = $1",
-            [this.username]
+            [username]
         );
         const id = dataUser.rows[0].id;
         const data = await pool.query(
@@ -121,10 +119,10 @@ export default class User {
         return data.rows.filter((t) => t.done == true).length;
     }
     // Get the count of habits of a user
-    async getHabitsCount() {
+    static async getHabitsCount(username) {
         const dataUser = await pool.query(
             "SELECT id FROM users WHERE username = $1",
-            [this.username]
+            [username]
         );
         const id = dataUser.rows[0].id;
         const data = await pool.query(
@@ -134,7 +132,7 @@ export default class User {
         return data.rows.length;
     }
     // Validate input data
-    async validate(username, password) {
+    static async validate(username, password) {
         const userSchema = z.object({
             username: z
                 .string()

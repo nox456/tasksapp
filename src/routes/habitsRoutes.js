@@ -21,6 +21,7 @@ router.get("/habits/add", (req, res) => {
     res.render("habits/addHabit", {
         message,
         styles: "habits",
+        styles2: "inputs",
         user: req.user ? req.user : undefined,
     });
 });

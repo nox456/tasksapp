@@ -1,10 +1,11 @@
 /* SEARCH TASKS */
 .search {
-    border: 2px solid #777;
     border-radius: 0.3em;
+    display: flex;
     padding: 0.5em;
-    box-shadow: 0px 20px 30px #000;
+    flex-direction: column;
     justify-content: start;
+    align-items: center;
 }
 .search > div {
     width: 70%;
@@ -79,11 +80,13 @@
     flex-direction: column;
     overflow: hidden;
 }
-.search-body > .taskFound:nth-child(odd) {
-    background-color: #202020;
+.search-body > .taskFound:nth-child(odd),
+.search-body > .habitFound:nth-child(odd ){
+    background-color: var(--mainColor1);
 }
-.search-body > .taskFound:nth-child(even) {
-    background-color: #404040;
+.search-body > .taskFound:nth-child(even),
+ .search-body > .habitFound:nth-child(even){
+    background-color: var(--mainColor2);
 }
 .taskFound {
     display: flex;
@@ -154,40 +157,4 @@
 }
 .habitFound-time-to-do {
     width: 100%;
-}
-/* SEARCH INPUT */
-.search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.search-form {
-    width: 100%;
-    border: 2px solid #000;
-    border-radius: 0.3em;
-    display: flex;
-    overflow: hidden;
-}
-@media screen and (max-width: 600px) {
-    .search-form {
-        width: 60%;
-    }
-}
-.search-form .search-input {
-    width: 70%;
-    border: none;
-    border-radius: 0;
-    padding: 0.5em;
-    border-right: 2px solid #000;
-    color: #fff;
-}
-.search-input::placeholder {
-    color: #fff;
-}
-.search-form .search-button {
-    background-color: #229;
-    border: none;
-    width: 30%;
-    color: #fff;
-    cursor: pointer;
 }

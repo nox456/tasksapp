@@ -1,9 +1,11 @@
 /* TASKLIST */
+.main-container {
+    padding: 0;
+}
 .tasklist {
+    display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 100%;
-    gap: 2em;
 }
 .task-container {
     width: 300px;
@@ -91,17 +93,13 @@
     font-size: 2.5em;
     display: flex;
     align-items: center;
-    border: 2px solid #777;
     border-radius: 0.3em 0 0 0;
-    border-right: none;
-    border-bottom: none;
     padding-left: 0.5em;
 }
 @media screen and (max-width: 600px) {
     .detail-title-container {
         grid-row: 1;
         grid-column: 1 / span 3;
-        border: 2px solid #777;
         border-bottom: none;
         border-radius: .3em .3em 0 0;
         justify-content: center;
@@ -116,9 +114,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 18px 10px;
-    border: 2px solid #777;
+    border-left: 2px solid #777;
     border-radius: 0 0.5em 0 0;
-    border-bottom: none;
 }
 @media screen and (max-width: 600px) {
     .detail-date-container {
@@ -127,8 +124,8 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        border: 2px solid #777;
-        border-top: none;
+        border: none;
+        border-bottom: 2px solid #777;
         border-radius: 0;
     }
 }
@@ -151,6 +148,7 @@
     padding-left: 1em;
     font-size: 0.8em;
     border: 2px solid #777;
+    border-left: none;
 }
 @media screen and (max-width: 600px) {
     .detail-category-container {
@@ -175,6 +173,7 @@
     justify-content: right;
     padding: .5em;
     border: 2px solid #777;
+    border-right: none;
 }
 @media screen and (max-width: 600px) {
     .detail-done-container {
@@ -189,13 +188,18 @@
     height: 100%;
     font-size: 1.3em;
     padding: 1.5em;
-    border: 2px solid #777;
     border-radius: 0 0 0.5em 0.5em;
-    border-top: none;
 }
 @media screen and (max-width: 600px) {
     .detail-description-container {
         grid-row: 4 / span 1;
         grid-column: 1 / span 3;
     }
+}
+.addtask {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
 }

@@ -22,6 +22,7 @@ router.get("/tasks/add", (req, res) => {
     res.render("tasks/addTask", {
         message,
         styles: "tasks",
+        styles2: "inputs",
         user: req.user ? req.user : undefined,
     });
 });

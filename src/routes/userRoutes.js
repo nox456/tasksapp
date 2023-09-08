@@ -16,18 +16,18 @@ const router = Router();
 // Route to dashboard page
 router.get("/dashboard", async (req, res) => {
     const id = req.user.id;
-    const user = new User(req.user.username);
+    const username = req.user.username
     let habitsData;
     let tasksData;
     let tasksCount;
     let tasksDonedCount;
     let habitsCount;
     try {
-        habitsData = await new Habit().getAll("title ASC", id);
-        tasksData = await new Task().getAll("title ASC", id, false);
-        tasksCount = await user.getTasksCount();
-        tasksDonedCount = await user.getTasksDonedCount();
-        habitsCount = await user.getHabitsCount();
+        habitsData = await Habit.getAll("title ASC", id);
+        tasksData = await Task.getAll("title ASC", id, false);
+        tasksCount = await User.getTasksCount(username);
+        tasksDonedCount = await User.getTasksDonedCount(username);
+        habitsCount = await User.getHabitsCount(username);
     } catch (error) {
         console.error(error)
         return res.redirect("/error")
@@ -47,6 +47,8 @@ router.get("/dashboard", async (req, res) => {
         styles: "habits",
         styles2: "tasks",
         styles3: "profile",
+        styles4: "dashboard",
+        styles5: "inputs",
         tasks: todayTasks,
         message,
         tasksCount,
@@ -67,6 +69,7 @@ router.get("/profile/change-username", (req, res) => {
     res.render("users/changeUsername", {
         user: req.user,
         styles: "profile",
+        styles2: "inputs",
         message,
     });
 });
@@ -78,6 +81,7 @@ router.get("/profile/change-password", (req, res) => {
     res.render("users/changePassword", {
         user: req.user,
         styles: "profile",
+        styles2: "inputs",
         message,
     });
 });
@@ -97,6 +101,7 @@ router.get("/profile/delete-account", (req, res) => {
     delete req.session.message;
     res.render("users/deleteAccount", {
         styles: "profile",
+        styles2: "inputs",
         message,
         user: req.user,
     });
