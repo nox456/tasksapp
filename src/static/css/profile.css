@@ -92,7 +92,7 @@
     cursor: pointer;
     margin-left: -.6em;
 }
-.changeimg-container .no-user-img-label > i {
+.changeimg-container .no-user-img-label {
     color: #000;
 }
 
