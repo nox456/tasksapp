@@ -39,7 +39,8 @@
     border: none;
     outline: none;
 }
-.button.save {
+
+form .button {
     margin-top: auto;
     height: 3em;
 }
@@ -75,9 +76,6 @@
     height: 100%;
     padding: 1em;
     gap: 1.5em;
-}
-#submit-button {
-    margin-top: auto;
 }
 @media screen and (max-width: 600px) {
     .signin {

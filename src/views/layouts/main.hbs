@@ -39,11 +39,8 @@
             <div class="logout-confirm" id="logout-confirm">
                 <p class="confirm-text">¿Está Seguro?</p>
                 <div class="confirm-buttons-container">
-                    <a href="/logout" class="button confirm-button-yes">Cerrar Sesion</a>
-                    <button
-                        class="button"
-                        id="confirm-button-no"
-                    >Cancelar</button>
+                    {{> buttons/button_link url='/logout' content='Cerrar Sesion'}}
+                    {{> buttons/button content='Cancelar' id='confirm-button-no' }}
                 </div>
             </div>
             <div id="main-blur-container"></div>

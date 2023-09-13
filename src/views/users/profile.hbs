@@ -79,11 +79,8 @@
     </div>
     <hr class="line-div" />
     <div class="profile-options">
-        <a href="/profile/change-username" class="button link">Cambiar Nombre de
-            Usuario</a>
-        <a href="/profile/change-password" class="button link">Cambiar
-            Contraseña</a>
-        <a href="/profile/delete-account" class="button link danger">Eliminar
-            Cuenta</a>
+        {{> buttons/button_link url='/profile/change-username' content='Cambiar Nombre de Usuario'}}
+        {{> buttons/button_link url='/profile/change-password' content='Cambiar Contraseña'}}
+        {{> buttons/button_link url='/profile/delete-account' content='Eliminar Cuenta'}}
     </div>
 </div>

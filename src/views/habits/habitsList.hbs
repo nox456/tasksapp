@@ -38,15 +38,15 @@
             </form>
         </div>
         <p class="list-title">Habitos</p>
-        <button class="add-button button">
-            <a href="/habits/add">Agregar Habito
+        <div class="add-button-container">
+            {{#> buttons/button_link url='/habits/add' content='Agregar Habito'}}
                 <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 5l0 14"></path>
                     <path d="M5 12l14 0"></path>
                 </svg>
-            </a>
-        </button>
+            {{/buttons/button_link}}
+        </div>
     </div>
     {{> listHabits}}
 </div>

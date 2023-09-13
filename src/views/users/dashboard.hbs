@@ -32,12 +32,8 @@
         </div>
     </section>
     <section class="dashboard-section second">
-        <button class="main-button">
-            <a href="/tasks/list">Lista de Tareas</a>
-        </button>
-        <button class="main-button">
-            <a href="/habits/list">Lista de Habitos</a>
-        </button>
+        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas'}}
+        {{> buttons/button_link url='/habits/list' content='Lista de Habitos'}}
     </section>
     <section class="dashboard-section third">
         <div class="habits-section">
