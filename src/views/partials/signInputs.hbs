@@ -13,6 +13,12 @@
     {{#if usernameMessage}}
         <span class="error-text">{{usernameMessage}}</span>
     {{/if}}
+    {{#if usernameExists}}
+        <span class="error-text">{{usernameExists}}</span>
+    {{/if}} 
+    {{#if dataErr}}
+        <span class="error-text">{{dataErr}}</span>
+    {{/if}}
 </div>
 <div class="form-input">
     <div class="input-container">
@@ -28,5 +34,8 @@
     </div>
     {{#if passwordMessage}}
         <span class="error-text">{{passwordMessage}}</span>
+    {{/if}}
+    {{#if dataErr}}
+        <span class="error-text">{{dataErr}}</span>
     {{/if}}
 </div>
