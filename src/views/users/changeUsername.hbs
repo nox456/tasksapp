@@ -2,28 +2,12 @@
     <h1>Cambiar Nombre de Usuario</h1>
     <form action="/changeUsername" method="post">
         <div>
-            <div class="input-container">
-                <input
-                    type="password"
-                    class="input"
-                    id="password"
-                    name="password"
-                    placeholder="Contraseña actual"
-                />
-            </div>
+            {{> inputs/input type='password' placeholder='Ingrese su contraseña actual' name='password' label='Contraseña Actual'  id='username-input'}}
         </div>
         <div>
-            <div class="input-container">
-                <input
-                    type="text"
-                    class="input"
-                    id="username"
-                    name="newUsername"
-                    placeholder="Nuevo nombre de usuario"
-                />
-            </div>
+            {{> inputs/input type='text' name='username' placeholder='Ingrese su nuevo nombre de usuario' label='Nuevo Nombre de Usuario' id='password-input' }}
         </div>
         <input type="hidden" name="username" value="{{user.username}}">
-        <input type="submit" value="Actualizar" class="button save" />
+        {{> buttons/button_submit content='Actualizar'}}
     </form>
 </div>

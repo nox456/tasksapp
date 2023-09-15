@@ -9,12 +9,8 @@
         <span class="dev-name">Gabriel (nox) Vieira</span>
     </p>
     <div class="buttons-container">
-        <button class="main-button">
-            <a href="/signin">Registrarse</a>
-        </button>
-        <button class="main-button">
-            <a href="/signup">Iniciar Sesion</a>
-        </button>
+        {{> buttons/button_link url='/signin' content='Registrarse'}}
+        {{> buttons/button_link url='/signup' content='Iniciar Sesión'}}
     </div>
 </div>
 <h1 class="main-title">TasksApp</h1>

@@ -1,7 +1,7 @@
 <div class="addhabits container">
     <h1 class="container-title">Agregar Habito</h1>
     <form action="/habitsAdd" method="post" class="add-form" id="add-form">
-        {{> habitsInputs}}
-        <input type="submit" value="Guardar" class="button save">
+        {{> habits/habitsInputs}}
+        {{> buttons/button_submit content='Guardar'}}
     </form>
 </div>

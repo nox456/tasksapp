@@ -5,34 +5,7 @@
             <p>Tus Puntos:</p>
             <p>{{user.points}}</p>
         </div>
-        <div class="user-img-container">
-            {{#if (compare user.user_img "No photo")}}
-                <div class="no-user-img-container">
-                    <svg
-                        width="34"
-                        height="34"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            stroke="none"
-                            d="M0 0h24v24H0z"
-                            fill="none"
-                        ></path>
-                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-                        <path
-                            d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
-                        ></path>
-                    </svg>
-                </div>
-            {{else}}
-                <img src="/{{user.user_img}}" class="user-img" />
-            {{/if}}
-        </div>
+        {{> user/avatar userImg=user.user_img}}
         <div class="user-pos">
             <p>Tu Posicion:</p>
             <p>{{user.pos}}</p>
@@ -49,39 +22,7 @@
                 <div class="user-position">
                     <p class="user-position-pos">{{this.pos}}</p>
                     <div class="user-position-username">
-                        <div class="user-img-container">
-                            {{#if (compare this.user_img "No photo")}}
-                                <div class="no-user-img-container">
-                                    <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="2"
-                                        stroke="currentColor"
-                                        fill="none"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path
-                                            stroke="none"
-                                            d="M0 0h24v24H0z"
-                                            fill="none"
-                                        ></path>
-                                        <path
-                                            d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"
-                                        ></path>
-                                        <path
-                                            d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
-                                        ></path>
-                                    </svg>
-                                </div>
-                            {{else}}
-                                <img
-                                    src="/{{this.user_img}}"
-                                    class="user-img"
-                                />
-                            {{/if}}
-                        </div>
+                        {{> user/avatar userImg=this.user_img}}
                         <p>{{this.username}}</p>
                     </div>
                     <p class="user-position-points">{{this.points}}</p>

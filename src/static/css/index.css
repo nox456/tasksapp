@@ -47,7 +47,7 @@ body {
 }
 .button:hover,
 .button:hover > a,
-.button:hover > .menu-icon {
+.menu-container.button:hover .button {
     color: #000;
 }
 .main-header > .title {
@@ -102,7 +102,8 @@ body {
     height: 100%;
     color: #FFF;
 }
-.main-button {
+.buttons-container .button,
+.second .button{
     font-size: 1.3em;
     border: 2px solid var(--mainColor4);
     background-color: transparent;
@@ -110,17 +111,20 @@ body {
     transition: background-color .25s ease;
     cursor: pointer;
 }
-.main-button:hover {
+.buttons-container .button:hover,
+.second .button:hover {
     background-color: var(--mainColor4);
 }
-.main-button > a {
+.buttons-container .button > a,
+.second .button > a {
     text-decoration: none;
     color: var(--mainColor4);
     display: block;
     padding: 1em;
     transition: color .25s ease;
 }
-.main-button:hover > a {
+.buttons-container .button:hover > a,
+.second .button:hover > a {
     color: #000;
 }
 #main-blur-container {
@@ -246,7 +250,8 @@ body {
     display: flex;
     gap: 5px;
 }
-.confirm-buttons-container .button {
+.confirm-buttons-container > .button:last-child,
+.confirm-buttons-container > .button > a{
     padding: 0.5em 1.5em;
 }
 .confirm-button-yes {
@@ -281,18 +286,23 @@ body {
     }
 }
 .add-button-container {
-    width: 400px;
     height: 100%;
     display: flex;
     justify-content: right;
     border-radius: 0.5em;
+}
+.habitslist .add-button-container {
+    width: 200px;
+}
+.tasklist .add-button-container {
+    width: 400px;
 }
 @media screen and (max-width: 600px) {
     .add-button-container {
         width: 100%;
     }
 }
-.add-button {
+.add-button-container .button {
     border-radius: 0.5em;
     font-size: 0.8em;
     height: 100%;
@@ -301,12 +311,12 @@ body {
     box-shadow: 0 5px 10px #000;
 }
 @media screen and (max-width: 600px) {
-    .add-button {
+    .add-button-container .button {
         width: 100%;
         height: 3em;
     }
 }
-.add-button > a {
+.add-button-container .button > a {
     display: flex;
     height: 100%;
     gap: 10px;
@@ -403,14 +413,14 @@ a {
     color: inherit;
 }
 .main-header > .menu-container .link,
-.main-header > .menu-container .menu-icon {
+.main-header > .menu-container .button {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 2em;
     width: 3em;
 }
-.main-header .menu-icon {
+.main-header > .menu-container .button {
     cursor: pointer;
     background-color: transparent;
     border-radius: 7px;
