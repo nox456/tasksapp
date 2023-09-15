@@ -1,15 +1,5 @@
 <div class="form-input">
-    <div class="input-container">
-        <label for="username-input">Usuario</label>
-        <input
-            type="username"
-            name="username"
-            autocomplete="off"
-            placeholder="Ingrese su usuario"
-            class="input"
-            id="username-input"
-        />
-    </div>
+    {{> inputs/input id='username-input' label='Usuario' type='text' name='username' placeholder='Ingrese su usuario'}}
     {{#if usernameMessage}}
         <span class="error-text">{{usernameMessage}}</span>
     {{/if}}
@@ -21,17 +11,7 @@
     {{/if}}
 </div>
 <div class="form-input">
-    <div class="input-container">
-        <label for="password-input">Contraseña</label>
-        <input
-            type="password"
-            name="password"
-            autocomplete="off"
-            placeholder="Ingrese su contraseña"
-            class="input"
-            id="password-input"
-        />
-    </div>
+    {{> inputs/input id='password-inpu' label='Contraseña' type='password' name='password' placeholder='Ingrese su contraseña'}}
     {{#if passwordMessage}}
         <span class="error-text">{{passwordMessage}}</span>
     {{/if}}

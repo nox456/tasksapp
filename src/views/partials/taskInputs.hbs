@@ -1,63 +1,21 @@
-        <div class="input-container">
-            <label for="title-input">Titulo</label>
-            <input
-                class="title input"
-                type="text"
-                name="title"
-                placeholder="Ingrese un titulo"
-                value="{{title}}"
-                autofocus
-                id="title-input"
-            />
-        </div>
-        <div class="input-container">
-            <label for="description-input">Descripcion</label>
-            <input
-            class="description input"
-            name="description"
-            placeholder="Ingrese una descripcion"
-            id="description-input"
-            value="{{description}}"
-            >
-        </div>
-        <div class="input-container"> 
-            <label for="finished-input">Fecha de finalización:</label>
-            <input
-                class="finished input"
-                type="date"
-                name="finished_at"
-                id="finished-input"
-                value="{{finish_at}}"
-            />
-        </div>
-        <div class="input-container">
-            <label for="category-select">Categoria:</label>
-            <select
-                name="category"
-                id="category-select"
-                class="category input"
-            >
-                <option hidden>Seleccione</option>
-                <option {{#if (compare this.category 'Academica')}}
-                    selected
-                    {{/if}} 
-                    value="Academica">Academica
-                </option>
-                <option {{#if (compare this.category 'Salud')}}
-                    selected
-                    {{/if}}
-                    value="Salud">Salud
-                </option>
+{{> inputs/input id='title-input' label='Titulo' type='text' name='title' placeholder='Ingrese un titulo' value=title }}
 
-                <option {{#if (compare this.category 'Practica')}}
-                    selected
-                    {{/if}}
-                    value="Practica">Practica
-                </option>
-                <option {{#if (compare this.category 'Laboral')}}
-                    selected
-                    {{/if}}
-                    value="Laboral">Laboral
-                </option>
-            </select>
-        </div>
+{{> inputs/input id='description-input' label='Descripcion' type='text' value=description placeholder='Ingrese una descripcion' name='description'}}
+
+{{> inputs/input id='finished-input' label='Fecha de finalizacion' type='date' name='finished_at' value=finish_at}}
+
+<div class="input-container">
+    <label for="category-select">Categoria:</label>
+    <select name="category" id="category-select" class="category input">
+        <option hidden>Seleccione</option>
+        <option {{#if (compare this.category 'Academica' )}} selected {{/if}} value="Academica">Academica
+        </option>
+        <option {{#if (compare this.category 'Salud' )}} selected {{/if}} value="Salud">Salud
+        </option>
+
+        <option {{#if (compare this.category 'Practica' )}} selected {{/if}} value="Practica">Practica
+        </option>
+        <option {{#if (compare this.category 'Laboral' )}} selected {{/if}} value="Laboral">Laboral
+        </option>
+    </select>
+</div>

@@ -18,7 +18,7 @@ console.clear();
 
 // Settings
 app.set("port", process.env.PORT);
-app.set("host", process.env.HOST)
+app.set("host", process.env.HOST);
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.engine(
