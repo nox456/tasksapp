@@ -1,0 +1,21 @@
+{{> inputs/input id='title-input' label='Titulo' type='text' name='title' placeholder='Ingrese un titulo' value=title }}
+
+{{> inputs/input id='description-input' label='Descripcion' type='text' value=description placeholder='Ingrese una descripcion' name='description'}}
+
+{{> inputs/input id='finished-input' label='Fecha de finalizacion' type='date' name='finished_at' value=finish_at}}
+
+<div class="input-container">
+    <label for="category-select">Categoria:</label>
+    <select name="category" id="category-select" class="category input">
+        <option hidden>Seleccione</option>
+        <option {{#if (compare this.category 'Academica' )}} selected {{/if}} value="Academica">Academica
+        </option>
+        <option {{#if (compare this.category 'Salud' )}} selected {{/if}} value="Salud">Salud
+        </option>
+
+        <option {{#if (compare this.category 'Practica' )}} selected {{/if}} value="Practica">Practica
+        </option>
+        <option {{#if (compare this.category 'Laboral' )}} selected {{/if}} value="Laboral">Laboral
+        </option>
+    </select>
+</div>

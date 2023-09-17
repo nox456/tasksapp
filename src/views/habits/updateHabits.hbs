@@ -2,7 +2,7 @@
     <h1 class="container-title">Actualizar Habito</h1>
     <form action="/habitsUpdate" method="get" class="add-form">
         <input type="hidden" name="id" value="{{habit.id}}">
-        {{> habitsInputs title=habit.title description=habit.description days=habit.days time_to_do=habit.time_to_do category=habit.category}}
-        <input type="submit" value="Actualizar" class="button save">
+        {{> habits/habitsInputs title=habit.title description=habit.description days=habit.days time_to_do=habit.time_to_do category=habit.category}}
+        {{> buttons/button_submit content='Actualizar'}}
     </form>
 </div>

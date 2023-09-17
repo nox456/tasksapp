@@ -1,19 +1,7 @@
 <div class="dashboard container">
     <section class="dashboard-section first">
         <div class="user-img-section">
-            <div class="user-img-container">
-                {{#if (compare user.user_img 'No photo')}}
-                    <div class="no-user-img-container">
-                        <svg width="34" height="34" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                        </svg>
-                    </div>
-                {{else}}
-                    <img src="/{{user.user_img}}" class="user-img">
-                {{/if}}
-            </div>
+            {{> user/avatar userImg=user.user_img}}
             <p class="username-container">{{user.username}}</p>
         </div>
         <div class="data-section">
@@ -32,26 +20,22 @@
         </div>
     </section>
     <section class="dashboard-section second">
-        <button class="main-button">
-            <a href="/tasks/list">Lista de Tareas</a>
-        </button>
-        <button class="main-button">
-            <a href="/habits/list">Lista de Habitos</a>
-        </button>
+        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas'}}
+        {{> buttons/button_link url='/habits/list' content='Lista de Habitos'}}
     </section>
     <section class="dashboard-section third">
         <div class="habits-section">
             <h1 class="section-title">Habitos de Hoy</h1>
             <hr class="line-div">
             <div class="habits-section-today">
-                {{> listHabits}}                
+                {{> habits/listHabits}}                
             </div>
         </div>
         <div class="tasks-section">
             <h1 class="section-title">Tareas de Hoy</h1>
             <hr class="line-div">
             <div class="tasks-section-today">
-                {{> listTasks}}
+                {{> tasks/listTasks}}
             </div>
         </div>
     </section>

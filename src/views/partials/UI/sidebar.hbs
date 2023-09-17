@@ -1,0 +1,24 @@
+<aside class="sidebar" id="sidebar">
+    <ul>
+        {{#unless noUserImgSidebar}}
+            <li>
+                {{> user/avatar userImg=user.user_img}}
+                <p class="username-container">{{user.username}}</p>
+            </li>
+        {{/unless}}
+        {{#unless noProfileLink}}
+            <hr class="line-div" />
+            <li><a href="/profile" class="link">Ver Perfil</a></li>
+        {{/unless}}
+        <hr class="line-div" />
+        <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
+        <hr class="line-div" />
+        <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
+        <hr class="line-div" />
+        <li><a href="/scoretable" class="link">Clasificacion</a></li>
+        <hr class="line-div" />
+        <li class="logout" id="logout-button">
+            {{> buttons/button content='Cerrar Sesion'}}
+        </li>
+    </ul>
+</aside>

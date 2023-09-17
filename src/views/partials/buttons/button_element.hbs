@@ -1,0 +1,18 @@
+<button class="button {{class}}-button">
+    {{#if isDelete}}
+        {{#if @partial-block}}
+            {{> @partial-block}}
+        {{/if}}
+        <div class="option-button" id="delete-button">
+            Eliminar
+        </div>
+    {{else}}
+        <form action="{{action}}" method="get">
+            <input type="hidden" name="id" value="{{elementId}}" />
+            {{#if @partial-block}}
+                {{> @partial-block}}
+            {{/if}}
+            <input type="submit" value="{{content}}" class="option-button" />
+        </form>
+    {{/if}}
+</button>

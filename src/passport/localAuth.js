@@ -49,7 +49,7 @@ passport.use(
                 return done(error, false);
             }
             if (usernameExists) {
-                req.session.message = "Este nombre de usuario ya existe";
+                req.session.usernameExists = "Este nombre de usuario ya existe";
                 return done(null, false);
             } else {
                 const passwordEncrypt = User.encryptPassword(password);
@@ -101,7 +101,7 @@ passport.use(
                 return done(error, false);
             }
             if (comparedUsername) {
-                req.session.message = "Usuario o Contraseña incorrectos";
+                req.session.dataErr = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }
             try {
@@ -113,7 +113,7 @@ passport.use(
                 return done(error, false);
             }
             if (!comparedPassword) {
-                req.session.message = "Usuario o Contraseña incorrectos";
+                req.session.dataErr = "Usuario o Contraseña incorrectos";
                 return done(null, false);
             }
             let user;

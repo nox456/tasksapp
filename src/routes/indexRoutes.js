@@ -16,11 +16,11 @@ router.get("/", (req, res) => {
 
 // Route to signin page
 router.get("/signin", (req, res) => {
-    const { usernameMessage } = req.session
-    const { passwordMessage } = req.session
+    const { usernameMessage, passwordMessage, usernameExists } = req.session
     delete req.session.usernameMessage;
     delete req.session.passwordMessage
-    res.render("signin_loggin/signin", { styles: "inputs", usernameMessage, passwordMessage });
+    delete req.session.usernameExists
+    res.render("signin_loggin/signin", { styles: "inputs", usernameMessage, passwordMessage, usernameExists });
 });
 
 // Route to login a user
@@ -36,11 +36,11 @@ router.post(
 
 // Route to signup page
 router.get("/signup", (req, res) => {
-    const {usernameMessage} = req.session
-    const {passwordMessage} = req.session
+    const {usernameMessage, passwordMessage, dataErr} = req.session
     delete req.session.passwordMessage;
     delete req.session.usernameMessage
-    res.render("signin_loggin/signup", { styles: "inputs", usernameMessage, passwordMessage });
+    delete req.session.dataErr
+    res.render("signin_loggin/signup", { styles: "inputs", usernameMessage, passwordMessage, dataErr });
 });
 
 // Route to register a user
