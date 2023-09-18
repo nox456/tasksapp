@@ -11,6 +11,9 @@ import userRoutes from "./routes/userRoutes.js";
 import passport from "passport";
 import dotenv from "dotenv";
 import multer from "multer";
+import pgStore from "connect-pg-simple";
+import pool from "./database/db.js"
+const pgSession = pgStore(session)
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -49,6 +52,11 @@ app.use(
         resave: false,
         saveUninitialized: false,
         secret: process.env.SESSION_KEY,
+        store: new pgSession({
+            pool: pool,
+            tableName: 'user_sessions',
+            createTableIfMissing: true
+        })
     })
 );
 app.use(passport.initialize());
