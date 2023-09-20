@@ -5,13 +5,6 @@
     font-family: "Ubuntu", sans-serif;
 }
 
-:root {
-    --mainColor1: #13234e;
-    --mainColor2: #263997;
-    --mainColor3: #5760c7;
-    --mainColor4: #c5bde5;
-    --mainBackground: linear-gradient(to right bottom, var(--mainColor1),var(--mainColor2),var(--mainColor3));
-}
 body {
     background-image: var(--mainBackground);
     width: 100vw;

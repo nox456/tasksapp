@@ -1,4 +1,4 @@
-<div class="input-container">
+<div class="border border-gray-500 rounded-lg p-2 flex flex-col w-full hover:border-gray-300 transition-colors">
     {{#if label}}
         <label for="{{id}}">{{label}}</label>
     {{/if}}
@@ -7,7 +7,7 @@
         name="{{name}}"
         autocomplete="off"
         placeholder="{{placeholder}}"
-        class="input"
+        class="bg-transparent focus:outline-none focus:border-none"
         id="{{id}}"
         value="{{value}}"
     />

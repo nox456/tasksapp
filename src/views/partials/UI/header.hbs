@@ -1,4 +1,4 @@
-<header class="main-header" id="main-header">
+<header class="flex justify-between items-center col-span-2 text-white px-4" id="main-header">
     {{#if user}}
         {{#> buttons/button_link url='/dashboard'}}
             <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -9,7 +9,7 @@
             </svg>
         {{/buttons/button_link}}
     {{else}}
-        {{#> buttons/button_link url='/'}}
+        {{#> buttons/button_link url='/' class='px-4 py-1'}}
             <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M5 12l14 0"></path>
@@ -28,7 +28,7 @@
             {{/if}}
         </div>
     {{else}}
-        <h1 class="title">TasksApp</h1>
+        <h1 class="text-4xl flex items-center justify-center font-medium">TasksApp</h1>
     {{/if}}
     {{#if user}}
         <div class="menu-container button">
@@ -42,6 +42,6 @@
             {{/buttons/button}}
         </div>
     {{else}}
-        <p></p>
+        <p class="w-12"></p>
     {{/if}}
 </header>

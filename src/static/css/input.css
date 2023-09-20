@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --mainColor1: #13234e;
+    --mainColor2: #263997;
+    --mainColor3: #5760c7;
+    --mainColor4: #c5bde5;
+    --mainBackground: linear-gradient(to right bottom, var(--mainColor1),var(--mainColor2),var(--mainColor3));
+}
+
+@layer components {
+    body {
+        @apply w-screen h-screen bg-main-background p-6;
+    }
+    .main-container {
+        @apply h-full w-full bg-black bg-opacity-60 text-white p-8 rounded-xl shadow-2xl shadow-black;
+    }
+    .button {
+        @apply border border-[#c5bde5] rounded-lg hover:bg-[#c5bde5] hover:text-black transition-colors;
+    }
+}

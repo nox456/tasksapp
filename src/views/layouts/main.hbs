@@ -10,24 +10,9 @@
             rel="stylesheet"
         />
         <title>TasksApp</title>
-        <link rel="stylesheet" href="/css/index.css" />
-        {{#if styles}}
-            <link rel="stylesheet" href="/css/{{styles}}.css" />
-        {{/if}}
-        {{#if styles2}}
-            <link rel="stylesheet" href="/css/{{styles2}}.css">
-        {{/if}}
-        {{#if styles3}}
-            <link rel="stylesheet" href="/css/{{styles3}}.css">
-        {{/if}}
-        {{#if styles4}}
-            <link rel="stylesheet" href="/css/{{styles4}}.css">
-        {{/if}}
-        {{#if styles5}}
-            <link rel="stylesheet" href="/css/{{styles5}}.css">
-        {{/if}}
+        <link rel="stylesheet" href="/css/output.css" />
     </head>
-    <body>
+    <body class="grid grid-cols-layout grid-rows-layout">
 
         {{> UI/header}}
 
@@ -35,8 +20,8 @@
             {{> UI/sidebar}}
         {{/if}}
 
-        <main class="main-container" id="main-container">
-            <div class="logout-confirm" id="logout-confirm">
+        <main class="main-container row-start-2 col-start-1 col-span-2" id="main-container">
+            <div class="hidden" id="logout-confirm">
                 <p class="confirm-text">¿Está Seguro?</p>
                 <div class="confirm-buttons-container">
                     {{> buttons/button_link url='/logout' content='Cerrar Sesion'}}
