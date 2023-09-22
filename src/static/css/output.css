@@ -612,20 +612,28 @@ body {
   grid-column: span 2 / span 2;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
 .col-start-1 {
   grid-column-start: 1;
+}
+
+.row-span-1 {
+  grid-row: span 1 / span 1;
 }
 
 .row-start-2 {
   grid-row-start: 2;
 }
 
-.mt-auto {
-  margin-top: auto;
+.row-start-1 {
+  grid-row-start: 1;
 }
 
-.mb-auto {
-  margin-bottom: auto;
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -644,16 +652,44 @@ body {
   display: none;
 }
 
+.h-1\/5 {
+  height: 20%;
+}
+
 .h-full {
   height: 100%;
 }
 
-.h-screen {
-  height: 100vh;
+.h-1\/6 {
+  height: 16.666667%;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.h-16 {
+  height: 4rem;
 }
 
 .w-1\/3 {
   width: 33.333333%;
+}
+
+.w-1\/5 {
+  width: 20%;
 }
 
 .w-12 {
@@ -668,16 +704,64 @@ body {
   width: 100%;
 }
 
-.w-screen {
-  width: 100vw;
+.w-1\/6 {
+  width: 16.666667%;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-28 {
+  width: 7rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .grid-cols-layout {
   grid-template-columns: 85% 15%;
 }
 
+.grid-cols-\[70\%_30\%\] {
+  grid-template-columns: 70% 30%;
+}
+
+.grid-cols-\[60\%_40\%\] {
+  grid-template-columns: 60% 40%;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-rows-layout {
   grid-template-rows: 10% 90%;
+}
+
+.grid-rows-\[20\%_40\%_40\%\] {
+  grid-template-rows: 20% 40% 40%;
+}
+
+.grid-rows-\[20\%_80\%\] {
+  grid-template-rows: 20% 80%;
+}
+
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -700,20 +784,16 @@ body {
   justify-content: space-around;
 }
 
-.gap-4 {
-  gap: 1rem;
-}
-
-.gap-8 {
-  gap: 2rem;
-}
-
-.gap-10 {
-  gap: 2.5rem;
-}
-
 .gap-20 {
   gap: 5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -734,12 +814,42 @@ body {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-b-4 {
+  border-bottom-width: 4px;
+}
+
+.border-r-2 {
+  border-right-width: 2px;
 }
 
 .border-gray-500 {
@@ -747,20 +857,41 @@ body {
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-yellow-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(202 138 4 / var(--tw-border-opacity));
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
 
-.bg-main-background {
-  background-image: linear-gradient(to right bottom, #13234e, #263997, #5760c7);
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-2 {
   padding: 0.5rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
+.p-4 {
+  padding: 1rem;
 }
 
 .px-4 {
@@ -813,8 +944,22 @@ body {
   line-height: 1.25rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .font-medium {
   font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-blue-300 {
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
 }
 
 .text-blue-400 {
@@ -825,11 +970,6 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-blue-300 {
-  --tw-text-opacity: 1;
-  color: rgb(147 197 253 / var(--tw-text-opacity));
 }
 
 .transition-colors {

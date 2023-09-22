@@ -1,4 +1,4 @@
-<div class="user-img-container">
+<div class="w-16 h-16 rounded-full overflow-hidden">
     {{#if (compare userImg "No photo")}}
         {{#if change}}
             <form
@@ -35,7 +35,7 @@
             </div>
         {{/if}}
     {{else}}
-        <img src="/{{userImg}}" class="user-img" />
+        <img src="/{{userImg}}" class="w-full h-full object-cover" />
         {{#if change}}
             <form
                 action="/profile/userImg"
