@@ -1,5 +1,5 @@
-<aside class="hidden" id="sidebar">
-    <ul>
+<aside class="hidden bg-black bg-opacity-60 ml-6 shadow-2xl shadow-black rounded-xl py-6" id="sidebar">
+    <ul class="w-full flex flex-col gap-3 items-center text-[#c5bde5]">
         {{#unless noUserImgSidebar}}
             <li>
                 {{> user/avatar userImg=user.user_img}}
@@ -7,18 +7,18 @@
             </li>
         {{/unless}}
         {{#unless noProfileLink}}
-            <hr class="line-div" />
-            <li><a href="/profile" class="link">Ver Perfil</a></li>
+            <hr class="w-4/5" />
+            <li><a href="/profile" class="hover:text-white transition-colors">Ver Perfil</a></li>
         {{/unless}}
-        <hr class="line-div" />
-        <li><a href="/tasks/list" class="link">Lista de Tareas</a></li>
-        <hr class="line-div" />
-        <li><a href="/habits/list" class="link">Lista de Habitos</a></li>
-        <hr class="line-div" />
-        <li><a href="/scoretable" class="link">Clasificacion</a></li>
-        <hr class="line-div" />
-        <li class="logout" id="logout-button">
-            {{> buttons/button content='Cerrar Sesion'}}
+        <hr class="w-4/5" />
+        <li><a href="/tasks/list" class="hover:text-white transition-colors">Lista de Tareas</a></li>
+        <hr class="w-4/5" />
+        <li><a href="/habits/list" class="hover:text-white transition-colors">Lista de Habitos</a></li>
+        <hr class="w-4/5" />
+        <li><a href="/scoretable" class="hover:text-white transition-colors">Clasificacion</a></li>
+        <hr class="w-4/5" />
+        <li class="mt-auto" id="logout-button">
+            {{> buttons/button content='Cerrar Sesion' class='px-2 py-1'}}
         </li>
     </ul>
 </aside>
