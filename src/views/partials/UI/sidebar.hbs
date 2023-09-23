@@ -1,7 +1,7 @@
 <aside class="hidden bg-black bg-opacity-60 ml-6 shadow-2xl shadow-black rounded-xl py-6" id="sidebar">
     <ul class="w-full flex flex-col gap-3 items-center text-[#c5bde5]">
         {{#unless noUserImgSidebar}}
-            <li>
+            <li class="flex flex-col items-center">
                 {{> user/avatar userImg=user.user_img}}
                 <p class="username-container">{{user.username}}</p>
             </li>

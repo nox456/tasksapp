@@ -1,18 +1,18 @@
-<button class="button {{class}}-button">
+<button class="button flex items-center gap-2 p-1 cursor-pointer {{class}}">
     {{#if isDelete}}
         {{#if @partial-block}}
             {{> @partial-block}}
         {{/if}}
-        <div class="option-button" id="delete-button">
+        <div class="delete-button" id="delete-button">
             Eliminar
         </div>
     {{else}}
-        <form action="{{action}}" method="get">
+    <form action="{{action}}" method="get" class="flex items-center gap-2">
             <input type="hidden" name="id" value="{{elementId}}" />
             {{#if @partial-block}}
                 {{> @partial-block}}
             {{/if}}
-            <input type="submit" value="{{content}}" class="option-button" />
+            <input type="submit" value="{{content}}" class="cursor-pointer" />
         </form>
     {{/if}}
 </button>

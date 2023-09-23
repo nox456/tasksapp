@@ -20,4 +20,10 @@
     .button {
         @apply border border-[#c5bde5] rounded-lg hover:bg-[#c5bde5] hover:text-black transition-colors text-[#c5bde5];
     }
+    option {
+        @apply bg-gray-900;
+    }
+    select {
+        @apply bg-transparent border border-[#c5bde5] p-1 cursor-pointer focus:outline-none rounded-md w-full;
+    }
 }
