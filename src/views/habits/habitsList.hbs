@@ -1,9 +1,11 @@
-<div class="habitslist container">
-    <div class="list-title-container">
-        <div class="select-form-container">
-            <form action="/habits/list" method="get" class="select-form" id="order-form">
+<div class="h-full flex flex-col">
+    <div class="grid grid-cols-3">
+        <div class="flex items-center gap-4">
+            <form action="/habits/list" 
+                  method="get"
+                  class="w-2/4"
+                  id="order-form">
                 <select
-                    class="order-container"
                     id="order-container"
                     name="order"
                 >
@@ -37,9 +39,9 @@
                 </select>
             </form>
         </div>
-        <p class="list-title">Habitos</p>
-        <div class="add-button-container">
-            {{#> buttons/button_link url='/habits/add' content='Agregar Habito'}}
+        <p class="text-2xl font-bold flex items-center justify-center">Habitos</p>
+        <div class="flex justify-end">
+            {{#> buttons/button_link url='/habits/add' content='Agregar Habito' class='flex py-2 px-4 gap-2 items-center'}}
                 <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 5l0 14"></path>
