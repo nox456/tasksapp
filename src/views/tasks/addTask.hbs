@@ -1,7 +1,7 @@
-<div class="addtask container">
-    <h1 class="container-title">Agregar Tarea</h1>
-    <form class="add-form" action="/tasksAdd" method="post">
+<div class="h-full flex flex-col items-center justify-around">
+    <h1 class="text-2xl font-bold">Agregar Tarea</h1>
+    <form class="space-y-4 w-2/5" action="/tasksAdd" method="post">
         {{> tasks/taskInputs}} 
-        {{> buttons/button_submit content='Guardar'}}
+        {{> buttons/button_submit content='Guardar' class='py-2'}}
     </form>
 </div>

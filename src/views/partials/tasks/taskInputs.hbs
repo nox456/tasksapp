@@ -4,9 +4,9 @@
 
 {{> inputs/input id='finished-input' label='Fecha de finalizacion' type='date' name='finished_at' value=finish_at}}
 
-<div class="input-container">
+<div class="input">
     <label for="category-select">Categoria:</label>
-    <select name="category" id="category-select" class="category input">
+    <select name="category" id="category-select" class="border-none">
         <option hidden>Seleccione</option>
         <option {{#if (compare this.category 'Academica' )}} selected {{/if}} value="Academica">Academica
         </option>
