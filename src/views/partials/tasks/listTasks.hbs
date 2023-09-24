@@ -68,15 +68,15 @@
                 {{/buttons/button_element}}
             </div>
         </div>
-        <div class="blur-container" id="blur-container">
-            <div class="hidden confirm-container" id="confirm-container">
-                <p class="confirm-text">¿Está Seguro?</p>
-                <div class="confirm-buttons-container">
+        <div class="blur-container absolute w-full left-0 top-0 h-full backdrop-blur-md hidden z-10" id="blur-container">
+            <div class="hidden confirm confirm-container" id="confirm-container">
+                <p>¿Está Seguro?</p>
+                <div class="flex gap-2">
                     <form action="/tasksDelete" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
-                        <input type="submit" value="Si" class="button" />
+                        <input type="submit" value="Si" class="button px-4 py-1 cursor-pointer" />
                     </form>
-                    <button class="button confirm-button-no">No</button>
+                    <button class="button confirm-button-no px-4 py-1">No</button>
                 </div>
             </div>
         </div>

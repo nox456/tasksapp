@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --mainColor1: #13234e;
-    --mainColor2: #263997;
-    --mainColor3: #5760c7;
-    --mainColor4: #c5bde5;
-    --mainBackground: linear-gradient(to right bottom, var(--mainColor1),var(--mainColor2),var(--mainColor3));
-}
-
 @layer components {
     body {
         @apply w-screen h-screen bg-main-background p-6;
@@ -25,5 +17,9 @@
     }
     select {
         @apply bg-transparent border border-[#c5bde5] p-1 cursor-pointer focus:outline-none rounded-md w-full;
+    }
+    .confirm {
+        @apply flex-col items-center justify-between p-4 bg-transparent border border-[#c5bde5] rounded-lg;
+        @apply absolute -translate-x-1/2 -translate-y-1/2 text-white w-56 h-28 left-1/2 top-1/2;
     }
 }
