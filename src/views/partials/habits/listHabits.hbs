@@ -1,6 +1,6 @@
 <div class="h-full flex items-start justify-center gap-2 px-4 py-6 flex-wrap" id="list-container">
     {{#each habits}}
-        <div class="border border-[#c5bde5] rounded-xl flex flex-col gap-4 items-center relative p-2 element cursor-pointer w-[27%]">
+        <div class="border border-[#c5bde5] rounded-xl flex flex-col gap-4 items-center relative p-2 element cursor-pointer w-[27%] habit-container">
             <div class="absolute top-0 left-[91%] icon-container close">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -20,45 +20,45 @@
             </div>
             <h1 class="text-lg font-bold">{{this.title}}</h1>
             <p class="hidden category-expand">{{this.category}}</p>
-            <ul class="hidden flex flex-wrap gap-2 text-md days-expand justify-center [&>li]:border [&>li]:border-[#c5bde5] [&>li]:px-2 [&>li]:rounded-md" id="days-container">
+            <ul class="hidden flex-wrap gap-2 text-md days-expand justify-center [&>li]:border [&>li]:border-[#c5bde5] [&>li]:px-2 [&>li]:rounded-md" id="days-container">
                 {{#if (checkDays this.days "Lunes")}}
-                    <li class="day bg-[#c5bde5] text-black">L</li>
+                    <li class="day selected bg-[#c5bde5] text-black">L</li>
                 {{else}}
                     <li class="day">L</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Martes")}}
-                    <li class="day bg-[#c5bde5] text-black">M</li>
+                    <li class="day selected bg-[#c5bde5] text-black">M</li>
                 {{else}}
                     <li class="day">M</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Miercoles")}}
-                    <li class="day bg-[#c5bde5] text-black">X</li>
+                    <li class="day selected bg-[#c5bde5] text-black">X</li>
                 {{else}}
                     <li class="day">X</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Jueves")}}
-                    <li class="day bg-[#c5bde5] text-black">J</li>
+                    <li class="day selected bg-[#c5bde5] text-black">J</li>
                 {{else}}
                     <li class="day">J</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Viernes")}}
-                    <li class="day bg-[#c5bde5] text-black">V</li>
+                    <li class="day selected bg-[#c5bde5] text-black">V</li>
                 {{else}}
                     <li class="day">V</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Sabado")}}
-                    <li class="day bg-[#c5bde5] text-black">S</li>
+                    <li class="day selected bg-[#c5bde5] text-black">S</li>
                 {{else}}
                     <li class="day">S</li>
                 {{/if}}
 
                 {{#if (checkDays this.days "Domingo")}}
-                    <li class="day bg-[#c5bde5] text-black">D</li>
+                    <li class="day selected bg-[#c5bde5] text-black">D</li>
                 {{else}}
                     <li class="day">D</li>
                 {{/if}}
