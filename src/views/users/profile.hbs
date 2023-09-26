@@ -1,17 +1,16 @@
-<div class="profile container">
-    <div class="profile-data">
-        <div class="user-title">
+<div class="h-full flex flex-col divide-y-2 divide-[#c5bde5]">
+    <div class="flex justify-between py-4">
+        <div class="flex items-center gap-4">
             {{> user/avatar change=true userImg=user.user_img}}
-            <h1 class="user-name">{{user.username}}</h1>
+            <h1 class="text-2xl font-bold">{{user.username}}</h1>
         </div>
-        <div class="user-data">
-            <div class="points">Puntos: {{points}}</div>
+        <div class="p-4 flex items-center">
+            <p><span class="text-lg font-semibold">Puntos: </span>{{points}}</p>
         </div>
     </div>
-    <hr class="line-div" />
-    <div class="profile-options">
-        {{> buttons/button_link url='/profile/change-username' content='Cambiar Nombre de Usuario'}}
-        {{> buttons/button_link url='/profile/change-password' content='Cambiar Contraseña'}}
-        {{> buttons/button_link url='/profile/delete-account' content='Eliminar Cuenta'}}
+    <div class="flex flex-col items-center h-full justify-center [&>button]:w-3/5 last:[&>button]:mt-auto gap-4 py-8">
+        {{> buttons/button_link url='/profile/change-username' content='Cambiar Nombre de Usuario' class='py-2'}}
+        {{> buttons/button_link url='/profile/change-password' content='Cambiar Contraseña' class='py-2'}}
+        {{> buttons/button_link url='/profile/delete-account' content='Eliminar Cuenta' class='py-2'}}
     </div>
 </div>
