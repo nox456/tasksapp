@@ -1,33 +1,35 @@
-<div class="scoretable container">
-    <h1 class="main-title">Clasificacion</h1>
-    <div class="score-table-header">
-        <div class="user-points">
-            <p>Tus Puntos:</p>
-            <p>{{user.points}}</p>
+<div class="h-full flex flex-col items-center gap-8">
+    <h1 class="text-2xl font-bold">Clasificacion</h1>
+    <div class="flex justify-between items-center gap-2 w-2/5">
+        <div class="flex flex-col items-center">
+            <p class="text-xl font-semibold">Tus Puntos:</p>
+            <p class="text-lg">{{user.points}}</p>
         </div>
         {{> user/avatar userImg=user.user_img}}
-        <div class="user-pos">
-            <p>Tu Posicion:</p>
-            <p>{{user.pos}}</p>
+        <div class="flex flex-col items-center">
+            <p class="text-xl font-semibold">Tu Posicion:</p>
+            <p class="text-lg">{{user.pos}}</p>
         </div>
     </div>
-    <div class="score-table-body">
-        <div class="user-position-header">
-            <p>#</p>
-            <p>Usuario</p>
-            <p>Puntos</p>
-        </div>
-        <div class="user-position-body">
+    <table class="border border-[#c5bde5] rounded-md block divide-y-2 divide-[#c5bde5] overflow-hidden">
+        <thead class="text-gray-400">
+            <tr class="divide-x-2 divide-[#c5bde5] [&>td]:py-2">
+                <td class="px-6">#</td>
+                <td class="px-32">Usuario</td>
+                <td class="px-10">Puntos</td>
+            </tr>
+        </thead>
+        <tbody>
             {{#each users}}
-                <div class="user-position">
-                    <p class="user-position-pos">{{this.pos}}</p>
-                    <div class="user-position-username">
-                        {{> user/avatar userImg=this.user_img}}
+                <tr class="divide-x-2 divide-[#c5bde5] odd:bg-[#13234e] even:bg-[#263997] [&>td]:px-2">
+                    <td class="text-center">{{this.pos}}</td>
+                    <td class="grid grid-cols-[20%_80%] items-center">
+                        {{> user/avatar userImg=this.user_img class='w-10 h-10'}}
                         <p>{{this.username}}</p>
-                    </div>
-                    <p class="user-position-points">{{this.points}}</p>
-                </div>
-            {{/each}}
-        </div>
-    </div>
+                    </td>
+                    <td class="text-center">{{this.points}}</td>
+                </tr>
+            {{/each}}  
+        </tbody>
+    </table>
 </div>
