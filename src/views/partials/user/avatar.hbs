@@ -1,4 +1,4 @@
-<div class="w-16 h-16 rounded-full overflow-hidden {{class}}">
+<div class="w-16 h-16 rounded-full overflow-hidden {{class}} relative [&>form]:hover:block">
     {{#if (compare userImg "No photo")}}
         {{#if change}}
             <form
@@ -34,18 +34,19 @@
             </div>
         {{/if}}
     {{else}}
-        <img src="/{{userImg}}" class="w-full h-full object-cover" />
+        <img src="/{{userImg}}" class="w-full h-full object-cover absolute" />
         {{#if change}}
             <form
                 action="/profile/userImg"
                 method="post"
                 id="add-user-form"
                 enctype="multipart/form-data"
+                class="absolute z-20 top-[50%] left-[50%] w-full h-full hidden"
             >
-                <label for="no-user-img">
+                <label for="no-user-img" class="text-black cursor-pointer bg-[#c5bde5] w-full h-full block p-2 rounded-lg">
                     <svg
-                        width="22"
-                        height="22"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         stroke-width="2"
                         stroke="currentColor"
@@ -77,6 +78,7 @@
                     type="file"
                     id="no-user-img"
                     name="user_img"
+                    class="hidden"
                 />
             </form>
         {{/if}}
