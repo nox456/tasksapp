@@ -1,10 +1,10 @@
-<div class="list-container" id="list-container">
+<div class="h-full flex items-start justify-center gap-2 px-4 py-6 flex-wrap" id="list-container">
     {{#each tasks}}
-        <div class="task-container element">
-            <div class="icon-container close">
+        <div class="border border-[#c5bde5] rounded-xl flex flex-col gap-4 items-center relative p-2 element cursor-pointer w-[27%]">
+            <div class="absolute top-0 left-[91%] icon-container close">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-chevron-up"
+                    class="icon-tabler icon-tabler-chevron-up"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -18,12 +18,12 @@
                     <path d="M6 15l6 -6l6 6"></path>
                 </svg>
             </div>
-            <div class="task-title-container">
+            <div class="flex">
                 {{#unless this.done}}
                     <form
                         action="/tasksDone"
                         method="post"
-                        class="task-title-container done-form"
+                        class="absolute top-1 left-2 done-form"
                         id="done-form"
                     >
                         <input type="hidden" name="id" value="{{this.id}}" />
@@ -35,11 +35,11 @@
                         />
                     </form>
                 {{/unless}}
-                <h1 class="task-title">{{this.title}}</h1>
+                <h1 class="text-lg font-bold">{{this.title}}</h1>
             </div>
-            <p class="task-category category-expand">{{this.category}}</p>
-            <div class="list-options-container options-expand">
-                {{#> buttons/button_element action='/tasks/update' class='update' elementId=this.id content='Modificar'}}
+            <p class="category-expand hidden">{{this.category}}</p>
+            <div class="gap-1 options-expand hidden text-sm">
+                {{#> buttons/button_element action='/tasks/update'elementId=this.id content='Modificar'}}
                     <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
@@ -47,7 +47,7 @@
                         <path d="M16 5l3 3"></path>
                     </svg>
                 {{/buttons/button_element}}
-                {{#> buttons/button_element isDelete=true class='delete' }}
+                {{#> buttons/button_element isDelete=true}}
                     <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M4 7l16 0"></path>
@@ -57,7 +57,7 @@
                         <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                     </svg>
                 {{/buttons/button_element}}
-                {{#> buttons/button_element action='/tasks/detail' class='detail' elementId=this.id content='Detalles' }}
+                {{#> buttons/button_element action='/tasks/detail' elementId=this.id content='Detalles' }}
                     <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -68,23 +68,23 @@
                 {{/buttons/button_element}}
             </div>
         </div>
-        <div class="blur-container" id="blur-container">
-            <div class="confirm-container" id="confirm-container">
-                <p class="confirm-text">¿Está Seguro?</p>
-                <div class="confirm-buttons-container">
+        <div class="blur-container absolute w-full left-0 top-0 h-full backdrop-blur-md hidden z-10" id="blur-container">
+            <div class="hidden confirm confirm-container" id="confirm-container">
+                <p>¿Está Seguro?</p>
+                <div class="flex gap-2">
                     <form action="/tasksDelete" method="get">
                         <input type="hidden" name="id" value="{{this.id}}" />
-                        <input type="submit" value="Si" class="button" />
+                        <input type="submit" value="Si" class="button px-4 py-1 cursor-pointer" />
                     </form>
-                    <button class="button confirm-button-no">No</button>
+                    <button class="button confirm-button-no px-4 py-1">No</button>
                 </div>
             </div>
         </div>
     {{else}}
         {{#if (compare doned "yes-done")}}
-            <p class="no-tasks">No Hay Ninguna Tarea Hecha</p>
+            <p>No Hay Ninguna Tarea Hecha</p>
         {{else}}
-            <p class="no-tasks" id="no-tasks">No Hay Ninguna Tarea Creada</p>
+            <p id="no-tasks">No Hay Ninguna Tarea Creada</p>
         {{/if}}
     {{/each}}
 </div>

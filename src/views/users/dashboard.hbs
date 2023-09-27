@@ -1,40 +1,40 @@
-<div class="dashboard container">
-    <section class="dashboard-section first">
-        <div class="user-img-section">
+<div class="h-full grid grid-cols-[60%_40%] grid-rows-[20%_80%]">
+    <section class="border-b-2 border-r-2 border-gray-400 flex justify-around items-center">
+        <div class="flex items-center gap-4">
             {{> user/avatar userImg=user.user_img}}
-            <p class="username-container">{{user.username}}</p>
+            <p class="text-lg font-bold">{{user.username}}</p>
         </div>
-        <div class="data-section">
-            <div>
-                <p class="tasks_doned">Tareas Hechas: {{tasksDonedCount}}</p>
-                <hr class="line-div">
-                <p class="tasks_total">Tareas Totales: {{tasksCount}}</p>
-                <hr class="line-div">
+        <div class="flex gap-4">
+            <div class="space-y-2">
+                <p>Tareas Hechas: {{tasksDonedCount}}</p>
+                <hr>
+                <p>Tareas Totales: {{tasksCount}}</p>
+                <hr>
             </div>
-            <div>
-                <p class="habits_total">Habitos Totales: {{habitsCount}}</p>
-                <hr class="line-div">
-                <p class="points">Puntos: {{points}}</p>
-                <hr class="line-div">
+            <div class="space-y-2">
+                <p>Habitos Totales: {{habitsCount}}</p>
+                <hr>
+                <p>Puntos: {{points}}</p>
+                <hr>
             </div>
         </div>
     </section>
-    <section class="dashboard-section second">
-        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas'}}
-        {{> buttons/button_link url='/habits/list' content='Lista de Habitos'}}
+    <section class="border-b-2 border-gray-400 flex items-center justify-around">
+        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas' class='py-4 px-6'}}
+        {{> buttons/button_link url='/habits/list' content='Lista de Habitos' class='py-4 px-6'}}
     </section>
-    <section class="dashboard-section third">
-        <div class="habits-section">
-            <h1 class="section-title">Habitos de Hoy</h1>
-            <hr class="line-div">
-            <div class="habits-section-today">
+    <section class="grid grid-rows-2 col-span-2">
+        <div class="border-b-2 border-gray-400 py-4 w-full">
+            <h1 class="text-xl font-bold">Habitos de Hoy</h1>
+            <hr class="w-1/6">
+            <div class="mt-2">
                 {{> habits/listHabits}}                
             </div>
         </div>
-        <div class="tasks-section">
-            <h1 class="section-title">Tareas de Hoy</h1>
-            <hr class="line-div">
-            <div class="tasks-section-today">
+        <div class="py-4">
+            <h1 class="text-xl font-bold">Tareas de Hoy</h1>
+            <hr class="w-1/6">
+            <div class="mt-2">
                 {{> tasks/listTasks}}
             </div>
         </div>

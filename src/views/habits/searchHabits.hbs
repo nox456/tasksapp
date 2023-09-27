@@ -1,22 +1,32 @@
-<div class="search container">
+<div class="h-full flex flex-col items-center gap-4">
     {{#if habitsFounded}}
-        <h1 class="main-title">Habitos Encontrados</h1>
-        <div class="search-header searchHabits">
-            <p>Titulo</p>
-            <p>Categoria</p>
-            <p>Hora</p>
-        </div>
-        <div class="search-body searchHabits">
-            {{#each habitsFounded}}
-                <div class="habitFound">
-                    <p class="habitFound-title">{{this.title}}</p>
-                    <p class="habitFound-category">{{this.category}}</p>
-                    <p class="habitFound-time-to-do">{{this.time_to_do}}</p>
-                </div>
-            {{/each}}
-        </div>
+        <h1 class="text-2xl font-bold">Habitos Encontrados</h1>
+        <table class="border border-[#c5bde5] rounded-md block divide-y-2 overflow-hidden">
+            <thead class="text-gray-400">
+                <tr class="divide-x-2 divide-[#c5bde5] [&>td]:text-center [&>td]:px-20 [&>td]:py-2">
+                    <td>Titulo</td>
+                    <td>Categoria</td>
+                    <td>Hora</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each habitsFounded}}
+                    <tr class="[&>td]:px-4 [&>td]:py-2 divide-x-2 divide-[#c5bde5] odd:bg-[#13234e] even:bg-[#263997]">
+                        <td>
+                            <p>{{this.title}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.category}}</p>
+                        </td>
+                        <td>
+                            <p>{{this.time_to_do}}</p>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
     {{else}}
-        <h1 class="main-title">No se encontro ningun habito</h1>
+        <h1 class="text-2xl font-bold">No se encontro ningun habito</h1>
         {{> habits/searchHabitInput}}
     {{/if}}
 </div>

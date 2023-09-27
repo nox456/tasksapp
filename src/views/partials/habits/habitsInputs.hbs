@@ -4,69 +4,69 @@
 
 <div>
     <label for="inputs-container">Dias:</label>
-    <div class="inputs-container days-container" id="inputs-container">
+    <div class="flex flex-wrap gap-4 days-container [&>div>input]:relative [&>div>input]:after:left-[1.5px] [&>div>input]:after:top-[-3.5px] [&>div]:flex [&>div]:items-center [&>div]:gap-2" id="inputs-container">
         {{#if days}}
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Lunes" name="days" {{#if (checkDays days 'Lunes' )}}
                     checked {{/if}}>
                 <span>Lunes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Martes" name="days" {{#if (checkDays days 'Martes' )}}
                     checked {{/if}}>
                 <span>Martes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Miercoles" name="days" {{#if (checkDays
                     days 'Miercoles' )}} checked {{/if}}>
                 <span>Miercoles</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Jueves" name="days" {{#if (checkDays days 'Jueves' )}}
                     checked {{/if}}>
                 <span>Jueves</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Viernes" name="days" {{#if (checkDays days 'Viernes'
                     )}} checked {{/if}}>
                 <span>Viernes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Sabado" name="days" {{#if (checkDays days 'Sabado' )}}
                     checked {{/if}}>
                 <span>Sabado</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Domingo" name="days" {{#if (checkDays days 'Domingo'
                     )}} checked {{/if}}>
                 <span>Domingo</span>
             </div>
         {{else}}
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Lunes" name="days">
                 <span>Lunes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Martes" name="days">
                 <span>Martes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Miercoles" name="days">
                 <span>Miercoles</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Jueves" name="days">
                 <span>Jueves</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Viernes" name="days">
                 <span>Viernes</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Sabado" name="days">
                 <span>Sabado</span>
             </div>
-            <div class="day-input-container">
+            <div>
                 <input type="checkbox" class="input-check" value="Domingo" name="days">
                 <span>Domingo</span>
             </div>
@@ -74,11 +74,11 @@
     </div>
 </div>
 
-{{> inputs/input id='time-input' label='Hora' type='time' name='time_to_do'}}
+{{> inputs/input id='time-input' label='Hora' type='time' name='time_to_do' value=time_to_do}}
 
-<div class="input-container">
+<div class="input">
     <label for="category-select">Categoria:</label>
-    <select name="category" id="category-select" class="category input">
+    <select name="category" id="category-select" class="border-none">
         <option hidden>Seleccione</option>
         <option {{#if (compare this.category 'Academica' )}} selected {{/if}} value="Academica">Academica</option>
         <option {{#if (compare this.category 'Salud' )}} selected {{/if}} value="Salud">Salud</option>

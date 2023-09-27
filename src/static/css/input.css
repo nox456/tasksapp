@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    body {
+        @apply w-screen h-screen bg-main-background p-6;
+    }
+    .main-container {
+        @apply h-full w-full bg-black bg-opacity-60 text-white p-8 rounded-xl shadow-2xl shadow-black;
+    }
+    .button {
+        @apply border border-[#c5bde5] rounded-lg hover:bg-[#c5bde5] hover:text-black transition-colors text-[#c5bde5];
+    }
+    option {
+        @apply bg-gray-900;
+    }
+    select {
+        @apply bg-transparent border border-[#c5bde5] p-1 cursor-pointer focus:outline-none rounded-md w-full;
+    }
+    .confirm {
+        @apply flex-col items-center justify-between p-4 bg-transparent border border-[#c5bde5] rounded-lg;
+        @apply absolute -translate-x-1/2 -translate-y-1/2 text-white w-56 h-28 left-1/2 top-1/2;
+    }
+    .input {
+        @apply border border-gray-500 rounded-lg p-2 flex flex-col w-full hover:border-gray-300 transition-colors;
+    }
+    .input-check {
+        @apply bg-transparent border border-[#c5bde5] w-4 h-4 rounded-sm appearance-none cursor-pointer;
+        @apply focus:outline-none checked:bg-[#c5bde5] transition-colors after:content-[''] after:block;
+        @apply after:absolute after:left-[2.5px] after:top-[-1.5px] after:w-[6px] after:h-[10px];
+        @apply after:[border-width:0_2px_2px_0] after:origin-bottom-left after:border-black after:transition;
+        @apply after:[transform:rotate(45deg)_scale(0)] checked:after:[transform:rotate(45deg)_scale(1)]; 
+    }
+}
