@@ -1,21 +1,21 @@
-<div>
+<div class="[&>span]:text-sm [&>span]:text-blue-300">
     {{> inputs/input id='username-input' label='Usuario' type='text' name='username' placeholder='Ingrese su usuario'}}
     {{#if usernameMessage}}
-        <span class="text-sm text-blue-300">{{usernameMessage}}</span>
+        <span">{{usernameMessage}}</span>
     {{/if}}
     {{#if usernameExists}}
-        <span class="text-sm text-blue-300">{{usernameExists}}</span>
+        <span>{{usernameExists}}</span>
     {{/if}} 
     {{#if dataErr}}
-        <span class="text-sm text-blue-300">{{dataErr}}</span>
+        <span>{{dataErr}}</span>
     {{/if}}
 </div>
-<div>
+<div class="[&>span]:text-sm [&>span]:text-blue-300">
     {{> inputs/input id='password-inpu' label='Contraseña' type='password' name='password' placeholder='Ingrese su contraseña'}}
     {{#if passwordMessage}}
-        <span class="text-sm text-blue-300">{{passwordMessage}}</span>
+        <span>{{passwordMessage}}</span>
     {{/if}}
     {{#if dataErr}}
-        <span class="text-sm text-blue-300">{{dataErr}}</span>
+        <span>{{dataErr}}</span>
     {{/if}}
 </div>
