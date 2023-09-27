@@ -1,13 +1,9 @@
-<div class="change container">
-    <h1>Cambiar Nombre de Usuario</h1>
-    <form action="/changeUsername" method="post">
-        <div>
-            {{> inputs/input type='password' placeholder='Ingrese su contraseña actual' name='password' label='Contraseña Actual'  id='username-input'}}
-        </div>
-        <div>
-            {{> inputs/input type='text' name='username' placeholder='Ingrese su nuevo nombre de usuario' label='Nuevo Nombre de Usuario' id='password-input' }}
-        </div>
+<div class="h-full flex flex-col items-center justify-around">
+    <h1 class="text-2xl font-bold">Cambiar Nombre de Usuario</h1>
+    <form action="/changeUsername" method="post" class="flex flex-col gap-4 w-2/5">
+        {{> inputs/input type='password' placeholder='Ingrese su contraseña actual' name='password' label='Contraseña Actual'  id='username-input'}}
+        {{> inputs/input type='text' name='username' placeholder='Ingrese su nuevo nombre de usuario' label='Nuevo Nombre de Usuario' id='password-input' }}
         <input type="hidden" name="username" value="{{user.username}}">
-        {{> buttons/button_submit content='Actualizar'}}
+        {{> buttons/button_submit content='Actualizar' class='py-2'}}
     </form>
 </div>

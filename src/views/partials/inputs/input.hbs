@@ -1,4 +1,4 @@
-<div class="input-container">
+<div class="input">
     {{#if label}}
         <label for="{{id}}">{{label}}</label>
     {{/if}}
@@ -7,7 +7,7 @@
         name="{{name}}"
         autocomplete="off"
         placeholder="{{placeholder}}"
-        class="input"
+        class="bg-transparent focus:outline-none focus:border-none"
         id="{{id}}"
         value="{{value}}"
     />

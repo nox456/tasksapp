@@ -2,13 +2,13 @@
 export default function checkHabitDays() {
     const habits_containers = Array.from(document.getElementsByClassName("habit-container"))
     const days_week = {
-        1: "Lunes",
-        2: "Martes",
-        3: "Miercoles",
-        4: "Jueves",
-        5: "Viernes",
-        6: "Sabado",
-        7: "Domingo"
+        0: "D",
+        1: "L",
+        2: "M",
+        3: "X",
+        4: "J",
+        5: "V",
+        6: "S"
     }
     const today = new Date().getDay()
 

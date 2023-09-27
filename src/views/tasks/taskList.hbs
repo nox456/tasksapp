@@ -1,14 +1,14 @@
-<div class="tasklist container">
-    <div class="list-title-container">
-        <div class="select-form-container">
+<div class="h-full flex flex-col">
+    <div class="grid grid-cols-3">
+        <div class="flex items-center gap-4">
             <form
                 action="/tasks/list"
                 method="get"
-                class="select-form"
+                class="w-2/4"
                 id="order-form"
             >
                 <select id="order-container" name="order">
-                    <option selected hidden>Ordenar</option>
+                    <option selected hidden >Ordenar</option>
                     {{#if (compare orderText "title ASC")}}
                         <option selected value="title ASC">Titulo (A-Z)</option>
                     {{else}}
@@ -57,10 +57,10 @@
             <form
                 action="/tasks/list"
                 method="get"
-                class="select-form"
+                class="w-1/3"
                 id="done-select-form"
             >
-                <select name="doned" id="done-select">
+                <select name="doned" id="done-select" class="bg-transparent border border-[#c5bde5] px-2 py-1 cursor-pointer focus:outline-none rounded-md w-full">
                     {{#if (compare doned "yes-done")}}
                         <option value="no-done">No Hechas</option>
                         <option selected value="yes-done">Hechas</option>
@@ -71,9 +71,9 @@
                 </select>
             </form>
         </div>
-        <p class="list-title">Tareas</p>
-        <div class="add-button-container">
-            {{#> buttons/button_link url='/tasks/add' content='Agregar Tarea'}}
+        <p class="text-2xl font-bold flex items-center justify-center">Tareas</p>
+        <div class="flex justify-end">
+            {{#> buttons/button_link url='/tasks/add' content='Agregar Tarea' class='flex py-2 px-4 gap-2 items-center'}}
                 <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 5l0 14"></path>

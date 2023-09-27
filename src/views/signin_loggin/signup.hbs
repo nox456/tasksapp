@@ -1,9 +1,9 @@
-<div class="signin">
-    <div class="sign-header">Ingresar</div>
-    <div class="sign-body">
-    <form action="/signup" method="post" class="signin-form">
-        {{> signin_loggin/signInputs}}
-        {{> buttons/button_submit content='Iniciar Sesión' id='submit-button'}}
-    </form>
+<div class="h-full flex flex-col justify-center items-center gap-20">
+    <div class="text-2xl">Ingresar</div>
+    <div class="w-1/3">
+        <form action="/signup" method="post" class="space-y-8">
+            {{> signin_loggin/signInputs}}
+            {{> buttons/button_submit content='Iniciar Sesión' id='submit-button' class='py-2'}}
+        </form>
     </div>
 </div>

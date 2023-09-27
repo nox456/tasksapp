@@ -1,4 +1,4 @@
-<div class="user-img-container">
+<div class="w-16 h-16 rounded-full overflow-hidden {{class}} relative [&>form]:hover:block">
     {{#if (compare userImg "No photo")}}
         {{#if change}}
             <form
@@ -7,17 +7,16 @@
                 id="add-user-form"
                 enctype="multipart/form-data"
             >
-                <label class="no-user-img-label" for="no-user-img">Elija una
+                <label for="no-user-img">Elija una
                     Imagen</label>
                 <input
                     type="file"
-                    class="no-user-img"
                     id="no-user-img"
                     name="user_img"
                 />
             </form>
         {{else}}
-            <div class="no-user-img-container">
+            <div class="flex justify-center">
                 <svg
                     width="34"
                     height="34"
@@ -35,19 +34,19 @@
             </div>
         {{/if}}
     {{else}}
-        <img src="/{{userImg}}" class="user-img" />
+        <img src="/{{userImg}}" class="w-full h-full object-cover absolute" />
         {{#if change}}
             <form
                 action="/profile/userImg"
                 method="post"
                 id="add-user-form"
                 enctype="multipart/form-data"
-                class="changeimg-container"
+                class="absolute z-20 top-[50%] left-[50%] w-full h-full hidden"
             >
-                <label class="no-user-img-label" for="no-user-img">
+                <label for="no-user-img" class="text-black cursor-pointer bg-[#c5bde5] w-full h-full block p-2 rounded-lg">
                     <svg
-                        width="22"
-                        height="22"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         stroke-width="2"
                         stroke="currentColor"
@@ -77,9 +76,9 @@
                 </label>
                 <input
                     type="file"
-                    class="no-user-img"
                     id="no-user-img"
                     name="user_img"
+                    class="hidden"
                 />
             </form>
         {{/if}}

@@ -6,3 +6,6 @@ node_modules
 
 # Ignore users images
 src/public/uploads/*.*
+
+# Ignore 'output' tailwind
+src/static/css/output.css

@@ -1,58 +1,58 @@
-<div class="habitsDetails container">
-    <div class="detail-title-container">
-        <h1 class="detail-title">{{habit.title}}</h1>
+<div class="h-full grid grid-cols-[80%_20%] grid-rows-[20%_10%_35%_35%]">
+    <div class="border-r-2 border-[#c5bde5] row-start-1 flex items-center px-4">
+        <h1 class="text-4xl font-bold">{{habit.title}}</h1>
     </div>
-    <div class="detail-time-container">
-        <h3 class="detail-time-title">Hora:</h3>
-        <p class="detail-time">{{habit.time_to_do}}</p>
+    <div class="row-start-1 col-start-2 flex flex-col items-center justify-center px-4">
+        <h3 class="font-semibold text-gray-400">Hora:</h3>
+        <p class="pl-2">{{habit.time_to_do}}</p>
     </div>
-    <div class="detail-category-container">
-        <h3 class="detail-category-title">Categoria:</h3>
-        <p class="detail-category">{{habit.category}}</p>
+    <div class="row-start-2 col-span-2 px-4 border-t-2 border-[#c5bde5] flex flex-col justify-center">
+        <h3 class="font-semibold text-gray-400">Categoria:</h3>
+        <p class="pl-2">{{habit.category}}</p>
     </div>
-    <div class="detail-description-container">
-        <p class="detail-description">{{habit.description}}</p>
+    <div class="row-start-3 col-span-2 p-4 border-t-2 border-[#c5bde5]">
+        <p class="font-semibold text-lg">{{habit.description}}</p>
     </div>
-    <div class="detail-days-container">
-        <ul class="days-container" id="days-container">
+    <div class="row-start-4 col-span-2 flex justify-center items-center border-t-2 border-[#c5bde5]">
+        <ul class="flex gap-2 w-2/5 justify-center flex-wrap [&>li]:py-2 [&>li]:px-4 [&>li]:border [&>li]:border-[#c5bde5] [&>li]:rounded-md" id="days-container">
             {{#if (checkDays habit.days "Lunes")}}
-                <li class="day selected">Lunes</li>
+                <li class="day selected bg-[#c5bde5] text-black">Lunes</li>
             {{else}}
                 <li class="day">Lunes</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Martes")}}
-                <li class="day selected">Martes</li>
+                <li class="day selected bg-[#c5bde5] text-black">Martes</li>
             {{else}}
                 <li class="day">Martes</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Miercoles")}}
-                <li class="day selected">Miercoles</li>
+                <li class="day selected bg-[#c5bde5] text-black">Miercoles</li>
             {{else}}
                 <li class="day">Miercoles</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Jueves")}}
-                <li class="day selected">Jueves</li>
+                <li class="day selected bg-[#c5bde5] text-black">Jueves</li>
             {{else}}
                 <li class="day">Jueves</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Viernes")}}
-                <li class="day selected">Viernes</li>
+                <li class="day selected bg-[#c5bde5] text-black">Viernes</li>
             {{else}}
                 <li class="day">Viernes</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Sabado")}}
-                <li class="day selected">Sabado</li>
+                <li class="day selected bg-[#c5bde5] text-black">Sabado</li>
             {{else}}
                 <li class="day">Sabado</li>
             {{/if}}
 
             {{#if (checkDays habit.days "Domingo")}}
-                <li class="day selected">Domingo</li>
+                <li class="day selected bg-[#c5bde5] text-black">Domingo</li>
             {{else}}
                 <li class="day">Domingo</li>
             {{/if}}
