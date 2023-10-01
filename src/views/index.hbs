@@ -1,5 +1,5 @@
-<div class="w-3/5 space-y-4">
-    <p class="text-2xl">
+<div class="w-3/5 space-y-4 sm:w-full">
+    <p class="text-2xl sm:text-lg">
         Hello! This is an app based on tasks and habits that help you to be more
         productive! You can log in and see the points of other users and compare
         them in a leaderboard! You earn points doing tasks!
@@ -8,9 +8,9 @@
         This a Project made by me,
         <span class="text-blue-400">Gabriel (nox) Vieira</span>
     </p>
-    <div class="space-x-4">
-        {{> buttons/button_link url='/signin' content='Registrarse' class='py-4 px-6 text-lg'}}
-        {{> buttons/button_link url='/signup' content='Iniciar Sesión' class='py-4 px-6 text-lg'}}
+    <div class="space-x-4 sm:flex sm:items-center">
+        {{> buttons/button_link url='/signin' content='Registrarse' class='py-4 px-6 text-lg sm:py-2 sm:px-4 sm:text-sm'}}
+        {{> buttons/button_link url='/signup' content='Iniciar Sesión' class='py-4 px-6 text-lg sm:py-2 sm:px-4 sm:text-sm'}}
     </div>
 </div>
-<h1 class="text-8xl font-medium">TasksApp</h1>
+<h1 class="text-8xl font-medium sm:text-4xl sm:-order-1">TasksApp</h1>

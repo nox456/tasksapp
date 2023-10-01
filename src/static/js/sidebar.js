@@ -11,16 +11,22 @@ export default function sidebar() {
         const logout_confirm = document.getElementById("logout-confirm");
 
         let menuIsActive = false;
-
+        const screenWidth = window.screen.width
         menu_icon.addEventListener("click", () => {
             if (menuIsActive == false) {
                 sidebar.style.display = "flex";
-                main_container.style.gridColumn = "span 1";
+                if (screenWidth > 640) {
+                    main_container.style.gridColumn = "span 1";
+                } else {
+                    main_blur_container.style.display = "block";
+                }
                 menuIsActive = true;
             } else {
                 main_blur_container.style.display = "none";
                 sidebar.style.display = "none";
-                main_container.style.gridColumn = "span 2";
+                if (screenWidth > 640) {
+                    main_container.style.gridColumn = "span 2";
+                }
                 logout_confirm.style.display = "none";
                 menuIsActive = false;
             }

@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "tailwind": "tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css --watch",
     "build": "tailwindcss -i ./src/static/css/input.css -o ./src/static/css/output.css"
   },
   "author": "str1ker - Gabriel Vieira",

@@ -12,7 +12,7 @@
         </div>
     {{else}}
         <div class="flex items-center">
-            {{#> buttons/button_link url='/' class='px-4 py-1'}}
+            {{#> buttons/button_link url='/' class='px-4 py-1 sm:px-2 sm:py-[0.10rem]'}}
                 <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 12l14 0"></path>
@@ -32,7 +32,7 @@
             {{/if}}
         </div>
     {{else}}
-        <h1 class="text-4xl flex items-center justify-center font-medium">TasksApp</h1>
+        <h1 class="text-4xl flex items-center justify-center font-medium sm:text-2xl">TasksApp</h1>
     {{/if}}
     {{#if user}}
         <div class="flex items-center justify-end">

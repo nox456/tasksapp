@@ -1,39 +1,39 @@
-<div class="h-full grid grid-cols-[60%_40%] grid-rows-[20%_80%]">
-    <section class="border-b-2 border-r-2 border-gray-400 flex justify-around items-center">
+<div class="h-full grid grid-cols-[60%_40%] grid-rows-[20%_80%] sm:grid-rows-[25%_10%_65%] sm:grid-cols-1">
+    <section class="border-b-2 border-r-2 border-gray-400 flex justify-around items-center sm:flex-col sm:border-r-0">
         <div class="flex items-center gap-4">
-            {{> user/avatar userImg=user.user_img}}
+            {{> user/avatar userImg=user.user_img class='w-12 h-12'}}
             <p class="text-lg font-bold">{{user.username}}</p>
         </div>
-        <div class="flex gap-4">
+        <div class="flex gap-4 sm:text-sm">
             <div class="space-y-2">
                 <p>Tareas Hechas: {{tasksDonedCount}}</p>
-                <hr>
+                <hr class="sm:hidden">
                 <p>Tareas Totales: {{tasksCount}}</p>
-                <hr>
+                <hr class="sm:hidden">
             </div>
             <div class="space-y-2">
                 <p>Habitos Totales: {{habitsCount}}</p>
-                <hr>
+                <hr class="sm:hidden">
                 <p>Puntos: {{points}}</p>
-                <hr>
+                <hr class="sm:hidden">
             </div>
         </div>
     </section>
-    <section class="border-b-2 border-gray-400 flex items-center justify-around">
-        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas' class='py-4 px-6'}}
-        {{> buttons/button_link url='/habits/list' content='Lista de Habitos' class='py-4 px-6'}}
+    <section class="border-b-2 border-gray-400 flex items-center justify-around sm:row-start-2 sm:row-span-1">
+        {{> buttons/button_link url='/tasks/list' content='Lista de Tareas' class='py-4 px-6 sm:py-2 sm:px-4 sm:text-sm'}}
+        {{> buttons/button_link url='/habits/list' content='Lista de Habitos' class='py-4 px-6 sm:py-2 sm:px-4 sm:text-sm'}}
     </section>
-    <section class="grid grid-rows-2 col-span-2">
+    <section class="grid grid-rows-2 col-span-2 sm:row-start-3">
         <div class="border-b-2 border-gray-400 py-4 w-full">
             <h1 class="text-xl font-bold">Habitos de Hoy</h1>
-            <hr class="w-1/6">
+            <hr class="w-1/6 sm:w-3/6">
             <div class="mt-2">
                 {{> habits/listHabits}}                
             </div>
         </div>
         <div class="py-4">
             <h1 class="text-xl font-bold">Tareas de Hoy</h1>
-            <hr class="w-1/6">
+            <hr class="w-1/6 sm:w-3/6">
             <div class="mt-2">
                 {{> tasks/listTasks}}
             </div>

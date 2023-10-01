@@ -4,10 +4,10 @@
 
 @layer components {
     body {
-        @apply w-screen h-screen bg-main-background p-6;
+        @apply w-screen h-screen bg-main-background p-6 sm:p-3;
     }
     .main-container {
-        @apply h-full w-full bg-black bg-opacity-60 text-white p-8 rounded-xl shadow-2xl shadow-black;
+        @apply h-full w-full bg-black bg-opacity-60 text-white p-8 sm:p-4 rounded-xl shadow-2xl shadow-black;
     }
     .button {
         @apply border border-[#c5bde5] rounded-lg hover:bg-[#c5bde5] hover:text-black transition-colors text-[#c5bde5];
