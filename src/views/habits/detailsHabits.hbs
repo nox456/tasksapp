@@ -1,12 +1,12 @@
-<div class="h-full grid grid-cols-[80%_20%] grid-rows-[20%_10%_35%_35%]">
-    <div class="border-r-2 border-[#c5bde5] row-start-1 flex items-center px-4">
-        <h1 class="text-4xl font-bold">{{habit.title}}</h1>
+<div class="h-full grid grid-cols-[80%_20%] grid-rows-[20%_10%_35%_35%] sm:grid-cols-[50%_50%]">
+    <div class="border-r-2 border-[#c5bde5] row-start-1 flex items-center px-4 sm:col-start-1 sm:col-span-2 sm:border-none">
+        <h1 class="text-4xl font-bold sm:text-center">{{habit.title}}</h1>
     </div>
-    <div class="row-start-1 col-start-2 flex flex-col items-center justify-center px-4">
+    <div class="row-start-1 col-start-2 flex flex-col items-center justify-center px-4 sm:row-start-2 sm:col-start-2 sm:border-t-2 sm:border-[#c5bde5] sm:border-l-2">
         <h3 class="font-semibold text-gray-400">Hora:</h3>
         <p class="pl-2">{{habit.time_to_do}}</p>
     </div>
-    <div class="row-start-2 col-span-2 px-4 border-t-2 border-[#c5bde5] flex flex-col justify-center">
+    <div class="row-start-2 col-span-2 px-4 border-t-2 border-[#c5bde5] flex flex-col justify-center sm:col-span-1">
         <h3 class="font-semibold text-gray-400">Categoria:</h3>
         <p class="pl-2">{{habit.category}}</p>
     </div>
@@ -14,7 +14,7 @@
         <p class="font-semibold text-lg">{{habit.description}}</p>
     </div>
     <div class="row-start-4 col-span-2 flex justify-center items-center border-t-2 border-[#c5bde5]">
-        <ul class="flex gap-2 w-2/5 justify-center flex-wrap [&>li]:py-2 [&>li]:px-4 [&>li]:border [&>li]:border-[#c5bde5] [&>li]:rounded-md" id="days-container">
+        <ul class="flex gap-2 w-2/5 justify-center flex-wrap [&>li]:py-2 [&>li]:px-4 [&>li]:border [&>li]:border-[#c5bde5] [&>li]:rounded-md sm:w-full" id="days-container">
             {{#if (checkDays habit.days "Lunes")}}
                 <li class="day selected bg-[#c5bde5] text-black">Lunes</li>
             {{else}}

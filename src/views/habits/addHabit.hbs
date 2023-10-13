@@ -1,6 +1,6 @@
 <div class="h-full flex flex-col items-center justify-around">
     <h1 class="text-2xl font-bold">Agregar Habito</h1>
-    <form action="/habitsAdd" method="post" class="space-y-4 w-2/5" id="add-form">
+    <form action="/habitsAdd" method="post" class="space-y-4 w-2/5 sm:w-full" id="add-form">
         {{> habits/habitsInputs}}
         {{> buttons/button_submit content='Guardar' class='py-2'}}
     </form>
