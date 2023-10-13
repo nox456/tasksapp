@@ -1,6 +1,6 @@
 <div class="h-full flex flex-col items-center justify-around">
     <h1 class="text-2xl font-bold">Actualizar Habito</h1>
-    <form action="/habitsUpdate" method="get" class="space-y-4 w-2/5">
+    <form action="/habitsUpdate" method="get" class="space-y-4 w-2/5 sm:w-full">
         <input type="hidden" name="id" value="{{habit.id}}">
         {{> habits/habitsInputs title=habit.title description=habit.description days=habit.days time_to_do=habit.time_to_do category=habit.category}}
         {{> buttons/button_submit content='Actualizar' class='py-2'}}

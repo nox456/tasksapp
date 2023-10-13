@@ -1,6 +1,6 @@
 <div class="h-full flex flex-col items-center justify-around">
     <h1 class="text-2xl font-bold">Actualizar Tarea</h1>
-    <form action="/tasksUpdate" class="space-y-4 w-2/5" method="get">
+    <form action="/tasksUpdate" class="space-y-4 w-2/5 sm:w-full" method="get">
         <input type="hidden" name="id" value="{{tasks.id}}">
         {{> tasks/taskInputs title=tasks.title description=tasks.description 
                        created_at=tasks.created_at finish_at=tasks.finish_at

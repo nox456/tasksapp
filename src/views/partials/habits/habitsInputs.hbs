@@ -4,7 +4,7 @@
 
 <div>
     <label for="inputs-container">Dias:</label>
-    <div class="flex flex-wrap gap-4 days-container [&>div>input]:relative [&>div>input]:after:left-[1.5px] [&>div>input]:after:top-[-3.5px] [&>div]:flex [&>div]:items-center [&>div]:gap-2" id="inputs-container">
+    <div class="flex flex-wrap gap-4 sm:gap-1 days-container [&>div>input]:relative [&>div>input]:after:left-[1.5px] [&>div>input]:after:top-[-3.5px] [&>div]:flex [&>div]:items-center [&>div]:gap-2 sm:[&>div]:w-[32%] sm:[&>div]:text-sm" id="inputs-container">
         {{#if days}}
             <div>
                 <input type="checkbox" class="input-check" value="Lunes" name="days" {{#if (checkDays days 'Lunes' )}}

@@ -1,12 +1,12 @@
-<div class="h-full grid grid-cols-[80%_20%] grid-rows-[20%_10%_70%]">
-    <div class="row-start-1 col-start-1 flex items-center px-4 border-r-2 border-[#c5bde5]">
+<div class="h-full grid grid-cols-[80%_20%] sm:grid-cols-[50%_50%] grid-rows-[20%_10%_70%] sm:grid-rows-[20%_10%_10%_60%]">
+    <div class="row-start-1 col-start-1 sm:col-span-2 flex items-center px-4 border-r-2 border-[#c5bde5] sm:border-none">
         <h2 class="text-4xl font-bold">{{task.title}}</h2>
     </div>
-    <div class="row-start-2 col-start-1 px-4 border-t-2 border-r-2 border-[#c5bde5] flex flex-col justify-center">
+    <div class="row-start-2 sm:row-start-3 col-start-1 px-4 border-t-2 border-r-2 border-[#c5bde5] flex flex-col justify-center">
         <h3 class="font-semibold text-gray-400">Categoria:</h3>
         <p class="pl-2">{{task.category}}</p>
     </div>
-    <div class="row-start-1 col-start-2 flex flex-col items-end justify-center px-4">
+    <div class="sm:row-start-2 row-start-1 sm:col-start-1 col-start-2 sm:col-span-2 flex flex-col sm:flex-row sm:border-t-2 sm:border-[#c5bde5] sm:items-center sm:justify-around items-end justify-center px-4">
         <div>
             <h3 class="font-semibold text-gray-400">Creado el:</h3>
             <p class="pl-2">{{task.created_at}}</p>
@@ -16,7 +16,7 @@
             <p class="pl-2">{{task.finish_at}}</p>
         </div>
     </div>
-    <div class="row-start-2 col-start-2 flex items-center justify-center border-t-2 border-[#c5bde5]">
+    <div class="row-start-2 sm:row-start-3 col-start-2 flex items-center justify-center border-t-2 border-[#c5bde5]">
         <p class="font-semibold text-center">
         {{#if task.done}}
             Hecha
@@ -25,7 +25,7 @@
         {{/if}}
         </p>
     </div>
-    <div class="row-start-3 col-span-2 p-4 border-t-2 border-[#c5bde5]">
+    <div class="row-start-3 sm:row-start-4 sm:col-start-1 col-span-2 p-4 border-t-2 border-[#c5bde5]">
         <p class="font-semibold text-lg">{{task.description}}</p>
     </div>
 </div>
