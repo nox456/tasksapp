@@ -1,30 +1,30 @@
 <div class="h-full flex flex-col items-center gap-8">
     <h1 class="text-2xl font-bold">Clasificacion</h1>
-    <div class="flex justify-between items-center gap-2 w-2/5">
+    <div class="flex justify-between items-center gap-2 w-2/5 sm:w-[95%]">
         <div class="flex flex-col items-center">
-            <p class="text-xl font-semibold">Tus Puntos:</p>
+            <p class="text-xl font-semibold sm:text-center">Tus Puntos:</p>
             <p class="text-lg">{{user.points}}</p>
         </div>
         {{> user/avatar userImg=user.user_img}}
         <div class="flex flex-col items-center">
-            <p class="text-xl font-semibold">Tu Posicion:</p>
+            <p class="text-xl font-semibold sm:text-center">Tu Posicion:</p>
             <p class="text-lg">{{user.pos}}</p>
         </div>
     </div>
-    <table class="border border-[#c5bde5] rounded-md block divide-y-2 divide-[#c5bde5] overflow-hidden">
+    <table class="border border-[#c5bde5] rounded-md block divide-y-2 divide-[#c5bde5] overflow-hidden sm:w-[90%]">
         <thead class="text-gray-400">
             <tr class="divide-x-2 divide-[#c5bde5] [&>td]:py-2">
-                <td class="px-6">#</td>
-                <td class="px-32">Usuario</td>
-                <td class="px-10">Puntos</td>
+                <td class="px-6 sm:px-3">#</td>
+                <td class="px-32 sm:px-12">Usuario</td>
+                <td class="px-10 sm:px-4">Puntos</td>
             </tr>
         </thead>
         <tbody>
             {{#each users}}
                 <tr class="divide-x-2 divide-[#c5bde5] odd:bg-[#13234e] even:bg-[#263997] [&>td]:px-2">
                     <td class="text-center">{{this.pos}}</td>
-                    <td class="grid grid-cols-[20%_80%] items-center">
-                        {{> user/avatar userImg=this.user_img class='w-9 h-9'}}
+                    <td class="grid grid-cols-[20%_80%] items-center sm:gap-4">
+                        {{> user/avatar userImg=this.user_img class='w-9 h-9 sm:w-8 sm:h-8'}}
                         <p>{{this.username}}</p>
                     </td>
                     <td class="text-center">{{this.points}}</td>
